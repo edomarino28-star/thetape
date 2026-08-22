@@ -19,7 +19,8 @@ STANDALONE_HEAD = """<!doctype html>
 """
 
 
-def render(data=None, path=None, open_browser=False, standalone=True):
+def render(data=None, path=None, open_browser=False, standalone=True,
+           site_url=None):
     """Write the dashboard.
 
     standalone=True wraps the page in a real document so a double-clicked file
@@ -33,6 +34,9 @@ def render(data=None, path=None, open_browser=False, standalone=True):
         html = fh.read()
     blob = json.dumps(data, default=str).replace("</", "<\\/")
     html = html.replace("__DATA__", blob)
+    # canonical / og:url only mean anything once the page has a real home
+    html = html.replace("__SITE_URL__",
+                        site_url or os.environ.get("SITE_URL", "").rstrip("/"))
     if standalone:
         html = STANDALONE_HEAD + html + "\n</body>\n</html>\n"
 

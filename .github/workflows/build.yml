@@ -37,6 +37,8 @@ jobs:
           # SEC asks automated clients to identify themselves. Set this as a
           # repository variable (Settings > Secrets and variables > Actions).
           SEC_CONTACT: ${{ vars.SEC_CONTACT }}
+          # Pages serves a project repo at https://OWNER.github.io/REPO
+          SITE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
           INSIDER_DAYS: "14"
           CONGRESS_DAYS: "60"
           MAX_PTRS: "60"

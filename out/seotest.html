@@ -1,0 +1,1110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<title>The Tape — insider, congressional and fund trading disclosures</title>
+<meta name="description" content="Every trade that US company executives, members of Congress and billion-dollar funds are legally required to disclose — pulled straight from SEC EDGAR and the House Clerk, ranked by how unusual it is and dated by how stale the source is. Updated every weekday. Not investment advice.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="https://example.github.io/the-tape">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Tape">
+<meta property="og:title" content="The Tape — public trading disclosures, ranked and dated">
+<meta property="og:description" content="Insider trades, congressional trades and fund holdings from primary SEC sources, organised by how old each filing is by the time you can read it.">
+<meta property="og:url" content="https://example.github.io/the-tape">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Tape — public trading disclosures">
+<meta name="twitter:description" content="Insider, congressional and fund filings from primary SEC sources, ranked and dated.">
+
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+
+<style>
+:root{
+  color-scheme: light;
+  --plane:#eef1f4;
+  --surface:#ffffff;
+  --surface-2:#f7f9fa;
+  --ink:#0d1418;
+  --ink-2:#4d5a63;
+  --muted:#7d8b95;
+  --line:#dde3e8;
+  --line-soft:#e9edf1;
+  --accent:#1c5cab;
+  --accent-soft:#e3ecf9;
+  --buy:#2a78d6;
+  --sell:#d03b3b;
+  --cat-1:#2a78d6;
+  --cat-2:#eb6834;
+  --cat-3:#1baf7a;
+  --cat-other:#9aa7b0;
+  --fresh:#0ca30c;
+  --warn:#b57400;
+  --stale:#a03f3f;
+  --shadow:0 1px 2px rgba(13,20,24,.06), 0 8px 24px -12px rgba(13,20,24,.18);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme: dark;
+    --plane:#0b0e10;
+    --surface:#161a1d;
+    --surface-2:#1c2125;
+    --ink:#eef3f6;
+    --ink-2:#a9b6bf;
+    --muted:#7d8b95;
+    --line:#262d33;
+    --line-soft:#1f252a;
+    --accent:#4f97ea;
+    --accent-soft:#16283f;
+    --buy:#3987e5;
+    --sell:#e66767;
+    --cat-1:#3987e5;
+    --cat-2:#d95926;
+    --cat-3:#199e70;
+    --cat-other:#6b7880;
+    --fresh:#0ca30c;
+    --warn:#eda100;
+    --stale:#e08585;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.6);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme: dark;
+  --plane:#0b0e10;
+  --surface:#161a1d;
+  --surface-2:#1c2125;
+  --ink:#eef3f6;
+  --ink-2:#a9b6bf;
+  --muted:#7d8b95;
+  --line:#262d33;
+  --line-soft:#1f252a;
+  --accent:#4f97ea;
+  --accent-soft:#16283f;
+  --buy:#3987e5;
+  --sell:#e66767;
+  --cat-1:#3987e5;
+  --cat-2:#d95926;
+  --cat-3:#199e70;
+  --cat-other:#6b7880;
+  --fresh:#0ca30c;
+  --warn:#eda100;
+  --stale:#e08585;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.6);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--plane);
+  color:var(--ink);
+  font-family:'Archivo',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  font-size:16px;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1080px;margin:0 auto;padding:32px 20px 80px}
+h1,h2,h3{margin:0;text-wrap:balance;letter-spacing:-.025em;font-weight:700}
+p{margin:0}
+.mono{font-family:'IBM Plex Mono',ui-monospace,'Cascadia Mono',Menlo,monospace;font-variant-numeric:tabular-nums}
+.num{font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace;font-variant-numeric:tabular-nums;font-weight:500}
+
+/* ---------- masthead ---------- */
+.masthead{
+  border-bottom:2px solid var(--ink);
+  padding-bottom:18px;margin-bottom:28px;
+  display:flex;flex-wrap:wrap;align-items:flex-end;gap:16px;justify-content:space-between;
+}
+.masthead h1{font-size:clamp(30px,5vw,46px);font-weight:800;line-height:1.02}
+.masthead .sub{color:var(--ink-2);font-size:15px;max-width:52ch;margin-top:8px}
+.stamp{
+  font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted);text-align:right;line-height:1.7;
+  border:1px solid var(--line);border-radius:4px;padding:8px 12px;background:var(--surface);
+}
+
+/* ---------- the thesis panel ---------- */
+.thesis{
+  background:var(--surface);border:1px solid var(--line);border-radius:10px;
+  padding:24px;margin-bottom:32px;box-shadow:var(--shadow);
+}
+.thesis h2{font-size:20px;margin-bottom:4px}
+.thesis .lede{color:var(--ink-2);font-size:15px;max-width:66ch;margin-bottom:22px}
+.delayrow{display:grid;grid-template-columns:170px 1fr;gap:14px;align-items:center;margin-bottom:12px}
+.delayrow .who{font-size:14px;font-weight:600;line-height:1.25}
+.delayrow .who small{display:block;font-weight:400;color:var(--muted);font-size:12px}
+.delaybar{position:relative;height:30px;background:var(--surface-2);border-radius:4px;overflow:hidden}
+.delayfill{height:100%;border-radius:4px 0 0 4px;display:flex;align-items:center;padding-left:10px;min-width:3px}
+.delayfill span{
+  font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;
+  color:#fff;white-space:nowrap;
+}
+.delayfill.tiny span{color:var(--ink);position:absolute;left:auto;margin-left:8px}
+.axisnote{font-size:12px;color:var(--muted);margin-top:10px;font-family:'IBM Plex Mono',monospace}
+
+/* ---------- sections ---------- */
+section{margin-bottom:38px}
+.sechead{display:flex;flex-wrap:wrap;align-items:baseline;gap:12px;margin-bottom:6px}
+.sechead h2{font-size:26px;font-weight:800}
+.chip{
+  font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;letter-spacing:.06em;
+  text-transform:uppercase;padding:3px 9px;border-radius:99px;border:1px solid currentColor;
+  white-space:nowrap;
+}
+.chip.fresh{color:var(--fresh)}
+.chip.warn{color:var(--warn)}
+.chip.stale{color:var(--stale)}
+.secnote{color:var(--ink-2);font-size:15px;max-width:70ch;margin-bottom:18px}
+
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+
+.card{
+  background:var(--surface);border:1px solid var(--line);border-radius:10px;
+  padding:18px;box-shadow:var(--shadow);
+}
+.card h3{font-size:15px;font-weight:700;margin-bottom:2px}
+.card .hint{font-size:13px;color:var(--muted);margin-bottom:14px;line-height:1.45}
+
+/* ---------- stat tiles ---------- */
+.tile .val{font-family:'IBM Plex Mono',monospace;font-size:30px;font-weight:600;line-height:1.1;letter-spacing:-.02em}
+.tile .cap{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-top:6px;font-family:'IBM Plex Mono',monospace}
+.tile .val.buy{color:var(--buy)}
+.tile .val.sell{color:var(--sell)}
+
+/* ---------- cluster cards ---------- */
+.clusters{display:grid;gap:10px}
+.cl{
+  display:grid;grid-template-columns:64px 1fr auto;gap:14px;align-items:center;
+  background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--buy);
+  border-radius:8px;padding:12px 16px;
+}
+.cl .tk{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:15px;color:var(--accent)}
+.cl .nm{font-size:14px;font-weight:600;line-height:1.3}
+.cl .ro{font-size:12px;color:var(--muted);line-height:1.4;margin-top:2px}
+.cl .rt{text-align:right;white-space:nowrap}
+.cl .rt .v{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:15px}
+.cl .rt .n{font-size:12px;color:var(--muted)}
+.flag{
+  display:inline-block;font-size:11px;font-family:'IBM Plex Mono',monospace;
+  color:var(--warn);border:1px solid currentColor;border-radius:3px;padding:0 5px;margin-left:6px;
+}
+
+/* ---------- tables ---------- */
+.tblwrap{overflow-x:auto;margin:0 -4px}
+table{border-collapse:collapse;width:100%;font-size:14px;min-width:480px}
+th{
+  text-align:left;font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;
+  letter-spacing:.07em;text-transform:uppercase;color:var(--muted);
+  padding:6px 10px;border-bottom:1px solid var(--line);white-space:nowrap;
+}
+td{padding:8px 10px;border-bottom:1px solid var(--line-soft);vertical-align:top}
+tr:last-child td{border-bottom:none}
+td.r,th.r{text-align:right}
+.tick{font-family:'IBM Plex Mono',monospace;font-weight:600;color:var(--accent)}
+.pill{
+  font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;padding:1px 7px;
+  border-radius:99px;white-space:nowrap;display:inline-block;
+}
+.pill.NEW{background:var(--accent-soft);color:var(--accent)}
+.pill.ADD{background:var(--accent-soft);color:var(--accent)}
+.pill.TRIM{background:color-mix(in srgb,var(--sell) 12%,transparent);color:var(--sell)}
+.pill.EXIT{background:color-mix(in srgb,var(--sell) 12%,transparent);color:var(--sell)}
+
+/* ---------- legend ---------- */
+.legend{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:12px}
+.legend i{
+  display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:6px;
+  vertical-align:-1px;
+}
+.legend span{font-size:12px;color:var(--ink-2);font-family:'IBM Plex Mono',monospace}
+
+/* ---------- charts ---------- */
+svg{display:block;overflow:visible}
+svg text{font-family:'IBM Plex Mono',monospace;font-variant-numeric:tabular-nums}
+.tip{
+  position:fixed;pointer-events:none;z-index:99;opacity:0;transition:opacity .12s;
+  background:var(--ink);color:var(--plane);font-size:12px;line-height:1.5;
+  font-family:'IBM Plex Mono',monospace;padding:7px 10px;border-radius:6px;
+  max-width:260px;box-shadow:0 6px 24px -6px rgba(0,0,0,.5);
+}
+.tip b{font-weight:600}
+.hovz{cursor:default}
+.hovz:hover rect.mark,.hovz:hover path.mark{opacity:.78}
+
+/* ---------- caveat ---------- */
+.caveat{
+  background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--warn);
+  border-radius:8px;padding:18px 20px;margin-top:10px;
+}
+.caveat h3{font-size:15px;margin-bottom:10px}
+.caveat ul{margin:0;padding-left:18px;color:var(--ink-2);font-size:14px}
+.caveat li{margin-bottom:7px}
+.caveat li:last-child{margin-bottom:0}
+.caveat b{color:var(--ink)}
+
+footer{
+  margin-top:44px;padding-top:20px;border-top:1px solid var(--line);
+  font-size:13px;color:var(--muted);
+}
+footer code{
+  font-family:'IBM Plex Mono',monospace;background:var(--surface);border:1px solid var(--line);
+  border-radius:4px;padding:1px 6px;font-size:12px;
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+</style>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Dataset",
+ "name": "The Tape",
+ "description": "Aggregated US regulatory trading disclosures: SEC Form 4 insider transactions, 13F institutional holdings, House of Representatives periodic transaction reports, and 8-K material events.",
+ "url": "https://example.github.io/the-tape",
+ "license": "https://www.sec.gov/about/website-policy",
+ "isAccessibleForFree": true,
+ "creator": {"@type": "Organization", "name": "The Tape"},
+ "distribution": [{"@type": "DataDownload", "encodingFormat": "text/html", "contentUrl": "https://example.github.io/the-tape"}],
+ "temporalCoverage": "2022/..",
+ "keywords": ["SEC Form 4", "insider trading disclosure", "13F holdings", "STOCK Act", "congressional stock trades", "8-K filings"],
+ "isBasedOn": [
+   {"@type": "Dataset", "name": "SEC EDGAR", "url": "https://www.sec.gov/edgar"},
+   {"@type": "Dataset", "name": "US House Clerk financial disclosures", "url": "https://disclosures-clerk.house.gov/"}
+ ]
+}
+</script>
+
+<div class="wrap">
+
+  <div class="masthead">
+    <div>
+      <h1>The&nbsp;Tape</h1>
+      <p class="sub">Every trade that executives, members of Congress, and billion-dollar funds are
+      <em>required by law</em> to make public — sorted by the one thing that decides whether it is
+      worth anything: how old it is by the time you can read it.</p>
+    </div>
+    <div class="stamp" id="stamp"></div>
+  </div>
+
+  <!-- THESIS -->
+  <div class="thesis">
+    <h2>Read this part first</h2>
+    <p class="lede">All three sources tell you what someone bought. They differ enormously in
+    <b>how long they're allowed to wait before telling you.</b> That delay is the whole
+    story — by the time slow filings arrive, the trade is ancient history.</p>
+    <div id="delay"></div>
+    <p class="axisnote">Bar length = days between the trade happening and you being able to read about it.</p>
+  </div>
+
+  <!-- INSIDERS -->
+  <section>
+    <div class="sechead">
+      <h2>Company insiders</h2>
+      <span class="chip fresh">2-day delay · usable</span>
+    </div>
+    <p class="secnote">When an executive or board member trades their own company's stock, they must
+    file within two business days. This is the only source here that's fast enough to act on, and the
+    only one with real research behind it.</p>
+
+    <div class="grid g3" style="margin-bottom:16px">
+      <div class="card tile"><div class="val buy" id="k-buy">—</div><div class="cap">Bought on open market</div></div>
+      <div class="card tile"><div class="val sell" id="k-sell">—</div><div class="cap">Sold on open market</div></div>
+      <div class="card tile"><div class="val" id="k-n">—</div><div class="cap" id="k-n-cap">Filings read</div></div>
+    </div>
+
+    <div class="card" style="margin-bottom:16px">
+      <h3>Who's actually buying with their own money</h3>
+      <p class="hint">Multiple insiders at the same company buying at once is the pattern worth
+      noticing. One person buying could be anything; four people buying is a conversation.</p>
+      <div class="clusters" id="clusters"></div>
+    </div>
+
+    <div class="grid g2" style="margin-bottom:16px">
+      <div class="card">
+        <h3>Buying vs selling, day by day</h3>
+        <p class="hint">Dollar value of open-market trades. Selling almost always dwarfs buying —
+        that's normal, executives are paid in stock and have to diversify.</p>
+        <div id="flow"></div>
+      </div>
+      <div class="card">
+        <h3>Which seats are buying</h3>
+        <p class="hint">A CEO buying carries more information than a board member buying. They
+        know more.</p>
+        <div id="buyers"></div>
+      </div>
+    </div>
+
+    <div class="grid g2">
+      <div class="card">
+        <h3>Most selling is on autopilot</h3>
+        <p class="hint">A 10b5-1 plan is scheduled months ahead — "sell 5,000 shares every quarter."
+        It says nothing about what the seller thinks today. Only the other slice is a live decision.</p>
+        <div id="plan"></div>
+      </div>
+      <div class="card">
+        <h3>Biggest live sell decisions</h3>
+        <p class="hint">Large sales <em>not</em> on a schedule. "% out" is how much of that person's
+        entire holding just left.</p>
+        <div class="tblwrap"><table id="sells"></table></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONGRESS -->
+  <section>
+    <div class="sechead">
+      <h2>Members of Congress</h2>
+      <span class="chip warn">up to 45-day delay</span>
+    </div>
+    <p class="secnote">The STOCK Act requires representatives to disclose trades, but allows 45 days
+    and only requires a dollar <em>range</em>, not an amount. Many file at the deadline. The penalty
+    for filing late is $200.</p>
+
+    <div class="grid g2" style="margin-bottom:16px">
+      <div class="card">
+        <h3>Most-traded stocks</h3>
+        <p class="hint">Bars show how many separate trades. Stocks touched by more than one member
+        are at the top.</p>
+        <div class="legend">
+          <span><i style="background:var(--buy)"></i>Bought</span>
+          <span><i style="background:var(--sell)"></i>Sold</span>
+        </div>
+        <div id="ctickers"></div>
+      </div>
+      <div class="card">
+        <h3>How late were they?</h3>
+        <p class="hint">Days between making the trade and disclosing it. Anything past 45 days is
+        legally late.</p>
+        <div id="late"></div>
+      </div>
+    </div>
+
+    <div class="grid g2">
+      <div class="card">
+        <h3>What they actually trade</h3>
+        <p class="hint">Most disclosed volume isn't stock-picking at all — it's bonds, CDs, and funds,
+        often in accounts an advisor runs without the member's input.</p>
+        <div id="assets"></div>
+      </div>
+      <div class="card">
+        <h3>Most active filers</h3>
+        <p class="hint">By disclosed dollar range. Ranges are wide because the law only asks for a
+        bracket.</p>
+        <div class="tblwrap"><table id="members"></table></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FUNDS -->
+  <section>
+    <div class="sechead">
+      <h2>Big funds</h2>
+      <span class="chip stale">up to 135-day delay</span>
+    </div>
+    <p class="secnote">Any manager over $100M files a 13F — but only once a quarter, 45 days after
+    the quarter ends. It lists <em>only</em> long US stock positions. No short bets, no cash, no bonds,
+    no hedges. A fund can buy and completely exit inside a quarter and you will never see it happened.</p>
+    <div id="funds" class="grid" style="gap:16px"></div>
+  </section>
+
+  <!-- BANKS -->
+  <section>
+    <div class="sechead">
+      <h2>The big banks</h2>
+      <span class="chip stale">up to 135-day delay</span>
+    </div>
+    <p class="secnote">JPMorgan, BlackRock, Vanguard and the rest file the same 13F form — but
+    theirs are the <em>least</em> informative filings on this page, and the chart below shows why.</p>
+
+    <div class="card" style="margin-bottom:16px">
+      <h3>Why "what JPMorgan owns" tells you almost nothing</h3>
+      <p class="hint">Each bar is one filer's top-10 concentration — how much of the portfolio sits
+      in its ten biggest positions. A concentrated manager is making a bet you can read. A bank
+      holding thousands of positions is holding <em>the market</em>, mostly on behalf of clients:
+      index funds, pensions, and trading inventory. Its "top holdings" are just the biggest
+      companies in America, in order.</p>
+      <div id="conc"></div>
+      <p class="axisnote" style="margin-top:14px">Bubble area = portfolio size. Left = spread across
+      everything. Right = a real opinion.</p>
+    </div>
+
+    <div class="tblwrap card">
+      <h3>Size vs. conviction</h3>
+      <p class="hint">Same data as a table. Note how position count and concentration move in
+      opposite directions.</p>
+      <table id="insttbl"></table>
+    </div>
+  </section>
+
+  <!-- PEOPLE -->
+  <section>
+    <div class="sechead">
+      <h2>Following a person</h2>
+      <span class="chip fresh">2-day delay when active</span>
+    </div>
+    <p class="secnote">Anyone who is an officer, director, or 10%+ owner of a listed company has
+    their own SEC file. That makes individuals followable — including the Trump family, the
+    most-asked-about case. What the record actually shows is below.</p>
+    <div id="people" class="grid" style="gap:16px"></div>
+
+    <div class="card" style="margin-top:16px;border-left:3px solid var(--warn)">
+      <h3>Where the rest of a President's portfolio lives</h3>
+      <p class="hint" style="margin-bottom:0">SEC forms only cover holdings in <em>public companies
+      where the person is an insider</em>. A sitting President's broader finances are disclosed
+      annually to the Office of Government Ethics on Form 278e — a separate system, filed once a
+      year, in wide value ranges, as a PDF. It is public but it is not machine-readable the way
+      EDGAR is, so this tool does not pretend to track it. Search
+      <span class="mono">oge.gov</span> for the current filing.</p>
+    </div>
+  </section>
+
+  <!-- NEWS -->
+  <section>
+    <div class="sechead">
+      <h2>Company news, from the source</h2>
+      <span class="chip fresh">same-day</span>
+    </div>
+    <p class="secnote">When something material happens, a company must file an 8-K — usually within
+    four business days. This is where financial journalists get the story. Each filing declares a
+    numbered item saying what kind of event it was; those codes are translated to plain English here.</p>
+
+    <div class="grid g2" style="margin-bottom:16px">
+      <div class="card">
+        <h3>Red flags filed this week</h3>
+        <p class="hint">The events that mean something went materially wrong: restatements,
+        bankruptcy, auditor changes, accelerated debt, cyber incidents.</p>
+        <div class="tblwrap"><table id="serious"></table></div>
+      </div>
+      <div class="card">
+        <h3>What kind of news is being filed</h3>
+        <p class="hint">Breakdown of every notable 8-K in the window.</p>
+        <div id="newsmix"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>News at companies already on this page</h3>
+      <p class="hint">The cross-reference worth having: a company whose insiders were buying, or
+      that Congress was trading, and which also announced something material. Empty is a normal
+      result — most weeks these sets don't overlap.</p>
+      <div class="tblwrap"><table id="linked"></table></div>
+    </div>
+  </section>
+
+  <!-- DOES IT WORK -->
+  <section>
+    <div class="sechead">
+      <h2>Does any of this actually work?</h2>
+      <span class="chip stale">tested — no edge found</span>
+    </div>
+    <p class="secnote">A page of signals is worthless if nobody checked whether the signals predict
+    anything. So we checked, and the honest answer is published here rather than buried.</p>
+
+    <div class="card" style="border-left:3px solid var(--stale)">
+      <h3>275 trades on insider cluster buys, 2022–2026</h3>
+      <p class="hint">Every signal entered at the next session's open after the <em>filing</em> date —
+      never the trade date, which would be using information nobody had yet. Take-profit 10%,
+      stop-loss 6%, 40-day maximum hold, costs charged both ways.</p>
+      <div class="grid g3" style="margin-bottom:16px">
+        <div class="card tile" style="box-shadow:none"><div class="val">42.2<span
+          style="font-size:18px">%</span></div><div class="cap">Win rate</div></div>
+        <div class="card tile" style="box-shadow:none"><div class="val">+0.26<span
+          style="font-size:18px">%</span></div><div class="cap">Mean return per trade</div></div>
+        <div class="card tile" style="box-shadow:none"><div class="val sell">−63.6<span
+          style="font-size:18px">%</span></div><div class="cap">Max drawdown</div></div>
+      </div>
+      <ul style="margin:0;padding-left:18px;color:var(--ink-2);font-size:14px;line-height:1.6">
+        <li><b>The mean is positive but you would have lost money.</b> €100 became €96. Compounding
+        is geometric: +10% then −10% leaves you at 99, not 100.</li>
+        <li><b>Five trades are the entire result.</b> Remove the five biggest winners and the mean
+        flips from +0.26% to −0.05%.</li>
+        <li><b>p = 0.777 against the S&amp;P.</b> Indistinguishable from noise. Across 60
+        take-profit / stop-loss combinations the best cell still came out at p ≈ 1.0 after
+        correcting for having tried 60 of them.</li>
+        <li><b>A placebo test put it at the 88th percentile</b> of 300 random-entry runs on the same
+        stocks (p = 0.12). Suggestive that the filing date carries <em>something</em> — nowhere near
+        enough to call it an edge.</li>
+      </ul>
+      <p class="hint" style="margin:14px 0 0">The published research finds insider buying works in
+      diversified baskets held for months, not in stop-loss trades over two weeks. This result
+      agrees with that literature rather than contradicting it.</p>
+    </div>
+  </section>
+
+  <div class="caveat">
+    <h3>Before you trade on any of this</h3>
+    <ul>
+      <li><b>The two slow sources are mostly entertainment.</b> A 13F is a four-month-old photo of
+      one leg of a position. Copying it copies a decision the fund may have already reversed.</li>
+      <li><b>Insider buying is a real but small effect.</b> The published research finds it on
+      diversified baskets over long horizons — not on single names over weeks.</li>
+      <li><b>Nothing here is a recommendation.</b> This page ranks filings by how unusual they are.
+      That is not the same as predicting a price, and no backtest ships with it.</li>
+      <li><b>If you do backtest it, index by filing date, never trade date.</b> Using the trade date
+      means using information nobody had yet, and it will make almost any strategy look brilliant.</li>
+    </ul>
+  </div>
+
+  <footer>
+    <p style="margin-bottom:10px"><b style="color:var(--ink)">Not investment advice.</b> This page
+    is an automated summary of public regulatory filings, published for information only. It makes
+    no recommendation to buy or sell anything, and the strategy test above found no edge. Nobody
+    here is a licensed financial adviser. Filings are reproduced as filed and may contain errors;
+    always check the original document before relying on anything.</p>
+    <p>Sources: SEC EDGAR (Forms 3/4/5, 13F-HR, 13D/G, 8-K) and the U.S. House Clerk's financial
+    disclosure archive — all free, public, unauthenticated. Rebuilt automatically each weekday;
+    see the timestamp at the top for this build. Run it yourself with
+    <code>python sm.py dashboard</code>.</p>
+  </footer>
+</div>
+
+<div class="tip" id="tip"></div>
+
+<script>
+const DATA = {"generated": "2026-08-22 12:12", "window": {"insider_days": 14, "congress_days": 60, "start": "2026-08-08", "end": "2026-08-22"}, "insiders": {"n_transactions": 1350, "n_buys": 93, "n_sells": 510, "buy_value": 350244921.94912, "sell_value": 744792745.9539, "clusters": [{"ticker": "INV", "issuer": "Innventure, Inc.", "insiders": 4, "trades": 4, "total_value": 807794.1, "titles": ["Chief Executive Officer", "Director", "Executive Chairman"], "all_10b5_1": false, "score": 71.9, "dates": ["2026-08-20"]}, {"ticker": "GWRS", "issuer": "Global Water Resources, Inc.", "insiders": 2, "trades": 2, "total_value": 7000004.85, "titles": ["Director"], "all_10b5_1": false, "score": 63.5, "dates": ["2026-08-20"]}], "sells": [{"ticker": "CBRS", "issuer": "Cerebras Systems Inc.", "owner": "Lie Sean", "title": "Chief Technology Officer", "is_officer": true, "is_director": false, "date": "2026-08-20", "value": 147628770.23000002, "shares": 710247.0, "tranches": 10, "shares_after": 368926.0, "pct_of_stake": 65.81400757802503, "avg_price": 207.85553508849742}, {"ticker": "MANE", "issuer": "Veradermics, Inc", "owner": "MONTANOVA CAPITAL, LLC", "title": null, "is_officer": false, "is_director": false, "date": "2026-08-19", "value": 80437500.0, "shares": 750000.0, "tranches": 2, "shares_after": 461033.0, "pct_of_stake": 61.93059974418533, "avg_price": 107.25}, {"ticker": "ILMN", "issuer": "ILLUMINA, INC.", "owner": "Meister Keith A.", "title": null, "is_officer": false, "is_director": false, "date": "2026-08-21", "value": 65243444.89, "shares": 299336.0, "tranches": 11, "shares_after": 1409851.0, "pct_of_stake": 17.51335576505087, "avg_price": 217.96056902611113}, {"ticker": "ILMN", "issuer": "ILLUMINA, INC.", "owner": "Meister Keith A.", "title": null, "is_officer": false, "is_director": false, "date": "2026-08-20", "value": 61000126.64, "shares": 285238.0, "tranches": 13, "shares_after": 1709187.0, "pct_of_stake": 14.301766173207817, "avg_price": 213.85694276358691}, {"ticker": "AUGO", "issuer": "Aura Minerals Inc.", "owner": "Sousa Mauad Bruno", "title": null, "is_officer": false, "is_director": true, "date": "2026-08-19", "value": 22867600.0, "shares": 280000.0, "tranches": 1, "shares_after": 168765.0, "pct_of_stake": 62.39345760030306, "avg_price": 81.67}, {"ticker": "ILMN", "issuer": "ILLUMINA, INC.", "owner": "Meister Keith A.", "title": null, "is_officer": false, "is_director": false, "date": "2026-08-19", "value": 19312826.56, "shares": 95000.0, "tranches": 4, "shares_after": 1994425.0, "pct_of_stake": 4.546705433312993, "avg_price": 203.29291115789474}, {"ticker": "MEDP", "issuer": "Medpace Holdings, Inc.", "owner": "Troendle August J.", "title": "President & CEO", "is_officer": false, "is_director": false, "date": "2026-08-20", "value": 16814999.459999997, "shares": 27174.0, "tranches": 1, "shares_after": 561195.0, "pct_of_stake": 4.618530208083703, "avg_price": 618.7899999999998}, {"ticker": "ITW", "issuer": "ILLINOIS TOOL WORKS INC", "owner": "SANTI ERNEST SCOTT", "title": null, "is_officer": false, "is_director": true, "date": "2026-08-19", "value": 11894421.23, "shares": 41431.0, "tranches": 4, "shares_after": 266288.0, "pct_of_stake": 13.463907006067224, "avg_price": 287.0898899374864}, {"ticker": "MEDP", "issuer": "Medpace Holdings, Inc.", "owner": "Troendle August J.", "title": "President & CEO", "is_officer": false, "is_director": false, "date": "2026-08-19", "value": 9466390.23, "shares": 15609.0, "tranches": 1, "shares_after": 588369.0, "pct_of_stake": 2.584365655702691, "avg_price": 606.47}, {"ticker": "CPAY", "issuer": "CORPAY, INC.", "owner": "King Alan", "title": "GroupPresident IntlVehiclePmts", "is_officer": false, "is_director": false, "date": "2026-08-20", "value": 7638858.7845, "shares": 18423.0, "tranches": 3, "shares_after": 24537.0, "pct_of_stake": 42.884078212290504, "avg_price": 414.63707238234815}, {"ticker": "CART", "issuer": "Maplebear Inc.", "owner": "Gupta Ravi", "title": null, "is_officer": false, "is_director": true, "date": "2026-08-19", "value": 7591515.0, "shares": 150000.0, "tranches": 1, "shares_after": 591523.0, "pct_of_stake": 20.228637547318154, "avg_price": 50.6101}, {"ticker": "DGNX", "issuer": "Diginex Ltd", "owner": "Pelham Miles Christian", "title": null, "is_officer": false, "is_director": true, "date": "2026-08-17", "value": 7202920.0, "shares": 7202920.0, "tranches": 4, "shares_after": 303400.0, "pct_of_stake": 95.9580726641017, "avg_price": 1.0}], "flow": [{"date": "2026-08-13", "buy": 737381.9999999999, "sell": 57853.025, "nbuy": 1, "nsell": 2}, {"date": "2026-08-17", "buy": 0.0, "sell": 7202920.0, "nbuy": 0, "nsell": 4}, {"date": "2026-08-18", "buy": 83065.0, "sell": 2600985.659999999, "nbuy": 3, "nsell": 14}, {"date": "2026-08-19", "buy": 1934724.477686, "sell": 284441302.5871001, "nbuy": 21, "nsell": 207}, {"date": "2026-08-20", "buy": 11738968.294044001, "sell": 351063204.9918, "nbuy": 52, "nsell": 226}, {"date": "2026-08-21", "buy": 1573254.6644, "sell": 99423479.69, "nbuy": 11, "nsell": 55}], "code_mix": [{"code": "S", "label": "Open-market sale", "n": 535}, {"code": "M", "label": "Option exercise", "n": 252}, {"code": "A", "label": "Free stock grant", "n": 241}, {"code": "P", "label": "Open-market buy", "n": 100}, {"code": "F", "label": "Shares held back for tax", "n": 64}, {"code": "C", "label": "Convertible exercise", "n": 62}, {"code": "D", "label": "Disposition to issuer", "n": 33}, {"code": "J", "label": "J", "n": 30}], "buyer_mix": [{"who": "Board director", "n": 26}, {"who": "Other", "n": 22}, {"who": "CEO", "n": 20}, {"who": "10%+ owner", "n": 13}, {"who": "Other officer", "n": 8}, {"who": "CFO", "n": 4}], "plan_split": [{"kind": "Pre-scheduled (10b5-1)", "n": 172}, {"kind": "Discretionary decision", "n": 338}]}, "congress": {"n_ptrs": 60, "n_transactions": 396, "n_scanned_skipped": 9, "by_ticker": [{"ticker": "AAPL", "asset": "Apple Inc. - Common Stock", "buys": 2, "sells": 5, "members": 5, "names": ["Daniel Crenshaw", "Ed Case", "Michael Rulli", "Richard Dean Dr McCormick", "Shri Thanedar"], "min_notional": 106007, "max_notional": 340000}, {"ticker": "HONAV", "asset": "Honeywell Aerospace Inc. - Common Stock", "buys": 0, "sells": 1, "members": 4, "names": ["Dan Newhouse", "Debbie Dingell", "Kelly Louise Morrison", "Kevin Hern"], "min_notional": 96005, "max_notional": 265000}, {"ticker": "MSFT", "asset": "Microsoft Corporation - Common Stock", "buys": 5, "sells": 4, "members": 4, "names": ["David J. Taylor", "Jared Moskowitz", "Michael Rulli", "Richard Dean Dr McCormick"], "min_notional": 23009, "max_notional": 170000}, {"ticker": "NVDA", "asset": "NVIDIA Corporation - Common Stock", "buys": 5, "sells": 3, "members": 4, "names": ["Cleo Fields", "Dan Newhouse", "Michael Rulli", "Sam T. Liccardo"], "min_notional": 22008, "max_notional": 155000}, {"ticker": "GOOGL", "asset": "Alphabet Inc. - Class A Common Stock", "buys": 5, "sells": 3, "members": 4, "names": ["Dan Newhouse", "David J. Taylor", "Michael Rulli", "Thomas H. Kean"], "min_notional": 8008, "max_notional": 120000}, {"ticker": "XOM", "asset": "ExxonMobil Holdings Corporation Common Stock", "buys": 0, "sells": 1, "members": 3, "names": ["James A. Himes", "Kevin Hern", "Michael Patrick Guest"], "min_notional": 217005, "max_notional": 580000}, {"ticker": "META", "asset": "Meta Platforms, Inc. - Class A Common Stock", "buys": 5, "sells": 3, "members": 3, "names": ["Daniel Crenshaw", "Jared Moskowitz", "Michael Rulli"], "min_notional": 8008, "max_notional": 120000}, {"ticker": "ABT", "asset": "Abbott Laboratories Common Stock", "buys": 0, "sells": 3, "members": 3, "names": ["Mike Kelly", "Richard Dean Dr McCormick", "Richard W. Allen"], "min_notional": 17003, "max_notional": 80000}, {"ticker": "HD", "asset": "Home Depot, Inc", "buys": 1, "sells": 2, "members": 3, "names": ["James A. Himes", "Jared Moskowitz", "Richard Dean Dr McCormick"], "min_notional": 17003, "max_notional": 80000}, {"ticker": "MNST", "asset": "Monster Beverage Corporation - Common Stock", "buys": 4, "sells": 1, "members": 3, "names": ["Jared Moskowitz", "Josh Gottheimer", "Julie Johnson"], "min_notional": 5005, "max_notional": 75000}, {"ticker": "AMAT", "asset": "Applied Materials, Inc. - Common Stock", "buys": 4, "sells": 1, "members": 3, "names": ["Dan Newhouse", "Jared Moskowitz", "John J Mr McGuire"], "min_notional": 5005, "max_notional": 75000}, {"ticker": "AMZN", "asset": "Amazon.com, Inc. - Common Stock", "buys": 1, "sells": 3, "members": 3, "names": ["Daniel Crenshaw", "Michael Rulli", "Thomas H. Kean"], "min_notional": 4004, "max_notional": 60000}, {"ticker": "PANW", "asset": "Palo Alto Networks, Inc", "buys": 1, "sells": 2, "members": 3, "names": ["Dan Newhouse", "John J Mr McGuire", "Josh Gottheimer"], "min_notional": 3003, "max_notional": 45000}, {"ticker": "CARR", "asset": "Carrier Global Corporation Common Stock", "buys": 1, "sells": 3, "members": 2, "names": ["Julie Johnson", "Maria Elvira Salazar"], "min_notional": 18004, "max_notional": 95000}], "members": [{"member": "Scott H. Peters", "n": 15, "low": 4680012, "high": 6450000, "buys": 7, "sells": 8}, {"member": "Kevin Hern", "n": 19, "low": 534019, "high": 1485000, "buys": 7, "sells": 9}, {"member": "April McClain Delaney", "n": 62, "low": 258062, "high": 1420000, "buys": 32, "sells": 29}, {"member": "Julie Johnson", "n": 77, "low": 77077, "high": 1155000, "buys": 38, "sells": 38}, {"member": "Steve Cohen", "n": 2, "low": 200002, "high": 500000, "buys": 2, "sells": 0}, {"member": "Suzan K. DelBene", "n": 1, "low": 250001, "high": 500000, "buys": 1, "sells": 0}, {"member": "Michael Rulli", "n": 32, "low": 32032, "high": 480000, "buys": 14, "sells": 18}, {"member": "Dan Newhouse", "n": 31, "low": 31031, "high": 465000, "buys": 12, "sells": 19}, {"member": "Richard Dean Dr McCormick", "n": 26, "low": 26026, "high": 390000, "buys": 1, "sells": 25}, {"member": "Shri Thanedar", "n": 2, "low": 115002, "high": 300000, "buys": 0, "sells": 2}, {"member": "Mike Kelly", "n": 6, "low": 118006, "high": 295000, "buys": 2, "sells": 4}, {"member": "David J. Taylor", "n": 15, "low": 29015, "high": 260000, "buys": 10, "sells": 5}], "lateness": [{"bucket": "0-14 days", "n": 131}, {"bucket": "15-30 days", "n": 88}, {"bucket": "31-45 days", "n": 60}, {"bucket": "46-90 days", "n": 6}, {"bucket": "over 90 days", "n": 110}], "asset_mix": [{"kind": "Stocks", "n": 342}, {"kind": "Government bonds", "n": 27}, {"kind": "Unclassified", "n": 8}, {"kind": "Other", "n": 7}, {"kind": "Options", "n": 5}, {"kind": "Cash / CDs", "n": 3}, {"kind": "Private stock", "n": 2}, {"kind": "CT", "n": 1}], "median_lateness": 24}, "funds": [{"name": "BERKSHIRE HATHAWAY INC", "cik": "1067983", "period": "2026-06-30", "prev_period": "2026-03-31", "filed": "2026-08-14", "total": 299253556246.0, "stale_days": 53, "positions": 29, "top10_pct": 88.46890527822717, "top": [{"issuer": "APPLE INC", "value": 65950296923.0, "pct": 22.038266729497398, "action": "HOLD", "put_call": ""}, {"issuer": "AMERICAN EXPRESS CO", "value": 51282319275.0, "pct": 17.136745146261052, "action": "HOLD", "put_call": ""}, {"issuer": "COCA COLA CO", "value": 32508000000.0, "pct": 10.863028799990918, "action": "HOLD", "put_call": ""}, {"issuer": "ALPHABET INC", "value": 28157599351.0, "pct": 9.40927810657434, "action": "ADD", "put_call": ""}, {"issuer": "BANK OF AMER CORP", "value": 27543790975.0, "pct": 9.204164963158451, "action": "TRIM", "put_call": ""}, {"issuer": "CHEVRON CORPORATION", "value": 13986141890.0, "pct": 4.673676084404744, "action": "HOLD", "put_call": ""}, {"issuer": "OCCIDENTAL PETE CORP", "value": 12868205304.0, "pct": 4.300101046559243, "action": "HOLD", "put_call": ""}, {"issuer": "CHUBB LIMITED", "value": 11670066615.0, "pct": 3.8997252902841617, "action": "HOLD", "put_call": ""}, {"issuer": "MOODYS CORP", "value": 11173435852.0, "pct": 3.7337687786122506, "action": "HOLD", "put_call": ""}, {"issuer": "ALPHABET INC", "value": 9606489032.0, "pct": 3.2101503328846093, "action": "ADD", "put_call": ""}], "moves": [{"issuer": "ALPHABET INC", "action": "ADD", "value": 28157599351.0, "pct_shares": 45.23771498651479, "put_call": ""}, {"issuer": "BANK OF AMER CORP", "action": "TRIM", "value": 27543790975.0, "pct_shares": -5.885655710922402, "put_call": ""}, {"issuer": "ALPHABET INC", "action": "ADD", "value": 9606489032.0, "pct_shares": 658.3487461700345, "put_call": ""}, {"issuer": "DAVITA INC", "action": "TRIM", "value": 6425268898.0, "pct_shares": -4.0543265189032045, "put_call": ""}, {"issuer": "DELTA AIR LINES INC", "action": "ADD", "value": 5368591200.0, "pct_shares": 43.985891191278775, "put_call": ""}, {"issuer": "KROGER CO", "action": "TRIM", "value": 2165670000.0, "pct_shares": -22.0, "put_call": ""}, {"issuer": "ALLY FINL INC", "action": "TRIM", "value": 1240650000.0, "pct_shares": -6.896551724137931, "put_call": ""}, {"issuer": "LENNAR CORP", "action": "ADD", "value": 1186481443.0, "pct_shares": 29.823819497760418, "put_call": ""}, {"issuer": "NEW YORK TIMES CO MTN BE", "action": "ADD", "value": 1098686000.0, "pct_shares": 3.654070056286801, "put_call": ""}, {"issuer": "CAPITAL ONE FINL CORP", "action": "TRIM", "value": 601860000.0, "pct_shares": -58.04195804195804, "put_call": ""}, {"issuer": "NUCOR CORP", "action": "TRIM", "value": 413814258.0, "pct_shares": -52.45159102397574, "put_call": ""}, {"issuer": "MACYS INC", "action": "ADD", "value": 173031882.0, "pct_shares": 141.82249934586312, "put_call": ""}, {"issuer": "LENNAR CORP", "action": "ADD", "value": 26445959.0, "pct_shares": 25.415749906395796, "put_call": ""}, {"issuer": "D R HORTON INC", "action": "NEW", "value": 580504.0, "pct_shares": null, "put_call": ""}], "counts": {"HOLD": 15, "ADD": 7, "TRIM": 6, "NEW": 1, "EXIT": 1}}, {"name": "Pershing Square Capital Management, L.P.", "cik": "1336528", "period": "2026-03-31", "prev_period": "2025-12-31", "filed": "2026-05-15", "total": 13714299861.0, "stale_days": 144, "positions": 11, "top10_pct": 99.93211433981784, "top": [{"issuer": "BROOKFIELD CORP", "value": 2415946008.0, "pct": 17.616254803282665, "action": "TRIM", "put_call": ""}, {"issuer": "AMAZON COM INC", "value": 2385104083.0, "pct": 17.391365998804158, "action": "ADD", "put_call": ""}, {"issuer": "UBER TECHNOLOGIES INC", "value": 2154934398.0, "pct": 15.713047110250871, "action": "TRIM", "put_call": ""}, {"issuer": "MICROSOFT CORP", "value": 2092970053.0, "pct": 15.261224227361964, "action": "NEW", "put_call": ""}, {"issuer": "RESTAURANT BRANDS INTL INC", "value": 1673501194.0, "pct": 12.20260028555314, "action": "TRIM", "put_call": ""}, {"issuer": "META PLATFORMS INC", "value": 1522358404.0, "pct": 11.100518578634862, "action": "TRIM", "put_call": ""}, {"issuer": "HOWARD HUGHES HOLDINGS INC", "value": 1192581569.0, "pct": 8.695898303867486, "action": "HOLD", "put_call": ""}, {"issuer": "SEAPORT ENTMT GROUP INC", "value": 107910794.0, "pct": 0.7868487279242815, "action": "HOLD", "put_call": ""}, {"issuer": "ALPHABET INC", "value": 89421720.0, "pct": 0.6520327024078915, "action": "TRIM", "put_call": ""}, {"issuer": "HERTZ GLOBAL HLDGS INC", "value": 70261595.0, "pct": 0.512323601730528, "action": "HOLD", "put_call": ""}], "moves": [{"issuer": "BROOKFIELD CORP", "action": "TRIM", "value": 2415946008.0, "pct_shares": -2.778168049493406, "put_call": ""}, {"issuer": "AMAZON COM INC", "action": "ADD", "value": 2385104083.0, "pct_shares": 19.19432537481952, "put_call": ""}, {"issuer": "UBER TECHNOLOGIES INC", "action": "TRIM", "value": 2154934398.0, "pct_shares": -0.8241697308378046, "put_call": ""}, {"issuer": "MICROSOFT CORP", "action": "NEW", "value": 2092970053.0, "pct_shares": null, "put_call": ""}, {"issuer": "RESTAURANT BRANDS INTL INC", "action": "TRIM", "value": 1673501194.0, "pct_shares": -0.967736024667757, "put_call": ""}, {"issuer": "META PLATFORMS INC", "action": "TRIM", "value": 1522358404.0, "pct_shares": -0.47531969438604355, "put_call": ""}, {"issuer": "ALPHABET INC", "action": "TRIM", "value": 89421720.0, "pct_shares": -94.94269104593526, "put_call": ""}, {"issuer": "ALPHABET INC", "action": "TRIM", "value": 9310043.0, "pct_shares": -95.22686964559772, "put_call": ""}, {"issuer": "HILTON WORLDWIDE HLDGS INC", "action": "EXIT", "value": 0.0, "pct_shares": -100.0, "put_call": ""}], "counts": {"TRIM": 6, "ADD": 1, "NEW": 1, "HOLD": 3, "EXIT": 1}}, {"name": "Scion Asset Management, LLC", "cik": "1649339", "period": "2025-09-30", "prev_period": "2025-06-30", "filed": "2025-11-03", "total": 1381198076.0, "stale_days": 326, "positions": 8, "top10_pct": 100.0, "top": [{"issuer": "PALANTIR TECHNOLOGIES INC", "value": 912100000.0, "pct": 66.03687160073919, "action": "NEW", "put_call": "Put"}, {"issuer": "NVIDIA CORPORATION", "value": 186580000.0, "pct": 13.508562112998485, "action": "NEW", "put_call": "Put"}, {"issuer": "PFIZER INC", "value": 152880000.0, "pct": 11.068651387261271, "action": "NEW", "put_call": "Call"}, {"issuer": "HALLIBURTON CO", "value": 61500000.0, "pct": 4.452656072191053, "action": "NEW", "put_call": "Call"}, {"issuer": "MOLINA HEALTHCARE INC", "value": 23920000.0, "pct": 1.7318298088912192, "action": "NEW", "put_call": ""}, {"issuer": "LULULEMON ATHLETICA INC", "value": 17793000.0, "pct": 1.288229422642202, "action": "ADD", "put_call": ""}, {"issuer": "SLM CORP", "value": 13287895.0, "pct": 0.9620557131445063, "action": "NEW", "put_call": ""}, {"issuer": "BRUKER CORP", "value": 13137181.0, "pct": 0.9511438821320802, "action": "NEW", "put_call": ""}], "moves": [{"issuer": "PALANTIR TECHNOLOGIES INC", "action": "NEW", "value": 912100000.0, "pct_shares": null, "put_call": "Put"}, {"issuer": "NVIDIA CORPORATION", "action": "NEW", "value": 186580000.0, "pct_shares": null, "put_call": "Put"}, {"issuer": "PFIZER INC", "action": "NEW", "value": 152880000.0, "pct_shares": null, "put_call": "Call"}, {"issuer": "HALLIBURTON CO", "action": "NEW", "value": 61500000.0, "pct_shares": null, "put_call": "Call"}, {"issuer": "MOLINA HEALTHCARE INC", "action": "NEW", "value": 23920000.0, "pct_shares": null, "put_call": ""}, {"issuer": "LULULEMON ATHLETICA INC", "action": "ADD", "value": 17793000.0, "pct_shares": 100.0, "put_call": ""}, {"issuer": "SLM CORP", "action": "NEW", "value": 13287895.0, "pct_shares": null, "put_call": ""}, {"issuer": "BRUKER CORP", "action": "NEW", "value": 13137181.0, "pct_shares": null, "put_call": ""}, {"issuer": "BRUKER CORP", "action": "EXIT", "value": 0.0, "pct_shares": -100.0, "put_call": ""}, {"issuer": "UNITEDHEALTH GROUP INC", "action": "EXIT", "value": 0.0, "pct_shares": -100.0, "put_call": "Call"}, {"issuer": "JD.COM INC", "action": "EXIT", "value": 0.0, "pct_shares": -100.0, "put_call": "Call"}, {"issuer": "ASML HOLDING N V", "action": "EXIT", "value": 0.0, "pct_shares": -100.0, "put_call": "Call"}, {"issuer": "REGENERON PHARMACEUTICALS", "action": "EXIT", "value": 0.0, "pct_shares": -100.0, "put_call": ""}, {"issuer": "ALIBABA GROUP HLDG LTD", "action": "EXIT", "value": 0.0, "pct_shares": -100.0, "put_call": "Call"}], "counts": {"NEW": 7, "ADD": 1, "EXIT": 14}}], "institutions": [{"cik": 19617, "name": "JPMORGAN CHASE & CO", "period": "2026-06-30", "filed": "2026-08-12", "total": 1807041234839.0, "positions": 7720, "top10_pct": 24.86340580319021, "top": [{"issuer": "NVIDIA CORPORATION", "value": 87620410963.0, "pct": 4.84883295819238, "put_call": null}, {"issuer": "APPLE INC", "value": 64451408654.0, "pct": 3.5666816789458795, "put_call": null}, {"issuer": "MICROSOFT CORP", "value": 49820903974.0, "pct": 2.757043005631182, "put_call": null}, {"issuer": "ALPHABET INC", "value": 48418066184.0, "pct": 2.6794112525226272, "put_call": null}, {"issuer": "AMAZON COM INC", "value": 40338513277.0, "pct": 2.2322962254148004, "put_call": null}, {"issuer": "BROADCOM INC", "value": 35388764805.0, "pct": 1.9583816972584465, "put_call": null}, {"issuer": "STATE STREET SPDR S&P 500 ETF", "value": 35308820984.0, "pct": 1.9539576797286462, "put_call": null}, {"issuer": "ALPHABET INC", "value": 32507323431.0, "pct": 1.7989253816831838, "put_call": null}, {"issuer": "MICRON TECHNOLOGY INC", "value": 29589469394.0, "pct": 1.6374540228262309, "put_call": null}, {"issuer": "META PLATFORMS INC", "value": 25848313583.0, "pct": 1.4304219009868349, "put_call": null}], "label": "JPMorgan Chase", "stale_days": 53}, {"cik": 2012383, "name": "BlackRock, Inc.", "period": "2026-06-30", "filed": "2026-08-07", "total": 6729538649155.0, "positions": 5696, "top10_pct": 28.00518348616133, "top": [{"issuer": "NVIDIA CORPORATION", "value": 388558449933.0, "pct": 5.773924041312842, "put_call": null}, {"issuer": "APPLE INC", "value": 336524794350.0, "pct": 5.000711221002587, "put_call": null}, {"issuer": "MICROSOFT CORP", "value": 226560080545.0, "pct": 3.3666510047230083, "put_call": null}, {"issuer": "AMAZON COM INC", "value": 178374499401.0, "pct": 2.6506200305929997, "put_call": null}, {"issuer": "ALPHABET INC", "value": 164737850334.0, "pct": 2.4479813390281286, "put_call": null}, {"issuer": "BROADCOM INC", "value": 150425272865.0, "pct": 2.2352984462595855, "put_call": null}, {"issuer": "ALPHABET INC", "value": 130704717750.0, "pct": 1.9422537645491054, "put_call": null}, {"issuer": "MICRON TECHNOLOGY INC", "value": 121001011030.0, "pct": 1.7980580443682213, "put_call": null}, {"issuer": "META PLATFORMS INC", "value": 97672782359.0, "pct": 1.451403839864481, "put_call": null}, {"issuer": "TESLA INC", "value": 90060187901.0, "pct": 1.3382817544603667, "put_call": null}], "label": "BlackRock", "stale_days": 53}, {"cik": 102909, "name": "VANGUARD GROUP INC", "period": "2025-12-31", "filed": "2026-01-29", "total": 6897676080637.0, "positions": 4329, "top10_pct": 31.229725503478072, "top": [{"issuer": "NVIDIA CORPORATION", "value": 422736430797.0, "pct": 6.128679077634511, "put_call": null}, {"issuer": "APPLE INC", "value": 387749544852.0, "pct": 5.621451925533032, "put_call": null}, {"issuer": "MICROSOFT CORP", "value": 347211390598.0, "pct": 5.033744503785615, "put_call": null}, {"issuer": "AMAZON COM INC", "value": 195135349873.0, "pct": 2.829001356279683, "put_call": null}, {"issuer": "BROADCOM INC", "value": 167064997221.0, "pct": 2.4220475891870463, "put_call": null}, {"issuer": "ALPHABET INC", "value": 165567397786.0, "pct": 2.4003359370669353, "put_call": null}, {"issuer": "ALPHABET INC", "value": 132114124826.0, "pct": 1.9153425484398694, "put_call": null}, {"issuer": "META PLATFORMS INC", "value": 132015115418.0, "pct": 1.9139071460399517, "put_call": null}, {"issuer": "TESLA INC", "value": 116443761793.0, "pct": 1.6881593225271667, "put_call": null}, {"issuer": "ELI LILLY & CO", "value": 88087192938.0, "pct": 1.2770560969842637, "put_call": null}], "label": "Vanguard Group", "stale_days": 234}, {"cik": 93751, "name": "STATE STREET CORP", "period": "2026-06-30", "filed": "2026-08-07", "total": 3371239854465.0, "positions": 4177, "top10_pct": 29.032040603332316, "top": [{"issuer": "NVIDIA CORPORATION", "value": 202047567909.0, "pct": 5.993271811894381, "put_call": null}, {"issuer": "APPLE INC", "value": 177993996255.0, "pct": 5.279778477323644, "put_call": null}, {"issuer": "MICROSOFT CORP", "value": 117744958902.0, "pct": 3.4926307229684066, "put_call": null}, {"issuer": "AMAZON COM INC", "value": 94665539570.0, "pct": 2.808033354393972, "put_call": null}, {"issuer": "ALPHABET INC", "value": 85403303049.0, "pct": 2.5332906211312305, "put_call": null}, {"issuer": "BROADCOM INC", "value": 74379179363.0, "pct": 2.2062855974038555, "put_call": null}, {"issuer": "ALPHABET INC", "value": 67458979762.0, "pct": 2.001013949590526, "put_call": null}, {"issuer": "MICRON TECHNOLOGY INC", "value": 57802075982.0, "pct": 1.7145643287719412, "put_call": null}, {"issuer": "META PLATFORMS INC", "value": 51841811018.0, "pct": 1.5377669123524007, "put_call": null}, {"issuer": "TESLA INC", "value": 49402311574.0, "pct": 1.465404827501955, "put_call": null}], "label": "State Street", "stale_days": 53}, {"cik": 886982, "name": "GOLDMAN SACHS GROUP INC", "period": "2026-06-30", "filed": "2026-08-14", "total": 1151631766592.0, "positions": 6524, "top10_pct": 19.210966186675254, "top": [{"issuer": "NVIDIA CORPORATION", "value": 38446626224.0, "pct": 3.3384478736440473, "put_call": null}, {"issuer": "APPLE INC", "value": 32334274116.0, "pct": 2.807692098637236, "put_call": null}, {"issuer": "MICROSOFT CORP", "value": 23848318733.0, "pct": 2.070828490913709, "put_call": null}, {"issuer": "STATE STR SPDR S&P 500 ETF T", "value": 23535132629.0, "pct": 2.0436335043663334, "put_call": null}, {"issuer": "ALPHABET INC", "value": 20936514597.0, "pct": 1.8179868951476559, "put_call": null}, {"issuer": "MICRON TECHNOLOGY INC", "value": 20879496990.0, "pct": 1.8130358675141673, "put_call": null}, {"issuer": "STATE STR SPDR S&P 500 ETF T", "value": 17149199665.0, "pct": 1.4891217976514552, "put_call": "Put"}, {"issuer": "AMAZON COM INC", "value": 16245631603.0, "pct": 1.4106619906009854, "put_call": null}, {"issuer": "BROADCOM INC", "value": 14800276824.0, "pct": 1.2851570487498927, "put_call": null}, {"issuer": "TESLA INC", "value": 13064117894.0, "pct": 1.134400619449772, "put_call": null}], "label": "Goldman Sachs", "stale_days": 53}, {"cik": 895421, "name": "MORGAN STANLEY", "period": "2026-06-30", "filed": "2026-08-13", "total": 1890805575974.0, "positions": 8402, "top10_pct": 21.086017264076567, "top": [{"issuer": "NVIDIA CORPORATION", "value": 71316096193.0, "pct": 3.7717307955506394, "put_call": null}, {"issuer": "APPLE INC", "value": 70202856513.0, "pct": 3.71285432014007, "put_call": null}, {"issuer": "MICROSOFT CORP", "value": 47625203346.0, "pct": 2.518778448253047, "put_call": null}, {"issuer": "ALPHABET INC", "value": 43067125043.0, "pct": 2.2777130335473585, "put_call": null}, {"issuer": "AMAZON COM INC", "value": 42752605304.0, "pct": 2.2610788675074165, "put_call": null}, {"issuer": "BROADCOM INC", "value": 29856600837.0, "pct": 1.5790412941647975, "put_call": null}, {"issuer": "ALPHABET INC", "value": 25589978801.0, "pct": 1.3533902758784693, "put_call": null}, {"issuer": "STATE STR SPDR S&P 500 ETF T", "value": 24109956453.0, "pct": 1.2751155782148769, "put_call": null}, {"issuer": "META PLATFORMS INC", "value": 22213803206.0, "pct": 1.1748327532066394, "put_call": null}, {"issuer": "JPMORGAN CHASE & CO", "value": 21961364484.0, "pct": 1.1614818976132524, "put_call": null}], "label": "Morgan Stanley", "stale_days": 53}, {"cik": 1423053, "name": "CITADEL ADVISORS LLC", "period": "2026-06-30", "filed": "2026-08-14", "total": 875096281441.0, "positions": 13575, "top10_pct": 22.671758175488986, "top": [{"issuer": "STATE STR SPDR S&P 500 ETF T", "value": 35656923314.0, "pct": 4.074628594614138, "put_call": "Call"}, {"issuer": "INVESCO QQQ TR", "value": 26554510360.0, "pct": 3.034467283562596, "put_call": "Put"}, {"issuer": "INVESCO QQQ TR", "value": 23490644520.0, "pct": 2.684349713075974, "put_call": "Call"}, {"issuer": "STATE STR SPDR S&P 500 ETF T", "value": 23265469996.0, "pct": 2.658618313140276, "put_call": "Put"}, {"issuer": "MICRON TECHNOLOGY INC", "value": 22249286037.0, "pct": 2.5424957811913718, "put_call": "Put"}, {"issuer": "MICRON TECHNOLOGY INC", "value": 16339782953.0, "pct": 1.8671983071501197, "put_call": "Call"}, {"issuer": "TESLA INC", "value": 13696712820.0, "pct": 1.5651663834573666, "put_call": "Call"}, {"issuer": "ISHARES TR", "value": 13237745847.0, "pct": 1.512718786234781, "put_call": null}, {"issuer": "NVIDIA CORPORATION", "value": 12185400964.0, "pct": 1.3924640319502437, "put_call": "Call"}, {"issuer": "SANDISK CORP", "value": 11723235920.0, "pct": 1.339650981112116, "put_call": "Put"}], "label": "Citadel Advisors", "stale_days": 53}], "people": [{"cik": 947033, "name": "Donald J. Trump", "entity": "TRUMP DONALD J", "note": "President; former direct holder of Trump Media (DJT)", "n_filings": 47, "last_filing": {"form": "SCHEDULE 13D/A", "filed": "2025-12-22", "period": "", "accession": "0001140361-25-046424", "kind": "stake"}, "last_ownership_filing": {"form": "4", "filed": "2024-12-19", "period": "2024-12-17", "accession": "0001474506-24-000291", "kind": "ownership"}, "timeline": [{"form": "SCHEDULE 13D/A", "filed": "2025-12-22", "period": "", "accession": "0001140361-25-046424", "kind": "stake"}, {"form": "SCHEDULE 13D/A", "filed": "2024-12-30", "period": "", "accession": "0001140361-24-050512", "kind": "stake"}, {"form": "4", "filed": "2024-12-19", "period": "2024-12-17", "accession": "0001474506-24-000291", "kind": "ownership"}, {"form": "SC 13D/A", "filed": "2024-04-30", "period": "", "accession": "0001140361-24-023398", "kind": "stake"}, {"form": "4", "filed": "2024-04-30", "period": "2024-04-26", "accession": "0001474506-24-000146", "kind": "ownership"}, {"form": "SC 13D", "filed": "2024-04-01", "period": "", "accession": "0001140361-24-017051", "kind": "stake"}, {"form": "3", "filed": "2024-03-28", "period": "2024-03-25", "accession": "0001474506-24-000118", "kind": "ownership"}, {"form": "SC 13D/A", "filed": "2010-07-22", "period": "", "accession": "0000929638-10-000521", "kind": "stake"}, {"form": "SC 13D/A", "filed": "2009-12-03", "period": "", "accession": "0000899140-09-001793", "kind": "stake"}, {"form": "SC 13D/A", "filed": "2009-11-19", "period": "", "accession": "0000899140-09-001748", "kind": "stake"}, {"form": "SC 13D/A", "filed": "2009-10-14", "period": "", "accession": "0000899140-09-001638", "kind": "stake"}, {"form": "SC 13D/A", "filed": "2009-09-29", "period": "", "accession": "0000899140-09-001586", "kind": "stake"}, {"form": "4", "filed": "2009-03-04", "period": "2009-02-13", "accession": "0000899140-09-000582", "kind": "ownership"}, {"form": "SC 13D/A", "filed": "2009-02-18", "period": "", "accession": "0000899140-09-000469", "kind": "stake"}], "transactions": [{"ticker": "DJT", "issuer": "Trump Media & Technology Group Corp.", "issuer_cik": "0001849635", "period": "2024-12-17", "date": "2024-12-17", "owner": "TRUMP DONALD J", "owner_cik": "0000947033", "title": null, "is_officer": false, "is_director": false, "is_10pct": true, "security": "Common Stock, par value $0.0001 per share", "derivative": false, "code": "G", "acq_disp": "D", "shares": 114750000.0, "price": 0.0, "value": null, "shares_after": 0.0, "plan_10b5_1": false, "n_owners": 1, "filed": "2024-12-19", "accession": "0001474506-24-000291"}, {"ticker": "DJT", "issuer": "Trump Media & Technology Group Corp.", "issuer_cik": "0001849635", "period": "2024-04-26", "date": "2024-04-26", "owner": "TRUMP DONALD J", "owner_cik": "0000947033", "title": null, "is_officer": false, "is_director": false, "is_10pct": true, "security": "Common Stock, par value $0.0001 per share", "derivative": false, "code": "J", "acq_disp": "A", "shares": 36000000.0, "price": 0.0, "value": null, "shares_after": 114750000.0, "plan_10b5_1": false, "n_owners": 1, "filed": "2024-04-30", "accession": "0001474506-24-000146"}, {"ticker": "DJT", "issuer": "Trump Media & Technology Group Corp.", "issuer_cik": "0001849635", "period": "2024-04-26", "date": "2024-04-26", "owner": "TRUMP DONALD J", "owner_cik": "0000947033", "title": null, "is_officer": false, "is_director": false, "is_10pct": true, "security": "Right to receive Earnout Shares", "derivative": true, "code": "J", "acq_disp": "A", "shares": 36000000.0, "price": null, "value": null, "shares_after": 0.0, "plan_10b5_1": false, "n_owners": 1, "filed": "2024-04-30", "accession": "0001474506-24-000146"}, {"ticker": "TRMP", "issuer": "TRUMP ENTERTAINMENT RESORTS, INC.", "issuer_cik": "0000943320", "period": "2009-02-13", "date": "2009-02-13", "owner": "TRUMP DONALD J", "owner_cik": "0000947033", "title": null, "is_officer": false, "is_director": false, "is_10pct": false, "security": "Class A Limited Partnership Interests (right to acquire)", "derivative": true, "code": "J", "acq_disp": "D", "shares": 4821880.0, "price": null, "value": null, "shares_after": 0.0, "plan_10b5_1": false, "n_owners": 1, "filed": "2009-03-04", "accession": "0000899140-09-000582"}, {"ticker": "TRMP", "issuer": "TRUMP ENTERTAINMENT RESORTS, INC.", "issuer_cik": "0000943320", "period": "2009-02-13", "date": "2009-02-13", "owner": "TRUMP DONALD J", "owner_cik": "0000947033", "title": null, "is_officer": false, "is_director": false, "is_10pct": false, "security": "Class B Limited Partnership Interests (right to acquire)", "derivative": true, "code": "J", "acq_disp": "D", "shares": 4554197.0, "price": null, "value": null, "shares_after": 0.0, "plan_10b5_1": false, "n_owners": 1, "filed": "2009-03-04", "accession": "0000899140-09-000582"}, {"ticker": "TRMP", "issuer": "TRUMP ENTERTAINMENT RESORTS, INC.", "issuer_cik": "0000943320", "period": "2008-09-11", "date": "2008-09-11", "owner": "TRUMP DONALD J", "owner_cik": "0000947033", "title": null, "is_officer": false, "is_director": true, "is_10pct": true, "security": "Common Stock, par value $0.001 per share", "derivative": false, "code": "P", "acq_disp": "A", "shares": 400.0, "price": 1.25, "value": 500.0, "shares_after": 1275545.0, "plan_10b5_1": false, "n_owners": 1, "filed": "2008-09-15", "accession": "0000909518-08-000726"}, {"ticker": "TRMP", "issuer": "TRUMP ENTERTAINMENT RESORTS, INC.", "issuer_cik": "0000943320", "period": "2008-09-11", "date": "2008-09-11", "owner": "TRUMP DONALD J", "owner_cik": "0000947033", "title": null, "is_officer": false, "is_director": true, "is_10pct": true, "security": "Common Stock, par value $0.001 per share", "derivative": false, "code": "P", "acq_disp": "A", "shares": 100.0, "price": 1.255, "value": 125.49999999999999, "shares_after": 1275645.0, "plan_10b5_1": false, "n_owners": 1, "filed": "2008-09-15", "accession": "0000909518-08-000726"}, {"ticker": "TRMP", "issuer": "TRUMP ENTERTAINMENT RESORTS, INC.", "issuer_cik": "0000943320", "period": "2008-09-11", "date": "2008-09-11", "owner": "TRUMP DONALD J", "owner_cik": "0000947033", "title": null, "is_officer": false, "is_director": true, "is_10pct": true, "security": "Common Stock, par value $0.001 per share", "derivative": false, "code": "P", "acq_disp": "A", "shares": 800.0, "price": 1.26, "value": 1008.0, "shares_after": 1276445.0, "plan_10b5_1": false, "n_owners": 1, "filed": "2008-09-15", "accession": "0000909518-08-000726"}, {"ticker": "TRMP", "issuer": "TRUMP ENTERTAINMENT RESORTS, INC.", "issuer_cik": "0000943320", "period": "2008-09-11", "date": "2008-09-11", "owner": "TRUMP DONALD J", "owner_cik": "0000947033", "title": null, "is_officer": false, "is_director": true, "is_10pct": true, "security": "Common Stock, par value $0.001 per share", "derivative": false, "code": "P", "acq_disp": "A", "shares": 2017.0, "price": 1.27, "value": 2561.59, "shares_after": 1278462.0, "plan_10b5_1": false, "n_owners": 1, "filed": "2008-09-15", "accession": "0000909518-08-000726"}, {"ticker": "TRMP", "issuer": "TRUMP ENTERTAINMENT RESORTS, INC.", "issuer_cik": "0000943320", "period": "2008-09-11", "date": "2008-09-11", "owner": "TRUMP DONALD J", "owner_cik": "0000947033", "title": null, "is_officer": false, "is_director": true, "is_10pct": true, "security": "Common Stock, par value $0.001 per share", "derivative": false, "code": "P", "acq_disp": "A", "shares": 3100.0, "price": 1.28, "value": 3968.0, "shares_after": 1281562.0, "plan_10b5_1": false, "n_owners": 1, "filed": "2008-09-15", "accession": "0000909518-08-000726"}, {"ticker": "TRMP", "issuer": "TRUMP ENTERTAINMENT RESORTS, INC.", "issuer_cik": "0000943320", "period": "2008-09-11", "date": "2008-09-11", "owner": "TRUMP DONALD J", "owner_cik": "0000947033", "title": null, "is_officer": false, "is_director": true, "is_10pct": true, "security": "Common Stock, par value $0.001 per share", "derivative": false, "code": "P", "acq_disp": "A", "shares": 10499.0, "price": 1.29, "value": 13543.710000000001, "shares_after": 1292061.0, "plan_10b5_1": false, "n_owners": 1, "filed": "2008-09-15", "accession": "0000909518-08-000726"}, {"ticker": "TRMP", "issuer": "TRUMP ENTERTAINMENT RESORTS, INC.", "issuer_cik": "0000943320", "period": "2008-09-11", "date": "2008-09-11", "owner": "TRUMP DONALD J", "owner_cik": "0000947033", "title": null, "is_officer": false, "is_director": true, "is_10pct": true, "security": "Common Stock, par value $0.001 per share", "derivative": false, "code": "P", "acq_disp": "A", "shares": 5584.0, "price": 1.31, "value": 7315.04, "shares_after": 1297645.0, "plan_10b5_1": false, "n_owners": 1, "filed": "2008-09-15", "accession": "0000909518-08-000726"}, {"ticker": "TRMP", "issuer": "TRUMP ENTERTAINMENT RESORTS, INC.", "issuer_cik": "0000943320", "period": "2008-09-09", "date": "2008-09-09", "owner": "TRUMP DONALD J", "owner_cik": "0000947033", "title": null, "is_officer": false, "is_director": true, "is_10pct": true, "security": "Common Stock, par value $0.001 per share", "derivative": false, "code": "P", "acq_disp": "A", "shares": 20000.0, "price": 1.13, "value": 22599.999999999996, "shares_after": 1240145.0, "plan_10b5_1": false, "n_owners": 1, "filed": "2008-09-11", "accession": "0000909518-08-000720"}, {"ticker": "TRMP", "issuer": "TRUMP ENTERTAINMENT RESORTS, INC.", "issuer_cik": "0000943320", "period": "2008-09-09", "date": "2008-09-10", "owner": "TRUMP DONALD J", "owner_cik": "0000947033", "title": null, "is_officer": false, "is_director": true, "is_10pct": true, "security": "Common Stock, par value $0.001 per share", "derivative": false, "code": "P", "acq_disp": "A", "shares": 10000.0, "price": 1.26, "value": 12600.0, "shares_after": 1250145.0, "plan_10b5_1": false, "n_owners": 1, "filed": "2008-09-11", "accession": "0000909518-08-000720"}, {"ticker": "TRMP", "issuer": "TRUMP ENTERTAINMENT RESORTS, INC.", "issuer_cik": "0000943320", "period": "2008-09-09", "date": "2008-09-10", "owner": "TRUMP DONALD J", "owner_cik": "0000947033", "title": null, "is_officer": false, "is_director": true, "is_10pct": true, "security": "Common Stock, par value $0.001 per share", "derivative": false, "code": "P", "acq_disp": "A", "shares": 25000.0, "price": 1.22, "value": 30500.0, "shares_after": 1275145.0, "plan_10b5_1": false, "n_owners": 1, "filed": "2008-09-11", "accession": "0000909518-08-000720"}, {"ticker": "TRMP", "issuer": "TRUMP ENTERTAINMENT RESORTS, INC.", "issuer_cik": "0000943320", "period": "2006-05-10", "date": "2006-05-10", "owner": "TRUMP DONALD J", "owner_cik": "0000947033", "title": null, "is_officer": false, "is_director": true, "is_10pct": true, "security": "Common Stock, par value $0.001 per share", "derivative": false, "code": "X", "acq_disp": "A", "shares": 1217933.0, "price": 14.6, "value": 17781821.8, "shares_after": 1220145.0, "plan_10b5_1": false, "n_owners": 1, "filed": "2006-05-12", "accession": "0000899140-06-000728"}, {"ticker": "TRMP", "issuer": "TRUMP ENTERTAINMENT RESORTS, INC.", "issuer_cik": "0000943320", "period": "2006-05-10", "date": "2006-05-10", "owner": "TRUMP DONALD J", "owner_cik": "0000947033", "title": null, "is_officer": false, "is_director": true, "is_10pct": true, "security": "Common Stock Warrant (right to buy)", "derivative": true, "code": "X", "acq_disp": "D", "shares": 1217933.0, "price": 0.0, "value": null, "shares_after": 0.0, "plan_10b5_1": false, "n_owners": 1, "filed": "2006-05-12", "accession": "0000899140-06-000728"}, {"ticker": "TRMP", "issuer": "TRUMP ENTERTAINMENT RESORTS, INC.", "issuer_cik": "0000943320", "period": "2005-12-16", "date": "2005-12-16", "owner": "TRUMP DONALD J", "owner_cik": "0000947033", "title": null, "is_officer": false, "is_director": true, "is_10pct": true, "security": "Common Stock, par value $0.001 per share", "derivative": false, "code": "S", "acq_disp": "D", "shares": 9961.0, "price": 19.953, "value": 198751.83299999998, "shares_after": 2212.0, "plan_10b5_1": false, "n_owners": 1, "filed": "2005-12-16", "accession": "0000909518-05-000981"}, {"ticker": "DJTE.PK", "issuer": "TRUMP ENTERTAINMENT RESORTS, INC.", "issuer_cik": "0000943320", "period": "2005-05-19", "date": "2005-05-19", "owner": "TRUMP DONALD J", "owner_cik": "0000947033", "title": "Chairman of the Board & CEO", "is_officer": true, "is_director": true, "is_10pct": true, "security": "Common Stock, par value $0.001 per share", "derivative": false, "code": "J", "acq_disp": "A", "shares": 2212.0, "price": null, "value": null, "shares_after": 12173.0, "plan_10b5_1": false, "n_owners": 1, "filed": "2005-05-23", "accession": "0000899140-05-000489"}, {"ticker": "DJTE.PK", "issuer": "TRUMP ENTERTAINMENT RESORTS, INC.", "issuer_cik": "0000943320", "period": "2005-05-19", "date": "2005-05-19", "owner": "TRUMP DONALD J", "owner_cik": "0000947033", "title": "Chairman of the Board & CEO", "is_officer": true, "is_director": true, "is_10pct": true, "security": "Limited Partnership Interest (right to acquire)", "derivative": true, "code": "J", "acq_disp": "D", "shares": 2211250.0, "price": null, "value": null, "shares_after": 0.0, "plan_10b5_1": false, "n_owners": 1, "filed": "2005-05-23", "accession": "0000899140-05-000489"}, {"ticker": "DJTE.PK", "issuer": "TRUMP ENTERTAINMENT RESORTS, INC.", "issuer_cik": "0000943320", "period": "2005-05-19", "date": "2005-05-20", "owner": "TRUMP DONALD J", "owner_cik": "0000947033", "title": "Chairman of the Board & CEO", "is_officer": true, "is_director": true, "is_10pct": true, "security": "Class A Limited Partnership Intersts (right to acquire)", "derivative": true, "code": "J", "acq_disp": "A", "shares": 4811580.0, "price": null, "value": null, "shares_after": 4821880.0, "plan_10b5_1": false, "n_owners": 1, "filed": "2005-05-23", "accession": "0000899140-05-000489"}, {"ticker": "DJTE.PK", "issuer": "TRUMP ENTERTAINMENT RESORTS, INC.", "issuer_cik": "0000943320", "period": "2005-05-19", "date": "2005-05-20", "owner": "TRUMP DONALD J", "owner_cik": "0000947033", "title": "Chairman of the Board & CEO", "is_officer": true, "is_director": true, "is_10pct": true, "security": "Class A Limited Partnership Interests (right to acquire)", "derivative": true, "code": "J", "acq_disp": "A", "shares": 0.0, "price": null, "value": null, "shares_after": 1407.0, "plan_10b5_1": false, "n_owners": 1, "filed": "2005-05-23", "accession": "0000899140-05-000489"}, {"ticker": "DJTE.PK", "issuer": "TRUMP ENTERTAINMENT RESORTS, INC.", "issuer_cik": "0000943320", "period": "2005-05-19", "date": "2005-05-20", "owner": "TRUMP DONALD J", "owner_cik": "0000947033", "title": "Chairman of the Board & CEO", "is_officer": true, "is_director": true, "is_10pct": true, "security": "Class B Limited Partnership Interests (right to acquire)", "derivative": true, "code": "J", "acq_disp": "A", "shares": 4554197.0, "price": null, "value": null, "shares_after": 4554197.0, "plan_10b5_1": false, "n_owners": 1, "filed": "2005-05-23", "accession": "0000899140-05-000489"}, {"ticker": "DJTE.PK", "issuer": "TRUMP ENTERTAINMENT RESORTS, INC.", "issuer_cik": "0000943320", "period": "2005-05-19", "date": "2005-05-20", "owner": "TRUMP DONALD J", "owner_cik": "0000947033", "title": "Chairman of the Board & CEO", "is_officer": true, "is_director": true, "is_10pct": true, "security": "Common Stock Warrant (right to buy)", "derivative": true, "code": "J", "acq_disp": "A", "shares": 1217933.0, "price": null, "value": null, "shares_after": 1217933.0, "plan_10b5_1": false, "n_owners": 1, "filed": "2005-05-23", "accession": "0000899140-05-000489"}, {"ticker": "DJTE.PK", "issuer": "TRUMP ENTERTAINMENT RESORTS, INC.", "issuer_cik": "0000943320", "period": "2005-05-19", "date": "2005-05-20", "owner": "TRUMP DONALD J", "owner_cik": "0000947033", "title": "Chairman of the Board & CEO", "is_officer": true, "is_director": true, "is_10pct": true, "security": "Common Stock Warrant (right to buy)", "derivative": true, "code": "J", "acq_disp": "A", "shares": 1446706.0, "price": null, "value": null, "shares_after": 1446706.0, "plan_10b5_1": false, "n_owners": 1, "filed": "2005-05-23", "accession": "0000899140-05-000489"}, {"ticker": "AMEX: RIV", "issuer": "RIVIERA HOLDINGS CORP", "issuer_cik": "0000899647", "period": "2004-04-05", "date": "2004-04-05", "owner": "TRUMP DONALD J", "owner_cik": "0000947033", "title": null, "is_officer": false, "is_director": false, "is_10pct": false, "security": "Common Stock, par value $.001 per share", "derivative": false, "code": "S", "acq_disp": "D", "shares": 358000.0, "price": 10.0, "value": 3580000.0, "shares_after": 0.0, "plan_10b5_1": false, "n_owners": 1, "filed": "2004-04-07", "accession": "0000898080-04-000199"}, {"ticker": "AMEX: RIV", "issuer": "RIVIERA HOLDINGS CORP", "issuer_cik": "0000899647", "period": "2004-04-05", "date": "2004-04-05", "owner": "TRUMP DONALD J", "owner_cik": "0000947033", "title": null, "is_officer": false, "is_director": false, "is_10pct": false, "security": "Option (Right to sell)", "derivative": true, "code": "J", "acq_disp": "A", "shares": 350000.0, "price": 0.0, "value": null, "shares_after": 0.0, "plan_10b5_1": false, "n_owners": 1, "filed": "2004-04-07", "accession": "0000898080-04-000199"}, {"ticker": "AMEX: RIV", "issuer": "RIVIERA HOLDINGS CORP", "issuer_cik": "0000899647", "period": "2004-04-05", "date": "2004-04-05", "owner": "TRUMP DONALD J", "owner_cik": "0000947033", "title": null, "is_officer": false, "is_director": false, "is_10pct": false, "security": "Option (Right to sell)", "derivative": true, "code": "J", "acq_disp": "A", "shares": 8000.0, "price": 0.0, "value": null, "shares_after": 0.0, "plan_10b5_1": false, "n_owners": 1, "filed": "2004-04-07", "accession": "0000898080-04-000199"}, {"ticker": "AMEX:  RIV", "issuer": "RIVIERA HOLDINGS CORP", "issuer_cik": "0000899647", "period": "2003-12-18", "date": "2003-12-18", "owner": "TRUMP DONALD J", "owner_cik": "0000947033", "title": null, "is_officer": false, "is_director": false, "is_10pct": true, "security": "Option (Obligation to sell)", "derivative": true, "code": "J", "acq_disp": "D", "shares": 350000.0, "price": 0.0, "value": null, "shares_after": 0.0, "plan_10b5_1": false, "n_owners": 1, "filed": "2003-12-22", "accession": "0000898080-03-000598"}, {"ticker": "AMEX:  RIV", "issuer": "RIVIERA HOLDINGS CORP", "issuer_cik": "0000899647", "period": "2003-12-18", "date": "2003-12-18", "owner": "TRUMP DONALD J", "owner_cik": "0000947033", "title": null, "is_officer": false, "is_director": false, "is_10pct": true, "security": "Option (Obligation to sell)", "derivative": true, "code": "J", "acq_disp": "D", "shares": 8000.0, "price": 0.0, "value": null, "shares_after": 0.0, "plan_10b5_1": false, "n_owners": 1, "filed": "2003-12-22", "accession": "0000898080-03-000598"}, {"ticker": "AMEX:  RIV", "issuer": "RIVIERA HOLDINGS CORP", "issuer_cik": "0000899647", "period": "2003-12-18", "date": "2003-12-18", "owner": "TRUMP DONALD J", "owner_cik": "0000947033", "title": null, "is_officer": false, "is_director": false, "is_10pct": true, "security": "Option (Obligation to sell)", "derivative": true, "code": "J", "acq_disp": "A", "shares": 350000.0, "price": 0.0, "value": null, "shares_after": 350000.0, "plan_10b5_1": false, "n_owners": 1, "filed": "2003-12-22", "accession": "0000898080-03-000598"}, {"ticker": "AMEX:  RIV", "issuer": "RIVIERA HOLDINGS CORP", "issuer_cik": "0000899647", "period": "2003-12-18", "date": "2003-12-18", "owner": "TRUMP DONALD J", "owner_cik": "0000947033", "title": null, "is_officer": false, "is_director": false, "is_10pct": true, "security": "Option (Obligation to sell)", "derivative": true, "code": "J", "acq_disp": "A", "shares": 8000.0, "price": 0.0, "value": null, "shares_after": 8000.0, "plan_10b5_1": false, "n_owners": 1, "filed": "2003-12-22", "accession": "0000898080-03-000598"}], "issuers": ["AMEX:  RIV", "AMEX: RIV", "DJT", "DJTE.PK", "TRMP"], "profile_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=947033&type=&dateb=&owner=include&count=40"}, {"cik": 2016181, "name": "Donald Trump Jr.", "entity": "Trump Donald J. JR", "note": "Director at several listed companies", "n_filings": 17, "last_filing": {"form": "4", "filed": "2026-08-18", "period": "2026-08-13", "accession": "0002016181-26-000005", "kind": "ownership"}, "last_ownership_filing": {"form": "4", "filed": "2026-08-18", "period": "2026-08-13", "accession": "0002016181-26-000005", "kind": "ownership"}, "timeline": [{"form": "4", "filed": "2026-08-18", "period": "2026-08-13", "accession": "0002016181-26-000005", "kind": "ownership"}, {"form": "4", "filed": "2026-07-17", "period": "2026-07-15", "accession": "0001213900-26-079297", "kind": "ownership"}, {"form": "4", "filed": "2026-07-10", "period": "2026-07-09", "accession": "0002016181-26-000003", "kind": "ownership"}, {"form": "4", "filed": "2026-06-24", "period": "2026-06-23", "accession": "0001213900-26-071536", "kind": "ownership"}, {"form": "4", "filed": "2026-06-23", "period": "2026-06-19", "accession": "0001437749-26-021434", "kind": "ownership"}, {"form": "SCHEDULE 13G", "filed": "2026-06-01", "period": "", "accession": "0001213900-26-063164", "kind": "stake"}, {"form": "3", "filed": "2026-02-03", "period": "2026-02-03", "accession": "0001213900-26-011700", "kind": "ownership"}, {"form": "4", "filed": "2025-08-22", "period": "2025-08-22", "accession": "0001474506-25-000155", "kind": "ownership"}, {"form": "4", "filed": "2025-07-16", "period": "2025-07-16", "accession": "0001213900-25-064825", "kind": "ownership"}, {"form": "3", "filed": "2025-07-15", "period": "2025-07-15", "accession": "0001213900-25-064256", "kind": "ownership"}, {"form": "4", "filed": "2025-06-23", "period": "2025-06-18", "accession": "0001474506-25-000115", "kind": "ownership"}, {"form": "SCHEDULE 13G", "filed": "2025-02-24", "period": "", "accession": "0001213900-25-016617", "kind": "stake"}, {"form": "4", "filed": "2025-01-30", "period": "2025-01-28", "accession": "0001474506-25-000024", "kind": "ownership"}, {"form": "4", "filed": "2024-12-19", "period": "2024-12-17", "accession": "0001474506-24-000290", "kind": "ownership"}], "transactions": [{"ticker": "PSQH", "issuer": "PSQ Holdings, Inc.", "issuer_cik": "0001847064", "period": "2026-08-13", "date": "2026-08-13", "owner": "Trump Donald J. JR", "owner_cik": "0002016181", "title": null, "is_officer": false, "is_director": false, "is_10pct": false, "security": "Class A Common Stock, par value $0.0001 per share", "derivative": false, "code": "A", "acq_disp": "A", "shares": 69444.0, "price": 3.6, "value": 249998.4, "shares_after": 891847.0, "plan_10b5_1": false, "n_owners": 1, "filed": "2026-08-18", "accession": "0002016181-26-000005"}, {"ticker": "PEW", "issuer": "GrabAGun Digital Holdings Inc.", "issuer_cik": "0002051380", "period": "2026-07-15", "date": "2026-07-15", "owner": "Trump Donald J. JR", "owner_cik": "0002016181", "title": null, "is_officer": false, "is_director": true, "is_10pct": false, "security": "Restricted Stock Units", "derivative": true, "code": "A", "acq_disp": "A", "shares": 48638.0, "price": 0.0, "value": null, "shares_after": 48638.0, "plan_10b5_1": false, "n_owners": 1, "filed": "2026-07-17", "accession": "0001213900-26-079297"}, {"ticker": "PSQH", "issuer": "PSQ Holdings, Inc.", "issuer_cik": "0001847064", "period": "2026-07-09", "date": "2026-07-09", "owner": "Trump Donald J. JR", "owner_cik": "0002016181", "title": null, "is_officer": false, "is_director": false, "is_10pct": false, "security": "Class A Common Stock, par value $0.0001 per share", "derivative": false, "code": "A", "acq_disp": "A", "shares": 125000.0, "price": 0.0, "value": null, "shares_after": 822403.0, "plan_10b5_1": false, "n_owners": 1, "filed": "2026-07-10", "accession": "0002016181-26-000003"}, {"ticker": "PEW", "issuer": "GrabAGun Digital Holdings Inc.", "issuer_cik": "0002051380", "period": "2026-06-23", "date": "2026-06-23", "owner": "Trump Donald J. JR", "owner_cik": "0002016181", "title": null, "is_officer": false, "is_director": true, "is_10pct": false, "security": "Common Stock", "derivative": false, "code": "M", "acq_disp": "A", "shares": 11433.0, "price": null, "value": null, "shares_after": 311433.0, "plan_10b5_1": false, "n_owners": 1, "filed": "2026-06-24", "accession": "0001213900-26-071536"}, {"ticker": "PEW", "issuer": "GrabAGun Digital Holdings Inc.", "issuer_cik": "0002051380", "period": "2026-06-23", "date": "2026-06-23", "owner": "Trump Donald J. JR", "owner_cik": "0002016181", "title": null, "is_officer": false, "is_director": true, "is_10pct": false, "security": "Restricted Stock Units", "derivative": true, "code": "M", "acq_disp": "D", "shares": 11433.0, "price": 0.0, "value": null, "shares_after": 0.0, "plan_10b5_1": false, "n_owners": 1, "filed": "2026-06-24", "accession": "0001213900-26-071536"}, {"ticker": "DJT", "issuer": "Trump Media & Technology Group Corp.", "issuer_cik": "0001849635", "period": "2026-06-19", "date": "2026-06-19", "owner": "Trump Donald J. JR", "owner_cik": "0002016181", "title": null, "is_officer": false, "is_director": true, "is_10pct": true, "security": "Common Stock, par value $0.0001 per share", "derivative": false, "code": "A", "acq_disp": "A", "shares": 23600.0, "price": 0.0, "value": null, "shares_after": 61098.0, "plan_10b5_1": false, "n_owners": 1, "filed": "2026-06-23", "accession": "0001437749-26-021434"}, {"ticker": "DJT", "issuer": "Trump Media & Technology Group Corp.", "issuer_cik": "0001849635", "period": "2025-08-22", "date": "2025-08-22", "owner": "Trump Donald J. JR", "owner_cik": "0002016181", "title": null, "is_officer": false, "is_director": true, "is_10pct": true, "security": "Common Stock, par value $0.0001 per share", "derivative": false, "code": "A", "acq_disp": "A", "shares": 11552.0, "price": 0.0, "value": null, "shares_after": 37498.0, "plan_10b5_1": false, "n_owners": 1, "filed": "2025-08-22", "accession": "0001474506-25-000155"}, {"ticker": "PEW", "issuer": "GrabAGun Digital Holdings Inc.", "issuer_cik": "0002051380", "period": "2025-07-16", "date": "2025-07-16", "owner": "Trump Donald J. JR", "owner_cik": "0002016181", "title": null, "is_officer": false, "is_director": true, "is_10pct": false, "security": "Restricted Stock Unit", "derivative": true, "code": "A", "acq_disp": "A", "shares": 11433.0, "price": 0.0, "value": null, "shares_after": 11433.0, "plan_10b5_1": false, "n_owners": 1, "filed": "2025-07-16", "accession": "0001213900-25-064825"}, {"ticker": "PSQH", "issuer": "PSQ Holdings, Inc.", "issuer_cik": "0001847064", "period": "2025-06-18", "date": "2025-06-18", "owner": "Trump Donald J. JR", "owner_cik": "0002016181", "title": null, "is_officer": false, "is_director": true, "is_10pct": false, "security": "Class A Common Stock, par value $0.0001 per share", "derivative": false, "code": "A", "acq_disp": "A", "shares": 71429.0, "price": 0.0, "value": null, "shares_after": 697403.0, "plan_10b5_1": false, "n_owners": 1, "filed": "2025-06-23", "accession": "0001474506-25-000115"}, {"ticker": "DJT", "issuer": "Trump Media & Technology Group Corp.", "issuer_cik": "0001849635", "period": "2025-01-28", "date": "2025-01-28", "owner": "Trump Donald J. JR", "owner_cik": "0002016181", "title": null, "is_officer": false, "is_director": true, "is_10pct": true, "security": "Common Stock, par value $0.0001 per share", "derivative": false, "code": "A", "acq_disp": "A", "shares": 25946.0, "price": 0.0, "value": null, "shares_after": 25946.0, "plan_10b5_1": false, "n_owners": 1, "filed": "2025-01-30", "accession": "0001474506-25-000024"}, {"ticker": "DJT", "issuer": "Trump Media & Technology Group Corp.", "issuer_cik": "0001849635", "period": "2024-12-17", "date": "2024-12-17", "owner": "Trump Donald J. JR", "owner_cik": "0002016181", "title": null, "is_officer": false, "is_director": true, "is_10pct": true, "security": "Common Stock, par value $0.0001 per share", "derivative": false, "code": "G", "acq_disp": "A", "shares": 114750000.0, "price": 0.0, "value": null, "shares_after": 114750000.0, "plan_10b5_1": false, "n_owners": 1, "filed": "2024-12-19", "accession": "0001474506-24-000290"}, {"ticker": "PSQH", "issuer": "PSQ Holdings, Inc.", "issuer_cik": "0001847064", "period": "2024-12-06", "date": "2024-12-06", "owner": "Trump Donald J. JR", "owner_cik": "0002016181", "title": null, "is_officer": false, "is_director": true, "is_10pct": false, "security": "Class A Common Stock, par value $0.0001 per share", "derivative": false, "code": "A", "acq_disp": "A", "shares": 74627.0, "price": 0.0, "value": null, "shares_after": 625974.0, "plan_10b5_1": false, "n_owners": 1, "filed": "2024-12-10", "accession": "0001474506-24-000274"}], "issuers": ["DJT", "PEW", "PSQH"], "profile_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2016181&type=&dateb=&owner=include&count=40"}], "news": {"window_days": 5, "n": 188, "serious": [{"company": "Gaucho Group Holdings, Inc.", "ticker": null, "cik": 1559998, "filed": "2026-08-21", "accession": "0001493152-26-039645", "headline": "Changed auditors", "severity": "serious", "weight": 3, "all_items": ["Changed auditors"], "url": "https://www.sec.gov/Archives/edgar/data/1559998/000149315226039645/form8-k.htm"}, {"company": "SOLESENCE, INC.", "ticker": "SLSN", "cik": 883107, "filed": "2026-08-21", "accession": "0001171843-26-005702", "headline": "Past financials can no longer be relied on", "severity": "serious", "weight": 3, "all_items": ["Past financials can no longer be relied on"], "url": "https://www.sec.gov/Archives/edgar/data/883107/000117184326005702/f8k_082126.htm"}, {"company": "SpringBig Holdings, Inc.", "ticker": null, "cik": 1801602, "filed": "2026-08-19", "accession": "0001213900-26-091652", "headline": "Changed auditors", "severity": "serious", "weight": 3, "all_items": ["Changed auditors"], "url": "https://www.sec.gov/Archives/edgar/data/1801602/000121390026091652/ea0302750-8k_spring.htm"}], "recent": [{"company": "Gaucho Group Holdings, Inc.", "ticker": null, "cik": 1559998, "filed": "2026-08-21", "accession": "0001493152-26-039645", "headline": "Changed auditors", "severity": "serious", "weight": 3, "all_items": ["Changed auditors"], "url": "https://www.sec.gov/Archives/edgar/data/1559998/000149315226039645/form8-k.htm"}, {"company": "SOLESENCE, INC.", "ticker": "SLSN", "cik": 883107, "filed": "2026-08-21", "accession": "0001171843-26-005702", "headline": "Past financials can no longer be relied on", "severity": "serious", "weight": 3, "all_items": ["Past financials can no longer be relied on"], "url": "https://www.sec.gov/Archives/edgar/data/883107/000117184326005702/f8k_082126.htm"}, {"company": "Qnity Electronics, Inc.", "ticker": "Q", "cik": 2058873, "filed": "2026-08-21", "accession": "0002058873-26-000033", "headline": "Executive or director change", "severity": "notable", "weight": 2, "all_items": ["Executive or director change"], "url": "https://www.sec.gov/Archives/edgar/data/2058873/000205887326000033/q-20260821.htm"}, {"company": "loanDepot, Inc.", "ticker": "LDI", "cik": 1831631, "filed": "2026-08-21", "accession": "0001831631-26-000101", "headline": "Delisting notice / listing rule failure", "severity": "notable", "weight": 2, "all_items": ["Delisting notice / listing rule failure"], "url": "https://www.sec.gov/Archives/edgar/data/1831631/000183163126000101/ldi-20260821.htm"}, {"company": "NEONC TECHNOLOGIES HOLDINGS, INC.", "ticker": "NTHI", "cik": 1979414, "filed": "2026-08-21", "accession": "0001829126-26-009220", "headline": "Executive or director change", "severity": "notable", "weight": 2, "all_items": ["Executive or director change"], "url": "https://www.sec.gov/Archives/edgar/data/1979414/000182912626009220/neonctechnologies_8ka.htm"}, {"company": "ESS Tech, Inc.", "ticker": null, "cik": 1819438, "filed": "2026-08-21", "accession": "0001819438-26-000077", "headline": "Sold unregistered shares (dilution)", "severity": "notable", "weight": 2, "all_items": ["Sold unregistered shares (dilution)", "Signed a major agreement"], "url": "https://www.sec.gov/Archives/edgar/data/1819438/000181943826000077/wk-20260820.htm"}, {"company": "New Fortress Energy Inc.", "ticker": "NFE", "cik": 1749723, "filed": "2026-08-21", "accession": "0001749723-26-000110", "headline": "Executive or director change", "severity": "notable", "weight": 2, "all_items": ["Executive or director change"], "url": "https://www.sec.gov/Archives/edgar/data/1749723/000174972326000110/nfe-20260817.htm"}, {"company": "Sadot Group Inc.", "ticker": "SDOT", "cik": 1701756, "filed": "2026-08-21", "accession": "0001731122-26-001123", "headline": "Sold unregistered shares (dilution)", "severity": "notable", "weight": 2, "all_items": ["Sold unregistered shares (dilution)", "Signed a major agreement"], "url": "https://www.sec.gov/Archives/edgar/data/1701756/000173112226001123/e7883_8-k.htm"}, {"company": "Gossamer Bio, Inc.", "ticker": "GOSS", "cik": 1728117, "filed": "2026-08-21", "accession": "0001728117-26-000077", "headline": "Sold unregistered shares (dilution)", "severity": "notable", "weight": 2, "all_items": ["Sold unregistered shares (dilution)", "Signed a major agreement"], "url": "https://www.sec.gov/Archives/edgar/data/1728117/000172811726000077/goss-20260820.htm"}, {"company": "Cottonwood Communities, Inc.", "ticker": null, "cik": 1692951, "filed": "2026-08-21", "accession": "0001692951-26-000154", "headline": "Sold unregistered shares (dilution)", "severity": "notable", "weight": 2, "all_items": ["Sold unregistered shares (dilution)"], "url": "https://www.sec.gov/Archives/edgar/data/1692951/000169295126000154/cci-20260817.htm"}, {"company": "Edgemode, Inc.", "ticker": "EDGM", "cik": 1652958, "filed": "2026-08-21", "accession": "0001683168-26-006657", "headline": "Sold unregistered shares (dilution)", "severity": "notable", "weight": 2, "all_items": ["Sold unregistered shares (dilution)", "Signed a major agreement"], "url": "https://www.sec.gov/Archives/edgar/data/1652958/000168316826006657/edgemode_8k.htm"}, {"company": "SolarMax Technology, Inc.", "ticker": "SMXT", "cik": 1519472, "filed": "2026-08-21", "accession": "0001640334-26-001407", "headline": "Delisting notice / listing rule failure", "severity": "notable", "weight": 2, "all_items": ["Delisting notice / listing rule failure"], "url": "https://www.sec.gov/Archives/edgar/data/1519472/000164033426001407/solarmax_8k.htm"}, {"company": "Nerdy Inc.", "ticker": "NRDY", "cik": 1819404, "filed": "2026-08-21", "accession": "0001628280-26-058487", "headline": "Executive or director change", "severity": "notable", "weight": 2, "all_items": ["Executive or director change"], "url": "https://www.sec.gov/Archives/edgar/data/1819404/000162828026058487/nrdy-20260820.htm"}, {"company": "Global Water Resources, Inc.", "ticker": "GWRS", "cik": 1434728, "filed": "2026-08-21", "accession": "0001628280-26-058486", "headline": "Sold unregistered shares (dilution)", "severity": "notable", "weight": 2, "all_items": ["Sold unregistered shares (dilution)", "Signed a major agreement"], "url": "https://www.sec.gov/Archives/edgar/data/1434728/000162828026058486/gwrs-20260820.htm"}, {"company": "Dream Finders Homes, Inc.", "ticker": "DFH", "cik": 1825088, "filed": "2026-08-21", "accession": "0001628280-26-058483", "headline": "Executive or director change", "severity": "notable", "weight": 2, "all_items": ["Executive or director change"], "url": "https://www.sec.gov/Archives/edgar/data/1825088/000162828026058483/dream-20260820.htm"}, {"company": "BOEING CO", "ticker": null, "cik": 12927, "filed": "2026-08-21", "accession": "0001628280-26-058481", "headline": "Executive or director change", "severity": "notable", "weight": 2, "all_items": ["Executive or director change"], "url": "https://www.sec.gov/Archives/edgar/data/12927/000162828026058481/ba-20260819.htm"}, {"company": "NORTHROP GRUMMAN CORP /DE/", "ticker": "NOC", "cik": 1133421, "filed": "2026-08-21", "accession": "0001628280-26-058480", "headline": "Executive or director change", "severity": "notable", "weight": 2, "all_items": ["Executive or director change"], "url": "https://www.sec.gov/Archives/edgar/data/1133421/000162828026058480/noc-20260819.htm"}, {"company": "Ares Sports, Media & Entertainment Opportunities LP", "ticker": null, "cik": 2046946, "filed": "2026-08-21", "accession": "0001628280-26-058433", "headline": "Sold unregistered shares (dilution)", "severity": "notable", "weight": 2, "all_items": ["Sold unregistered shares (dilution)"], "url": "https://www.sec.gov/Archives/edgar/data/2046946/000162828026058433/asme-20260821.htm"}, {"company": "IMAX CORP", "ticker": "IMAX", "cik": 921582, "filed": "2026-08-21", "accession": "0001628280-26-058427", "headline": "Executive or director change", "severity": "notable", "weight": 2, "all_items": ["Executive or director change"], "url": "https://www.sec.gov/Archives/edgar/data/921582/000162828026058427/imax-20260819.htm"}, {"company": "James Hardie Industries plc", "ticker": null, "cik": 1159152, "filed": "2026-08-21", "accession": "0001628280-26-058414", "headline": "Changed shareholder rights", "severity": "notable", "weight": 2, "all_items": ["Changed shareholder rights"], "url": "https://www.sec.gov/Archives/edgar/data/1159152/000162828026058414/jhx-20260820.htm"}], "linked": [{"company": "Global Water Resources, Inc.", "ticker": "GWRS", "cik": 1434728, "filed": "2026-08-21", "accession": "0001628280-26-058486", "headline": "Sold unregistered shares (dilution)", "severity": "notable", "weight": 2, "all_items": ["Sold unregistered shares (dilution)", "Signed a major agreement"], "url": "https://www.sec.gov/Archives/edgar/data/1434728/000162828026058486/gwrs-20260820.htm"}, {"company": "Palo Alto Networks Inc", "ticker": "PANW", "cik": 1327567, "filed": "2026-08-21", "accession": "0001193125-26-361122", "headline": "Executive or director change", "severity": "notable", "weight": 2, "all_items": ["Executive or director change"], "url": "https://www.sec.gov/Archives/edgar/data/1327567/000119312526361122/d180372d8k.htm"}, {"company": "Lyntris Inc.", "ticker": "LYNX", "cik": 2132582, "filed": "2026-08-21", "accession": "0001193125-26-359991", "headline": "Executive or director change", "severity": "notable", "weight": 2, "all_items": ["Executive or director change", "Signed a major agreement"], "url": "https://www.sec.gov/Archives/edgar/data/2132582/000119312526359991/d821382d8k.htm"}, {"company": "HOME DEPOT, INC.", "ticker": "HD", "cik": 354950, "filed": "2026-08-21", "accession": "0000354950-26-000148", "headline": "Executive or director change", "severity": "notable", "weight": 2, "all_items": ["Executive or director change"], "url": "https://www.sec.gov/Archives/edgar/data/354950/000035495026000148/hd-20260820.htm"}], "mix": [{"label": "Executive or director change", "n": 89}, {"label": "Sold unregistered shares (dilution)", "n": 45}, {"label": "Delisting notice / listing rule failure", "n": 27}, {"label": "Changed shareholder rights", "n": 11}, {"label": "Ended a major agreement", "n": 10}, {"label": "Changed auditors", "n": 2}, {"label": "Change of control", "n": 2}]}};
+
+/* ---------- formatting ---------- */
+const fmtMoney = v => {
+  if (v == null) return "—";
+  const a = Math.abs(v);
+  if (a >= 1e9) return "$" + (v/1e9).toFixed(1) + "B";
+  if (a >= 1e6) return "$" + (v/1e6).toFixed(1) + "M";
+  if (a >= 1e3) return "$" + (v/1e3).toFixed(0) + "K";
+  return "$" + Math.round(v);
+};
+const esc = s => String(s == null ? "" : s).replace(/[&<>"]/g, c =>
+  ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+
+/* ---------- shared tooltip ---------- */
+const tip = document.getElementById("tip");
+function bindTip(el, html){
+  el.classList.add("hovz");
+  el.addEventListener("mousemove", e => {
+    tip.innerHTML = html;
+    tip.style.opacity = 1;
+    const pad = 14;
+    let x = e.clientX + pad, y = e.clientY + pad;
+    const r = tip.getBoundingClientRect();
+    if (x + r.width > innerWidth - 8) x = e.clientX - r.width - pad;
+    if (y + r.height > innerHeight - 8) y = e.clientY - r.height - pad;
+    tip.style.left = x + "px"; tip.style.top = y + "px";
+  });
+  el.addEventListener("mouseleave", () => tip.style.opacity = 0);
+}
+const SVGNS = "http://www.w3.org/2000/svg";
+function el(tag, attrs, parent){
+  const n = document.createElementNS(SVGNS, tag);
+  for (const k in attrs) n.setAttribute(k, attrs[k]);
+  if (parent) parent.appendChild(n);
+  return n;
+}
+
+/* ---------- horizontal bars ---------- */
+function hbar(mount, rows, opts){
+  opts = opts || {};
+  const labelW = opts.labelW || 130, rowH = 26, gap = 6, valW = 62;
+  const W = mount.clientWidth || 420;
+  const H = rows.length * (rowH + gap);
+  const svg = el("svg", {viewBox:`0 0 ${W} ${H}`, width:"100%", height:H, role:"img"}, mount);
+  const max = Math.max(...rows.map(r => opts.stacked ? (r.a + r.b) : r.value), 1);
+  const plotW = W - labelW - valW;
+
+  rows.forEach((r, i) => {
+    const y = i * (rowH + gap);
+    const g = el("g", {}, svg);
+    const t = el("text", {x:0, y:y + rowH/2 + 4, "font-size":12.5,
+      fill: opts.labelFill || css("--ink"), "font-weight": opts.labelWeight || 500}, g);
+    t.textContent = r.label.length > 20 ? r.label.slice(0,19) + "…" : r.label;
+
+    if (opts.stacked){
+      const wa = (r.a/max) * plotW, wb = (r.b/max) * plotW;
+      if (wa > 0) el("rect", {class:"mark", x:labelW, y:y+4, width:Math.max(wa,2), height:rowH-8,
+        rx:4, fill:css("--buy")}, g);
+      if (wb > 0) el("rect", {class:"mark", x:labelW + wa + (wa>0?2:0), y:y+4,
+        width:Math.max(wb,2), height:rowH-8, rx:4, fill:css("--sell")}, g);
+    } else {
+      el("rect", {class:"mark", x:labelW, y:y+4, width:Math.max((r.value/max)*plotW, 2),
+        height:rowH-8, rx:4, fill:r.color || css("--cat-1")}, g);
+    }
+    const v = el("text", {x:W, y:y + rowH/2 + 4, "font-size":12, "text-anchor":"end",
+      fill:css("--ink-2"), "font-weight":500}, g);
+    v.textContent = r.display;
+    bindTip(g, r.tip);
+  });
+}
+
+/* ---------- grouped vertical bars ---------- */
+function groupBars(mount, rows){
+  const W = mount.clientWidth || 420, H = 190, padB = 34, padT = 10;
+  const svg = el("svg", {viewBox:`0 0 ${W} ${H}`, width:"100%", height:H, role:"img"}, mount);
+  const max = Math.max(...rows.flatMap(r => [r.buy, r.sell]), 1);
+  const plotH = H - padB - padT;
+  const step = W / rows.length;
+  const bw = Math.max(3, Math.min(14, step/2 - 3));
+
+  [0.5, 1].forEach(f => {
+    const y = padT + plotH - f*plotH;
+    el("line", {x1:0, x2:W, y1:y, y2:y, stroke:css("--line"), "stroke-width":1}, svg);
+    const lb = el("text", {x:0, y:y-4, "font-size":10, fill:css("--muted")}, svg);
+    lb.textContent = fmtMoney(max*f);
+  });
+  el("line", {x1:0, x2:W, y1:padT+plotH, y2:padT+plotH, stroke:css("--line"), "stroke-width":1}, svg);
+
+  rows.forEach((r, i) => {
+    const cx = i*step + step/2;
+    const g = el("g", {}, svg);
+    const hb = (r.buy/max)*plotH, hs = (r.sell/max)*plotH;
+    el("rect", {class:"mark", x:cx-bw-1, y:padT+plotH-hb, width:bw, height:Math.max(hb,1),
+      rx:3, fill:css("--buy")}, g);
+    el("rect", {class:"mark", x:cx+1, y:padT+plotH-hs, width:bw, height:Math.max(hs,1),
+      rx:3, fill:css("--sell")}, g);
+    if (i % Math.ceil(rows.length/6) === 0){
+      const t = el("text", {x:cx, y:H-12, "font-size":10, "text-anchor":"middle",
+        fill:css("--muted")}, svg);
+      t.textContent = r.date.slice(5);
+    }
+    bindTip(g, `<b>${r.date}</b><br>Bought ${fmtMoney(r.buy)} · ${r.nbuy} trades<br>Sold ${fmtMoney(r.sell)} · ${r.nsell} trades`);
+  });
+}
+
+/* ---------- vertical histogram ---------- */
+function vhist(mount, rows, color){
+  const W = mount.clientWidth || 420, H = 190, padB = 40, padT = 14;
+  const svg = el("svg", {viewBox:`0 0 ${W} ${H}`, width:"100%", height:H, role:"img"}, mount);
+  const max = Math.max(...rows.map(r => r.n), 1);
+  const plotH = H - padB - padT, step = W / rows.length, bw = Math.min(step - 12, 60);
+  el("line", {x1:0, x2:W, y1:padT+plotH, y2:padT+plotH, stroke:css("--line")}, svg);
+  rows.forEach((r, i) => {
+    const cx = i*step + step/2, h = (r.n/max)*plotH;
+    const g = el("g", {}, svg);
+    el("rect", {class:"mark", x:cx-bw/2, y:padT+plotH-h, width:bw, height:Math.max(h,1),
+      rx:4, fill: r.color || color}, g);
+    if (r.n > 0){
+      const v = el("text", {x:cx, y:padT+plotH-h-5, "font-size":11, "text-anchor":"middle",
+        fill:css("--ink-2"), "font-weight":600}, g);
+      v.textContent = r.n;
+    }
+    const t = el("text", {x:cx, y:H-20, "font-size":10.5, "text-anchor":"middle",
+      fill:css("--muted")}, svg);
+    t.textContent = r.bucket.split(" ")[0];
+    const t2 = el("text", {x:cx, y:H-8, "font-size":10.5, "text-anchor":"middle",
+      fill:css("--muted")}, svg);
+    t2.textContent = r.bucket.split(" ").slice(1).join(" ");
+    bindTip(g, `<b>${r.bucket}</b><br>${r.n} trades`);
+  });
+}
+
+/* ---------- donut ---------- */
+function donut(mount, slices){
+  const W = mount.clientWidth || 300, size = Math.min(W, 190);
+  const cx = size/2, cy = size/2, R = size/2 - 4, r = R * 0.58;
+  const holder = document.createElement("div");
+  holder.style.cssText = "display:flex;gap:20px;align-items:center;flex-wrap:wrap";
+  mount.appendChild(holder);
+  const box = document.createElement("div");
+  holder.appendChild(box);
+  const svg = el("svg", {viewBox:`0 0 ${size} ${size}`, width:size, height:size, role:"img"}, box);
+
+  const total = slices.reduce((s,x) => s + x.n, 0) || 1;
+  let a0 = -Math.PI/2;
+  slices.forEach(s => {
+    const frac = s.n/total, a1 = a0 + frac*2*Math.PI;
+    const pad = frac > 0.02 ? 0.012 : 0;
+    const [s0, s1] = [a0 + pad, a1 - pad];
+    const large = (s1 - s0) > Math.PI ? 1 : 0;
+    const p = [
+      `M ${cx+R*Math.cos(s0)} ${cy+R*Math.sin(s0)}`,
+      `A ${R} ${R} 0 ${large} 1 ${cx+R*Math.cos(s1)} ${cy+R*Math.sin(s1)}`,
+      `L ${cx+r*Math.cos(s1)} ${cy+r*Math.sin(s1)}`,
+      `A ${r} ${r} 0 ${large} 0 ${cx+r*Math.cos(s0)} ${cy+r*Math.sin(s0)}`, "Z"
+    ].join(" ");
+    const g = el("g", {}, svg);
+    el("path", {class:"mark", d:p, fill:s.color}, g);
+    bindTip(g, `<b>${esc(s.label)}</b><br>${s.n} (${(frac*100).toFixed(0)}%)`);
+    a0 = a1;
+  });
+  const big = el("text", {x:cx, y:cy+2, "text-anchor":"middle", "font-size":22,
+    "font-weight":600, fill:css("--ink")}, svg);
+  big.textContent = total;
+  const cap = el("text", {x:cx, y:cy+18, "text-anchor":"middle", "font-size":10,
+    fill:css("--muted")}, svg);
+  cap.textContent = "total";
+
+  const leg = document.createElement("div");
+  leg.style.cssText = "display:flex;flex-direction:column;gap:8px;min-width:130px;flex:1";
+  slices.forEach(s => {
+    const row = document.createElement("div");
+    row.style.cssText = "font-size:13px;line-height:1.35;display:flex;gap:8px;align-items:flex-start";
+    row.innerHTML = `<i style="flex:none;display:inline-block;width:11px;height:11px;border-radius:3px;
+      margin-top:4px;background:${s.color}"></i>
+      <span style="color:var(--ink-2)">${esc(s.label)}<br>
+      <b class="num" style="color:var(--ink)">${s.n}</b>
+      <span style="color:var(--muted)">· ${(s.n/total*100).toFixed(0)}%</span></span>`;
+    leg.appendChild(row);
+  });
+  holder.appendChild(leg);
+}
+
+/* ---------- concentration scatter ----------
+   x = top-10 concentration %, y = position count (log), area = portfolio size.
+   Only two colors, and every point is direct-labeled, so color never carries
+   identity on its own. */
+function scatter(mount, pts){
+  const W = mount.clientWidth || 640, H = 330;
+  const L = 46, R = 16, T = 16, B = 44;
+  const svg = el("svg", {viewBox:`0 0 ${W} ${H}`, width:"100%", height:H, role:"img"}, mount);
+  const pw = W - L - R, ph = H - T - B;
+
+  const yLo = Math.log10(Math.max(1, Math.min(...pts.map(p => p.positions)) * 0.6));
+  const yHi = Math.log10(Math.max(...pts.map(p => p.positions)) * 1.6);
+  const X = v => L + (v/100) * pw;
+  const Y = v => T + ph - ((Math.log10(Math.max(v,1)) - yLo)/(yHi - yLo)) * ph;
+  const maxV = Math.max(...pts.map(p => p.total));
+  const Rad = v => 6 + 26 * Math.sqrt(v/maxV);
+
+  [0,25,50,75,100].forEach(t => {
+    el("line", {x1:X(t), x2:X(t), y1:T, y2:T+ph, stroke:css("--line-soft")}, svg);
+    const lb = el("text", {x:X(t), y:H-24, "font-size":10.5, "text-anchor":"middle",
+      fill:css("--muted")}, svg);
+    lb.textContent = t + "%";
+  });
+  [10,100,1000,10000].forEach(t => {
+    const y = Y(t);
+    if (y < T || y > T+ph) return;
+    el("line", {x1:L, x2:L+pw, y1:y, y2:y, stroke:css("--line-soft")}, svg);
+    const lb = el("text", {x:L-6, y:y+3.5, "font-size":10.5, "text-anchor":"end",
+      fill:css("--muted")}, svg);
+    lb.textContent = t >= 1000 ? (t/1000)+"k" : t;
+  });
+  const xt = el("text", {x:L+pw/2, y:H-6, "font-size":11, "text-anchor":"middle",
+    fill:css("--ink-2")}, svg);
+  xt.textContent = "share of portfolio in its 10 biggest positions";
+  const yt = el("text", {x:0, y:0, "font-size":11, fill:css("--ink-2"),
+    transform:`translate(12,${T+ph/2}) rotate(-90)`, "text-anchor":"middle"}, svg);
+  yt.textContent = "number of positions";
+
+  pts.slice().sort((a,b) => b.total - a.total).forEach(p => {
+    const g = el("g", {}, svg);
+    const color = p.kind === "bank" ? css("--cat-2") : css("--cat-1");
+    el("circle", {class:"mark", cx:X(p.top10_pct), cy:Y(p.positions), r:Rad(p.total),
+      fill:color, "fill-opacity":.32, stroke:color, "stroke-width":2}, g);
+    const lab = el("text", {x:X(p.top10_pct), y:Y(p.positions) - Rad(p.total) - 6,
+      "font-size":11, "text-anchor":"middle", fill:css("--ink"), "font-weight":600}, g);
+    lab.textContent = p.label;
+    bindTip(g, `<b>${esc(p.label)}</b><br>${p.positions.toLocaleString()} positions<br>
+      Top 10 = ${p.top10_pct.toFixed(0)}% of the portfolio<br>${fmtMoney(p.total)} total<br>
+      Snapshot ${esc(p.period)}`);
+  });
+}
+
+/* ================= RENDER ================= */
+function render(){
+  const I = DATA.insiders, C = DATA.congress;
+
+  document.getElementById("stamp").innerHTML =
+    `Generated ${esc(DATA.generated)}<br>Insiders: last ${DATA.window.insider_days} days` +
+    `<br>Congress: last ${DATA.window.congress_days} days`;
+
+  /* --- delay thesis --- */
+  const sources = [
+    {who:"Company insiders", note:"Form 4", days:2, color:"var(--fresh)",
+     tip:"Executives and board members must file within 2 business days of trading."},
+    {who:"Members of Congress", note:"STOCK Act report", days:45, color:"var(--warn)",
+     tip:"Up to 45 days after the trade. Late penalty: $200."},
+    {who:"Big funds", note:"Form 13F", days:135, color:"var(--stale)",
+     tip:"Quarterly, filed 45 days after quarter end — so a trade made on day 1 of a quarter surfaces ~135 days later."}
+  ];
+  const dmax = 135, dwrap = document.getElementById("delay");
+  sources.forEach(s => {
+    const row = document.createElement("div");
+    row.className = "delayrow";
+    const pct = (s.days/dmax)*100;
+    row.innerHTML = `<div class="who">${s.who}<small>${s.note}</small></div>
+      <div class="delaybar"><div class="delayfill" style="width:${Math.max(pct,1.4)}%;
+        background:${s.color}"><span>${s.days} days</span></div></div>`;
+    if (pct < 12){
+      const f = row.querySelector(".delayfill");
+      f.innerHTML = "";
+      const lab = document.createElement("span");
+      lab.textContent = s.days + " days";
+      lab.style.cssText = "position:absolute;left:" + (pct+1.5) + "%;color:var(--ink);top:7px";
+      row.querySelector(".delaybar").appendChild(lab);
+    }
+    bindTip(row, `<b>${s.who}</b><br>${s.tip}`);
+    dwrap.appendChild(row);
+  });
+
+  /* --- insider tiles --- */
+  document.getElementById("k-buy").textContent = fmtMoney(I.buy_value);
+  document.getElementById("k-sell").textContent = fmtMoney(I.sell_value);
+  document.getElementById("k-n").textContent = I.n_transactions.toLocaleString();
+  document.getElementById("k-n-cap").textContent =
+    `Filings read · ${I.n_buys} buys, ${I.n_sells} sells`;
+
+  /* --- clusters --- */
+  const cw = document.getElementById("clusters");
+  if (!I.clusters.length){
+    cw.innerHTML = `<p style="color:var(--muted);font-size:14px">No company had two or more
+      insiders buying on the open market in this window. That is a normal result for a short window.</p>`;
+  }
+  I.clusters.forEach(c => {
+    const d = document.createElement("div");
+    d.className = "cl";
+    d.innerHTML = `<div class="tk">${esc(c.ticker)}</div>
+      <div><div class="nm">${esc(c.issuer || "")}</div>
+        <div class="ro">${esc((c.titles||[]).join(" · "))}</div></div>
+      <div class="rt"><div class="v">${fmtMoney(c.total_value)}</div>
+        <div class="n">${c.insiders} insiders${c.all_10b5_1 ? '<span class="flag">scheduled</span>' : ''}</div></div>`;
+    bindTip(d, `<b>${esc(c.ticker)}</b> — ${esc(c.issuer||"")}<br>
+      ${c.insiders} insiders · ${c.trades} purchases<br>Total ${fmtMoney(c.total_value)}<br>
+      Trade dates: ${esc((c.dates||[]).join(", "))}`);
+    cw.appendChild(d);
+  });
+
+  /* --- flow --- */
+  if (I.flow.length) groupBars(document.getElementById("flow"), I.flow);
+
+  /* --- buyer seniority --- */
+  const bm = I.buyer_mix.slice(0, 6).map(b => ({
+    label: b.who, value: b.n, display: String(b.n),
+    color: css("--buy"),
+    tip: `<b>${esc(b.who)}</b><br>${b.n} open-market purchases`
+  }));
+  if (bm.length) hbar(document.getElementById("buyers"), bm, {labelW:110});
+
+  /* --- plan split donut --- */
+  const ps = I.plan_split.map((p, i) => ({
+    label: p.kind, n: p.n, color: i === 0 ? css("--cat-other") : css("--cat-2")
+  }));
+  donut(document.getElementById("plan"), ps);
+
+  /* --- notable sells table --- */
+  const st = document.getElementById("sells");
+  st.innerHTML = `<thead><tr><th>Ticker</th><th>Who</th><th class="r">Value</th>
+    <th class="r">% out</th></tr></thead><tbody>` +
+    I.sells.slice(0, 8).map(s => `<tr>
+      <td class="tick">${esc(s.ticker || "—")}</td>
+      <td>${esc(s.owner || "")}<br><span style="color:var(--muted);font-size:12px">
+        ${esc((s.title || (s.is_director ? "Director" : "")).slice(0, 34))}</span></td>
+      <td class="r num">${fmtMoney(s.value)}</td>
+      <td class="r num">${s.pct_of_stake != null ? Math.round(s.pct_of_stake) + "%" : "—"}</td>
+    </tr>`).join("") + `</tbody>`;
+
+  /* --- congress tickers --- */
+  const ct = C.by_ticker.slice(0, 10).map(t => ({
+    label: t.ticker, a: t.buys, b: t.sells,
+    display: `${t.buys + t.sells}`,
+    tip: `<b>${esc(t.ticker)}</b> ${esc((t.asset||"").slice(0,40))}<br>
+      ${t.buys} bought · ${t.sells} sold<br>${t.members} member${t.members>1?"s":""}: ${esc(t.names.join(", "))}<br>
+      Disclosed range ${fmtMoney(t.min_notional)} – ${fmtMoney(t.max_notional)}`
+  }));
+  if (ct.length) hbar(document.getElementById("ctickers"), ct, {stacked:true, labelW:70});
+
+  /* --- lateness --- */
+  const lateColors = [css("--cat-3"), css("--cat-3"), css("--warn"), css("--sell"), css("--sell")];
+  vhist(document.getElementById("late"),
+    C.lateness.map((l, i) => ({...l, color: lateColors[i]})));
+
+  /* --- asset mix donut (cap at 3 + Other) --- */
+  const am = C.asset_mix.slice();
+  const top3 = am.slice(0, 3);
+  const rest = am.slice(3).reduce((s, x) => s + x.n, 0);
+  const slices = top3.map((a, i) => ({label:a.kind, n:a.n,
+    color: [css("--cat-1"), css("--cat-2"), css("--cat-3")][i]}));
+  if (rest > 0) slices.push({label:"Everything else", n:rest, color:css("--cat-other")});
+  donut(document.getElementById("assets"), slices);
+
+  /* --- members table --- */
+  const mt = document.getElementById("members");
+  mt.innerHTML = `<thead><tr><th>Member</th><th class="r">Trades</th>
+    <th class="r">Disclosed range</th></tr></thead><tbody>` +
+    C.members.slice(0, 8).map(m => `<tr>
+      <td>${esc(m.member)}</td>
+      <td class="r num">${m.buys}B / ${m.sells}S</td>
+      <td class="r num">${fmtMoney(m.low)} – ${fmtMoney(m.high)}</td>
+    </tr>`).join("") + `</tbody>`;
+
+  /* --- funds --- */
+  const fw = document.getElementById("funds");
+  DATA.funds.forEach(f => {
+    const card = document.createElement("div");
+    card.className = "card";
+    const months = (f.stale_days/30).toFixed(1);
+    card.innerHTML = `<div style="display:flex;flex-wrap:wrap;gap:10px;align-items:baseline;
+        justify-content:space-between;margin-bottom:2px">
+        <h3 style="font-size:17px">${esc(f.name)}</h3>
+        <span class="mono" style="font-size:11.5px;color:var(--stale)">
+          snapshot is ${f.stale_days} days old (${months} months)</span></div>
+      <p class="hint">Holdings as of ${esc(f.period)}, filed ${esc(f.filed)} ·
+        ${fmtMoney(f.total)} in US stocks</p>
+      <div class="grid g2" style="gap:18px">
+        <div><div class="mono" style="font-size:11px;color:var(--muted);letter-spacing:.07em;
+          text-transform:uppercase;margin-bottom:8px">Biggest positions</div>
+          <div class="fh"></div></div>
+        <div><div class="mono" style="font-size:11px;color:var(--muted);letter-spacing:.07em;
+          text-transform:uppercase;margin-bottom:8px">What changed this quarter</div>
+          <div class="tblwrap"><table class="fm"></table></div></div>
+      </div>`;
+    fw.appendChild(card);
+
+    const rows = f.top.slice(0, 7).map(t => ({
+      label: t.issuer + (t.put_call ? " " + t.put_call : ""),
+      value: t.value, display: t.pct.toFixed(1) + "%",
+      color: t.put_call ? css("--cat-2") : css("--cat-1"),
+      tip: `<b>${esc(t.issuer)}</b>${t.put_call ? " (" + esc(t.put_call) + " option)" : ""}<br>
+        ${fmtMoney(t.value)} · ${t.pct.toFixed(1)}% of the portfolio`
+    }));
+    hbar(card.querySelector(".fh"), rows, {labelW:120});
+
+    card.querySelector(".fm").innerHTML =
+      `<thead><tr><th>Position</th><th>Move</th><th class="r">Size</th></tr></thead><tbody>` +
+      f.moves.slice(0, 7).map(m => `<tr>
+        <td>${esc((m.issuer||"").slice(0,26))}${m.put_call ? ' <span style="color:var(--muted)">'+esc(m.put_call)+'</span>' : ''}</td>
+        <td><span class="pill ${esc(m.action)}">${esc(m.action)}</span></td>
+        <td class="r num">${m.value ? fmtMoney(m.value) : "—"}</td>
+      </tr>`).join("") + `</tbody>`;
+  });
+}
+
+/* ---------- banks + concentration ---------- */
+function renderInstitutions(){
+  const inst = (DATA.institutions || []).map(i => ({
+    label: i.label || i.name, positions: i.positions, top10_pct: i.top10_pct,
+    total: i.total, period: i.period, kind: "bank"
+  }));
+  const managers = (DATA.funds || []).filter(f => f.positions).map(f => ({
+    label: f.name.split(",")[0].split(" ").slice(0,2).join(" "),
+    positions: f.positions, top10_pct: f.top10_pct, total: f.total,
+    period: f.period, kind: "manager"
+  }));
+  const pts = inst.concat(managers);
+  if (pts.length) scatter(document.getElementById("conc"), pts);
+
+  const rows = pts.slice().sort((a,b) => b.total - a.total);
+  document.getElementById("insttbl").innerHTML =
+    `<thead><tr><th>Filer</th><th>Type</th><th class="r">Positions</th>
+      <th class="r">Portfolio</th><th class="r">Top 10 =</th></tr></thead><tbody>` +
+    rows.map(r => `<tr>
+      <td>${esc(r.label)}</td>
+      <td><span style="color:${r.kind === "bank" ? "var(--cat-2)" : "var(--cat-1)"};
+        font-family:'IBM Plex Mono',monospace;font-size:12px">
+        ${r.kind === "bank" ? "bank / index" : "concentrated"}</span></td>
+      <td class="r num">${r.positions.toLocaleString()}</td>
+      <td class="r num">${fmtMoney(r.total)}</td>
+      <td class="r num">${r.top10_pct.toFixed(0)}%</td>
+    </tr>`).join("") + `</tbody>`;
+}
+
+/* ---------- people ---------- */
+const CODE_MEANING = {
+  P:"bought on the open market", S:"sold on the open market",
+  A:"received as a grant", M:"exercised options", F:"shares held back for tax",
+  G:"gifted / transferred out", J:"other (see filing)", C:"converted", D:"returned to company"
+};
+function renderPeople(){
+  const wrap = document.getElementById("people");
+  (DATA.people || []).forEach(p => {
+    const card = document.createElement("div");
+    card.className = "card";
+    if (p.error){
+      card.innerHTML = `<h3>${esc(p.name || p.cik)}</h3>
+        <p class="hint">Could not load this record: ${esc(p.error)}</p>`;
+      wrap.appendChild(card); return;
+    }
+    const lastOwn = p.last_ownership_filing;
+    const lastAny = p.last_filing;
+    const dormant = lastOwn && lastAny && lastOwn.filed !== lastAny.filed;
+    const txns = (p.transactions || []).slice(0, 6);
+
+    card.innerHTML = `
+      <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:baseline;
+        justify-content:space-between">
+        <h3 style="font-size:17px">${esc(p.name)}</h3>
+        <span class="mono" style="font-size:11.5px;color:var(--muted)">CIK ${p.cik} ·
+          ${p.n_filings} filings on record</span></div>
+      <p class="hint">${esc(p.note || "")}</p>
+      <div style="display:flex;flex-wrap:wrap;gap:22px;margin-bottom:14px">
+        <div><div class="mono" style="font-size:10.5px;color:var(--muted);
+          letter-spacing:.07em;text-transform:uppercase">Last trade form (3/4/5)</div>
+          <div class="num" style="font-size:15px;color:${dormant ? "var(--stale)" : "var(--fresh)"}">
+            ${lastOwn ? esc(lastOwn.filed) : "none on record"}</div></div>
+        <div><div class="mono" style="font-size:10.5px;color:var(--muted);
+          letter-spacing:.07em;text-transform:uppercase">Most recent filing of any kind</div>
+          <div class="num" style="font-size:15px">${lastAny ? esc(lastAny.form) + " · " + esc(lastAny.filed) : "—"}</div></div>
+        <div><div class="mono" style="font-size:10.5px;color:var(--muted);
+          letter-spacing:.07em;text-transform:uppercase">Companies</div>
+          <div class="num" style="font-size:15px">${esc((p.issuers||[]).filter(t=>t.length<=6).join(", ")) || "—"}</div></div>
+      </div>
+      <div class="tblwrap"><table class="ptx"></table></div>`;
+    wrap.appendChild(card);
+
+    card.querySelector(".ptx").innerHTML = txns.length
+      ? `<thead><tr><th>Filed</th><th>Stock</th><th>What happened</th>
+          <th class="r">Shares</th><th class="r">Held after</th></tr></thead><tbody>` +
+        txns.map(t => `<tr>
+          <td class="num">${esc(t.filed || "")}</td>
+          <td class="tick">${esc(t.ticker || "—")}</td>
+          <td>${esc(CODE_MEANING[t.code] || ("code " + t.code))}</td>
+          <td class="r num">${t.shares != null ? Math.round(t.shares).toLocaleString() : "—"}</td>
+          <td class="r num">${t.shares_after != null ? Math.round(t.shares_after).toLocaleString() : "—"}</td>
+        </tr>`).join("") + `</tbody>`
+      : `<tbody><tr><td style="color:var(--muted)">No Form 4 transactions parsed.</td></tr></tbody>`;
+  });
+}
+
+/* ---------- news ---------- */
+function renderNews(){
+  const N = DATA.news || {};
+  const sev = document.getElementById("serious");
+  sev.innerHTML = (N.serious || []).length
+    ? `<thead><tr><th>Filed</th><th>Company</th><th>What was filed</th></tr></thead><tbody>` +
+      N.serious.slice(0, 10).map(e => `<tr>
+        <td class="num">${esc(e.filed)}</td>
+        <td><span class="tick">${esc(e.ticker || "")}</span> ${esc(e.company.slice(0,30))}</td>
+        <td style="color:var(--sell)">${esc(e.headline)}</td>
+      </tr>`).join("") + `</tbody>`
+    : `<tbody><tr><td style="color:var(--muted)">No serious red flags filed in this window.</td></tr></tbody>`;
+
+  const mix = (N.mix || []).slice(0, 6).map((m, i) => ({
+    label: m.label, value: m.n, display: String(m.n),
+    color: css("--cat-1"),
+    tip: `<b>${esc(m.label)}</b><br>${m.n} filings in the last ${N.window_days} days`
+  }));
+  if (mix.length) hbar(document.getElementById("newsmix"), mix, {labelW:180});
+
+  const lk = document.getElementById("linked");
+  lk.innerHTML = (N.linked || []).length
+    ? `<thead><tr><th>Filed</th><th>Company</th><th>What was filed</th></tr></thead><tbody>` +
+      N.linked.slice(0, 8).map(e => `<tr>
+        <td class="num">${esc(e.filed)}</td>
+        <td><span class="tick">${esc(e.ticker || "")}</span> ${esc(e.company.slice(0,30))}</td>
+        <td>${esc(e.headline)}</td>
+      </tr>`).join("") + `</tbody>`
+    : `<tbody><tr><td style="color:var(--muted)">No overlap this window — none of the companies
+       above filed a notable 8-K in the last ${esc(N.window_days || "few")} days.</td></tr></tbody>`;
+}
+
+render();
+renderInstitutions();
+renderPeople();
+renderNews();
+let rt;
+addEventListener("resize", () => {
+  clearTimeout(rt);
+  rt = setTimeout(() => {
+    ["delay","flow","buyers","plan","ctickers","late","assets","funds",
+     "clusters","conc","people","newsmix"]
+      .forEach(id => { const n = document.getElementById(id); if (n) n.innerHTML = ""; });
+    render(); renderInstitutions(); renderPeople(); renderNews();
+  }, 180);
+});
+</script>
+
+</body>
+</html>
