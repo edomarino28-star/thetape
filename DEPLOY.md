@@ -17,7 +17,7 @@ everyone and the SEC rate limit is respected no matter how much traffic arrives.
 
 <https://github.com/new>
 
-- **Repository name:** `the-tape`
+- **Repository name:** `thetape`
 - **Public** (GitHub Pages needs this on the free plan)
 - **Do NOT** tick "Add a README" — the repo must be empty or the push is refused
 
@@ -26,10 +26,10 @@ Press **Create repository**. Leave the page open; you need the URL from it.
 ## 3. Push the code
 
 Open the folder `C:\Users\edoma\smart-money` in a terminal and run these,
-replacing `YOURNAME` with your GitHub username:
+replacing `edomarino28-star` with your GitHub username:
 
 ```bash
-git remote add origin https://github.com/YOURNAME/the-tape.git
+git remote add origin https://github.com/edomarino28-star/thetape.git
 git push -u origin main
 ```
 
@@ -60,7 +60,7 @@ It takes 10–20 minutes, mostly downloading congressional disclosure PDFs one a
 a time. When it goes green, the site is live at:
 
 ```
-https://YOURNAME.github.io/the-tape
+https://edomarino28-star.github.io/thetape
 ```
 
 After this it rebuilds itself **every weekday at 11:30 UTC**. You never touch it
@@ -83,7 +83,7 @@ Any change: commit and push, and the site rebuilds on its own.
 
 ## A custom domain
 
-If you buy one (~£10/year), point a CNAME at `YOURNAME.github.io` and set it
+If you buy one (~£10/year), point a CNAME at `edomarino28-star.github.io` and set it
 under **Settings → Pages → Custom domain**. Optional — the free URL works fine.
 
 ---
