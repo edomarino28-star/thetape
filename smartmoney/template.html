@@ -1,0 +1,1066 @@
+<title>Paper Trail</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+
+<style>
+:root{
+  color-scheme: light;
+  --plane:#eef1f4;
+  --surface:#ffffff;
+  --surface-2:#f7f9fa;
+  --ink:#0d1418;
+  --ink-2:#4d5a63;
+  --muted:#7d8b95;
+  --line:#dde3e8;
+  --line-soft:#e9edf1;
+  --accent:#1c5cab;
+  --accent-soft:#e3ecf9;
+  --buy:#2a78d6;
+  --sell:#d03b3b;
+  --cat-1:#2a78d6;
+  --cat-2:#eb6834;
+  --cat-3:#1baf7a;
+  --cat-other:#9aa7b0;
+  --fresh:#0ca30c;
+  --warn:#b57400;
+  --stale:#a03f3f;
+  --shadow:0 1px 2px rgba(13,20,24,.06), 0 8px 24px -12px rgba(13,20,24,.18);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme: dark;
+    --plane:#0b0e10;
+    --surface:#161a1d;
+    --surface-2:#1c2125;
+    --ink:#eef3f6;
+    --ink-2:#a9b6bf;
+    --muted:#7d8b95;
+    --line:#262d33;
+    --line-soft:#1f252a;
+    --accent:#4f97ea;
+    --accent-soft:#16283f;
+    --buy:#3987e5;
+    --sell:#e66767;
+    --cat-1:#3987e5;
+    --cat-2:#d95926;
+    --cat-3:#199e70;
+    --cat-other:#6b7880;
+    --fresh:#0ca30c;
+    --warn:#eda100;
+    --stale:#e08585;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.6);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme: dark;
+  --plane:#0b0e10;
+  --surface:#161a1d;
+  --surface-2:#1c2125;
+  --ink:#eef3f6;
+  --ink-2:#a9b6bf;
+  --muted:#7d8b95;
+  --line:#262d33;
+  --line-soft:#1f252a;
+  --accent:#4f97ea;
+  --accent-soft:#16283f;
+  --buy:#3987e5;
+  --sell:#e66767;
+  --cat-1:#3987e5;
+  --cat-2:#d95926;
+  --cat-3:#199e70;
+  --cat-other:#6b7880;
+  --fresh:#0ca30c;
+  --warn:#eda100;
+  --stale:#e08585;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.6);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--plane);
+  color:var(--ink);
+  font-family:'Archivo',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  font-size:16px;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1080px;margin:0 auto;padding:32px 20px 80px}
+h1,h2,h3{margin:0;text-wrap:balance;letter-spacing:-.025em;font-weight:700}
+p{margin:0}
+.mono{font-family:'IBM Plex Mono',ui-monospace,'Cascadia Mono',Menlo,monospace;font-variant-numeric:tabular-nums}
+.num{font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace;font-variant-numeric:tabular-nums;font-weight:500}
+
+/* ---------- masthead ---------- */
+.masthead{
+  border-bottom:2px solid var(--ink);
+  padding-bottom:18px;margin-bottom:28px;
+  display:flex;flex-wrap:wrap;align-items:flex-end;gap:16px;justify-content:space-between;
+}
+.masthead h1{font-size:clamp(30px,5vw,46px);font-weight:800;line-height:1.02}
+.masthead .sub{color:var(--ink-2);font-size:15px;max-width:52ch;margin-top:8px}
+.stamp{
+  font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted);text-align:right;line-height:1.7;
+  border:1px solid var(--line);border-radius:4px;padding:8px 12px;background:var(--surface);
+}
+
+/* ---------- the thesis panel ---------- */
+.thesis{
+  background:var(--surface);border:1px solid var(--line);border-radius:10px;
+  padding:24px;margin-bottom:32px;box-shadow:var(--shadow);
+}
+.thesis h2{font-size:20px;margin-bottom:4px}
+.thesis .lede{color:var(--ink-2);font-size:15px;max-width:66ch;margin-bottom:22px}
+.delayrow{display:grid;grid-template-columns:170px 1fr;gap:14px;align-items:center;margin-bottom:12px}
+.delayrow .who{font-size:14px;font-weight:600;line-height:1.25}
+.delayrow .who small{display:block;font-weight:400;color:var(--muted);font-size:12px}
+.delaybar{position:relative;height:30px;background:var(--surface-2);border-radius:4px;overflow:hidden}
+.delayfill{height:100%;border-radius:4px 0 0 4px;display:flex;align-items:center;padding-left:10px;min-width:3px}
+.delayfill span{
+  font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;
+  color:#fff;white-space:nowrap;
+}
+.delayfill.tiny span{color:var(--ink);position:absolute;left:auto;margin-left:8px}
+.axisnote{font-size:12px;color:var(--muted);margin-top:10px;font-family:'IBM Plex Mono',monospace}
+
+/* ---------- sections ---------- */
+section{margin-bottom:38px}
+.sechead{display:flex;flex-wrap:wrap;align-items:baseline;gap:12px;margin-bottom:6px}
+.sechead h2{font-size:26px;font-weight:800}
+.chip{
+  font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;letter-spacing:.06em;
+  text-transform:uppercase;padding:3px 9px;border-radius:99px;border:1px solid currentColor;
+  white-space:nowrap;
+}
+.chip.fresh{color:var(--fresh)}
+.chip.warn{color:var(--warn)}
+.chip.stale{color:var(--stale)}
+.secnote{color:var(--ink-2);font-size:15px;max-width:70ch;margin-bottom:18px}
+
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+
+.card{
+  background:var(--surface);border:1px solid var(--line);border-radius:10px;
+  padding:18px;box-shadow:var(--shadow);
+}
+.card h3{font-size:15px;font-weight:700;margin-bottom:2px}
+.card .hint{font-size:13px;color:var(--muted);margin-bottom:14px;line-height:1.45}
+
+/* ---------- stat tiles ---------- */
+.tile .val{font-family:'IBM Plex Mono',monospace;font-size:30px;font-weight:600;line-height:1.1;letter-spacing:-.02em}
+.tile .cap{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-top:6px;font-family:'IBM Plex Mono',monospace}
+.tile .val.buy{color:var(--buy)}
+.tile .val.sell{color:var(--sell)}
+
+/* ---------- cluster cards ---------- */
+.clusters{display:grid;gap:10px}
+.cl{
+  display:grid;grid-template-columns:64px 1fr auto;gap:14px;align-items:center;
+  background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--buy);
+  border-radius:8px;padding:12px 16px;
+}
+.cl .tk{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:15px;color:var(--accent)}
+.cl .nm{font-size:14px;font-weight:600;line-height:1.3}
+.cl .ro{font-size:12px;color:var(--muted);line-height:1.4;margin-top:2px}
+.cl .rt{text-align:right;white-space:nowrap}
+.cl .rt .v{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:15px}
+.cl .rt .n{font-size:12px;color:var(--muted)}
+.flag{
+  display:inline-block;font-size:11px;font-family:'IBM Plex Mono',monospace;
+  color:var(--warn);border:1px solid currentColor;border-radius:3px;padding:0 5px;margin-left:6px;
+}
+
+/* ---------- tables ---------- */
+.tblwrap{overflow-x:auto;margin:0 -4px}
+table{border-collapse:collapse;width:100%;font-size:14px;min-width:480px}
+th{
+  text-align:left;font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;
+  letter-spacing:.07em;text-transform:uppercase;color:var(--muted);
+  padding:6px 10px;border-bottom:1px solid var(--line);white-space:nowrap;
+}
+td{padding:8px 10px;border-bottom:1px solid var(--line-soft);vertical-align:top}
+tr:last-child td{border-bottom:none}
+td.r,th.r{text-align:right}
+.tick{font-family:'IBM Plex Mono',monospace;font-weight:600;color:var(--accent)}
+.pill{
+  font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;padding:1px 7px;
+  border-radius:99px;white-space:nowrap;display:inline-block;
+}
+.pill.NEW{background:var(--accent-soft);color:var(--accent)}
+.pill.ADD{background:var(--accent-soft);color:var(--accent)}
+.pill.TRIM{background:color-mix(in srgb,var(--sell) 12%,transparent);color:var(--sell)}
+.pill.EXIT{background:color-mix(in srgb,var(--sell) 12%,transparent);color:var(--sell)}
+
+/* ---------- legend ---------- */
+.legend{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:12px}
+.legend i{
+  display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:6px;
+  vertical-align:-1px;
+}
+.legend span{font-size:12px;color:var(--ink-2);font-family:'IBM Plex Mono',monospace}
+
+/* ---------- charts ---------- */
+svg{display:block;overflow:visible}
+svg text{font-family:'IBM Plex Mono',monospace;font-variant-numeric:tabular-nums}
+.tip{
+  position:fixed;pointer-events:none;z-index:99;opacity:0;transition:opacity .12s;
+  background:var(--ink);color:var(--plane);font-size:12px;line-height:1.5;
+  font-family:'IBM Plex Mono',monospace;padding:7px 10px;border-radius:6px;
+  max-width:260px;box-shadow:0 6px 24px -6px rgba(0,0,0,.5);
+}
+.tip b{font-weight:600}
+.hovz{cursor:default}
+.hovz:hover rect.mark,.hovz:hover path.mark{opacity:.78}
+
+/* ---------- caveat ---------- */
+.caveat{
+  background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--warn);
+  border-radius:8px;padding:18px 20px;margin-top:10px;
+}
+.caveat h3{font-size:15px;margin-bottom:10px}
+.caveat ul{margin:0;padding-left:18px;color:var(--ink-2);font-size:14px}
+.caveat li{margin-bottom:7px}
+.caveat li:last-child{margin-bottom:0}
+.caveat b{color:var(--ink)}
+
+footer{
+  margin-top:44px;padding-top:20px;border-top:1px solid var(--line);
+  font-size:13px;color:var(--muted);
+}
+footer code{
+  font-family:'IBM Plex Mono',monospace;background:var(--surface);border:1px solid var(--line);
+  border-radius:4px;padding:1px 6px;font-size:12px;
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<div class="wrap">
+
+  <div class="masthead">
+    <div>
+      <h1>Paper&nbsp;Trail</h1>
+      <p class="sub">Every trade that executives, members of Congress, and billion-dollar funds are
+      <em>required by law</em> to make public — sorted by the one thing that decides whether it is
+      worth anything: how old it is by the time you can read it.</p>
+    </div>
+    <div class="stamp" id="stamp"></div>
+  </div>
+
+  <!-- THESIS -->
+  <div class="thesis">
+    <h2>Read this part first</h2>
+    <p class="lede">All three sources tell you what someone bought. They differ enormously in
+    <b>how long they're allowed to wait before telling you.</b> That delay is the whole
+    story — by the time slow filings arrive, the trade is ancient history.</p>
+    <div id="delay"></div>
+    <p class="axisnote">Bar length = days between the trade happening and you being able to read about it.</p>
+  </div>
+
+  <!-- INSIDERS -->
+  <section>
+    <div class="sechead">
+      <h2>Company insiders</h2>
+      <span class="chip fresh">2-day delay · usable</span>
+    </div>
+    <p class="secnote">When an executive or board member trades their own company's stock, they must
+    file within two business days. This is the only source here that's fast enough to act on, and the
+    only one with real research behind it.</p>
+
+    <div class="grid g3" style="margin-bottom:16px">
+      <div class="card tile"><div class="val buy" id="k-buy">—</div><div class="cap">Bought on open market</div></div>
+      <div class="card tile"><div class="val sell" id="k-sell">—</div><div class="cap">Sold on open market</div></div>
+      <div class="card tile"><div class="val" id="k-n">—</div><div class="cap" id="k-n-cap">Filings read</div></div>
+    </div>
+
+    <div class="card" style="margin-bottom:16px">
+      <h3>Who's actually buying with their own money</h3>
+      <p class="hint">Multiple insiders at the same company buying at once is the pattern worth
+      noticing. One person buying could be anything; four people buying is a conversation.</p>
+      <div class="clusters" id="clusters"></div>
+    </div>
+
+    <div class="grid g2" style="margin-bottom:16px">
+      <div class="card">
+        <h3>Buying vs selling, day by day</h3>
+        <p class="hint">Dollar value of open-market trades. Selling almost always dwarfs buying —
+        that's normal, executives are paid in stock and have to diversify.</p>
+        <div id="flow"></div>
+      </div>
+      <div class="card">
+        <h3>Which seats are buying</h3>
+        <p class="hint">A CEO buying carries more information than a board member buying. They
+        know more.</p>
+        <div id="buyers"></div>
+      </div>
+    </div>
+
+    <div class="grid g2">
+      <div class="card">
+        <h3>Most selling is on autopilot</h3>
+        <p class="hint">A 10b5-1 plan is scheduled months ahead — "sell 5,000 shares every quarter."
+        It says nothing about what the seller thinks today. Only the other slice is a live decision.</p>
+        <div id="plan"></div>
+      </div>
+      <div class="card">
+        <h3>Biggest live sell decisions</h3>
+        <p class="hint">Large sales <em>not</em> on a schedule. "% out" is how much of that person's
+        entire holding just left.</p>
+        <div class="tblwrap"><table id="sells"></table></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONGRESS -->
+  <section>
+    <div class="sechead">
+      <h2>Members of Congress</h2>
+      <span class="chip warn">up to 45-day delay</span>
+    </div>
+    <p class="secnote">The STOCK Act requires representatives to disclose trades, but allows 45 days
+    and only requires a dollar <em>range</em>, not an amount. Many file at the deadline. The penalty
+    for filing late is $200.</p>
+
+    <div class="grid g2" style="margin-bottom:16px">
+      <div class="card">
+        <h3>Most-traded stocks</h3>
+        <p class="hint">Bars show how many separate trades. Stocks touched by more than one member
+        are at the top.</p>
+        <div class="legend">
+          <span><i style="background:var(--buy)"></i>Bought</span>
+          <span><i style="background:var(--sell)"></i>Sold</span>
+        </div>
+        <div id="ctickers"></div>
+      </div>
+      <div class="card">
+        <h3>How late were they?</h3>
+        <p class="hint">Days between making the trade and disclosing it. Anything past 45 days is
+        legally late.</p>
+        <div id="late"></div>
+      </div>
+    </div>
+
+    <div class="grid g2">
+      <div class="card">
+        <h3>What they actually trade</h3>
+        <p class="hint">Most disclosed volume isn't stock-picking at all — it's bonds, CDs, and funds,
+        often in accounts an advisor runs without the member's input.</p>
+        <div id="assets"></div>
+      </div>
+      <div class="card">
+        <h3>Most active filers</h3>
+        <p class="hint">By disclosed dollar range. Ranges are wide because the law only asks for a
+        bracket.</p>
+        <div class="tblwrap"><table id="members"></table></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FUNDS -->
+  <section>
+    <div class="sechead">
+      <h2>Big funds</h2>
+      <span class="chip stale">up to 135-day delay</span>
+    </div>
+    <p class="secnote">Any manager over $100M files a 13F — but only once a quarter, 45 days after
+    the quarter ends. It lists <em>only</em> long US stock positions. No short bets, no cash, no bonds,
+    no hedges. A fund can buy and completely exit inside a quarter and you will never see it happened.</p>
+    <div id="funds" class="grid" style="gap:16px"></div>
+  </section>
+
+  <!-- BANKS -->
+  <section>
+    <div class="sechead">
+      <h2>The big banks</h2>
+      <span class="chip stale">up to 135-day delay</span>
+    </div>
+    <p class="secnote">JPMorgan, BlackRock, Vanguard and the rest file the same 13F form — but
+    theirs are the <em>least</em> informative filings on this page, and the chart below shows why.</p>
+
+    <div class="card" style="margin-bottom:16px">
+      <h3>Why "what JPMorgan owns" tells you almost nothing</h3>
+      <p class="hint">Each bar is one filer's top-10 concentration — how much of the portfolio sits
+      in its ten biggest positions. A concentrated manager is making a bet you can read. A bank
+      holding thousands of positions is holding <em>the market</em>, mostly on behalf of clients:
+      index funds, pensions, and trading inventory. Its "top holdings" are just the biggest
+      companies in America, in order.</p>
+      <div id="conc"></div>
+      <p class="axisnote" style="margin-top:14px">Bubble area = portfolio size. Left = spread across
+      everything. Right = a real opinion.</p>
+    </div>
+
+    <div class="tblwrap card">
+      <h3>Size vs. conviction</h3>
+      <p class="hint">Same data as a table. Note how position count and concentration move in
+      opposite directions.</p>
+      <table id="insttbl"></table>
+    </div>
+  </section>
+
+  <!-- PEOPLE -->
+  <section>
+    <div class="sechead">
+      <h2>Following a person</h2>
+      <span class="chip fresh">2-day delay when active</span>
+    </div>
+    <p class="secnote">Anyone who is an officer, director, or 10%+ owner of a listed company has
+    their own SEC file. That makes individuals followable — including the Trump family, the
+    most-asked-about case. What the record actually shows is below.</p>
+    <div id="people" class="grid" style="gap:16px"></div>
+
+    <div class="card" style="margin-top:16px;border-left:3px solid var(--warn)">
+      <h3>Where the rest of a President's portfolio lives</h3>
+      <p class="hint" style="margin-bottom:0">SEC forms only cover holdings in <em>public companies
+      where the person is an insider</em>. A sitting President's broader finances are disclosed
+      annually to the Office of Government Ethics on Form 278e — a separate system, filed once a
+      year, in wide value ranges, as a PDF. It is public but it is not machine-readable the way
+      EDGAR is, so this tool does not pretend to track it. Search
+      <span class="mono">oge.gov</span> for the current filing.</p>
+    </div>
+  </section>
+
+  <!-- NEWS -->
+  <section>
+    <div class="sechead">
+      <h2>Company news, from the source</h2>
+      <span class="chip fresh">same-day</span>
+    </div>
+    <p class="secnote">When something material happens, a company must file an 8-K — usually within
+    four business days. This is where financial journalists get the story. Each filing declares a
+    numbered item saying what kind of event it was; those codes are translated to plain English here.</p>
+
+    <div class="grid g2" style="margin-bottom:16px">
+      <div class="card">
+        <h3>Red flags filed this week</h3>
+        <p class="hint">The events that mean something went materially wrong: restatements,
+        bankruptcy, auditor changes, accelerated debt, cyber incidents.</p>
+        <div class="tblwrap"><table id="serious"></table></div>
+      </div>
+      <div class="card">
+        <h3>What kind of news is being filed</h3>
+        <p class="hint">Breakdown of every notable 8-K in the window.</p>
+        <div id="newsmix"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>News at companies already on this page</h3>
+      <p class="hint">The cross-reference worth having: a company whose insiders were buying, or
+      that Congress was trading, and which also announced something material. Empty is a normal
+      result — most weeks these sets don't overlap.</p>
+      <div class="tblwrap"><table id="linked"></table></div>
+    </div>
+  </section>
+
+  <!-- DOES IT WORK -->
+  <section>
+    <div class="sechead">
+      <h2>Does any of this actually work?</h2>
+      <span class="chip stale">tested — no edge found</span>
+    </div>
+    <p class="secnote">A page of signals is worthless if nobody checked whether the signals predict
+    anything. So we checked, and the honest answer is published here rather than buried.</p>
+
+    <div class="card" style="border-left:3px solid var(--stale)">
+      <h3>275 trades on insider cluster buys, 2022–2026</h3>
+      <p class="hint">Every signal entered at the next session's open after the <em>filing</em> date —
+      never the trade date, which would be using information nobody had yet. Take-profit 10%,
+      stop-loss 6%, 40-day maximum hold, costs charged both ways.</p>
+      <div class="grid g3" style="margin-bottom:16px">
+        <div class="card tile" style="box-shadow:none"><div class="val">42.2<span
+          style="font-size:18px">%</span></div><div class="cap">Win rate</div></div>
+        <div class="card tile" style="box-shadow:none"><div class="val">+0.26<span
+          style="font-size:18px">%</span></div><div class="cap">Mean return per trade</div></div>
+        <div class="card tile" style="box-shadow:none"><div class="val sell">−63.6<span
+          style="font-size:18px">%</span></div><div class="cap">Max drawdown</div></div>
+      </div>
+      <ul style="margin:0;padding-left:18px;color:var(--ink-2);font-size:14px;line-height:1.6">
+        <li><b>The mean is positive but you would have lost money.</b> €100 became €96. Compounding
+        is geometric: +10% then −10% leaves you at 99, not 100.</li>
+        <li><b>Five trades are the entire result.</b> Remove the five biggest winners and the mean
+        flips from +0.26% to −0.05%.</li>
+        <li><b>p = 0.777 against the S&amp;P.</b> Indistinguishable from noise. Across 60
+        take-profit / stop-loss combinations the best cell still came out at p ≈ 1.0 after
+        correcting for having tried 60 of them.</li>
+        <li><b>A placebo test put it at the 88th percentile</b> of 300 random-entry runs on the same
+        stocks (p = 0.12). Suggestive that the filing date carries <em>something</em> — nowhere near
+        enough to call it an edge.</li>
+      </ul>
+      <p class="hint" style="margin:14px 0 0">The published research finds insider buying works in
+      diversified baskets held for months, not in stop-loss trades over two weeks. This result
+      agrees with that literature rather than contradicting it.</p>
+    </div>
+  </section>
+
+  <div class="caveat">
+    <h3>Before you trade on any of this</h3>
+    <ul>
+      <li><b>The two slow sources are mostly entertainment.</b> A 13F is a four-month-old photo of
+      one leg of a position. Copying it copies a decision the fund may have already reversed.</li>
+      <li><b>Insider buying is a real but small effect.</b> The published research finds it on
+      diversified baskets over long horizons — not on single names over weeks.</li>
+      <li><b>Nothing here is a recommendation.</b> This page ranks filings by how unusual they are.
+      That is not the same as predicting a price, and no backtest ships with it.</li>
+      <li><b>If you do backtest it, index by filing date, never trade date.</b> Using the trade date
+      means using information nobody had yet, and it will make almost any strategy look brilliant.</li>
+    </ul>
+  </div>
+
+  <footer>
+    <p style="margin-bottom:10px"><b style="color:var(--ink)">Not investment advice.</b> This page
+    is an automated summary of public regulatory filings, published for information only. It makes
+    no recommendation to buy or sell anything, and the strategy test above found no edge. Nobody
+    here is a licensed financial adviser. Filings are reproduced as filed and may contain errors;
+    always check the original document before relying on anything.</p>
+    <p>Sources: SEC EDGAR (Forms 3/4/5, 13F-HR, 13D/G, 8-K) and the U.S. House Clerk's financial
+    disclosure archive — all free, public, unauthenticated. Rebuilt automatically each weekday;
+    see the timestamp at the top for this build. Run it yourself with
+    <code>python sm.py dashboard</code>.</p>
+  </footer>
+</div>
+
+<div class="tip" id="tip"></div>
+
+<script>
+const DATA = __DATA__;
+
+/* ---------- formatting ---------- */
+const fmtMoney = v => {
+  if (v == null) return "—";
+  const a = Math.abs(v);
+  if (a >= 1e9) return "$" + (v/1e9).toFixed(1) + "B";
+  if (a >= 1e6) return "$" + (v/1e6).toFixed(1) + "M";
+  if (a >= 1e3) return "$" + (v/1e3).toFixed(0) + "K";
+  return "$" + Math.round(v);
+};
+const esc = s => String(s == null ? "" : s).replace(/[&<>"]/g, c =>
+  ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+
+/* ---------- shared tooltip ---------- */
+const tip = document.getElementById("tip");
+function bindTip(el, html){
+  el.classList.add("hovz");
+  el.addEventListener("mousemove", e => {
+    tip.innerHTML = html;
+    tip.style.opacity = 1;
+    const pad = 14;
+    let x = e.clientX + pad, y = e.clientY + pad;
+    const r = tip.getBoundingClientRect();
+    if (x + r.width > innerWidth - 8) x = e.clientX - r.width - pad;
+    if (y + r.height > innerHeight - 8) y = e.clientY - r.height - pad;
+    tip.style.left = x + "px"; tip.style.top = y + "px";
+  });
+  el.addEventListener("mouseleave", () => tip.style.opacity = 0);
+}
+const SVGNS = "http://www.w3.org/2000/svg";
+function el(tag, attrs, parent){
+  const n = document.createElementNS(SVGNS, tag);
+  for (const k in attrs) n.setAttribute(k, attrs[k]);
+  if (parent) parent.appendChild(n);
+  return n;
+}
+
+/* ---------- horizontal bars ---------- */
+function hbar(mount, rows, opts){
+  opts = opts || {};
+  const labelW = opts.labelW || 130, rowH = 26, gap = 6, valW = 62;
+  const W = mount.clientWidth || 420;
+  const H = rows.length * (rowH + gap);
+  const svg = el("svg", {viewBox:`0 0 ${W} ${H}`, width:"100%", height:H, role:"img"}, mount);
+  const max = Math.max(...rows.map(r => opts.stacked ? (r.a + r.b) : r.value), 1);
+  const plotW = W - labelW - valW;
+
+  rows.forEach((r, i) => {
+    const y = i * (rowH + gap);
+    const g = el("g", {}, svg);
+    const t = el("text", {x:0, y:y + rowH/2 + 4, "font-size":12.5,
+      fill: opts.labelFill || css("--ink"), "font-weight": opts.labelWeight || 500}, g);
+    t.textContent = r.label.length > 20 ? r.label.slice(0,19) + "…" : r.label;
+
+    if (opts.stacked){
+      const wa = (r.a/max) * plotW, wb = (r.b/max) * plotW;
+      if (wa > 0) el("rect", {class:"mark", x:labelW, y:y+4, width:Math.max(wa,2), height:rowH-8,
+        rx:4, fill:css("--buy")}, g);
+      if (wb > 0) el("rect", {class:"mark", x:labelW + wa + (wa>0?2:0), y:y+4,
+        width:Math.max(wb,2), height:rowH-8, rx:4, fill:css("--sell")}, g);
+    } else {
+      el("rect", {class:"mark", x:labelW, y:y+4, width:Math.max((r.value/max)*plotW, 2),
+        height:rowH-8, rx:4, fill:r.color || css("--cat-1")}, g);
+    }
+    const v = el("text", {x:W, y:y + rowH/2 + 4, "font-size":12, "text-anchor":"end",
+      fill:css("--ink-2"), "font-weight":500}, g);
+    v.textContent = r.display;
+    bindTip(g, r.tip);
+  });
+}
+
+/* ---------- grouped vertical bars ---------- */
+function groupBars(mount, rows){
+  const W = mount.clientWidth || 420, H = 190, padB = 34, padT = 10;
+  const svg = el("svg", {viewBox:`0 0 ${W} ${H}`, width:"100%", height:H, role:"img"}, mount);
+  const max = Math.max(...rows.flatMap(r => [r.buy, r.sell]), 1);
+  const plotH = H - padB - padT;
+  const step = W / rows.length;
+  const bw = Math.max(3, Math.min(14, step/2 - 3));
+
+  [0.5, 1].forEach(f => {
+    const y = padT + plotH - f*plotH;
+    el("line", {x1:0, x2:W, y1:y, y2:y, stroke:css("--line"), "stroke-width":1}, svg);
+    const lb = el("text", {x:0, y:y-4, "font-size":10, fill:css("--muted")}, svg);
+    lb.textContent = fmtMoney(max*f);
+  });
+  el("line", {x1:0, x2:W, y1:padT+plotH, y2:padT+plotH, stroke:css("--line"), "stroke-width":1}, svg);
+
+  rows.forEach((r, i) => {
+    const cx = i*step + step/2;
+    const g = el("g", {}, svg);
+    const hb = (r.buy/max)*plotH, hs = (r.sell/max)*plotH;
+    el("rect", {class:"mark", x:cx-bw-1, y:padT+plotH-hb, width:bw, height:Math.max(hb,1),
+      rx:3, fill:css("--buy")}, g);
+    el("rect", {class:"mark", x:cx+1, y:padT+plotH-hs, width:bw, height:Math.max(hs,1),
+      rx:3, fill:css("--sell")}, g);
+    if (i % Math.ceil(rows.length/6) === 0){
+      const t = el("text", {x:cx, y:H-12, "font-size":10, "text-anchor":"middle",
+        fill:css("--muted")}, svg);
+      t.textContent = r.date.slice(5);
+    }
+    bindTip(g, `<b>${r.date}</b><br>Bought ${fmtMoney(r.buy)} · ${r.nbuy} trades<br>Sold ${fmtMoney(r.sell)} · ${r.nsell} trades`);
+  });
+}
+
+/* ---------- vertical histogram ---------- */
+function vhist(mount, rows, color){
+  const W = mount.clientWidth || 420, H = 190, padB = 40, padT = 14;
+  const svg = el("svg", {viewBox:`0 0 ${W} ${H}`, width:"100%", height:H, role:"img"}, mount);
+  const max = Math.max(...rows.map(r => r.n), 1);
+  const plotH = H - padB - padT, step = W / rows.length, bw = Math.min(step - 12, 60);
+  el("line", {x1:0, x2:W, y1:padT+plotH, y2:padT+plotH, stroke:css("--line")}, svg);
+  rows.forEach((r, i) => {
+    const cx = i*step + step/2, h = (r.n/max)*plotH;
+    const g = el("g", {}, svg);
+    el("rect", {class:"mark", x:cx-bw/2, y:padT+plotH-h, width:bw, height:Math.max(h,1),
+      rx:4, fill: r.color || color}, g);
+    if (r.n > 0){
+      const v = el("text", {x:cx, y:padT+plotH-h-5, "font-size":11, "text-anchor":"middle",
+        fill:css("--ink-2"), "font-weight":600}, g);
+      v.textContent = r.n;
+    }
+    const t = el("text", {x:cx, y:H-20, "font-size":10.5, "text-anchor":"middle",
+      fill:css("--muted")}, svg);
+    t.textContent = r.bucket.split(" ")[0];
+    const t2 = el("text", {x:cx, y:H-8, "font-size":10.5, "text-anchor":"middle",
+      fill:css("--muted")}, svg);
+    t2.textContent = r.bucket.split(" ").slice(1).join(" ");
+    bindTip(g, `<b>${r.bucket}</b><br>${r.n} trades`);
+  });
+}
+
+/* ---------- donut ---------- */
+function donut(mount, slices){
+  const W = mount.clientWidth || 300, size = Math.min(W, 190);
+  const cx = size/2, cy = size/2, R = size/2 - 4, r = R * 0.58;
+  const holder = document.createElement("div");
+  holder.style.cssText = "display:flex;gap:20px;align-items:center;flex-wrap:wrap";
+  mount.appendChild(holder);
+  const box = document.createElement("div");
+  holder.appendChild(box);
+  const svg = el("svg", {viewBox:`0 0 ${size} ${size}`, width:size, height:size, role:"img"}, box);
+
+  const total = slices.reduce((s,x) => s + x.n, 0) || 1;
+  let a0 = -Math.PI/2;
+  slices.forEach(s => {
+    const frac = s.n/total, a1 = a0 + frac*2*Math.PI;
+    const pad = frac > 0.02 ? 0.012 : 0;
+    const [s0, s1] = [a0 + pad, a1 - pad];
+    const large = (s1 - s0) > Math.PI ? 1 : 0;
+    const p = [
+      `M ${cx+R*Math.cos(s0)} ${cy+R*Math.sin(s0)}`,
+      `A ${R} ${R} 0 ${large} 1 ${cx+R*Math.cos(s1)} ${cy+R*Math.sin(s1)}`,
+      `L ${cx+r*Math.cos(s1)} ${cy+r*Math.sin(s1)}`,
+      `A ${r} ${r} 0 ${large} 0 ${cx+r*Math.cos(s0)} ${cy+r*Math.sin(s0)}`, "Z"
+    ].join(" ");
+    const g = el("g", {}, svg);
+    el("path", {class:"mark", d:p, fill:s.color}, g);
+    bindTip(g, `<b>${esc(s.label)}</b><br>${s.n} (${(frac*100).toFixed(0)}%)`);
+    a0 = a1;
+  });
+  const big = el("text", {x:cx, y:cy+2, "text-anchor":"middle", "font-size":22,
+    "font-weight":600, fill:css("--ink")}, svg);
+  big.textContent = total;
+  const cap = el("text", {x:cx, y:cy+18, "text-anchor":"middle", "font-size":10,
+    fill:css("--muted")}, svg);
+  cap.textContent = "total";
+
+  const leg = document.createElement("div");
+  leg.style.cssText = "display:flex;flex-direction:column;gap:8px;min-width:130px;flex:1";
+  slices.forEach(s => {
+    const row = document.createElement("div");
+    row.style.cssText = "font-size:13px;line-height:1.35;display:flex;gap:8px;align-items:flex-start";
+    row.innerHTML = `<i style="flex:none;display:inline-block;width:11px;height:11px;border-radius:3px;
+      margin-top:4px;background:${s.color}"></i>
+      <span style="color:var(--ink-2)">${esc(s.label)}<br>
+      <b class="num" style="color:var(--ink)">${s.n}</b>
+      <span style="color:var(--muted)">· ${(s.n/total*100).toFixed(0)}%</span></span>`;
+    leg.appendChild(row);
+  });
+  holder.appendChild(leg);
+}
+
+/* ---------- concentration scatter ----------
+   x = top-10 concentration %, y = position count (log), area = portfolio size.
+   Only two colors, and every point is direct-labeled, so color never carries
+   identity on its own. */
+function scatter(mount, pts){
+  const W = mount.clientWidth || 640, H = 330;
+  const L = 46, R = 16, T = 16, B = 44;
+  const svg = el("svg", {viewBox:`0 0 ${W} ${H}`, width:"100%", height:H, role:"img"}, mount);
+  const pw = W - L - R, ph = H - T - B;
+
+  const yLo = Math.log10(Math.max(1, Math.min(...pts.map(p => p.positions)) * 0.6));
+  const yHi = Math.log10(Math.max(...pts.map(p => p.positions)) * 1.6);
+  const X = v => L + (v/100) * pw;
+  const Y = v => T + ph - ((Math.log10(Math.max(v,1)) - yLo)/(yHi - yLo)) * ph;
+  const maxV = Math.max(...pts.map(p => p.total));
+  const Rad = v => 6 + 26 * Math.sqrt(v/maxV);
+
+  [0,25,50,75,100].forEach(t => {
+    el("line", {x1:X(t), x2:X(t), y1:T, y2:T+ph, stroke:css("--line-soft")}, svg);
+    const lb = el("text", {x:X(t), y:H-24, "font-size":10.5, "text-anchor":"middle",
+      fill:css("--muted")}, svg);
+    lb.textContent = t + "%";
+  });
+  [10,100,1000,10000].forEach(t => {
+    const y = Y(t);
+    if (y < T || y > T+ph) return;
+    el("line", {x1:L, x2:L+pw, y1:y, y2:y, stroke:css("--line-soft")}, svg);
+    const lb = el("text", {x:L-6, y:y+3.5, "font-size":10.5, "text-anchor":"end",
+      fill:css("--muted")}, svg);
+    lb.textContent = t >= 1000 ? (t/1000)+"k" : t;
+  });
+  const xt = el("text", {x:L+pw/2, y:H-6, "font-size":11, "text-anchor":"middle",
+    fill:css("--ink-2")}, svg);
+  xt.textContent = "share of portfolio in its 10 biggest positions";
+  const yt = el("text", {x:0, y:0, "font-size":11, fill:css("--ink-2"),
+    transform:`translate(12,${T+ph/2}) rotate(-90)`, "text-anchor":"middle"}, svg);
+  yt.textContent = "number of positions";
+
+  pts.slice().sort((a,b) => b.total - a.total).forEach(p => {
+    const g = el("g", {}, svg);
+    const color = p.kind === "bank" ? css("--cat-2") : css("--cat-1");
+    el("circle", {class:"mark", cx:X(p.top10_pct), cy:Y(p.positions), r:Rad(p.total),
+      fill:color, "fill-opacity":.32, stroke:color, "stroke-width":2}, g);
+    const lab = el("text", {x:X(p.top10_pct), y:Y(p.positions) - Rad(p.total) - 6,
+      "font-size":11, "text-anchor":"middle", fill:css("--ink"), "font-weight":600}, g);
+    lab.textContent = p.label;
+    bindTip(g, `<b>${esc(p.label)}</b><br>${p.positions.toLocaleString()} positions<br>
+      Top 10 = ${p.top10_pct.toFixed(0)}% of the portfolio<br>${fmtMoney(p.total)} total<br>
+      Snapshot ${esc(p.period)}`);
+  });
+}
+
+/* ================= RENDER ================= */
+function render(){
+  const I = DATA.insiders, C = DATA.congress;
+
+  document.getElementById("stamp").innerHTML =
+    `Generated ${esc(DATA.generated)}<br>Insiders: last ${DATA.window.insider_days} days` +
+    `<br>Congress: last ${DATA.window.congress_days} days`;
+
+  /* --- delay thesis --- */
+  const sources = [
+    {who:"Company insiders", note:"Form 4", days:2, color:"var(--fresh)",
+     tip:"Executives and board members must file within 2 business days of trading."},
+    {who:"Members of Congress", note:"STOCK Act report", days:45, color:"var(--warn)",
+     tip:"Up to 45 days after the trade. Late penalty: $200."},
+    {who:"Big funds", note:"Form 13F", days:135, color:"var(--stale)",
+     tip:"Quarterly, filed 45 days after quarter end — so a trade made on day 1 of a quarter surfaces ~135 days later."}
+  ];
+  const dmax = 135, dwrap = document.getElementById("delay");
+  sources.forEach(s => {
+    const row = document.createElement("div");
+    row.className = "delayrow";
+    const pct = (s.days/dmax)*100;
+    row.innerHTML = `<div class="who">${s.who}<small>${s.note}</small></div>
+      <div class="delaybar"><div class="delayfill" style="width:${Math.max(pct,1.4)}%;
+        background:${s.color}"><span>${s.days} days</span></div></div>`;
+    if (pct < 12){
+      const f = row.querySelector(".delayfill");
+      f.innerHTML = "";
+      const lab = document.createElement("span");
+      lab.textContent = s.days + " days";
+      lab.style.cssText = "position:absolute;left:" + (pct+1.5) + "%;color:var(--ink);top:7px";
+      row.querySelector(".delaybar").appendChild(lab);
+    }
+    bindTip(row, `<b>${s.who}</b><br>${s.tip}`);
+    dwrap.appendChild(row);
+  });
+
+  /* --- insider tiles --- */
+  document.getElementById("k-buy").textContent = fmtMoney(I.buy_value);
+  document.getElementById("k-sell").textContent = fmtMoney(I.sell_value);
+  document.getElementById("k-n").textContent = I.n_transactions.toLocaleString();
+  document.getElementById("k-n-cap").textContent =
+    `Filings read · ${I.n_buys} buys, ${I.n_sells} sells`;
+
+  /* --- clusters --- */
+  const cw = document.getElementById("clusters");
+  if (!I.clusters.length){
+    cw.innerHTML = `<p style="color:var(--muted);font-size:14px">No company had two or more
+      insiders buying on the open market in this window. That is a normal result for a short window.</p>`;
+  }
+  I.clusters.forEach(c => {
+    const d = document.createElement("div");
+    d.className = "cl";
+    d.innerHTML = `<div class="tk">${esc(c.ticker)}</div>
+      <div><div class="nm">${esc(c.issuer || "")}</div>
+        <div class="ro">${esc((c.titles||[]).join(" · "))}</div></div>
+      <div class="rt"><div class="v">${fmtMoney(c.total_value)}</div>
+        <div class="n">${c.insiders} insiders${c.all_10b5_1 ? '<span class="flag">scheduled</span>' : ''}</div></div>`;
+    bindTip(d, `<b>${esc(c.ticker)}</b> — ${esc(c.issuer||"")}<br>
+      ${c.insiders} insiders · ${c.trades} purchases<br>Total ${fmtMoney(c.total_value)}<br>
+      Trade dates: ${esc((c.dates||[]).join(", "))}`);
+    cw.appendChild(d);
+  });
+
+  /* --- flow --- */
+  if (I.flow.length) groupBars(document.getElementById("flow"), I.flow);
+
+  /* --- buyer seniority --- */
+  const bm = I.buyer_mix.slice(0, 6).map(b => ({
+    label: b.who, value: b.n, display: String(b.n),
+    color: css("--buy"),
+    tip: `<b>${esc(b.who)}</b><br>${b.n} open-market purchases`
+  }));
+  if (bm.length) hbar(document.getElementById("buyers"), bm, {labelW:110});
+
+  /* --- plan split donut --- */
+  const ps = I.plan_split.map((p, i) => ({
+    label: p.kind, n: p.n, color: i === 0 ? css("--cat-other") : css("--cat-2")
+  }));
+  donut(document.getElementById("plan"), ps);
+
+  /* --- notable sells table --- */
+  const st = document.getElementById("sells");
+  st.innerHTML = `<thead><tr><th>Ticker</th><th>Who</th><th class="r">Value</th>
+    <th class="r">% out</th></tr></thead><tbody>` +
+    I.sells.slice(0, 8).map(s => `<tr>
+      <td class="tick">${esc(s.ticker || "—")}</td>
+      <td>${esc(s.owner || "")}<br><span style="color:var(--muted);font-size:12px">
+        ${esc((s.title || (s.is_director ? "Director" : "")).slice(0, 34))}</span></td>
+      <td class="r num">${fmtMoney(s.value)}</td>
+      <td class="r num">${s.pct_of_stake != null ? Math.round(s.pct_of_stake) + "%" : "—"}</td>
+    </tr>`).join("") + `</tbody>`;
+
+  /* --- congress tickers --- */
+  const ct = C.by_ticker.slice(0, 10).map(t => ({
+    label: t.ticker, a: t.buys, b: t.sells,
+    display: `${t.buys + t.sells}`,
+    tip: `<b>${esc(t.ticker)}</b> ${esc((t.asset||"").slice(0,40))}<br>
+      ${t.buys} bought · ${t.sells} sold<br>${t.members} member${t.members>1?"s":""}: ${esc(t.names.join(", "))}<br>
+      Disclosed range ${fmtMoney(t.min_notional)} – ${fmtMoney(t.max_notional)}`
+  }));
+  if (ct.length) hbar(document.getElementById("ctickers"), ct, {stacked:true, labelW:70});
+
+  /* --- lateness --- */
+  const lateColors = [css("--cat-3"), css("--cat-3"), css("--warn"), css("--sell"), css("--sell")];
+  vhist(document.getElementById("late"),
+    C.lateness.map((l, i) => ({...l, color: lateColors[i]})));
+
+  /* --- asset mix donut (cap at 3 + Other) --- */
+  const am = C.asset_mix.slice();
+  const top3 = am.slice(0, 3);
+  const rest = am.slice(3).reduce((s, x) => s + x.n, 0);
+  const slices = top3.map((a, i) => ({label:a.kind, n:a.n,
+    color: [css("--cat-1"), css("--cat-2"), css("--cat-3")][i]}));
+  if (rest > 0) slices.push({label:"Everything else", n:rest, color:css("--cat-other")});
+  donut(document.getElementById("assets"), slices);
+
+  /* --- members table --- */
+  const mt = document.getElementById("members");
+  mt.innerHTML = `<thead><tr><th>Member</th><th class="r">Trades</th>
+    <th class="r">Disclosed range</th></tr></thead><tbody>` +
+    C.members.slice(0, 8).map(m => `<tr>
+      <td>${esc(m.member)}</td>
+      <td class="r num">${m.buys}B / ${m.sells}S</td>
+      <td class="r num">${fmtMoney(m.low)} – ${fmtMoney(m.high)}</td>
+    </tr>`).join("") + `</tbody>`;
+
+  /* --- funds --- */
+  const fw = document.getElementById("funds");
+  DATA.funds.forEach(f => {
+    const card = document.createElement("div");
+    card.className = "card";
+    const months = (f.stale_days/30).toFixed(1);
+    card.innerHTML = `<div style="display:flex;flex-wrap:wrap;gap:10px;align-items:baseline;
+        justify-content:space-between;margin-bottom:2px">
+        <h3 style="font-size:17px">${esc(f.name)}</h3>
+        <span class="mono" style="font-size:11.5px;color:var(--stale)">
+          snapshot is ${f.stale_days} days old (${months} months)</span></div>
+      <p class="hint">Holdings as of ${esc(f.period)}, filed ${esc(f.filed)} ·
+        ${fmtMoney(f.total)} in US stocks</p>
+      <div class="grid g2" style="gap:18px">
+        <div><div class="mono" style="font-size:11px;color:var(--muted);letter-spacing:.07em;
+          text-transform:uppercase;margin-bottom:8px">Biggest positions</div>
+          <div class="fh"></div></div>
+        <div><div class="mono" style="font-size:11px;color:var(--muted);letter-spacing:.07em;
+          text-transform:uppercase;margin-bottom:8px">What changed this quarter</div>
+          <div class="tblwrap"><table class="fm"></table></div></div>
+      </div>`;
+    fw.appendChild(card);
+
+    const rows = f.top.slice(0, 7).map(t => ({
+      label: t.issuer + (t.put_call ? " " + t.put_call : ""),
+      value: t.value, display: t.pct.toFixed(1) + "%",
+      color: t.put_call ? css("--cat-2") : css("--cat-1"),
+      tip: `<b>${esc(t.issuer)}</b>${t.put_call ? " (" + esc(t.put_call) + " option)" : ""}<br>
+        ${fmtMoney(t.value)} · ${t.pct.toFixed(1)}% of the portfolio`
+    }));
+    hbar(card.querySelector(".fh"), rows, {labelW:120});
+
+    card.querySelector(".fm").innerHTML =
+      `<thead><tr><th>Position</th><th>Move</th><th class="r">Size</th></tr></thead><tbody>` +
+      f.moves.slice(0, 7).map(m => `<tr>
+        <td>${esc((m.issuer||"").slice(0,26))}${m.put_call ? ' <span style="color:var(--muted)">'+esc(m.put_call)+'</span>' : ''}</td>
+        <td><span class="pill ${esc(m.action)}">${esc(m.action)}</span></td>
+        <td class="r num">${m.value ? fmtMoney(m.value) : "—"}</td>
+      </tr>`).join("") + `</tbody>`;
+  });
+}
+
+/* ---------- banks + concentration ---------- */
+function renderInstitutions(){
+  const inst = (DATA.institutions || []).map(i => ({
+    label: i.label || i.name, positions: i.positions, top10_pct: i.top10_pct,
+    total: i.total, period: i.period, kind: "bank"
+  }));
+  const managers = (DATA.funds || []).filter(f => f.positions).map(f => ({
+    label: f.name.split(",")[0].split(" ").slice(0,2).join(" "),
+    positions: f.positions, top10_pct: f.top10_pct, total: f.total,
+    period: f.period, kind: "manager"
+  }));
+  const pts = inst.concat(managers);
+  if (pts.length) scatter(document.getElementById("conc"), pts);
+
+  const rows = pts.slice().sort((a,b) => b.total - a.total);
+  document.getElementById("insttbl").innerHTML =
+    `<thead><tr><th>Filer</th><th>Type</th><th class="r">Positions</th>
+      <th class="r">Portfolio</th><th class="r">Top 10 =</th></tr></thead><tbody>` +
+    rows.map(r => `<tr>
+      <td>${esc(r.label)}</td>
+      <td><span style="color:${r.kind === "bank" ? "var(--cat-2)" : "var(--cat-1)"};
+        font-family:'IBM Plex Mono',monospace;font-size:12px">
+        ${r.kind === "bank" ? "bank / index" : "concentrated"}</span></td>
+      <td class="r num">${r.positions.toLocaleString()}</td>
+      <td class="r num">${fmtMoney(r.total)}</td>
+      <td class="r num">${r.top10_pct.toFixed(0)}%</td>
+    </tr>`).join("") + `</tbody>`;
+}
+
+/* ---------- people ---------- */
+const CODE_MEANING = {
+  P:"bought on the open market", S:"sold on the open market",
+  A:"received as a grant", M:"exercised options", F:"shares held back for tax",
+  G:"gifted / transferred out", J:"other (see filing)", C:"converted", D:"returned to company"
+};
+function renderPeople(){
+  const wrap = document.getElementById("people");
+  (DATA.people || []).forEach(p => {
+    const card = document.createElement("div");
+    card.className = "card";
+    if (p.error){
+      card.innerHTML = `<h3>${esc(p.name || p.cik)}</h3>
+        <p class="hint">Could not load this record: ${esc(p.error)}</p>`;
+      wrap.appendChild(card); return;
+    }
+    const lastOwn = p.last_ownership_filing;
+    const lastAny = p.last_filing;
+    const dormant = lastOwn && lastAny && lastOwn.filed !== lastAny.filed;
+    const txns = (p.transactions || []).slice(0, 6);
+
+    card.innerHTML = `
+      <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:baseline;
+        justify-content:space-between">
+        <h3 style="font-size:17px">${esc(p.name)}</h3>
+        <span class="mono" style="font-size:11.5px;color:var(--muted)">CIK ${p.cik} ·
+          ${p.n_filings} filings on record</span></div>
+      <p class="hint">${esc(p.note || "")}</p>
+      <div style="display:flex;flex-wrap:wrap;gap:22px;margin-bottom:14px">
+        <div><div class="mono" style="font-size:10.5px;color:var(--muted);
+          letter-spacing:.07em;text-transform:uppercase">Last trade form (3/4/5)</div>
+          <div class="num" style="font-size:15px;color:${dormant ? "var(--stale)" : "var(--fresh)"}">
+            ${lastOwn ? esc(lastOwn.filed) : "none on record"}</div></div>
+        <div><div class="mono" style="font-size:10.5px;color:var(--muted);
+          letter-spacing:.07em;text-transform:uppercase">Most recent filing of any kind</div>
+          <div class="num" style="font-size:15px">${lastAny ? esc(lastAny.form) + " · " + esc(lastAny.filed) : "—"}</div></div>
+        <div><div class="mono" style="font-size:10.5px;color:var(--muted);
+          letter-spacing:.07em;text-transform:uppercase">Companies</div>
+          <div class="num" style="font-size:15px">${esc((p.issuers||[]).filter(t=>t.length<=6).join(", ")) || "—"}</div></div>
+      </div>
+      <div class="tblwrap"><table class="ptx"></table></div>`;
+    wrap.appendChild(card);
+
+    card.querySelector(".ptx").innerHTML = txns.length
+      ? `<thead><tr><th>Filed</th><th>Stock</th><th>What happened</th>
+          <th class="r">Shares</th><th class="r">Held after</th></tr></thead><tbody>` +
+        txns.map(t => `<tr>
+          <td class="num">${esc(t.filed || "")}</td>
+          <td class="tick">${esc(t.ticker || "—")}</td>
+          <td>${esc(CODE_MEANING[t.code] || ("code " + t.code))}</td>
+          <td class="r num">${t.shares != null ? Math.round(t.shares).toLocaleString() : "—"}</td>
+          <td class="r num">${t.shares_after != null ? Math.round(t.shares_after).toLocaleString() : "—"}</td>
+        </tr>`).join("") + `</tbody>`
+      : `<tbody><tr><td style="color:var(--muted)">No Form 4 transactions parsed.</td></tr></tbody>`;
+  });
+}
+
+/* ---------- news ---------- */
+function renderNews(){
+  const N = DATA.news || {};
+  const sev = document.getElementById("serious");
+  sev.innerHTML = (N.serious || []).length
+    ? `<thead><tr><th>Filed</th><th>Company</th><th>What was filed</th></tr></thead><tbody>` +
+      N.serious.slice(0, 10).map(e => `<tr>
+        <td class="num">${esc(e.filed)}</td>
+        <td><span class="tick">${esc(e.ticker || "")}</span> ${esc(e.company.slice(0,30))}</td>
+        <td style="color:var(--sell)">${esc(e.headline)}</td>
+      </tr>`).join("") + `</tbody>`
+    : `<tbody><tr><td style="color:var(--muted)">No serious red flags filed in this window.</td></tr></tbody>`;
+
+  const mix = (N.mix || []).slice(0, 6).map((m, i) => ({
+    label: m.label, value: m.n, display: String(m.n),
+    color: css("--cat-1"),
+    tip: `<b>${esc(m.label)}</b><br>${m.n} filings in the last ${N.window_days} days`
+  }));
+  if (mix.length) hbar(document.getElementById("newsmix"), mix, {labelW:180});
+
+  const lk = document.getElementById("linked");
+  lk.innerHTML = (N.linked || []).length
+    ? `<thead><tr><th>Filed</th><th>Company</th><th>What was filed</th></tr></thead><tbody>` +
+      N.linked.slice(0, 8).map(e => `<tr>
+        <td class="num">${esc(e.filed)}</td>
+        <td><span class="tick">${esc(e.ticker || "")}</span> ${esc(e.company.slice(0,30))}</td>
+        <td>${esc(e.headline)}</td>
+      </tr>`).join("") + `</tbody>`
+    : `<tbody><tr><td style="color:var(--muted)">No overlap this window — none of the companies
+       above filed a notable 8-K in the last ${esc(N.window_days || "few")} days.</td></tr></tbody>`;
+}
+
+render();
+renderInstitutions();
+renderPeople();
+renderNews();
+let rt;
+addEventListener("resize", () => {
+  clearTimeout(rt);
+  rt = setTimeout(() => {
+    ["delay","flow","buyers","plan","ctickers","late","assets","funds",
+     "clusters","conc","people","newsmix"]
+      .forEach(id => { const n = document.getElementById(id); if (n) n.innerHTML = ""; });
+    render(); renderInstitutions(); renderPeople(); renderNews();
+  }, 180);
+});
+</script>

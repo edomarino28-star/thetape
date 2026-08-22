@@ -1,0 +1,4823 @@
+{
+ "start": "2022-01-01",
+ "end": "2026-08-01",
+ "universe": 900,
+ "seed": 7,
+ "signals": [
+  {
+   "ticker": "RLYB",
+   "issuer": "doc4.xml",
+   "cik": 1739410,
+   "filed": "2022-01-12",
+   "insiders": 2,
+   "value": 191217.59999999998,
+   "score": 17.5
+  },
+  {
+   "ticker": "RLYB",
+   "issuer": "doc4.xml",
+   "cik": 1739410,
+   "filed": "2022-01-14",
+   "insiders": 3,
+   "value": 281956.18,
+   "score": 31.9
+  },
+  {
+   "ticker": "SKYX",
+   "issuer": "ownership.xml",
+   "cik": 1598981,
+   "filed": "2022-02-16",
+   "insiders": 2,
+   "value": 3499958.0,
+   "score": 74.8
+  },
+  {
+   "ticker": "RMMZ",
+   "issuer": "fp0073243_4.xml",
+   "cik": 1870833,
+   "filed": "2022-02-17",
+   "insiders": 2,
+   "value": 283696.0,
+   "score": 21.3
+  },
+  {
+   "ticker": "RMMZ",
+   "issuer": "fp0073243_4.xml",
+   "cik": 1870833,
+   "filed": "2022-02-22",
+   "insiders": 3,
+   "value": 334321.0,
+   "score": 34.7
+  },
+  {
+   "ticker": "MX",
+   "issuer": "doc4.xml",
+   "cik": 1325702,
+   "filed": "2022-02-28",
+   "insiders": 2,
+   "value": 150190.2,
+   "score": 11.6
+  },
+  {
+   "ticker": "FSK",
+   "issuer": "forman-form4_010122.xml",
+   "cik": 1422183,
+   "filed": "2022-03-09",
+   "insiders": 3,
+   "value": 202974.315,
+   "score": 27.0
+  },
+  {
+   "ticker": "FSK",
+   "issuer": "forman-form4_010122.xml",
+   "cik": 1422183,
+   "filed": "2022-03-15",
+   "insiders": 3,
+   "value": 250064.94700000001,
+   "score": 30.0
+  },
+  {
+   "ticker": "LFT",
+   "issuer": "edgar.xml",
+   "cik": 1547546,
+   "filed": "2022-03-22",
+   "insiders": 2,
+   "value": 108630.8,
+   "score": 13.2
+  },
+  {
+   "ticker": "FDBC",
+   "issuer": "primary_doc.xml",
+   "cik": 1098151,
+   "filed": "2022-05-04",
+   "insiders": 3,
+   "value": 245815.0,
+   "score": 22.3
+  },
+  {
+   "ticker": "INBKZ",
+   "issuer": "wf-form4_164131828095441.xml",
+   "cik": 1562463,
+   "filed": "2022-05-05",
+   "insiders": 2,
+   "value": 1555775.0,
+   "score": 49.9
+  },
+  {
+   "ticker": "FDBC",
+   "issuer": "primary_doc.xml",
+   "cik": 1098151,
+   "filed": "2022-05-10",
+   "insiders": 2,
+   "value": 131815.0,
+   "score": 8.7
+  },
+  {
+   "ticker": "FLL",
+   "issuer": "doc4.xml",
+   "cik": 891482,
+   "filed": "2022-05-13",
+   "insiders": 3,
+   "value": 319261.75,
+   "score": 33.9
+  },
+  {
+   "ticker": "FSK",
+   "issuer": "forman-form4_010122.xml",
+   "cik": 1422183,
+   "filed": "2022-05-13",
+   "insiders": 2,
+   "value": 151438.0,
+   "score": 15.6
+  },
+  {
+   "ticker": "CTOS",
+   "issuer": "ownership.xml",
+   "cik": 1709682,
+   "filed": "2022-05-16",
+   "insiders": 3,
+   "value": 2335296.73,
+   "score": 68.8
+  },
+  {
+   "ticker": "FLL",
+   "issuer": "doc4.xml",
+   "cik": 891482,
+   "filed": "2022-05-16",
+   "insiders": 3,
+   "value": 361316.75,
+   "score": 36.1
+  },
+  {
+   "ticker": "HASI",
+   "issuer": "wf-form4_164687750159054.xml",
+   "cik": 1561894,
+   "filed": "2022-05-16",
+   "insiders": 2,
+   "value": 211349.88,
+   "score": 18.4
+  },
+  {
+   "ticker": "SKYX",
+   "issuer": "ownership.xml",
+   "cik": 1598981,
+   "filed": "2022-05-17",
+   "insiders": 2,
+   "value": 78422.48,
+   "score": 11.2
+  },
+  {
+   "ticker": "CTOS",
+   "issuer": "ownership.xml",
+   "cik": 1709682,
+   "filed": "2022-05-18",
+   "insiders": 3,
+   "value": 2624966.73,
+   "score": 72.9
+  },
+  {
+   "ticker": "FSK",
+   "issuer": "forman-form4_010122.xml",
+   "cik": 1422183,
+   "filed": "2022-05-18",
+   "insiders": 2,
+   "value": 151438.0,
+   "score": 15.6
+  },
+  {
+   "ticker": "FSK",
+   "issuer": "forman-form4_010122.xml",
+   "cik": 1422183,
+   "filed": "2022-05-19",
+   "insiders": 2,
+   "value": 151438.0,
+   "score": 15.6
+  },
+  {
+   "ticker": "SWAGW",
+   "issuer": "ownership.xml",
+   "cik": 1872525,
+   "filed": "2022-05-24",
+   "insiders": 2,
+   "value": 57989.399999999994,
+   "score": 9.6
+  },
+  {
+   "ticker": "FTDR",
+   "issuer": "doc4.xml",
+   "cik": 1727263,
+   "filed": "2022-05-27",
+   "insiders": 3,
+   "value": 477750.0,
+   "score": 24.9
+  },
+  {
+   "ticker": "FSK",
+   "issuer": "forman-form4_010122.xml",
+   "cik": 1422183,
+   "filed": "2022-05-31",
+   "insiders": 2,
+   "value": 155501.05599999998,
+   "score": 15.8
+  },
+  {
+   "ticker": "IVF",
+   "issuer": "ownership.xml",
+   "cik": 1417926,
+   "filed": "2022-06-03",
+   "insiders": 2,
+   "value": 105941.15,
+   "score": 13.0
+  },
+  {
+   "ticker": "LONA",
+   "issuer": "doc4.xml",
+   "cik": 1620463,
+   "filed": "2022-07-01",
+   "insiders": 2,
+   "value": 4129172.3800000004,
+   "score": 61.0
+  },
+  {
+   "ticker": "RSVR",
+   "issuer": "es220265619_4-heindlmeyer.xml",
+   "cik": 1824403,
+   "filed": "2022-07-01",
+   "insiders": 5,
+   "value": 2260575.3926,
+   "score": 150.4
+  },
+  {
+   "ticker": "VRCA",
+   "issuer": "doc4.xml",
+   "cik": 1660334,
+   "filed": "2022-07-05",
+   "insiders": 5,
+   "value": 13599994.8,
+   "score": 368.8
+  },
+  {
+   "ticker": "VRCA",
+   "issuer": "doc4.xml",
+   "cik": 1660334,
+   "filed": "2022-07-11",
+   "insiders": 6,
+   "value": 13625494.8,
+   "score": 443.0
+  },
+  {
+   "ticker": "SONM",
+   "issuer": "doc4.xml",
+   "cik": 1178697,
+   "filed": "2022-07-14",
+   "insiders": 2,
+   "value": 12499999.679999998,
+   "score": 141.4
+  },
+  {
+   "ticker": "SONM",
+   "issuer": "doc4.xml",
+   "cik": 1178697,
+   "filed": "2022-07-15",
+   "insiders": 2,
+   "value": 12499999.679999998,
+   "score": 141.4
+  },
+  {
+   "ticker": "ACXP",
+   "issuer": "tm2222169-1_4seq1.xml",
+   "cik": 1736243,
+   "filed": "2022-07-29",
+   "insiders": 3,
+   "value": 225001.8,
+   "score": 28.5
+  },
+  {
+   "ticker": "FIP",
+   "issuer": "doc4.xml",
+   "cik": 1899883,
+   "filed": "2022-08-03",
+   "insiders": 2,
+   "value": 1017000.0,
+   "score": 40.3
+  },
+  {
+   "ticker": "SONM",
+   "issuer": "doc4.xml",
+   "cik": 1178697,
+   "filed": "2022-08-10",
+   "insiders": 2,
+   "value": 9298600.08,
+   "score": 73.2
+  },
+  {
+   "ticker": "INAB",
+   "issuer": "doc4.xml",
+   "cik": 1740279,
+   "filed": "2022-08-17",
+   "insiders": 2,
+   "value": 6739999.199999999,
+   "score": 62.3
+  },
+  {
+   "ticker": "INAB",
+   "issuer": "doc4.xml",
+   "cik": 1740279,
+   "filed": "2022-08-18",
+   "insiders": 6,
+   "value": 8686809.7,
+   "score": 353.7
+  },
+  {
+   "ticker": "INAB",
+   "issuer": "doc4.xml",
+   "cik": 1740279,
+   "filed": "2022-08-30",
+   "insiders": 2,
+   "value": 122929.12,
+   "score": 8.4
+  },
+  {
+   "ticker": "DEI",
+   "issuer": "form4.xml",
+   "cik": 1364250,
+   "filed": "2022-09-01",
+   "insiders": 2,
+   "value": 995750.0,
+   "score": 20.0
+  },
+  {
+   "ticker": "DEI",
+   "issuer": "form4.xml",
+   "cik": 1364250,
+   "filed": "2022-09-06",
+   "insiders": 3,
+   "value": 1503500.0,
+   "score": 36.8
+  },
+  {
+   "ticker": "DEI",
+   "issuer": "form4.xml",
+   "cik": 1364250,
+   "filed": "2022-09-09",
+   "insiders": 3,
+   "value": 7518430.000000001,
+   "score": 164.5
+  },
+  {
+   "ticker": "MFA-PC",
+   "issuer": "tm221651-1_4seq1.xml",
+   "cik": 1055160,
+   "filed": "2022-09-16",
+   "insiders": 3,
+   "value": 84036.01000000001,
+   "score": 17.4
+  },
+  {
+   "ticker": "INAB",
+   "issuer": "doc4.xml",
+   "cik": 1740279,
+   "filed": "2022-09-29",
+   "insiders": 2,
+   "value": 76881.9276,
+   "score": 6.7
+  },
+  {
+   "ticker": "DFLI",
+   "issuer": "doc4.xml",
+   "cik": 1847986,
+   "filed": "2022-10-04",
+   "insiders": 2,
+   "value": 10049200.0,
+   "score": 126.8
+  },
+  {
+   "ticker": "BHVN",
+   "issuer": "primarydocument.xml",
+   "cik": 1935979,
+   "filed": "2022-10-06",
+   "insiders": 2,
+   "value": 7470596.529800001,
+   "score": 109.3
+  },
+  {
+   "ticker": "NREF",
+   "issuer": "rdgdoc.xml",
+   "cik": 1786248,
+   "filed": "2022-10-11",
+   "insiders": 4,
+   "value": 507577.36,
+   "score": 42.7
+  },
+  {
+   "ticker": "BHVN",
+   "issuer": "primarydocument.xml",
+   "cik": 1935979,
+   "filed": "2022-10-26",
+   "insiders": 5,
+   "value": 53610480.0,
+   "score": 732.2
+  },
+  {
+   "ticker": "INBKZ",
+   "issuer": "wf-form4_164131828095441.xml",
+   "cik": 1562463,
+   "filed": "2022-10-26",
+   "insiders": 2,
+   "value": 485724.0,
+   "score": 27.9
+  },
+  {
+   "ticker": "AVNI",
+   "issuer": "ownership.xml",
+   "cik": 1113313,
+   "filed": "2022-10-28",
+   "insiders": 2,
+   "value": 251740.40000000002,
+   "score": 11.0
+  },
+  {
+   "ticker": "BHVN",
+   "issuer": "primarydocument.xml",
+   "cik": 1935979,
+   "filed": "2022-10-31",
+   "insiders": 5,
+   "value": 55716252.345,
+   "score": 746.4
+  },
+  {
+   "ticker": "BHVN",
+   "issuer": "primarydocument.xml",
+   "cik": 1935979,
+   "filed": "2022-11-01",
+   "insiders": 5,
+   "value": 56128247.385,
+   "score": 749.2
+  },
+  {
+   "ticker": "HASI",
+   "issuer": "wf-form4_164687750159054.xml",
+   "cik": 1561894,
+   "filed": "2022-11-09",
+   "insiders": 5,
+   "value": 711945.0,
+   "score": 84.4
+  },
+  {
+   "ticker": "HASI",
+   "issuer": "wf-form4_164687750159054.xml",
+   "cik": 1561894,
+   "filed": "2022-11-10",
+   "insiders": 7,
+   "value": 769450.875,
+   "score": 122.8
+  },
+  {
+   "ticker": "EMO",
+   "issuer": "primary_doc.xml",
+   "cik": 1517518,
+   "filed": "2022-11-21",
+   "insiders": 2,
+   "value": 5924637.6899999995,
+   "score": 53.5
+  },
+  {
+   "ticker": "EMO",
+   "issuer": "primary_doc.xml",
+   "cik": 1517518,
+   "filed": "2022-11-22",
+   "insiders": 2,
+   "value": 6153433.55,
+   "score": 54.6
+  },
+  {
+   "ticker": "EMO",
+   "issuer": "primary_doc.xml",
+   "cik": 1517518,
+   "filed": "2022-11-25",
+   "insiders": 2,
+   "value": 5356751.08,
+   "score": 50.9
+  },
+  {
+   "ticker": "INAB",
+   "issuer": "doc4.xml",
+   "cik": 1740279,
+   "filed": "2022-12-13",
+   "insiders": 2,
+   "value": 282840.9952,
+   "score": 12.8
+  },
+  {
+   "ticker": "TRIN",
+   "issuer": "ownership.xml",
+   "cik": 1786108,
+   "filed": "2022-12-13",
+   "insiders": 2,
+   "value": 267036.0,
+   "score": 20.7
+  },
+  {
+   "ticker": "TRNZ",
+   "issuer": "ownership.xml",
+   "cik": 1786108,
+   "filed": "2022-12-13",
+   "insiders": 2,
+   "value": 267036.0,
+   "score": 20.7
+  },
+  {
+   "ticker": "ERAS",
+   "issuer": "doc4.xml",
+   "cik": 1761918,
+   "filed": "2022-12-15",
+   "insiders": 2,
+   "value": 297090.0,
+   "score": 21.8
+  },
+  {
+   "ticker": "RWAYI",
+   "issuer": "doc4.xml",
+   "cik": 1653384,
+   "filed": "2022-12-15",
+   "insiders": 2,
+   "value": 331563.4,
+   "score": 23.0
+  },
+  {
+   "ticker": "RWAYI",
+   "issuer": "doc4.xml",
+   "cik": 1653384,
+   "filed": "2022-12-16",
+   "insiders": 2,
+   "value": 599043.96,
+   "score": 31.0
+  },
+  {
+   "ticker": "AMSC",
+   "issuer": "doc4.xml",
+   "cik": 880807,
+   "filed": "2022-12-19",
+   "insiders": 2,
+   "value": 223139.0,
+   "score": 18.9
+  },
+  {
+   "ticker": "ERAS",
+   "issuer": "doc4.xml",
+   "cik": 1761918,
+   "filed": "2022-12-20",
+   "insiders": 3,
+   "value": 2297088.0,
+   "score": 90.9
+  },
+  {
+   "ticker": "RYM",
+   "issuer": "ownership.xml",
+   "cik": 1800637,
+   "filed": "2022-12-21",
+   "insiders": 2,
+   "value": 6117866.199999999,
+   "score": 98.9
+  },
+  {
+   "ticker": "ERAS",
+   "issuer": "doc4.xml",
+   "cik": 1761918,
+   "filed": "2022-12-22",
+   "insiders": 3,
+   "value": 2129198.0,
+   "score": 52.5
+  },
+  {
+   "ticker": "AIM",
+   "issuer": "primary_doc.xml",
+   "cik": 946644,
+   "filed": "2023-01-04",
+   "insiders": 3,
+   "value": 100000.73,
+   "score": 19.0
+  },
+  {
+   "ticker": "BTMD",
+   "issuer": "doc4.xml",
+   "cik": 1819253,
+   "filed": "2023-01-10",
+   "insiders": 4,
+   "value": 979050.0,
+   "score": 79.2
+  },
+  {
+   "ticker": "ISLUF",
+   "issuer": "tm233911-1_4seq1.xml",
+   "cik": 1915328,
+   "filed": "2023-01-19",
+   "insiders": 3,
+   "value": 1125000.0,
+   "score": 35.0
+  },
+  {
+   "ticker": "VERA",
+   "issuer": "doc4.xml",
+   "cik": 1831828,
+   "filed": "2023-02-08",
+   "insiders": 5,
+   "value": 26139981.0,
+   "score": 511.3
+  },
+  {
+   "ticker": "GLO",
+   "issuer": "primary_doc.xml",
+   "cik": 1350869,
+   "filed": "2023-02-09",
+   "insiders": 2,
+   "value": 269910.0,
+   "score": 10.4
+  },
+  {
+   "ticker": "VERA",
+   "issuer": "doc4.xml",
+   "cik": 1831828,
+   "filed": "2023-02-09",
+   "insiders": 6,
+   "value": 28349569.2,
+   "score": 638.9
+  },
+  {
+   "ticker": "VERA",
+   "issuer": "doc4.xml",
+   "cik": 1831828,
+   "filed": "2023-02-13",
+   "insiders": 6,
+   "value": 28349569.2,
+   "score": 638.9
+  },
+  {
+   "ticker": "USCB",
+   "issuer": "rdgdoc.xml",
+   "cik": 1901637,
+   "filed": "2023-02-15",
+   "insiders": 2,
+   "value": 79294.0,
+   "score": 6.8
+  },
+  {
+   "ticker": "RILYG",
+   "issuer": "ownership.xml",
+   "cik": 1464790,
+   "filed": "2023-02-27",
+   "insiders": 2,
+   "value": 736269.0,
+   "score": 34.3
+  },
+  {
+   "ticker": "RILYN",
+   "issuer": "ownership.xml",
+   "cik": 1464790,
+   "filed": "2023-02-27",
+   "insiders": 2,
+   "value": 736269.0,
+   "score": 34.3
+  },
+  {
+   "ticker": "RILYG",
+   "issuer": "ownership.xml",
+   "cik": 1464790,
+   "filed": "2023-02-28",
+   "insiders": 2,
+   "value": 736269.0,
+   "score": 34.3
+  },
+  {
+   "ticker": "RILYN",
+   "issuer": "ownership.xml",
+   "cik": 1464790,
+   "filed": "2023-02-28",
+   "insiders": 2,
+   "value": 736269.0,
+   "score": 34.3
+  },
+  {
+   "ticker": "GOOD",
+   "issuer": "form4.xml",
+   "cik": 1234006,
+   "filed": "2023-03-06",
+   "insiders": 2,
+   "value": 75943.76000000001,
+   "score": 11.0
+  },
+  {
+   "ticker": "GOODN",
+   "issuer": "form4.xml",
+   "cik": 1234006,
+   "filed": "2023-03-06",
+   "insiders": 2,
+   "value": 75943.76000000001,
+   "score": 11.0
+  },
+  {
+   "ticker": "IOSP",
+   "issuer": "doc4.xml",
+   "cik": 1054905,
+   "filed": "2023-03-06",
+   "insiders": 2,
+   "value": 100129.32,
+   "score": 9.5
+  },
+  {
+   "ticker": "GOOD",
+   "issuer": "form4.xml",
+   "cik": 1234006,
+   "filed": "2023-03-07",
+   "insiders": 2,
+   "value": 75943.76000000001,
+   "score": 11.0
+  },
+  {
+   "ticker": "GOODN",
+   "issuer": "form4.xml",
+   "cik": 1234006,
+   "filed": "2023-03-07",
+   "insiders": 2,
+   "value": 75943.76000000001,
+   "score": 11.0
+  },
+  {
+   "ticker": "FSK",
+   "issuer": "forman-form4_010122.xml",
+   "cik": 1422183,
+   "filed": "2023-03-09",
+   "insiders": 2,
+   "value": 157370.0,
+   "score": 15.9
+  },
+  {
+   "ticker": "IOSP",
+   "issuer": "doc4.xml",
+   "cik": 1054905,
+   "filed": "2023-03-09",
+   "insiders": 2,
+   "value": 182607.5,
+   "score": 12.8
+  },
+  {
+   "ticker": "FSK",
+   "issuer": "forman-form4_010122.xml",
+   "cik": 1422183,
+   "filed": "2023-03-10",
+   "insiders": 2,
+   "value": 108170.0,
+   "score": 13.2
+  },
+  {
+   "ticker": "FSK",
+   "issuer": "forman-form4_010122.xml",
+   "cik": 1422183,
+   "filed": "2023-03-14",
+   "insiders": 2,
+   "value": 108170.0,
+   "score": 13.2
+  },
+  {
+   "ticker": "OCFC",
+   "issuer": "wf-form4_167776662379205.xml",
+   "cik": 1004702,
+   "filed": "2023-03-15",
+   "insiders": 2,
+   "value": 124130.99,
+   "score": 10.6
+  },
+  {
+   "ticker": "HASI",
+   "issuer": "wf-form4_164687750159054.xml",
+   "cik": 1561894,
+   "filed": "2023-03-16",
+   "insiders": 5,
+   "value": 484181.04,
+   "score": 69.6
+  },
+  {
+   "ticker": "INBKZ",
+   "issuer": "wf-form4_164131828095441.xml",
+   "cik": 1562463,
+   "filed": "2023-03-16",
+   "insiders": 2,
+   "value": 242870.7,
+   "score": 19.7
+  },
+  {
+   "ticker": "RILYG",
+   "issuer": "ownership.xml",
+   "cik": 1464790,
+   "filed": "2023-03-16",
+   "insiders": 4,
+   "value": 1019448.9582,
+   "score": 80.8
+  },
+  {
+   "ticker": "RILYN",
+   "issuer": "ownership.xml",
+   "cik": 1464790,
+   "filed": "2023-03-16",
+   "insiders": 4,
+   "value": 1019448.9582,
+   "score": 80.8
+  },
+  {
+   "ticker": "HASI",
+   "issuer": "wf-form4_164687750159054.xml",
+   "cik": 1561894,
+   "filed": "2023-03-17",
+   "insiders": 5,
+   "value": 484181.04,
+   "score": 69.6
+  },
+  {
+   "ticker": "RILYG",
+   "issuer": "ownership.xml",
+   "cik": 1464790,
+   "filed": "2023-03-17",
+   "insiders": 5,
+   "value": 1097629.2947,
+   "score": 104.8
+  },
+  {
+   "ticker": "RILYN",
+   "issuer": "ownership.xml",
+   "cik": 1464790,
+   "filed": "2023-03-17",
+   "insiders": 5,
+   "value": 1097629.2947,
+   "score": 104.8
+  },
+  {
+   "ticker": "RWAYI",
+   "issuer": "doc4.xml",
+   "cik": 1653384,
+   "filed": "2023-03-17",
+   "insiders": 2,
+   "value": 308798.89599999995,
+   "score": 22.2
+  },
+  {
+   "ticker": "INBKZ",
+   "issuer": "wf-form4_164131828095441.xml",
+   "cik": 1562463,
+   "filed": "2023-03-20",
+   "insiders": 2,
+   "value": 242870.7,
+   "score": 19.7
+  },
+  {
+   "ticker": "INN",
+   "issuer": "tm223255-2_4seq1.xml",
+   "cik": 1497645,
+   "filed": "2023-03-20",
+   "insiders": 2,
+   "value": 185353.0,
+   "score": 17.2
+  },
+  {
+   "ticker": "RILYG",
+   "issuer": "ownership.xml",
+   "cik": 1464790,
+   "filed": "2023-03-20",
+   "insiders": 6,
+   "value": 2687981.2947,
+   "score": 196.7
+  },
+  {
+   "ticker": "RILYN",
+   "issuer": "ownership.xml",
+   "cik": 1464790,
+   "filed": "2023-03-20",
+   "insiders": 6,
+   "value": 2687981.2947,
+   "score": 196.7
+  },
+  {
+   "ticker": "NEWT",
+   "issuer": "doc4.xml",
+   "cik": 1587987,
+   "filed": "2023-03-21",
+   "insiders": 2,
+   "value": 154730.0,
+   "score": 15.7
+  },
+  {
+   "ticker": "INBKZ",
+   "issuer": "wf-form4_164131828095441.xml",
+   "cik": 1562463,
+   "filed": "2023-03-22",
+   "insiders": 2,
+   "value": 242870.7,
+   "score": 19.7
+  },
+  {
+   "ticker": "NEWT",
+   "issuer": "doc4.xml",
+   "cik": 1587987,
+   "filed": "2023-03-22",
+   "insiders": 2,
+   "value": 154730.0,
+   "score": 15.7
+  },
+  {
+   "ticker": "NEWT",
+   "issuer": "doc4.xml",
+   "cik": 1587987,
+   "filed": "2023-03-23",
+   "insiders": 3,
+   "value": 652098.35,
+   "score": 48.5
+  },
+  {
+   "ticker": "KREF-PA",
+   "issuer": "form4.xml",
+   "cik": 1631596,
+   "filed": "2023-05-01",
+   "insiders": 2,
+   "value": 352337.7,
+   "score": 23.7
+  },
+  {
+   "ticker": "WOLF",
+   "issuer": "wf-form4_164340646232274.xml",
+   "cik": 895419,
+   "filed": "2023-05-01",
+   "insiders": 2,
+   "value": 752664.29,
+   "score": 34.7
+  },
+  {
+   "ticker": "ENPH",
+   "issuer": "wf-form4_165852779966506.xml",
+   "cik": 1463101,
+   "filed": "2023-05-02",
+   "insiders": 2,
+   "value": 10608402.0994,
+   "score": 130.3
+  },
+  {
+   "ticker": "CMCT",
+   "issuer": "wf-form4_165705957695016.xml",
+   "cik": 908311,
+   "filed": "2023-05-10",
+   "insiders": 4,
+   "value": 11232552.72,
+   "score": 134.1
+  },
+  {
+   "ticker": "INBKZ",
+   "issuer": "wf-form4_164131828095441.xml",
+   "cik": 1562463,
+   "filed": "2023-05-11",
+   "insiders": 2,
+   "value": 132640.0,
+   "score": 8.7
+  },
+  {
+   "ticker": "CMCT",
+   "issuer": "wf-form4_165705957695016.xml",
+   "cik": 908311,
+   "filed": "2023-05-12",
+   "insiders": 4,
+   "value": 11711393.588,
+   "score": 136.9
+  },
+  {
+   "ticker": "INBKZ",
+   "issuer": "wf-form4_164131828095441.xml",
+   "cik": 1562463,
+   "filed": "2023-05-12",
+   "insiders": 2,
+   "value": 257350.0,
+   "score": 20.3
+  },
+  {
+   "ticker": "INBKZ",
+   "issuer": "wf-form4_164131828095441.xml",
+   "cik": 1562463,
+   "filed": "2023-05-15",
+   "insiders": 3,
+   "value": 359050.0,
+   "score": 36.0
+  },
+  {
+   "ticker": "ASYS",
+   "issuer": "tm227649-1_4.xml",
+   "cik": 720500,
+   "filed": "2023-05-16",
+   "insiders": 2,
+   "value": 68762.5,
+   "score": 6.3
+  },
+  {
+   "ticker": "INBKZ",
+   "issuer": "wf-form4_164131828095441.xml",
+   "cik": 1562463,
+   "filed": "2023-05-16",
+   "insiders": 3,
+   "value": 359050.0,
+   "score": 36.0
+  },
+  {
+   "ticker": "CMCT",
+   "issuer": "wf-form4_165705957695016.xml",
+   "cik": 908311,
+   "filed": "2023-05-17",
+   "insiders": 4,
+   "value": 843338.4248,
+   "score": 36.7
+  },
+  {
+   "ticker": "ASYS",
+   "issuer": "tm227649-1_4.xml",
+   "cik": 720500,
+   "filed": "2023-05-18",
+   "insiders": 2,
+   "value": 68762.5,
+   "score": 6.3
+  },
+  {
+   "ticker": "CMCT",
+   "issuer": "wf-form4_165705957695016.xml",
+   "cik": 908311,
+   "filed": "2023-05-19",
+   "insiders": 4,
+   "value": 715225.0872,
+   "score": 33.8
+  },
+  {
+   "ticker": "CMCT",
+   "issuer": "wf-form4_165705957695016.xml",
+   "cik": 908311,
+   "filed": "2023-05-23",
+   "insiders": 4,
+   "value": 913698.7272,
+   "score": 38.2
+  },
+  {
+   "ticker": "CMCT",
+   "issuer": "wf-form4_165705957695016.xml",
+   "cik": 908311,
+   "filed": "2023-05-25",
+   "insiders": 4,
+   "value": 821150.2232,
+   "score": 36.2
+  },
+  {
+   "ticker": "GCO",
+   "issuer": "doc4.xml",
+   "cik": 18498,
+   "filed": "2023-05-30",
+   "insiders": 3,
+   "value": 255213.74,
+   "score": 30.3
+  },
+  {
+   "ticker": "CMCT",
+   "issuer": "wf-form4_165705957695016.xml",
+   "cik": 908311,
+   "filed": "2023-05-31",
+   "insiders": 4,
+   "value": 888984.8928,
+   "score": 37.7
+  },
+  {
+   "ticker": "GCO",
+   "issuer": "doc4.xml",
+   "cik": 18498,
+   "filed": "2023-06-05",
+   "insiders": 4,
+   "value": 567588.74,
+   "score": 60.3
+  },
+  {
+   "ticker": "IART",
+   "issuer": "doc4.xml",
+   "cik": 917520,
+   "filed": "2023-06-05",
+   "insiders": 2,
+   "value": 400020.91040000005,
+   "score": 25.3
+  },
+  {
+   "ticker": "FTK",
+   "issuer": "wf-form4_164133409280776.xml",
+   "cik": 928054,
+   "filed": "2023-06-14",
+   "insiders": 2,
+   "value": 607847.98,
+   "score": 18.7
+  },
+  {
+   "ticker": "VERA",
+   "issuer": "doc4.xml",
+   "cik": 1831828,
+   "filed": "2023-06-23",
+   "insiders": 2,
+   "value": 6882003.673,
+   "score": 104.9
+  },
+  {
+   "ticker": "MPAA",
+   "issuer": "primarydocument.xml",
+   "cik": 918251,
+   "filed": "2023-06-27",
+   "insiders": 3,
+   "value": 1050000.0,
+   "score": 30.7
+  },
+  {
+   "ticker": "RILYG",
+   "issuer": "ownership.xml",
+   "cik": 1464790,
+   "filed": "2023-07-26",
+   "insiders": 3,
+   "value": 4549985.0,
+   "score": 128.0
+  },
+  {
+   "ticker": "RILYN",
+   "issuer": "ownership.xml",
+   "cik": 1464790,
+   "filed": "2023-07-26",
+   "insiders": 3,
+   "value": 4549985.0,
+   "score": 128.0
+  },
+  {
+   "ticker": "RILYG",
+   "issuer": "ownership.xml",
+   "cik": 1464790,
+   "filed": "2023-07-27",
+   "insiders": 4,
+   "value": 5049935.0,
+   "score": 179.8
+  },
+  {
+   "ticker": "RILYN",
+   "issuer": "ownership.xml",
+   "cik": 1464790,
+   "filed": "2023-07-27",
+   "insiders": 4,
+   "value": 5049935.0,
+   "score": 179.8
+  },
+  {
+   "ticker": "FLL",
+   "issuer": "doc4.xml",
+   "cik": 891482,
+   "filed": "2023-08-14",
+   "insiders": 2,
+   "value": 132000.0,
+   "score": 8.7
+  },
+  {
+   "ticker": "ASYS",
+   "issuer": "tm227649-1_4.xml",
+   "cik": 720500,
+   "filed": "2023-08-15",
+   "insiders": 2,
+   "value": 203996.97999999998,
+   "score": 18.1
+  },
+  {
+   "ticker": "ASYS",
+   "issuer": "tm227649-1_4.xml",
+   "cik": 720500,
+   "filed": "2023-08-16",
+   "insiders": 2,
+   "value": 203996.97999999998,
+   "score": 18.1
+  },
+  {
+   "ticker": "MX",
+   "issuer": "doc4.xml",
+   "cik": 1325702,
+   "filed": "2023-08-17",
+   "insiders": 2,
+   "value": 174923.68,
+   "score": 8.4
+  },
+  {
+   "ticker": "SKIN",
+   "issuer": "wf-form4_164365026176711.xml",
+   "cik": 1818093,
+   "filed": "2023-08-17",
+   "insiders": 3,
+   "value": 663725.0144999999,
+   "score": 48.9
+  },
+  {
+   "ticker": "SKIN",
+   "issuer": "wf-form4_164365026176711.xml",
+   "cik": 1818093,
+   "filed": "2023-08-18",
+   "insiders": 6,
+   "value": 999587.9138999999,
+   "score": 120.0
+  },
+  {
+   "ticker": "ASYS",
+   "issuer": "tm227649-1_4.xml",
+   "cik": 720500,
+   "filed": "2023-08-21",
+   "insiders": 2,
+   "value": 274586.98,
+   "score": 21.0
+  },
+  {
+   "ticker": "HASI",
+   "issuer": "wf-form4_164687750159054.xml",
+   "cik": 1561894,
+   "filed": "2023-08-21",
+   "insiders": 8,
+   "value": 754884.0,
+   "score": 139.0
+  },
+  {
+   "ticker": "SKIN",
+   "issuer": "wf-form4_164365026176711.xml",
+   "cik": 1818093,
+   "filed": "2023-08-21",
+   "insiders": 7,
+   "value": 1348187.9139,
+   "score": 162.6
+  },
+  {
+   "ticker": "ASYS",
+   "issuer": "tm227649-1_4.xml",
+   "cik": 720500,
+   "filed": "2023-08-25",
+   "insiders": 2,
+   "value": 242457.5,
+   "score": 19.7
+  },
+  {
+   "ticker": "FLL",
+   "issuer": "doc4.xml",
+   "cik": 891482,
+   "filed": "2023-09-11",
+   "insiders": 2,
+   "value": 82539.20000000001,
+   "score": 11.5
+  },
+  {
+   "ticker": "CNTY",
+   "issuer": "certent-form4.xml",
+   "cik": 911147,
+   "filed": "2023-09-13",
+   "insiders": 2,
+   "value": 168820.0,
+   "score": 16.4
+  },
+  {
+   "ticker": "CNTY",
+   "issuer": "certent-form4.xml",
+   "cik": 911147,
+   "filed": "2023-09-14",
+   "insiders": 2,
+   "value": 214820.0,
+   "score": 18.5
+  },
+  {
+   "ticker": "CNTY",
+   "issuer": "certent-form4.xml",
+   "cik": 911147,
+   "filed": "2023-09-15",
+   "insiders": 2,
+   "value": 214820.0,
+   "score": 18.5
+  },
+  {
+   "ticker": "HAIN",
+   "issuer": "wf-form4_164254176265668.xml",
+   "cik": 910406,
+   "filed": "2023-09-19",
+   "insiders": 2,
+   "value": 404801.0,
+   "score": 25.4
+  },
+  {
+   "ticker": "MPAA",
+   "issuer": "primarydocument.xml",
+   "cik": 918251,
+   "filed": "2023-09-25",
+   "insiders": 3,
+   "value": 1124850.0,
+   "score": 31.8
+  },
+  {
+   "ticker": "MPAA",
+   "issuer": "primarydocument.xml",
+   "cik": 918251,
+   "filed": "2023-09-26",
+   "insiders": 3,
+   "value": 1124850.0,
+   "score": 31.8
+  },
+  {
+   "ticker": "CODA",
+   "issuer": "ownership.xml",
+   "cik": 1334325,
+   "filed": "2023-09-29",
+   "insiders": 3,
+   "value": 1104364.8,
+   "score": 63.1
+  },
+  {
+   "ticker": "ASTI",
+   "issuer": "ownership.xml",
+   "cik": 1350102,
+   "filed": "2023-10-02",
+   "insiders": 5,
+   "value": 384995.52,
+   "score": 62.0
+  },
+  {
+   "ticker": "BHVN",
+   "issuer": "primarydocument.xml",
+   "cik": 1935979,
+   "filed": "2023-10-06",
+   "insiders": 2,
+   "value": 902088.0560000001,
+   "score": 38.0
+  },
+  {
+   "ticker": "BHVN",
+   "issuer": "primarydocument.xml",
+   "cik": 1935979,
+   "filed": "2023-10-10",
+   "insiders": 4,
+   "value": 20902068.056,
+   "score": 365.8
+  },
+  {
+   "ticker": "CODA",
+   "issuer": "ownership.xml",
+   "cik": 1334325,
+   "filed": "2023-10-10",
+   "insiders": 2,
+   "value": 197551.19999999998,
+   "score": 17.8
+  },
+  {
+   "ticker": "CCID",
+   "issuer": "doc4.xml",
+   "cik": 1517767,
+   "filed": "2023-10-31",
+   "insiders": 2,
+   "value": 151155.23,
+   "score": 9.3
+  },
+  {
+   "ticker": "HAIN",
+   "issuer": "wf-form4_164254176265668.xml",
+   "cik": 910406,
+   "filed": "2023-11-13",
+   "insiders": 2,
+   "value": 363743.0,
+   "score": 24.1
+  },
+  {
+   "ticker": "OPK",
+   "issuer": "doc4.xml",
+   "cik": 944809,
+   "filed": "2023-11-13",
+   "insiders": 2,
+   "value": 1324753.38,
+   "score": 46.0
+  },
+  {
+   "ticker": "RILYG",
+   "issuer": "ownership.xml",
+   "cik": 1464790,
+   "filed": "2023-11-13",
+   "insiders": 2,
+   "value": 693943.457,
+   "score": 20.0
+  },
+  {
+   "ticker": "RILYN",
+   "issuer": "ownership.xml",
+   "cik": 1464790,
+   "filed": "2023-11-13",
+   "insiders": 2,
+   "value": 693943.457,
+   "score": 20.0
+  },
+  {
+   "ticker": "SEDG",
+   "issuer": "zk2227020.xml",
+   "cik": 1419612,
+   "filed": "2023-11-13",
+   "insiders": 2,
+   "value": 1453082.0,
+   "score": 28.9
+  },
+  {
+   "ticker": "CTOS",
+   "issuer": "ownership.xml",
+   "cik": 1709682,
+   "filed": "2023-11-14",
+   "insiders": 3,
+   "value": 835335.0,
+   "score": 54.8
+  },
+  {
+   "ticker": "OPK",
+   "issuer": "doc4.xml",
+   "cik": 944809,
+   "filed": "2023-11-14",
+   "insiders": 2,
+   "value": 1324753.38,
+   "score": 46.0
+  },
+  {
+   "ticker": "RILYG",
+   "issuer": "ownership.xml",
+   "cik": 1464790,
+   "filed": "2023-11-14",
+   "insiders": 2,
+   "value": 897543.457,
+   "score": 22.7
+  },
+  {
+   "ticker": "RILYN",
+   "issuer": "ownership.xml",
+   "cik": 1464790,
+   "filed": "2023-11-14",
+   "insiders": 2,
+   "value": 897543.457,
+   "score": 22.7
+  },
+  {
+   "ticker": "CTOS",
+   "issuer": "ownership.xml",
+   "cik": 1709682,
+   "filed": "2023-11-15",
+   "insiders": 4,
+   "value": 938747.0,
+   "score": 77.5
+  },
+  {
+   "ticker": "RILYG",
+   "issuer": "ownership.xml",
+   "cik": 1464790,
+   "filed": "2023-11-15",
+   "insiders": 2,
+   "value": 897543.457,
+   "score": 22.7
+  },
+  {
+   "ticker": "RILYN",
+   "issuer": "ownership.xml",
+   "cik": 1464790,
+   "filed": "2023-11-15",
+   "insiders": 2,
+   "value": 897543.457,
+   "score": 22.7
+  },
+  {
+   "ticker": "HAIN",
+   "issuer": "wf-form4_164254176265668.xml",
+   "cik": 910406,
+   "filed": "2023-11-16",
+   "insiders": 2,
+   "value": 256175.0,
+   "score": 12.1
+  },
+  {
+   "ticker": "RILYG",
+   "issuer": "ownership.xml",
+   "cik": 1464790,
+   "filed": "2023-11-16",
+   "insiders": 2,
+   "value": 897543.457,
+   "score": 22.7
+  },
+  {
+   "ticker": "RILYN",
+   "issuer": "ownership.xml",
+   "cik": 1464790,
+   "filed": "2023-11-16",
+   "insiders": 2,
+   "value": 897543.457,
+   "score": 22.7
+  },
+  {
+   "ticker": "LXRX",
+   "issuer": "form4.xml",
+   "cik": 1062822,
+   "filed": "2023-11-17",
+   "insiders": 2,
+   "value": 296317.0,
+   "score": 21.8
+  },
+  {
+   "ticker": "RILYG",
+   "issuer": "ownership.xml",
+   "cik": 1464790,
+   "filed": "2023-11-17",
+   "insiders": 5,
+   "value": 1852836.457,
+   "score": 136.1
+  },
+  {
+   "ticker": "RILYN",
+   "issuer": "ownership.xml",
+   "cik": 1464790,
+   "filed": "2023-11-17",
+   "insiders": 5,
+   "value": 1852836.457,
+   "score": 136.1
+  },
+  {
+   "ticker": "FLL",
+   "issuer": "doc4.xml",
+   "cik": 891482,
+   "filed": "2023-11-20",
+   "insiders": 2,
+   "value": 81036.0,
+   "score": 11.4
+  },
+  {
+   "ticker": "RWAYI",
+   "issuer": "doc4.xml",
+   "cik": 1653384,
+   "filed": "2023-11-21",
+   "insiders": 2,
+   "value": 348078.0,
+   "score": 23.6
+  },
+  {
+   "ticker": "RWAYI",
+   "issuer": "doc4.xml",
+   "cik": 1653384,
+   "filed": "2023-11-24",
+   "insiders": 2,
+   "value": 785019.7,
+   "score": 35.4
+  },
+  {
+   "ticker": "RWAYI",
+   "issuer": "doc4.xml",
+   "cik": 1653384,
+   "filed": "2023-11-28",
+   "insiders": 2,
+   "value": 642304.9,
+   "score": 32.1
+  },
+  {
+   "ticker": "ASA",
+   "issuer": "primary_doc.xml",
+   "cik": 1230869,
+   "filed": "2023-12-05",
+   "insiders": 2,
+   "value": 2006071.9400000002,
+   "score": 56.7
+  },
+  {
+   "ticker": "ASA",
+   "issuer": "primary_doc.xml",
+   "cik": 1230869,
+   "filed": "2023-12-06",
+   "insiders": 2,
+   "value": 2374416.66,
+   "score": 61.6
+  },
+  {
+   "ticker": "ERAS",
+   "issuer": "doc4.xml",
+   "cik": 1761918,
+   "filed": "2023-12-06",
+   "insiders": 2,
+   "value": 1745963.95,
+   "score": 52.9
+  },
+  {
+   "ticker": "ASA",
+   "issuer": "primary_doc.xml",
+   "cik": 1230869,
+   "filed": "2023-12-07",
+   "insiders": 2,
+   "value": 1108217.32,
+   "score": 42.1
+  },
+  {
+   "ticker": "SHFSW",
+   "issuer": "ownership.xml",
+   "cik": 1854963,
+   "filed": "2023-12-07",
+   "insiders": 2,
+   "value": 93195.0,
+   "score": 9.2
+  },
+  {
+   "ticker": "ASA",
+   "issuer": "primary_doc.xml",
+   "cik": 1230869,
+   "filed": "2023-12-08",
+   "insiders": 2,
+   "value": 1210440.56,
+   "score": 44.0
+  },
+  {
+   "ticker": "ERAS",
+   "issuer": "doc4.xml",
+   "cik": 1761918,
+   "filed": "2023-12-08",
+   "insiders": 2,
+   "value": 1745963.95,
+   "score": 52.9
+  },
+  {
+   "ticker": "SHFSW",
+   "issuer": "ownership.xml",
+   "cik": 1854963,
+   "filed": "2023-12-08",
+   "insiders": 2,
+   "value": 93195.0,
+   "score": 9.2
+  },
+  {
+   "ticker": "ASA",
+   "issuer": "primary_doc.xml",
+   "cik": 1230869,
+   "filed": "2023-12-11",
+   "insiders": 2,
+   "value": 1564227.125,
+   "score": 50.0
+  },
+  {
+   "ticker": "ASA",
+   "issuer": "primary_doc.xml",
+   "cik": 1230869,
+   "filed": "2023-12-12",
+   "insiders": 2,
+   "value": 1007825.849,
+   "score": 40.2
+  },
+  {
+   "ticker": "MX",
+   "issuer": "doc4.xml",
+   "cik": 1325702,
+   "filed": "2023-12-12",
+   "insiders": 2,
+   "value": 136000.0,
+   "score": 7.4
+  },
+  {
+   "ticker": "HNNA",
+   "issuer": "doc1.xml",
+   "cik": 1145255,
+   "filed": "2023-12-13",
+   "insiders": 2,
+   "value": 88348.098,
+   "score": 11.9
+  },
+  {
+   "ticker": "ASA",
+   "issuer": "primary_doc.xml",
+   "cik": 1230869,
+   "filed": "2023-12-14",
+   "insiders": 2,
+   "value": 1010294.3690000001,
+   "score": 40.2
+  },
+  {
+   "ticker": "HNNA",
+   "issuer": "doc1.xml",
+   "cik": 1145255,
+   "filed": "2023-12-14",
+   "insiders": 2,
+   "value": 88348.098,
+   "score": 11.9
+  },
+  {
+   "ticker": "ASA",
+   "issuer": "primary_doc.xml",
+   "cik": 1230869,
+   "filed": "2023-12-18",
+   "insiders": 2,
+   "value": 2214309.8140000002,
+   "score": 59.5
+  },
+  {
+   "ticker": "HNNA",
+   "issuer": "doc1.xml",
+   "cik": 1145255,
+   "filed": "2023-12-18",
+   "insiders": 2,
+   "value": 88348.098,
+   "score": 11.9
+  },
+  {
+   "ticker": "ASA",
+   "issuer": "primary_doc.xml",
+   "cik": 1230869,
+   "filed": "2023-12-19",
+   "insiders": 2,
+   "value": 2100330.19,
+   "score": 58.0
+  },
+  {
+   "ticker": "ASA",
+   "issuer": "primary_doc.xml",
+   "cik": 1230869,
+   "filed": "2023-12-20",
+   "insiders": 2,
+   "value": 2100330.19,
+   "score": 58.0
+  },
+  {
+   "ticker": "ASYS",
+   "issuer": "tm227649-1_4.xml",
+   "cik": 720500,
+   "filed": "2023-12-20",
+   "insiders": 2,
+   "value": 314760.0,
+   "score": 22.4
+  },
+  {
+   "ticker": "ASA",
+   "issuer": "primary_doc.xml",
+   "cik": 1230869,
+   "filed": "2024-01-02",
+   "insiders": 3,
+   "value": 471173.93720000004,
+   "score": 41.2
+  },
+  {
+   "ticker": "ASA",
+   "issuer": "primary_doc.xml",
+   "cik": 1230869,
+   "filed": "2024-01-03",
+   "insiders": 2,
+   "value": 418520.8472,
+   "score": 25.9
+  },
+  {
+   "ticker": "ASA",
+   "issuer": "primary_doc.xml",
+   "cik": 1230869,
+   "filed": "2024-01-08",
+   "insiders": 2,
+   "value": 418520.8472,
+   "score": 25.9
+  },
+  {
+   "ticker": "OPK",
+   "issuer": "doc4.xml",
+   "cik": 944809,
+   "filed": "2024-01-08",
+   "insiders": 3,
+   "value": 1974801.726,
+   "score": 84.3
+  },
+  {
+   "ticker": "OPK",
+   "issuer": "doc4.xml",
+   "cik": 944809,
+   "filed": "2024-01-10",
+   "insiders": 4,
+   "value": 2174769.4787,
+   "score": 118.0
+  },
+  {
+   "ticker": "STME",
+   "issuer": "primary_doc.xml",
+   "cik": 1493712,
+   "filed": "2024-01-10",
+   "insiders": 2,
+   "value": 205605.995,
+   "score": 18.1
+  },
+  {
+   "ticker": "OPK",
+   "issuer": "doc4.xml",
+   "cik": 944809,
+   "filed": "2024-01-11",
+   "insiders": 4,
+   "value": 2655148.2408000003,
+   "score": 130.4
+  },
+  {
+   "ticker": "OPK",
+   "issuer": "doc4.xml",
+   "cik": 944809,
+   "filed": "2024-01-16",
+   "insiders": 2,
+   "value": 1634646.5148,
+   "score": 51.1
+  },
+  {
+   "ticker": "OPK",
+   "issuer": "doc4.xml",
+   "cik": 944809,
+   "filed": "2024-01-17",
+   "insiders": 2,
+   "value": 1577178.7621,
+   "score": 50.2
+  },
+  {
+   "ticker": "OPK",
+   "issuer": "doc4.xml",
+   "cik": 944809,
+   "filed": "2024-01-18",
+   "insiders": 2,
+   "value": 1483000.0,
+   "score": 48.7
+  },
+  {
+   "ticker": "OPK",
+   "issuer": "doc4.xml",
+   "cik": 944809,
+   "filed": "2024-01-19",
+   "insiders": 2,
+   "value": 1971650.0,
+   "score": 56.2
+  },
+  {
+   "ticker": "WOLF",
+   "issuer": "wf-form4_164340646232274.xml",
+   "cik": 895419,
+   "filed": "2024-02-05",
+   "insiders": 3,
+   "value": 767329.895,
+   "score": 31.5
+  },
+  {
+   "ticker": "WOLF",
+   "issuer": "wf-form4_164340646232274.xml",
+   "cik": 895419,
+   "filed": "2024-02-06",
+   "insiders": 3,
+   "value": 767329.895,
+   "score": 31.5
+  },
+  {
+   "ticker": "KREF-PA",
+   "issuer": "form4.xml",
+   "cik": 1631596,
+   "filed": "2024-02-09",
+   "insiders": 2,
+   "value": 350034.4,
+   "score": 23.7
+  },
+  {
+   "ticker": "JSPRW",
+   "issuer": "jasper_fm4mar212022.xml",
+   "cik": 1788028,
+   "filed": "2024-02-12",
+   "insiders": 2,
+   "value": 6993000.0,
+   "score": 58.2
+  },
+  {
+   "ticker": "STGW",
+   "issuer": "tm238359-5_4seq1.xml",
+   "cik": 876883,
+   "filed": "2024-02-28",
+   "insiders": 2,
+   "value": 77200.0,
+   "score": 11.1
+  },
+  {
+   "ticker": "STGW",
+   "issuer": "tm238359-5_4seq1.xml",
+   "cik": 876883,
+   "filed": "2024-02-29",
+   "insiders": 2,
+   "value": 129959.0,
+   "score": 14.4
+  },
+  {
+   "ticker": "USCB",
+   "issuer": "rdgdoc.xml",
+   "cik": 1901637,
+   "filed": "2024-03-12",
+   "insiders": 2,
+   "value": 139934.0,
+   "score": 15.0
+  },
+  {
+   "ticker": "MX",
+   "issuer": "doc4.xml",
+   "cik": 1325702,
+   "filed": "2024-03-13",
+   "insiders": 3,
+   "value": 178043.86,
+   "score": 12.7
+  },
+  {
+   "ticker": "USCB",
+   "issuer": "rdgdoc.xml",
+   "cik": 1901637,
+   "filed": "2024-03-14",
+   "insiders": 2,
+   "value": 223280.7,
+   "score": 18.9
+  },
+  {
+   "ticker": "AIM",
+   "issuer": "primary_doc.xml",
+   "cik": 946644,
+   "filed": "2024-03-18",
+   "insiders": 2,
+   "value": 55000.44,
+   "score": 9.4
+  },
+  {
+   "ticker": "GRNT",
+   "issuer": "wk-form4_1708632056.xml",
+   "cik": 1928446,
+   "filed": "2024-03-18",
+   "insiders": 2,
+   "value": 62000.0,
+   "score": 10.0
+  },
+  {
+   "ticker": "RWAYI",
+   "issuer": "doc4.xml",
+   "cik": 1653384,
+   "filed": "2024-03-18",
+   "insiders": 2,
+   "value": 475081.19999999995,
+   "score": 27.6
+  },
+  {
+   "ticker": "XELB",
+   "issuer": "tm2324888-2_4seq1.xml",
+   "cik": 1083220,
+   "filed": "2024-03-19",
+   "insiders": 2,
+   "value": 190125.0,
+   "score": 17.4
+  },
+  {
+   "ticker": "NXNVW",
+   "issuer": "ownership.xml",
+   "cik": 1865631,
+   "filed": "2024-03-20",
+   "insiders": 2,
+   "value": 2869662.7,
+   "score": 40.7
+  },
+  {
+   "ticker": "RWAYI",
+   "issuer": "doc4.xml",
+   "cik": 1653384,
+   "filed": "2024-03-20",
+   "insiders": 2,
+   "value": 475081.19999999995,
+   "score": 27.6
+  },
+  {
+   "ticker": "GRNT",
+   "issuer": "wk-form4_1708632056.xml",
+   "cik": 1928446,
+   "filed": "2024-03-21",
+   "insiders": 2,
+   "value": 62000.0,
+   "score": 10.0
+  },
+  {
+   "ticker": "AIM",
+   "issuer": "primary_doc.xml",
+   "cik": 946644,
+   "filed": "2024-03-22",
+   "insiders": 2,
+   "value": 55000.44,
+   "score": 9.4
+  },
+  {
+   "ticker": "LEGH",
+   "issuer": "tm2311950-4_4seq1.xml",
+   "cik": 1436208,
+   "filed": "2024-03-27",
+   "insiders": 2,
+   "value": 236967.0,
+   "score": 11.7
+  },
+  {
+   "ticker": "LEGH",
+   "issuer": "tm2311950-4_4seq1.xml",
+   "cik": 1436208,
+   "filed": "2024-03-28",
+   "insiders": 2,
+   "value": 236967.0,
+   "score": 11.7
+  },
+  {
+   "ticker": "GTN",
+   "issuer": "doc4.xml",
+   "cik": 43196,
+   "filed": "2024-04-01",
+   "insiders": 2,
+   "value": 161868.00000000003,
+   "score": 16.1
+  },
+  {
+   "ticker": "GTN",
+   "issuer": "doc4.xml",
+   "cik": 43196,
+   "filed": "2024-04-03",
+   "insiders": 2,
+   "value": 161868.00000000003,
+   "score": 16.1
+  },
+  {
+   "ticker": "BHVN",
+   "issuer": "primarydocument.xml",
+   "cik": 1935979,
+   "filed": "2024-04-23",
+   "insiders": 3,
+   "value": 14999932.0,
+   "score": 232.4
+  },
+  {
+   "ticker": "BHVN",
+   "issuer": "primarydocument.xml",
+   "cik": 1935979,
+   "filed": "2024-04-25",
+   "insiders": 3,
+   "value": 15999101.2855,
+   "score": 240.0
+  },
+  {
+   "ticker": "CNMD",
+   "issuer": "form4.xml",
+   "cik": 816956,
+   "filed": "2024-05-08",
+   "insiders": 2,
+   "value": 346860.0,
+   "score": 23.6
+  },
+  {
+   "ticker": "CTOS",
+   "issuer": "ownership.xml",
+   "cik": 1709682,
+   "filed": "2024-05-08",
+   "insiders": 2,
+   "value": 240916.0,
+   "score": 19.6
+  },
+  {
+   "ticker": "CTOS",
+   "issuer": "ownership.xml",
+   "cik": 1709682,
+   "filed": "2024-05-09",
+   "insiders": 3,
+   "value": 290303.2,
+   "score": 32.3
+  },
+  {
+   "ticker": "CNMD",
+   "issuer": "form4.xml",
+   "cik": 816956,
+   "filed": "2024-05-10",
+   "insiders": 2,
+   "value": 241832.92,
+   "score": 11.8
+  },
+  {
+   "ticker": "CTOS",
+   "issuer": "ownership.xml",
+   "cik": 1709682,
+   "filed": "2024-05-10",
+   "insiders": 4,
+   "value": 330659.2,
+   "score": 46.0
+  },
+  {
+   "ticker": "HAIN",
+   "issuer": "wf-form4_164254176265668.xml",
+   "cik": 910406,
+   "filed": "2024-05-13",
+   "insiders": 2,
+   "value": 104433.5,
+   "score": 12.9
+  },
+  {
+   "ticker": "PAL",
+   "issuer": "ownership.xml",
+   "cik": 1998768,
+   "filed": "2024-05-13",
+   "insiders": 3,
+   "value": 360000.0,
+   "score": 36.0
+  },
+  {
+   "ticker": "CNMD",
+   "issuer": "form4.xml",
+   "cik": 816956,
+   "filed": "2024-05-14",
+   "insiders": 3,
+   "value": 339154.42000000004,
+   "score": 21.0
+  },
+  {
+   "ticker": "BHVN",
+   "issuer": "primarydocument.xml",
+   "cik": 1935979,
+   "filed": "2024-05-15",
+   "insiders": 2,
+   "value": 1515347.4,
+   "score": 24.6
+  },
+  {
+   "ticker": "GRNT",
+   "issuer": "wk-form4_1708632056.xml",
+   "cik": 1928446,
+   "filed": "2024-05-15",
+   "insiders": 2,
+   "value": 63000.0,
+   "score": 10.0
+  },
+  {
+   "ticker": "HAIN",
+   "issuer": "wf-form4_164254176265668.xml",
+   "cik": 910406,
+   "filed": "2024-05-15",
+   "insiders": 3,
+   "value": 207911.0,
+   "score": 27.4
+  },
+  {
+   "ticker": "GRNT",
+   "issuer": "wk-form4_1708632056.xml",
+   "cik": 1928446,
+   "filed": "2024-05-20",
+   "insiders": 2,
+   "value": 63000.0,
+   "score": 10.0
+  },
+  {
+   "ticker": "IART",
+   "issuer": "doc4.xml",
+   "cik": 917520,
+   "filed": "2024-05-24",
+   "insiders": 2,
+   "value": 2495794.4945,
+   "score": 47.4
+  },
+  {
+   "ticker": "BEEP",
+   "issuer": "doc4.xml",
+   "cik": 1847874,
+   "filed": "2024-05-29",
+   "insiders": 2,
+   "value": 87359.23,
+   "score": 11.8
+  },
+  {
+   "ticker": "CMTG",
+   "issuer": "doc4.xml",
+   "cik": 1666291,
+   "filed": "2024-05-29",
+   "insiders": 5,
+   "value": 1384989.5,
+   "score": 117.7
+  },
+  {
+   "ticker": "OXLCZ",
+   "issuer": "ownership.xml",
+   "cik": 1495222,
+   "filed": "2024-05-29",
+   "insiders": 2,
+   "value": 50004000.0,
+   "score": 282.9
+  },
+  {
+   "ticker": "BEEP",
+   "issuer": "doc4.xml",
+   "cik": 1847874,
+   "filed": "2024-05-31",
+   "insiders": 2,
+   "value": 139117.43,
+   "score": 14.9
+  },
+  {
+   "ticker": "CMTG",
+   "issuer": "doc4.xml",
+   "cik": 1666291,
+   "filed": "2024-05-31",
+   "insiders": 4,
+   "value": 1624672.0,
+   "score": 102.0
+  },
+  {
+   "ticker": "ATYR",
+   "issuer": "doc4.xml",
+   "cik": 1339970,
+   "filed": "2024-06-03",
+   "insiders": 2,
+   "value": 123640.0,
+   "score": 14.1
+  },
+  {
+   "ticker": "BEEP",
+   "issuer": "doc4.xml",
+   "cik": 1847874,
+   "filed": "2024-06-03",
+   "insiders": 2,
+   "value": 139117.43,
+   "score": 14.9
+  },
+  {
+   "ticker": "ATYR",
+   "issuer": "doc4.xml",
+   "cik": 1339970,
+   "filed": "2024-06-06",
+   "insiders": 2,
+   "value": 123640.0,
+   "score": 14.1
+  },
+  {
+   "ticker": "FFIN",
+   "issuer": "doc4.xml",
+   "cik": 36029,
+   "filed": "2024-06-07",
+   "insiders": 2,
+   "value": 152865.0,
+   "score": 9.4
+  },
+  {
+   "ticker": "PYYX",
+   "issuer": "form4.xml",
+   "cik": 939930,
+   "filed": "2024-06-13",
+   "insiders": 2,
+   "value": 1400000.0,
+   "score": 26.0
+  },
+  {
+   "ticker": "GRNT",
+   "issuer": "wk-form4_1708632056.xml",
+   "cik": 1928446,
+   "filed": "2024-06-17",
+   "insiders": 3,
+   "value": 121100.0,
+   "score": 20.9
+  },
+  {
+   "ticker": "MPAA",
+   "issuer": "primarydocument.xml",
+   "cik": 918251,
+   "filed": "2024-06-17",
+   "insiders": 3,
+   "value": 2622000.0,
+   "score": 48.6
+  },
+  {
+   "ticker": "MPAA",
+   "issuer": "primarydocument.xml",
+   "cik": 918251,
+   "filed": "2024-06-18",
+   "insiders": 3,
+   "value": 2970957.0,
+   "score": 51.7
+  },
+  {
+   "ticker": "SPMC",
+   "issuer": "form4.xml",
+   "cik": 1930147,
+   "filed": "2024-06-18",
+   "insiders": 3,
+   "value": 2100040.0,
+   "score": 86.9
+  },
+  {
+   "ticker": "GRNT",
+   "issuer": "wk-form4_1708632056.xml",
+   "cik": 1928446,
+   "filed": "2024-06-20",
+   "insiders": 3,
+   "value": 121100.0,
+   "score": 20.9
+  },
+  {
+   "ticker": "MPAA",
+   "issuer": "primarydocument.xml",
+   "cik": 918251,
+   "filed": "2024-06-21",
+   "insiders": 4,
+   "value": 2997730.5,
+   "score": 69.3
+  },
+  {
+   "ticker": "MPAA",
+   "issuer": "primarydocument.xml",
+   "cik": 918251,
+   "filed": "2024-06-24",
+   "insiders": 4,
+   "value": 375730.50000000006,
+   "score": 24.5
+  },
+  {
+   "ticker": "CIMG",
+   "issuer": "ownership.xml",
+   "cik": 1527613,
+   "filed": "2024-07-23",
+   "insiders": 2,
+   "value": 1540911.33,
+   "score": 27.3
+  },
+  {
+   "ticker": "OSG",
+   "issuer": "wk-form4_1709592087.xml",
+   "cik": 874501,
+   "filed": "2024-08-08",
+   "insiders": 4,
+   "value": 1573922.62,
+   "score": 100.4
+  },
+  {
+   "ticker": "CTOS",
+   "issuer": "ownership.xml",
+   "cik": 1709682,
+   "filed": "2024-08-09",
+   "insiders": 2,
+   "value": 435730.698,
+   "score": 26.4
+  },
+  {
+   "ticker": "NCRRP",
+   "issuer": "doc4.xml",
+   "cik": 70866,
+   "filed": "2024-08-12",
+   "insiders": 2,
+   "value": 225600.0,
+   "score": 19.0
+  },
+  {
+   "ticker": "NCRRP",
+   "issuer": "doc4.xml",
+   "cik": 70866,
+   "filed": "2024-08-15",
+   "insiders": 3,
+   "value": 490025.48,
+   "score": 42.0
+  },
+  {
+   "ticker": "SGC",
+   "issuer": "rdgdoc.xml",
+   "cik": 95574,
+   "filed": "2024-08-15",
+   "insiders": 2,
+   "value": 72183.2,
+   "score": 10.7
+  },
+  {
+   "ticker": "GRNT",
+   "issuer": "wk-form4_1708632056.xml",
+   "cik": 1928446,
+   "filed": "2024-08-16",
+   "insiders": 2,
+   "value": 63247.0,
+   "score": 10.1
+  },
+  {
+   "ticker": "RWAYI",
+   "issuer": "doc4.xml",
+   "cik": 1653384,
+   "filed": "2024-08-16",
+   "insiders": 2,
+   "value": 101250.0,
+   "score": 12.7
+  },
+  {
+   "ticker": "GRNT",
+   "issuer": "wk-form4_1708632056.xml",
+   "cik": 1928446,
+   "filed": "2024-08-19",
+   "insiders": 3,
+   "value": 96347.0,
+   "score": 18.6
+  },
+  {
+   "ticker": "SGC",
+   "issuer": "rdgdoc.xml",
+   "cik": 95574,
+   "filed": "2024-08-19",
+   "insiders": 3,
+   "value": 206710.2,
+   "score": 27.3
+  },
+  {
+   "ticker": "SGC",
+   "issuer": "rdgdoc.xml",
+   "cik": 95574,
+   "filed": "2024-08-20",
+   "insiders": 3,
+   "value": 206710.2,
+   "score": 27.3
+  },
+  {
+   "ticker": "GRNT",
+   "issuer": "wk-form4_1708632056.xml",
+   "cik": 1928446,
+   "filed": "2024-08-22",
+   "insiders": 2,
+   "value": 90517.0,
+   "score": 12.0
+  },
+  {
+   "ticker": "NCRRP",
+   "issuer": "doc4.xml",
+   "cik": 70866,
+   "filed": "2024-08-30",
+   "insiders": 2,
+   "value": 248482.08000000002,
+   "score": 19.9
+  },
+  {
+   "ticker": "NCRRP",
+   "issuer": "doc4.xml",
+   "cik": 70866,
+   "filed": "2024-09-03",
+   "insiders": 2,
+   "value": 248482.08000000002,
+   "score": 19.9
+  },
+  {
+   "ticker": "CNTM",
+   "issuer": "tm2419521-3_4seq1.xml",
+   "cik": 1895249,
+   "filed": "2024-09-06",
+   "insiders": 2,
+   "value": 9102282424.0,
+   "score": 2862.2
+  },
+  {
+   "ticker": "CNTM",
+   "issuer": "tm2419521-3_4seq1.xml",
+   "cik": 1895249,
+   "filed": "2024-09-10",
+   "insiders": 2,
+   "value": 15712473250.0,
+   "score": 3760.5
+  },
+  {
+   "ticker": "GRNT",
+   "issuer": "wk-form4_1708632056.xml",
+   "cik": 1928446,
+   "filed": "2024-09-11",
+   "insiders": 2,
+   "value": 80495.0,
+   "score": 11.3
+  },
+  {
+   "ticker": "CNTM",
+   "issuer": "tm2419521-3_4seq1.xml",
+   "cik": 1895249,
+   "filed": "2024-09-12",
+   "insiders": 2,
+   "value": 14930771938.0,
+   "score": 3665.7
+  },
+  {
+   "ticker": "GRNT",
+   "issuer": "wk-form4_1708632056.xml",
+   "cik": 1928446,
+   "filed": "2024-09-13",
+   "insiders": 3,
+   "value": 111145.0,
+   "score": 20.0
+  },
+  {
+   "ticker": "FCUV",
+   "issuer": "ownership.xml",
+   "cik": 1590418,
+   "filed": "2024-09-18",
+   "insiders": 2,
+   "value": 600000.0,
+   "score": 31.0
+  },
+  {
+   "ticker": "CNTM",
+   "issuer": "tm2419521-3_4seq1.xml",
+   "cik": 1895249,
+   "filed": "2024-09-20",
+   "insiders": 2,
+   "value": 1293954790.0,
+   "score": 1079.1
+  },
+  {
+   "ticker": "BUKS",
+   "issuer": "primary_doc.xml",
+   "cik": 15847,
+   "filed": "2024-09-30",
+   "insiders": 2,
+   "value": 179686.4,
+   "score": 10.2
+  },
+  {
+   "ticker": "BUKS",
+   "issuer": "primary_doc.xml",
+   "cik": 15847,
+   "filed": "2024-10-02",
+   "insiders": 2,
+   "value": 179686.4,
+   "score": 10.2
+  },
+  {
+   "ticker": "BHVN",
+   "issuer": "primarydocument.xml",
+   "cik": 1935979,
+   "filed": "2024-10-03",
+   "insiders": 2,
+   "value": 1999940.0,
+   "score": 56.6
+  },
+  {
+   "ticker": "BUKS",
+   "issuer": "primary_doc.xml",
+   "cik": 15847,
+   "filed": "2024-10-03",
+   "insiders": 2,
+   "value": 179686.4,
+   "score": 10.2
+  },
+  {
+   "ticker": "GDV-PH",
+   "issuer": "primary_doc.xml",
+   "cik": 1260729,
+   "filed": "2024-10-15",
+   "insiders": 2,
+   "value": 56315000.0,
+   "score": 180.1
+  },
+  {
+   "ticker": "GDV-PH",
+   "issuer": "primary_doc.xml",
+   "cik": 1260729,
+   "filed": "2024-10-16",
+   "insiders": 2,
+   "value": 56315000.0,
+   "score": 180.1
+  },
+  {
+   "ticker": "UPB",
+   "issuer": "ownership.xml",
+   "cik": 2022626,
+   "filed": "2024-10-17",
+   "insiders": 3,
+   "value": 48025000.0,
+   "score": 249.5
+  },
+  {
+   "ticker": "GDV-PH",
+   "issuer": "primary_doc.xml",
+   "cik": 1260729,
+   "filed": "2024-10-18",
+   "insiders": 2,
+   "value": 56315000.0,
+   "score": 180.1
+  },
+  {
+   "ticker": "NRDS",
+   "issuer": "wf-form4_164675676670392.xml",
+   "cik": 1625278,
+   "filed": "2024-10-23",
+   "insiders": 2,
+   "value": 10551948.7,
+   "score": 71.5
+  },
+  {
+   "ticker": "TRIN",
+   "issuer": "ownership.xml",
+   "cik": 1786108,
+   "filed": "2024-11-06",
+   "insiders": 2,
+   "value": 333005.96,
+   "score": 23.1
+  },
+  {
+   "ticker": "TRNZ",
+   "issuer": "ownership.xml",
+   "cik": 1786108,
+   "filed": "2024-11-06",
+   "insiders": 2,
+   "value": 333005.96,
+   "score": 23.1
+  },
+  {
+   "ticker": "SEDG",
+   "issuer": "zk2227020.xml",
+   "cik": 1419612,
+   "filed": "2024-11-14",
+   "insiders": 2,
+   "value": 2338608.0,
+   "score": 36.7
+  },
+  {
+   "ticker": "GRNT",
+   "issuer": "wk-form4_1708632056.xml",
+   "cik": 1928446,
+   "filed": "2024-11-18",
+   "insiders": 2,
+   "value": 65250.0,
+   "score": 10.2
+  },
+  {
+   "ticker": "MPAA",
+   "issuer": "primarydocument.xml",
+   "cik": 918251,
+   "filed": "2024-11-18",
+   "insiders": 3,
+   "value": 1029000.0,
+   "score": 30.4
+  },
+  {
+   "ticker": "GRNT",
+   "issuer": "wk-form4_1708632056.xml",
+   "cik": 1928446,
+   "filed": "2024-11-19",
+   "insiders": 2,
+   "value": 65250.0,
+   "score": 10.2
+  },
+  {
+   "ticker": "MBINM",
+   "issuer": "primarydocument.xml",
+   "cik": 1629019,
+   "filed": "2024-11-20",
+   "insiders": 2,
+   "value": 2050000.0,
+   "score": 28.6
+  },
+  {
+   "ticker": "RWAYI",
+   "issuer": "doc4.xml",
+   "cik": 1653384,
+   "filed": "2024-11-20",
+   "insiders": 2,
+   "value": 419310.83999999997,
+   "score": 25.9
+  },
+  {
+   "ticker": "ANTX",
+   "issuer": "doc4.xml",
+   "cik": 1880438,
+   "filed": "2024-11-21",
+   "insiders": 2,
+   "value": 263097.5,
+   "score": 20.5
+  },
+  {
+   "ticker": "GRNT",
+   "issuer": "wk-form4_1708632056.xml",
+   "cik": 1928446,
+   "filed": "2024-11-21",
+   "insiders": 2,
+   "value": 284600.97,
+   "score": 21.3
+  },
+  {
+   "ticker": "WOLF",
+   "issuer": "wf-form4_164340646232274.xml",
+   "cik": 895419,
+   "filed": "2024-11-21",
+   "insiders": 4,
+   "value": 816956.4243000001,
+   "score": 43.4
+  },
+  {
+   "ticker": "GRNT",
+   "issuer": "wk-form4_1708632056.xml",
+   "cik": 1928446,
+   "filed": "2024-11-22",
+   "insiders": 2,
+   "value": 284600.97,
+   "score": 21.3
+  },
+  {
+   "ticker": "MBINM",
+   "issuer": "primarydocument.xml",
+   "cik": 1629019,
+   "filed": "2024-11-22",
+   "insiders": 3,
+   "value": 2155867.0,
+   "score": 88.1
+  },
+  {
+   "ticker": "RWAYI",
+   "issuer": "doc4.xml",
+   "cik": 1653384,
+   "filed": "2024-11-22",
+   "insiders": 2,
+   "value": 598539.9199999999,
+   "score": 30.9
+  },
+  {
+   "ticker": "WOLF",
+   "issuer": "wf-form4_164340646232274.xml",
+   "cik": 895419,
+   "filed": "2024-11-25",
+   "insiders": 5,
+   "value": 846877.7843,
+   "score": 55.2
+  },
+  {
+   "ticker": "MPAA",
+   "issuer": "primarydocument.xml",
+   "cik": 918251,
+   "filed": "2024-11-26",
+   "insiders": 2,
+   "value": 82500.5,
+   "score": 5.7
+  },
+  {
+   "ticker": "MPAA",
+   "issuer": "primarydocument.xml",
+   "cik": 918251,
+   "filed": "2024-11-27",
+   "insiders": 2,
+   "value": 82500.5,
+   "score": 5.7
+  },
+  {
+   "ticker": "SPRU",
+   "issuer": "ownership.xml",
+   "cik": 1772720,
+   "filed": "2024-12-04",
+   "insiders": 2,
+   "value": 79774.776,
+   "score": 6.8
+  },
+  {
+   "ticker": "SPRU",
+   "issuer": "ownership.xml",
+   "cik": 1772720,
+   "filed": "2024-12-05",
+   "insiders": 2,
+   "value": 79774.776,
+   "score": 6.8
+  },
+  {
+   "ticker": "FSK",
+   "issuer": "forman-form4_010122.xml",
+   "cik": 1422183,
+   "filed": "2024-12-06",
+   "insiders": 2,
+   "value": 216944.5,
+   "score": 18.6
+  },
+  {
+   "ticker": "GRNT",
+   "issuer": "wk-form4_1708632056.xml",
+   "cik": 1928446,
+   "filed": "2024-12-09",
+   "insiders": 2,
+   "value": 307967.19999999995,
+   "score": 13.3
+  },
+  {
+   "ticker": "FSK",
+   "issuer": "forman-form4_010122.xml",
+   "cik": 1422183,
+   "filed": "2024-12-10",
+   "insiders": 2,
+   "value": 216944.5,
+   "score": 18.6
+  },
+  {
+   "ticker": "VNRX",
+   "issuer": "form4.xml",
+   "cik": 93314,
+   "filed": "2024-12-10",
+   "insiders": 3,
+   "value": 229999.7954,
+   "score": 28.8
+  },
+  {
+   "ticker": "GRNT",
+   "issuer": "wk-form4_1708632056.xml",
+   "cik": 1928446,
+   "filed": "2024-12-12",
+   "insiders": 3,
+   "value": 359786.69999999995,
+   "score": 36.0
+  },
+  {
+   "ticker": "PLAY",
+   "issuer": "form411269004_04262024.xml",
+   "cik": 1525769,
+   "filed": "2024-12-13",
+   "insiders": 4,
+   "value": 1752905.236,
+   "score": 105.9
+  },
+  {
+   "ticker": "EMYB",
+   "issuer": "primary_doc.xml",
+   "cik": 1449794,
+   "filed": "2024-12-16",
+   "insiders": 3,
+   "value": 115500.0,
+   "score": 20.4
+  },
+  {
+   "ticker": "TDGMW",
+   "issuer": "form4.xml",
+   "cik": 98222,
+   "filed": "2024-12-16",
+   "insiders": 2,
+   "value": 3005793.8267,
+   "score": 69.3
+  },
+  {
+   "ticker": "EMYB",
+   "issuer": "primary_doc.xml",
+   "cik": 1449794,
+   "filed": "2024-12-17",
+   "insiders": 4,
+   "value": 141015.30465,
+   "score": 30.0
+  },
+  {
+   "ticker": "OMCC",
+   "issuer": "primary_doc.xml",
+   "cik": 1000045,
+   "filed": "2024-12-17",
+   "insiders": 2,
+   "value": 627000.0,
+   "score": 31.7
+  },
+  {
+   "ticker": "OXLCZ",
+   "issuer": "ownership.xml",
+   "cik": 1495222,
+   "filed": "2024-12-17",
+   "insiders": 2,
+   "value": 30073600.0,
+   "score": 219.4
+  },
+  {
+   "ticker": "PLAY",
+   "issuer": "form411269004_04262024.xml",
+   "cik": 1525769,
+   "filed": "2024-12-17",
+   "insiders": 4,
+   "value": 1752905.236,
+   "score": 105.9
+  },
+  {
+   "ticker": "EMYB",
+   "issuer": "primary_doc.xml",
+   "cik": 1449794,
+   "filed": "2024-12-18",
+   "insiders": 4,
+   "value": 141015.30465,
+   "score": 30.0
+  },
+  {
+   "ticker": "OMCC",
+   "issuer": "primary_doc.xml",
+   "cik": 1000045,
+   "filed": "2024-12-18",
+   "insiders": 2,
+   "value": 627000.0,
+   "score": 31.7
+  },
+  {
+   "ticker": "TDGMW",
+   "issuer": "form4.xml",
+   "cik": 98222,
+   "filed": "2024-12-18",
+   "insiders": 2,
+   "value": 3105552.0008,
+   "score": 70.5
+  },
+  {
+   "ticker": "FERG",
+   "issuer": "form4.xml",
+   "cik": 2011641,
+   "filed": "2024-12-19",
+   "insiders": 2,
+   "value": 611237.04,
+   "score": 18.8
+  },
+  {
+   "ticker": "OMCC",
+   "issuer": "primary_doc.xml",
+   "cik": 1000045,
+   "filed": "2024-12-19",
+   "insiders": 2,
+   "value": 727506.7,
+   "score": 34.1
+  },
+  {
+   "ticker": "PLAY",
+   "issuer": "form411269004_04262024.xml",
+   "cik": 1525769,
+   "filed": "2024-12-19",
+   "insiders": 4,
+   "value": 1294614.6125,
+   "score": 91.0
+  },
+  {
+   "ticker": "CCID",
+   "issuer": "doc4.xml",
+   "cik": 1517767,
+   "filed": "2024-12-20",
+   "insiders": 2,
+   "value": 180008.93422,
+   "score": 10.2
+  },
+  {
+   "ticker": "ACXP",
+   "issuer": "tm2222169-1_4seq1.xml",
+   "cik": 1736243,
+   "filed": "2025-01-08",
+   "insiders": 4,
+   "value": 150000.75999999998,
+   "score": 31.0
+  },
+  {
+   "ticker": "CET",
+   "issuer": "primary_doc.xml",
+   "cik": 18748,
+   "filed": "2025-01-08",
+   "insiders": 2,
+   "value": 91864.85,
+   "score": 12.1
+  },
+  {
+   "ticker": "ABTC",
+   "issuer": "doc1.xml",
+   "cik": 1755953,
+   "filed": "2025-01-15",
+   "insiders": 5,
+   "value": 200135.13,
+   "score": 44.7
+  },
+  {
+   "ticker": "FLOC",
+   "issuer": "form4.xml",
+   "cik": 2035149,
+   "filed": "2025-01-22",
+   "insiders": 5,
+   "value": 1838400.0,
+   "score": 135.6
+  },
+  {
+   "ticker": "CTOS",
+   "issuer": "ownership.xml",
+   "cik": 1709682,
+   "filed": "2025-02-03",
+   "insiders": 2,
+   "value": 65149080.0,
+   "score": 177.6
+  },
+  {
+   "ticker": "TECX",
+   "issuer": "form4.xml",
+   "cik": 1681087,
+   "filed": "2025-02-07",
+   "insiders": 2,
+   "value": 40249941.54,
+   "score": 253.8
+  },
+  {
+   "ticker": "SION",
+   "issuer": "ownership.xml",
+   "cik": 2036042,
+   "filed": "2025-02-10",
+   "insiders": 5,
+   "value": 42210000.0,
+   "score": 389.8
+  },
+  {
+   "ticker": "SION",
+   "issuer": "ownership.xml",
+   "cik": 2036042,
+   "filed": "2025-02-12",
+   "insiders": 6,
+   "value": 62460000.0,
+   "score": 569.0
+  },
+  {
+   "ticker": "AMCCF",
+   "issuer": "form4-09062022_010956.xml",
+   "cik": 1748790,
+   "filed": "2025-02-14",
+   "insiders": 2,
+   "value": 1999780.0,
+   "score": 56.6
+  },
+  {
+   "ticker": "AMCCF",
+   "issuer": "form4-09062022_010956.xml",
+   "cik": 1748790,
+   "filed": "2025-02-20",
+   "insiders": 2,
+   "value": 1398793.0,
+   "score": 23.7
+  },
+  {
+   "ticker": "BEATW",
+   "issuer": "wf-form4_164125563049298.xml",
+   "cik": 1779372,
+   "filed": "2025-02-21",
+   "insiders": 2,
+   "value": 80000.3,
+   "score": 11.3
+  },
+  {
+   "ticker": "CPS",
+   "issuer": "wf-form4_165333273675679.xml",
+   "cik": 1320461,
+   "filed": "2025-02-25",
+   "insiders": 2,
+   "value": 163551.0,
+   "score": 16.2
+  },
+  {
+   "ticker": "PCG-PC",
+   "issuer": "wk-form4_1684860339.xml",
+   "cik": 1004980,
+   "filed": "2025-02-27",
+   "insiders": 3,
+   "value": 200095.26,
+   "score": 16.1
+  },
+  {
+   "ticker": "PCG-PH",
+   "issuer": "wk-form4_1684860339.xml",
+   "cik": 1004980,
+   "filed": "2025-02-27",
+   "insiders": 3,
+   "value": 200095.26,
+   "score": 16.1
+  },
+  {
+   "ticker": "PCG-PC",
+   "issuer": "wk-form4_1684860339.xml",
+   "cik": 1004980,
+   "filed": "2025-02-28",
+   "insiders": 2,
+   "value": 100043.51999999999,
+   "score": 7.6
+  },
+  {
+   "ticker": "PCG-PH",
+   "issuer": "wk-form4_1684860339.xml",
+   "cik": 1004980,
+   "filed": "2025-02-28",
+   "insiders": 2,
+   "value": 100043.51999999999,
+   "score": 7.6
+  },
+  {
+   "ticker": "PCG-PC",
+   "issuer": "wk-form4_1684860339.xml",
+   "cik": 1004980,
+   "filed": "2025-03-04",
+   "insiders": 2,
+   "value": 100043.51999999999,
+   "score": 7.6
+  },
+  {
+   "ticker": "PCG-PH",
+   "issuer": "wk-form4_1684860339.xml",
+   "cik": 1004980,
+   "filed": "2025-03-04",
+   "insiders": 2,
+   "value": 100043.51999999999,
+   "score": 7.6
+  },
+  {
+   "ticker": "AMCCF",
+   "issuer": "form4-09062022_010956.xml",
+   "cik": 1748790,
+   "filed": "2025-03-05",
+   "insiders": 2,
+   "value": 245286.80000000002,
+   "score": 9.9
+  },
+  {
+   "ticker": "FTDR",
+   "issuer": "doc4.xml",
+   "cik": 1727263,
+   "filed": "2025-03-05",
+   "insiders": 2,
+   "value": 424870.0,
+   "score": 26.1
+  },
+  {
+   "ticker": "THM",
+   "issuer": "form4.xml",
+   "cik": 1134115,
+   "filed": "2025-03-05",
+   "insiders": 2,
+   "value": 3453118.7699000007,
+   "score": 40.9
+  },
+  {
+   "ticker": "VAC",
+   "issuer": "wk-form4_1740002845.xml",
+   "cik": 1524358,
+   "filed": "2025-03-06",
+   "insiders": 3,
+   "value": 523127.4,
+   "score": 32.5
+  },
+  {
+   "ticker": "VAC",
+   "issuer": "wk-form4_1740002845.xml",
+   "cik": 1524358,
+   "filed": "2025-03-12",
+   "insiders": 2,
+   "value": 406779.00000000006,
+   "score": 19.1
+  },
+  {
+   "ticker": "CMTG",
+   "issuer": "doc4.xml",
+   "cik": 1666291,
+   "filed": "2025-03-13",
+   "insiders": 2,
+   "value": 446727.5665,
+   "score": 26.7
+  },
+  {
+   "ticker": "CMTG",
+   "issuer": "doc4.xml",
+   "cik": 1666291,
+   "filed": "2025-03-14",
+   "insiders": 2,
+   "value": 567786.5665,
+   "score": 30.1
+  },
+  {
+   "ticker": "MX",
+   "issuer": "doc4.xml",
+   "cik": 1325702,
+   "filed": "2025-03-17",
+   "insiders": 2,
+   "value": 146712.0,
+   "score": 7.7
+  },
+  {
+   "ticker": "BTMD",
+   "issuer": "doc4.xml",
+   "cik": 1819253,
+   "filed": "2025-03-18",
+   "insiders": 4,
+   "value": 3494544.2068,
+   "score": 149.5
+  },
+  {
+   "ticker": "MX",
+   "issuer": "doc4.xml",
+   "cik": 1325702,
+   "filed": "2025-03-18",
+   "insiders": 3,
+   "value": 223892.0,
+   "score": 14.2
+  },
+  {
+   "ticker": "BTMD",
+   "issuer": "doc4.xml",
+   "cik": 1819253,
+   "filed": "2025-03-19",
+   "insiders": 5,
+   "value": 3790586.7068,
+   "score": 194.7
+  },
+  {
+   "ticker": "MG",
+   "issuer": "form4.xml",
+   "cik": 1436126,
+   "filed": "2025-03-20",
+   "insiders": 2,
+   "value": 287878.48,
+   "score": 16.1
+  },
+  {
+   "ticker": "QRHC",
+   "issuer": "tm2328972-1_4seq1.xml",
+   "cik": 1442236,
+   "filed": "2025-03-20",
+   "insiders": 2,
+   "value": 78652.37999999999,
+   "score": 11.2
+  },
+  {
+   "ticker": "VNRX",
+   "issuer": "form4.xml",
+   "cik": 93314,
+   "filed": "2025-03-27",
+   "insiders": 2,
+   "value": 199999.80000000002,
+   "score": 17.9
+  },
+  {
+   "ticker": "CIMG",
+   "issuer": "ownership.xml",
+   "cik": 1527613,
+   "filed": "2025-04-03",
+   "insiders": 4,
+   "value": 6040425.5600000005,
+   "score": 108.1
+  },
+  {
+   "ticker": "AIM",
+   "issuer": "primary_doc.xml",
+   "cik": 946644,
+   "filed": "2025-04-23",
+   "insiders": 2,
+   "value": 100000.00319999999,
+   "score": 12.6
+  },
+  {
+   "ticker": "TFIN-P",
+   "issuer": "wf-form4_168392228764434.xml",
+   "cik": 1539638,
+   "filed": "2025-04-24",
+   "insiders": 2,
+   "value": 396764.72,
+   "score": 15.1
+  },
+  {
+   "ticker": "TFIN-P",
+   "issuer": "wf-form4_168392228764434.xml",
+   "cik": 1539638,
+   "filed": "2025-04-25",
+   "insiders": 3,
+   "value": 598056.72,
+   "score": 27.8
+  },
+  {
+   "ticker": "TFIN-P",
+   "issuer": "wf-form4_168392228764434.xml",
+   "cik": 1539638,
+   "filed": "2025-04-28",
+   "insiders": 4,
+   "value": 678306.72,
+   "score": 39.5
+  },
+  {
+   "ticker": "TFIN-P",
+   "issuer": "wf-form4_168392228764434.xml",
+   "cik": 1539638,
+   "filed": "2025-04-30",
+   "insiders": 5,
+   "value": 731956.72,
+   "score": 51.3
+  },
+  {
+   "ticker": "MBINM",
+   "issuer": "primarydocument.xml",
+   "cik": 1629019,
+   "filed": "2025-05-01",
+   "insiders": 2,
+   "value": 261792.64,
+   "score": 20.5
+  },
+  {
+   "ticker": "MBINM",
+   "issuer": "primarydocument.xml",
+   "cik": 1629019,
+   "filed": "2025-05-02",
+   "insiders": 2,
+   "value": 363784.94,
+   "score": 24.1
+  },
+  {
+   "ticker": "HL",
+   "issuer": "primary_doc.xml",
+   "cik": 719413,
+   "filed": "2025-05-07",
+   "insiders": 2,
+   "value": 169894.3119,
+   "score": 16.5
+  },
+  {
+   "ticker": "RGR",
+   "issuer": "form4.xml",
+   "cik": 95029,
+   "filed": "2025-05-08",
+   "insiders": 4,
+   "value": 506228.8,
+   "score": 42.7
+  },
+  {
+   "ticker": "HAIN",
+   "issuer": "wf-form4_164254176265668.xml",
+   "cik": 910406,
+   "filed": "2025-05-12",
+   "insiders": 3,
+   "value": 810591.25,
+   "score": 27.0
+  },
+  {
+   "ticker": "LGNXZ",
+   "issuer": "tm2315666-1_4seq1.xml",
+   "cik": 886163,
+   "filed": "2025-05-13",
+   "insiders": 2,
+   "value": 1156546.374,
+   "score": 43.0
+  },
+  {
+   "ticker": "SHOO",
+   "issuer": "ownership.xml",
+   "cik": 913241,
+   "filed": "2025-05-13",
+   "insiders": 2,
+   "value": 206672.40000000002,
+   "score": 10.9
+  },
+  {
+   "ticker": "STGW",
+   "issuer": "tm238359-5_4seq1.xml",
+   "cik": 876883,
+   "filed": "2025-05-13",
+   "insiders": 2,
+   "value": 1003751.3703000001,
+   "score": 40.1
+  },
+  {
+   "ticker": "HAIN",
+   "issuer": "wf-form4_164254176265668.xml",
+   "cik": 910406,
+   "filed": "2025-05-14",
+   "insiders": 4,
+   "value": 1039781.25,
+   "score": 40.8
+  },
+  {
+   "ticker": "OSG",
+   "issuer": "wk-form4_1709592087.xml",
+   "cik": 874501,
+   "filed": "2025-05-14",
+   "insiders": 2,
+   "value": 759230.27,
+   "score": 34.9
+  },
+  {
+   "ticker": "HAIN",
+   "issuer": "wf-form4_164254176265668.xml",
+   "cik": 910406,
+   "filed": "2025-05-15",
+   "insiders": 5,
+   "value": 1188741.35,
+   "score": 54.5
+  },
+  {
+   "ticker": "OSG",
+   "issuer": "wk-form4_1709592087.xml",
+   "cik": 874501,
+   "filed": "2025-05-15",
+   "insiders": 3,
+   "value": 856130.27,
+   "score": 55.5
+  },
+  {
+   "ticker": "NCRRP",
+   "issuer": "doc4.xml",
+   "cik": 70866,
+   "filed": "2025-05-19",
+   "insiders": 2,
+   "value": 497397.30500000005,
+   "score": 28.2
+  },
+  {
+   "ticker": "NTHI",
+   "issuer": "marketforms-69051.xml",
+   "cik": 1979414,
+   "filed": "2025-05-19",
+   "insiders": 2,
+   "value": 95331.071,
+   "score": 12.4
+  },
+  {
+   "ticker": "SNDX",
+   "issuer": "primarydocument.xml",
+   "cik": 1395937,
+   "filed": "2025-05-19",
+   "insiders": 3,
+   "value": 241896.175,
+   "score": 14.8
+  },
+  {
+   "ticker": "NTHI",
+   "issuer": "marketforms-69051.xml",
+   "cik": 1979414,
+   "filed": "2025-05-22",
+   "insiders": 2,
+   "value": 95331.071,
+   "score": 12.4
+  },
+  {
+   "ticker": "FIP",
+   "issuer": "doc4.xml",
+   "cik": 1899883,
+   "filed": "2025-05-23",
+   "insiders": 2,
+   "value": 2716600.0,
+   "score": 65.9
+  },
+  {
+   "ticker": "NTHI",
+   "issuer": "marketforms-69051.xml",
+   "cik": 1979414,
+   "filed": "2025-05-23",
+   "insiders": 2,
+   "value": 95331.071,
+   "score": 12.4
+  },
+  {
+   "ticker": "XRXDW",
+   "issuer": "form4.xml",
+   "cik": 1770450,
+   "filed": "2025-05-27",
+   "insiders": 4,
+   "value": 364254.0,
+   "score": 48.3
+  },
+  {
+   "ticker": "FIP",
+   "issuer": "doc4.xml",
+   "cik": 1899883,
+   "filed": "2025-05-28",
+   "insiders": 2,
+   "value": 2716600.0,
+   "score": 65.9
+  },
+  {
+   "ticker": "IMUX",
+   "issuer": "e621195_4-whaley.xml",
+   "cik": 1280776,
+   "filed": "2025-06-04",
+   "insiders": 2,
+   "value": 132099.7325,
+   "score": 14.5
+  },
+  {
+   "ticker": "IMUX",
+   "issuer": "e621195_4-whaley.xml",
+   "cik": 1280776,
+   "filed": "2025-06-05",
+   "insiders": 3,
+   "value": 185999.7325,
+   "score": 25.9
+  },
+  {
+   "ticker": "IMUX",
+   "issuer": "e621195_4-whaley.xml",
+   "cik": 1280776,
+   "filed": "2025-06-06",
+   "insiders": 3,
+   "value": 185999.7325,
+   "score": 25.9
+  },
+  {
+   "ticker": "STGW",
+   "issuer": "tm238359-5_4seq1.xml",
+   "cik": 876883,
+   "filed": "2025-06-06",
+   "insiders": 2,
+   "value": 2986009.1399999997,
+   "score": 41.5
+  },
+  {
+   "ticker": "APPF",
+   "issuer": "wk-form4_1723581039.xml",
+   "cik": 1433195,
+   "filed": "2025-06-09",
+   "insiders": 2,
+   "value": 5648973.5,
+   "score": 57.0
+  },
+  {
+   "ticker": "IMUX",
+   "issuer": "e621195_4-whaley.xml",
+   "cik": 1280776,
+   "filed": "2025-06-09",
+   "insiders": 3,
+   "value": 185999.7325,
+   "score": 25.9
+  },
+  {
+   "ticker": "RPC",
+   "issuer": "ownership.xml",
+   "cik": 1841968,
+   "filed": "2025-06-09",
+   "insiders": 2,
+   "value": 98400.0,
+   "score": 6.3
+  },
+  {
+   "ticker": "APPF",
+   "issuer": "wk-form4_1723581039.xml",
+   "cik": 1433195,
+   "filed": "2025-06-13",
+   "insiders": 2,
+   "value": 5648973.5,
+   "score": 57.0
+  },
+  {
+   "ticker": "CCID",
+   "issuer": "doc4.xml",
+   "cik": 1517767,
+   "filed": "2025-06-30",
+   "insiders": 2,
+   "value": 200228.04,
+   "score": 17.9
+  },
+  {
+   "ticker": "CCID",
+   "issuer": "doc4.xml",
+   "cik": 1517767,
+   "filed": "2025-07-01",
+   "insiders": 3,
+   "value": 250222.38,
+   "score": 30.0
+  },
+  {
+   "ticker": "PRGS",
+   "issuer": "wk-form4_1705958590.xml",
+   "cik": 876167,
+   "filed": "2025-07-24",
+   "insiders": 2,
+   "value": 353806.5,
+   "score": 23.8
+  },
+  {
+   "ticker": "PRGS",
+   "issuer": "wk-form4_1705958590.xml",
+   "cik": 876167,
+   "filed": "2025-07-29",
+   "insiders": 2,
+   "value": 353806.5,
+   "score": 23.8
+  },
+  {
+   "ticker": "MBINM",
+   "issuer": "primarydocument.xml",
+   "cik": 1629019,
+   "filed": "2025-08-05",
+   "insiders": 2,
+   "value": 579311.35,
+   "score": 30.4
+  },
+  {
+   "ticker": "XELB",
+   "issuer": "tm2324888-2_4seq1.xml",
+   "cik": 1083220,
+   "filed": "2025-08-05",
+   "insiders": 2,
+   "value": 237600.0,
+   "score": 19.5
+  },
+  {
+   "ticker": "VNRX",
+   "issuer": "form4.xml",
+   "cik": 93314,
+   "filed": "2025-08-06",
+   "insiders": 2,
+   "value": 100000.0,
+   "score": 12.6
+  },
+  {
+   "ticker": "ALKT",
+   "issuer": "wk-form4_1720557232.xml",
+   "cik": 1529274,
+   "filed": "2025-08-13",
+   "insiders": 2,
+   "value": 59376763.206599995,
+   "score": 184.9
+  },
+  {
+   "ticker": "AAOI",
+   "issuer": "ownership.xml",
+   "cik": 1158114,
+   "filed": "2025-08-14",
+   "insiders": 3,
+   "value": 1000938.0,
+   "score": 60.0
+  },
+  {
+   "ticker": "PRMB",
+   "issuer": "ownership.xml",
+   "cik": 2042694,
+   "filed": "2025-08-14",
+   "insiders": 2,
+   "value": 497938.88,
+   "score": 28.2
+  },
+  {
+   "ticker": "AAOI",
+   "issuer": "ownership.xml",
+   "cik": 1158114,
+   "filed": "2025-08-15",
+   "insiders": 4,
+   "value": 1254862.06,
+   "score": 89.6
+  },
+  {
+   "ticker": "GRNT",
+   "issuer": "wk-form4_1708632056.xml",
+   "cik": 1928446,
+   "filed": "2025-08-18",
+   "insiders": 2,
+   "value": 126732.0,
+   "score": 8.5
+  },
+  {
+   "ticker": "PRMB",
+   "issuer": "ownership.xml",
+   "cik": 2042694,
+   "filed": "2025-08-18",
+   "insiders": 3,
+   "value": 595778.88,
+   "score": 46.3
+  },
+  {
+   "ticker": "ENOV",
+   "issuer": "ownership.xml",
+   "cik": 1420800,
+   "filed": "2025-08-20",
+   "insiders": 2,
+   "value": 363275.0,
+   "score": 24.1
+  },
+  {
+   "ticker": "PEW-WT",
+   "issuer": "ownership.xml",
+   "cik": 2051380,
+   "filed": "2025-08-20",
+   "insiders": 3,
+   "value": 211066.0,
+   "score": 27.6
+  },
+  {
+   "ticker": "ACOG",
+   "issuer": "form4.xml",
+   "cik": 1655923,
+   "filed": "2025-08-21",
+   "insiders": 2,
+   "value": 377329.5,
+   "score": 12.3
+  },
+  {
+   "ticker": "QRHC",
+   "issuer": "tm2328972-1_4seq1.xml",
+   "cik": 1442236,
+   "filed": "2025-08-22",
+   "insiders": 2,
+   "value": 52953.0576,
+   "score": 5.5
+  },
+  {
+   "ticker": "ENOV",
+   "issuer": "ownership.xml",
+   "cik": 1420800,
+   "filed": "2025-08-25",
+   "insiders": 2,
+   "value": 174787.0,
+   "score": 16.7
+  },
+  {
+   "ticker": "MX",
+   "issuer": "doc4.xml",
+   "cik": 1325702,
+   "filed": "2025-08-26",
+   "insiders": 2,
+   "value": 113970.0,
+   "score": 6.8
+  },
+  {
+   "ticker": "SKYA",
+   "issuer": "ownership.xml",
+   "cik": 1737995,
+   "filed": "2025-08-26",
+   "insiders": 6,
+   "value": 4615200.0,
+   "score": 257.8
+  },
+  {
+   "ticker": "EMN",
+   "issuer": "wk-form4_1717531457.xml",
+   "cik": 915389,
+   "filed": "2025-08-28",
+   "insiders": 10,
+   "value": 1825336.33,
+   "score": 270.2
+  },
+  {
+   "ticker": "SKYA",
+   "issuer": "ownership.xml",
+   "cik": 1737995,
+   "filed": "2025-08-28",
+   "insiders": 6,
+   "value": 4615200.0,
+   "score": 257.8
+  },
+  {
+   "ticker": "EMN",
+   "issuer": "wk-form4_1717531457.xml",
+   "cik": 915389,
+   "filed": "2025-08-29",
+   "insiders": 11,
+   "value": 1944931.33,
+   "score": 306.8
+  },
+  {
+   "ticker": "WSBC",
+   "issuer": "form4.xml",
+   "cik": 203596,
+   "filed": "2025-09-18",
+   "insiders": 11,
+   "value": 1400000.0,
+   "score": 260.3
+  },
+  {
+   "ticker": "HAIN",
+   "issuer": "wf-form4_164254176265668.xml",
+   "cik": 910406,
+   "filed": "2025-09-22",
+   "insiders": 2,
+   "value": 207410.5395,
+   "score": 18.2
+  },
+  {
+   "ticker": "JSPRW",
+   "issuer": "jasper_fm4mar212022.xml",
+   "cik": 1788028,
+   "filed": "2025-09-24",
+   "insiders": 4,
+   "value": 347490.0,
+   "score": 47.2
+  },
+  {
+   "ticker": "GGROU",
+   "issuer": "rdgdoc.xml",
+   "cik": 1489874,
+   "filed": "2025-10-03",
+   "insiders": 2,
+   "value": 305000.0,
+   "score": 13.3
+  },
+  {
+   "ticker": "YCY-WT",
+   "issuer": "ownership.xml",
+   "cik": 2075336,
+   "filed": "2025-10-06",
+   "insiders": 2,
+   "value": 6680000.0,
+   "score": 103.4
+  },
+  {
+   "ticker": "YCY-WT",
+   "issuer": "ownership.xml",
+   "cik": 2075336,
+   "filed": "2025-10-14",
+   "insiders": 2,
+   "value": 525000.0,
+   "score": 29.0
+  },
+  {
+   "ticker": "VNRX",
+   "issuer": "form4.xml",
+   "cik": 93314,
+   "filed": "2025-10-15",
+   "insiders": 2,
+   "value": 105138.03,
+   "score": 13.0
+  },
+  {
+   "ticker": "SPMC",
+   "issuer": "form4.xml",
+   "cik": 1930147,
+   "filed": "2025-10-22",
+   "insiders": 2,
+   "value": 418670.0,
+   "score": 25.9
+  },
+  {
+   "ticker": "SPMC",
+   "issuer": "form4.xml",
+   "cik": 1930147,
+   "filed": "2025-10-28",
+   "insiders": 2,
+   "value": 418670.0,
+   "score": 25.9
+  },
+  {
+   "ticker": "FFIN",
+   "issuer": "doc4.xml",
+   "cik": 36029,
+   "filed": "2025-10-29",
+   "insiders": 2,
+   "value": 93840.0,
+   "score": 12.3
+  },
+  {
+   "ticker": "INBKZ",
+   "issuer": "wf-form4_164131828095441.xml",
+   "cik": 1562463,
+   "filed": "2025-10-30",
+   "insiders": 2,
+   "value": 132030.0,
+   "score": 14.5
+  },
+  {
+   "ticker": "EP-PC",
+   "issuer": "wk-form4_1689893689.xml",
+   "cik": 1506307,
+   "filed": "2025-11-03",
+   "insiders": 2,
+   "value": 26064555.0,
+   "score": 153.2
+  },
+  {
+   "ticker": "FFIN",
+   "issuer": "doc4.xml",
+   "cik": 36029,
+   "filed": "2025-11-03",
+   "insiders": 3,
+   "value": 146081.0,
+   "score": 22.9
+  },
+  {
+   "ticker": "INBKZ",
+   "issuer": "wf-form4_164131828095441.xml",
+   "cik": 1562463,
+   "filed": "2025-11-03",
+   "insiders": 2,
+   "value": 132030.0,
+   "score": 14.5
+  },
+  {
+   "ticker": "FDBC",
+   "issuer": "primary_doc.xml",
+   "cik": 1098151,
+   "filed": "2025-11-10",
+   "insiders": 3,
+   "value": 175819.5,
+   "score": 25.2
+  },
+  {
+   "ticker": "KREF-PA",
+   "issuer": "form4.xml",
+   "cik": 1631596,
+   "filed": "2025-11-10",
+   "insiders": 4,
+   "value": 616943.04,
+   "score": 62.8
+  },
+  {
+   "ticker": "TRIN",
+   "issuer": "ownership.xml",
+   "cik": 1786108,
+   "filed": "2025-11-10",
+   "insiders": 2,
+   "value": 93770.0,
+   "score": 9.2
+  },
+  {
+   "ticker": "TRNZ",
+   "issuer": "ownership.xml",
+   "cik": 1786108,
+   "filed": "2025-11-10",
+   "insiders": 2,
+   "value": 93770.0,
+   "score": 9.2
+  },
+  {
+   "ticker": "AMCCF",
+   "issuer": "form4-09062022_010956.xml",
+   "cik": 1748790,
+   "filed": "2025-11-12",
+   "insiders": 3,
+   "value": 1663048.72,
+   "score": 77.4
+  },
+  {
+   "ticker": "ANVS",
+   "issuer": "tm221949-1_4seq1.xml",
+   "cik": 1477845,
+   "filed": "2025-11-12",
+   "insiders": 2,
+   "value": 2200000.55,
+   "score": 59.3
+  },
+  {
+   "ticker": "FRSH",
+   "issuer": "form4.xml",
+   "cik": 1544522,
+   "filed": "2025-11-12",
+   "insiders": 2,
+   "value": 3985857.3,
+   "score": 79.9
+  },
+  {
+   "ticker": "FSK",
+   "issuer": "forman-form4_010122.xml",
+   "cik": 1422183,
+   "filed": "2025-11-12",
+   "insiders": 2,
+   "value": 306500.0,
+   "score": 22.1
+  },
+  {
+   "ticker": "GOOD",
+   "issuer": "form4.xml",
+   "cik": 1234006,
+   "filed": "2025-11-12",
+   "insiders": 2,
+   "value": 158901.4,
+   "score": 15.9
+  },
+  {
+   "ticker": "GOODN",
+   "issuer": "form4.xml",
+   "cik": 1234006,
+   "filed": "2025-11-12",
+   "insiders": 2,
+   "value": 158901.4,
+   "score": 15.9
+  },
+  {
+   "ticker": "PRMB",
+   "issuer": "ownership.xml",
+   "cik": 2042694,
+   "filed": "2025-11-12",
+   "insiders": 2,
+   "value": 328558.91599999997,
+   "score": 22.9
+  },
+  {
+   "ticker": "TRIN",
+   "issuer": "ownership.xml",
+   "cik": 1786108,
+   "filed": "2025-11-12",
+   "insiders": 3,
+   "value": 193694.8,
+   "score": 26.4
+  },
+  {
+   "ticker": "TRNZ",
+   "issuer": "ownership.xml",
+   "cik": 1786108,
+   "filed": "2025-11-12",
+   "insiders": 3,
+   "value": 193694.8,
+   "score": 26.4
+  },
+  {
+   "ticker": "PRMB",
+   "issuer": "ownership.xml",
+   "cik": 2042694,
+   "filed": "2025-11-13",
+   "insiders": 3,
+   "value": 2319147.8361,
+   "score": 91.4
+  },
+  {
+   "ticker": "AMCCF",
+   "issuer": "form4-09062022_010956.xml",
+   "cik": 1748790,
+   "filed": "2025-11-14",
+   "insiders": 4,
+   "value": 1748422.72,
+   "score": 105.8
+  },
+  {
+   "ticker": "GOOD",
+   "issuer": "form4.xml",
+   "cik": 1234006,
+   "filed": "2025-11-14",
+   "insiders": 2,
+   "value": 158901.4,
+   "score": 15.9
+  },
+  {
+   "ticker": "GOODN",
+   "issuer": "form4.xml",
+   "cik": 1234006,
+   "filed": "2025-11-14",
+   "insiders": 2,
+   "value": 158901.4,
+   "score": 15.9
+  },
+  {
+   "ticker": "PRMB",
+   "issuer": "ownership.xml",
+   "cik": 2042694,
+   "filed": "2025-11-14",
+   "insiders": 4,
+   "value": 3215092.7780999998,
+   "score": 143.4
+  },
+  {
+   "ticker": "VAC",
+   "issuer": "wk-form4_1740002845.xml",
+   "cik": 1524358,
+   "filed": "2025-11-14",
+   "insiders": 4,
+   "value": 1710010.0,
+   "score": 78.5
+  },
+  {
+   "ticker": "AMCCF",
+   "issuer": "form4-09062022_010956.xml",
+   "cik": 1748790,
+   "filed": "2025-11-17",
+   "insiders": 4,
+   "value": 1748422.72,
+   "score": 105.8
+  },
+  {
+   "ticker": "BHVN",
+   "issuer": "primarydocument.xml",
+   "cik": 1935979,
+   "filed": "2025-11-17",
+   "insiders": 3,
+   "value": 32999992.5,
+   "score": 344.7
+  },
+  {
+   "ticker": "ANVS",
+   "issuer": "tm221949-1_4seq1.xml",
+   "cik": 1477845,
+   "filed": "2025-11-18",
+   "insiders": 2,
+   "value": 2231650.55,
+   "score": 59.8
+  },
+  {
+   "ticker": "BHVN",
+   "issuer": "primarydocument.xml",
+   "cik": 1935979,
+   "filed": "2025-11-18",
+   "insiders": 4,
+   "value": 33144762.8,
+   "score": 460.6
+  },
+  {
+   "ticker": "FRSH",
+   "issuer": "form4.xml",
+   "cik": 1544522,
+   "filed": "2025-11-18",
+   "insiders": 2,
+   "value": 3985857.3,
+   "score": 79.9
+  },
+  {
+   "ticker": "MNR",
+   "issuer": "ownership.xml",
+   "cik": 1980088,
+   "filed": "2025-11-18",
+   "insiders": 2,
+   "value": 1054626.3,
+   "score": 30.8
+  },
+  {
+   "ticker": "VAC",
+   "issuer": "wk-form4_1740002845.xml",
+   "cik": 1524358,
+   "filed": "2025-11-18",
+   "insiders": 5,
+   "value": 1965815.0,
+   "score": 105.2
+  },
+  {
+   "ticker": "VAC",
+   "issuer": "wk-form4_1740002845.xml",
+   "cik": 1524358,
+   "filed": "2025-11-19",
+   "insiders": 6,
+   "value": 5950775.0,
+   "score": 219.5
+  },
+  {
+   "ticker": "FOSL",
+   "issuer": "form4.xml",
+   "cik": 883569,
+   "filed": "2025-11-20",
+   "insiders": 2,
+   "value": 459500.4,
+   "score": 27.1
+  },
+  {
+   "ticker": "GLOO",
+   "issuer": "form4-11202025_111120.xml",
+   "cik": 2069785,
+   "filed": "2025-11-20",
+   "insiders": 4,
+   "value": 8300000.0,
+   "score": 230.5
+  },
+  {
+   "ticker": "VAC",
+   "issuer": "wk-form4_1740002845.xml",
+   "cik": 1524358,
+   "filed": "2025-11-21",
+   "insiders": 3,
+   "value": 4481165.0,
+   "score": 76.2
+  },
+  {
+   "ticker": "FOSL",
+   "issuer": "form4.xml",
+   "cik": 883569,
+   "filed": "2025-11-24",
+   "insiders": 4,
+   "value": 640765.74,
+   "score": 64.0
+  },
+  {
+   "ticker": "VAC",
+   "issuer": "wk-form4_1740002845.xml",
+   "cik": 1524358,
+   "filed": "2025-11-24",
+   "insiders": 4,
+   "value": 4506775.0,
+   "score": 101.9
+  },
+  {
+   "ticker": "FOSL",
+   "issuer": "form4.xml",
+   "cik": 883569,
+   "filed": "2025-11-25",
+   "insiders": 5,
+   "value": 690698.14,
+   "score": 83.1
+  },
+  {
+   "ticker": "VAC",
+   "issuer": "wk-form4_1740002845.xml",
+   "cik": 1524358,
+   "filed": "2025-11-25",
+   "insiders": 4,
+   "value": 4310887.0,
+   "score": 99.7
+  },
+  {
+   "ticker": "VRCA",
+   "issuer": "doc4.xml",
+   "cik": 1660334,
+   "filed": "2025-11-25",
+   "insiders": 3,
+   "value": 17947696.8525,
+   "score": 254.2
+  },
+  {
+   "ticker": "OWL",
+   "issuer": "doc4.xml",
+   "cik": 1823945,
+   "filed": "2025-12-03",
+   "insiders": 4,
+   "value": 7142237.903999999,
+   "score": 213.8
+  },
+  {
+   "ticker": "MSBIP",
+   "issuer": "primary_01.xml",
+   "cik": 1466026,
+   "filed": "2025-12-04",
+   "insiders": 3,
+   "value": 276271.42,
+   "score": 15.8
+  },
+  {
+   "ticker": "EMYB",
+   "issuer": "primary_doc.xml",
+   "cik": 1449794,
+   "filed": "2025-12-05",
+   "insiders": 2,
+   "value": 61062.119999999995,
+   "score": 9.9
+  },
+  {
+   "ticker": "EMYB",
+   "issuer": "primary_doc.xml",
+   "cik": 1449794,
+   "filed": "2025-12-08",
+   "insiders": 2,
+   "value": 61062.119999999995,
+   "score": 9.9
+  },
+  {
+   "ticker": "GRNT",
+   "issuer": "wk-form4_1708632056.xml",
+   "cik": 1928446,
+   "filed": "2025-12-09",
+   "insiders": 2,
+   "value": 76338.04000000001,
+   "score": 6.6
+  },
+  {
+   "ticker": "EMYB",
+   "issuer": "primary_doc.xml",
+   "cik": 1449794,
+   "filed": "2025-12-10",
+   "insiders": 2,
+   "value": 61062.119999999995,
+   "score": 9.9
+  },
+  {
+   "ticker": "AIRJW",
+   "issuer": "ownership.xml",
+   "cik": 1855474,
+   "filed": "2025-12-12",
+   "insiders": 2,
+   "value": 1099192.65,
+   "score": 21.0
+  },
+  {
+   "ticker": "BRRWW",
+   "issuer": "ownership.xml",
+   "cik": 2076163,
+   "filed": "2025-12-22",
+   "insiders": 3,
+   "value": 1128088.0,
+   "score": 63.7
+  },
+  {
+   "ticker": "NEWT",
+   "issuer": "doc4.xml",
+   "cik": 1587987,
+   "filed": "2026-01-16",
+   "insiders": 2,
+   "value": 81262.22,
+   "score": 11.4
+  },
+  {
+   "ticker": "AIRJW",
+   "issuer": "ownership.xml",
+   "cik": 1855474,
+   "filed": "2026-01-20",
+   "insiders": 2,
+   "value": 749999.25,
+   "score": 17.3
+  },
+  {
+   "ticker": "GDV-PH",
+   "issuer": "primary_doc.xml",
+   "cik": 1260729,
+   "filed": "2026-01-28",
+   "insiders": 2,
+   "value": 186678.7,
+   "score": 10.4
+  },
+  {
+   "ticker": "THM",
+   "issuer": "form4.xml",
+   "cik": 1134115,
+   "filed": "2026-01-29",
+   "insiders": 2,
+   "value": 46999999.620000005,
+   "score": 137.1
+  },
+  {
+   "ticker": "FINS",
+   "issuer": "primary_doc.xml",
+   "cik": 1745059,
+   "filed": "2026-01-30",
+   "insiders": 2,
+   "value": 328388.24,
+   "score": 11.5
+  },
+  {
+   "ticker": "THM",
+   "issuer": "form4.xml",
+   "cik": 1134115,
+   "filed": "2026-01-30",
+   "insiders": 2,
+   "value": 72120702.66000001,
+   "score": 169.8
+  },
+  {
+   "ticker": "NG",
+   "issuer": "marketforms-66141.xml",
+   "cik": 1173420,
+   "filed": "2026-02-10",
+   "insiders": 2,
+   "value": 238321.8,
+   "score": 9.8
+  },
+  {
+   "ticker": "TECX",
+   "issuer": "form4.xml",
+   "cik": 1681087,
+   "filed": "2026-02-12",
+   "insiders": 2,
+   "value": 182410.0,
+   "score": 17.1
+  },
+  {
+   "ticker": "ONCY",
+   "issuer": "ownership.xml",
+   "cik": 1129928,
+   "filed": "2026-02-13",
+   "insiders": 4,
+   "value": 164501.3,
+   "score": 24.3
+  },
+  {
+   "ticker": "CNVS",
+   "issuer": "ownership.xml",
+   "cik": 1173204,
+   "filed": "2026-02-17",
+   "insiders": 7,
+   "value": 525000.0,
+   "score": 101.4
+  },
+  {
+   "ticker": "WTW",
+   "issuer": "form4.xml",
+   "cik": 1140536,
+   "filed": "2026-02-17",
+   "insiders": 2,
+   "value": 1064134.06,
+   "score": 41.3
+  },
+  {
+   "ticker": "CMTG",
+   "issuer": "doc4.xml",
+   "cik": 1666291,
+   "filed": "2026-03-03",
+   "insiders": 3,
+   "value": 224041.99999999997,
+   "score": 28.4
+  },
+  {
+   "ticker": "THRY",
+   "issuer": "wk-form4_1686832976.xml",
+   "cik": 1556739,
+   "filed": "2026-03-04",
+   "insiders": 2,
+   "value": 6133352.79,
+   "score": 99.1
+  },
+  {
+   "ticker": "ABTC",
+   "issuer": "doc1.xml",
+   "cik": 1755953,
+   "filed": "2026-03-05",
+   "insiders": 2,
+   "value": 2187900.0,
+   "score": 29.6
+  },
+  {
+   "ticker": "FFIN",
+   "issuer": "doc4.xml",
+   "cik": 36029,
+   "filed": "2026-03-06",
+   "insiders": 3,
+   "value": 217169.45,
+   "score": 14.0
+  },
+  {
+   "ticker": "THRY",
+   "issuer": "wk-form4_1686832976.xml",
+   "cik": 1556739,
+   "filed": "2026-03-06",
+   "insiders": 2,
+   "value": 6133352.79,
+   "score": 99.1
+  },
+  {
+   "ticker": "ABTC",
+   "issuer": "doc1.xml",
+   "cik": 1755953,
+   "filed": "2026-03-09",
+   "insiders": 2,
+   "value": 2266100.0,
+   "score": 30.1
+  },
+  {
+   "ticker": "FFIN",
+   "issuer": "doc4.xml",
+   "cik": 36029,
+   "filed": "2026-03-09",
+   "insiders": 3,
+   "value": 320072.3,
+   "score": 17.0
+  },
+  {
+   "ticker": "THRY",
+   "issuer": "wk-form4_1686832976.xml",
+   "cik": 1556739,
+   "filed": "2026-03-09",
+   "insiders": 2,
+   "value": 6133352.79,
+   "score": 99.1
+  },
+  {
+   "ticker": "ALKT",
+   "issuer": "wk-form4_1720557232.xml",
+   "cik": 1529274,
+   "filed": "2026-03-11",
+   "insiders": 2,
+   "value": 101128295.08,
+   "score": 241.4
+  },
+  {
+   "ticker": "FFIN",
+   "issuer": "doc4.xml",
+   "cik": 36029,
+   "filed": "2026-03-11",
+   "insiders": 4,
+   "value": 329136.3,
+   "score": 45.9
+  },
+  {
+   "ticker": "GRNT",
+   "issuer": "wk-form4_1708632056.xml",
+   "cik": 1928446,
+   "filed": "2026-03-11",
+   "insiders": 3,
+   "value": 142025.0,
+   "score": 22.6
+  },
+  {
+   "ticker": "GRNT",
+   "issuer": "wk-form4_1708632056.xml",
+   "cik": 1928446,
+   "filed": "2026-03-12",
+   "insiders": 4,
+   "value": 167875.0,
+   "score": 32.8
+  },
+  {
+   "ticker": "ALKT",
+   "issuer": "wk-form4_1720557232.xml",
+   "cik": 1529274,
+   "filed": "2026-03-13",
+   "insiders": 3,
+   "value": 101228532.58,
+   "score": 362.2
+  },
+  {
+   "ticker": "CRH",
+   "issuer": "ownership.xml",
+   "cik": 849395,
+   "filed": "2026-03-13",
+   "insiders": 2,
+   "value": 601285.4,
+   "score": 15.5
+  },
+  {
+   "ticker": "FFIN",
+   "issuer": "doc4.xml",
+   "cik": 36029,
+   "filed": "2026-03-13",
+   "insiders": 5,
+   "value": 234932.85,
+   "score": 48.5
+  },
+  {
+   "ticker": "ALKT",
+   "issuer": "wk-form4_1720557232.xml",
+   "cik": 1529274,
+   "filed": "2026-03-16",
+   "insiders": 3,
+   "value": 119558532.58,
+   "score": 393.6
+  },
+  {
+   "ticker": "FFIN",
+   "issuer": "doc4.xml",
+   "cik": 36029,
+   "filed": "2026-03-16",
+   "insiders": 4,
+   "value": 161350.0,
+   "score": 32.1
+  },
+  {
+   "ticker": "GRNT",
+   "issuer": "wk-form4_1708632056.xml",
+   "cik": 1928446,
+   "filed": "2026-03-16",
+   "insiders": 5,
+   "value": 193675.0,
+   "score": 44.0
+  },
+  {
+   "ticker": "FFIN",
+   "issuer": "doc4.xml",
+   "cik": 36029,
+   "filed": "2026-03-17",
+   "insiders": 4,
+   "value": 161350.0,
+   "score": 32.1
+  },
+  {
+   "ticker": "GRNT",
+   "issuer": "wk-form4_1708632056.xml",
+   "cik": 1928446,
+   "filed": "2026-03-17",
+   "insiders": 5,
+   "value": 193675.0,
+   "score": 44.0
+  },
+  {
+   "ticker": "TRIN",
+   "issuer": "ownership.xml",
+   "cik": 1786108,
+   "filed": "2026-03-17",
+   "insiders": 2,
+   "value": 449875.4012,
+   "score": 26.8
+  },
+  {
+   "ticker": "TRNZ",
+   "issuer": "ownership.xml",
+   "cik": 1786108,
+   "filed": "2026-03-17",
+   "insiders": 2,
+   "value": 449875.4012,
+   "score": 26.8
+  },
+  {
+   "ticker": "BEATW",
+   "issuer": "wf-form4_164125563049298.xml",
+   "cik": 1779372,
+   "filed": "2026-04-16",
+   "insiders": 6,
+   "value": 875000.0,
+   "score": 112.2
+  },
+  {
+   "ticker": "GLOO",
+   "issuer": "form4-11202025_111120.xml",
+   "cik": 2069785,
+   "filed": "2026-04-16",
+   "insiders": 2,
+   "value": 462635.43999999994,
+   "score": 27.2
+  },
+  {
+   "ticker": "GLOO",
+   "issuer": "form4-11202025_111120.xml",
+   "cik": 2069785,
+   "filed": "2026-04-20",
+   "insiders": 2,
+   "value": 492124.43999999994,
+   "score": 28.1
+  },
+  {
+   "ticker": "WSBC",
+   "issuer": "form4.xml",
+   "cik": 203596,
+   "filed": "2026-04-24",
+   "insiders": 2,
+   "value": 201960.0,
+   "score": 10.8
+  },
+  {
+   "ticker": "CTRVP",
+   "issuer": "tm2326273-1_4seq1.xml",
+   "cik": 1583771,
+   "filed": "2026-04-27",
+   "insiders": 4,
+   "value": 400000.0,
+   "score": 50.6
+  },
+  {
+   "ticker": "KREF-PA",
+   "issuer": "form4.xml",
+   "cik": 1631596,
+   "filed": "2026-04-27",
+   "insiders": 2,
+   "value": 603544.0,
+   "score": 31.1
+  },
+  {
+   "ticker": "ABT",
+   "issuer": "form4-04302024_090408.xml",
+   "cik": 1800,
+   "filed": "2026-04-28",
+   "insiders": 2,
+   "value": 1127837.0,
+   "score": 42.5
+  },
+  {
+   "ticker": "WSBC",
+   "issuer": "form4.xml",
+   "cik": 203596,
+   "filed": "2026-04-28",
+   "insiders": 3,
+   "value": 229568.0,
+   "score": 17.2
+  },
+  {
+   "ticker": "ABT",
+   "issuer": "form4-04302024_090408.xml",
+   "cik": 1800,
+   "filed": "2026-04-29",
+   "insiders": 2,
+   "value": 1127837.0,
+   "score": 42.5
+  },
+  {
+   "ticker": "ALKT",
+   "issuer": "wk-form4_1720557232.xml",
+   "cik": 1529274,
+   "filed": "2026-05-06",
+   "insiders": 2,
+   "value": 69329847.36,
+   "score": 199.8
+  },
+  {
+   "ticker": "WTW",
+   "issuer": "form4.xml",
+   "cik": 1140536,
+   "filed": "2026-05-06",
+   "insiders": 2,
+   "value": 1009500.04,
+   "score": 40.2
+  },
+  {
+   "ticker": "GRNT",
+   "issuer": "wk-form4_1708632056.xml",
+   "cik": 1928446,
+   "filed": "2026-05-13",
+   "insiders": 2,
+   "value": 146217.8,
+   "score": 15.3
+  },
+  {
+   "ticker": "ALKT",
+   "issuer": "wk-form4_1720557232.xml",
+   "cik": 1529274,
+   "filed": "2026-05-14",
+   "insiders": 2,
+   "value": 65859500.0,
+   "score": 194.8
+  },
+  {
+   "ticker": "GRNT",
+   "issuer": "wk-form4_1708632056.xml",
+   "cik": 1928446,
+   "filed": "2026-05-14",
+   "insiders": 2,
+   "value": 146217.8,
+   "score": 15.3
+  },
+  {
+   "ticker": "RGR",
+   "issuer": "form4.xml",
+   "cik": 95029,
+   "filed": "2026-05-15",
+   "insiders": 2,
+   "value": 229890.0,
+   "score": 11.5
+  },
+  {
+   "ticker": "FLS",
+   "issuer": "wk-form4_1708464372.xml",
+   "cik": 30625,
+   "filed": "2026-05-18",
+   "insiders": 2,
+   "value": 231614.99999999997,
+   "score": 11.6
+  },
+  {
+   "ticker": "GRNT",
+   "issuer": "wk-form4_1708632056.xml",
+   "cik": 1928446,
+   "filed": "2026-05-18",
+   "insiders": 3,
+   "value": 695217.8,
+   "score": 50.0
+  },
+  {
+   "ticker": "SMWB",
+   "issuer": "primary_doc.xml",
+   "cik": 1842731,
+   "filed": "2026-05-20",
+   "insiders": 2,
+   "value": 307880.0,
+   "score": 22.2
+  },
+  {
+   "ticker": "RGR",
+   "issuer": "form4.xml",
+   "cik": 95029,
+   "filed": "2026-05-21",
+   "insiders": 2,
+   "value": 98615.0,
+   "score": 12.6
+  },
+  {
+   "ticker": "SMWB",
+   "issuer": "primary_doc.xml",
+   "cik": 1842731,
+   "filed": "2026-05-21",
+   "insiders": 3,
+   "value": 599630.0,
+   "score": 46.5
+  },
+  {
+   "ticker": "SMWB",
+   "issuer": "primary_doc.xml",
+   "cik": 1842731,
+   "filed": "2026-05-22",
+   "insiders": 4,
+   "value": 792630.0,
+   "score": 71.2
+  },
+  {
+   "ticker": "ARDT",
+   "issuer": "form4.xml",
+   "cik": 1756655,
+   "filed": "2026-06-08",
+   "insiders": 2,
+   "value": 186399.8,
+   "score": 17.3
+  },
+  {
+   "ticker": "SSMR",
+   "issuer": "ownership.xml",
+   "cik": 2091017,
+   "filed": "2026-06-08",
+   "insiders": 5,
+   "value": 803250.0,
+   "score": 89.6
+  },
+  {
+   "ticker": "PBLS",
+   "issuer": "ownership.xml",
+   "cik": 1657677,
+   "filed": "2026-06-15",
+   "insiders": 2,
+   "value": 424025000.0,
+   "score": 411.8
+  },
+  {
+   "ticker": "PBLS",
+   "issuer": "ownership.xml",
+   "cik": 1657677,
+   "filed": "2026-06-16",
+   "insiders": 2,
+   "value": 424498528.5355,
+   "score": 412.1
+  },
+  {
+   "ticker": "CNTM",
+   "issuer": "tm2419521-3_4seq1.xml",
+   "cik": 1895249,
+   "filed": "2026-06-22",
+   "insiders": 2,
+   "value": 53575623.0,
+   "score": 292.8
+  },
+  {
+   "ticker": "GLOO",
+   "issuer": "form4-11202025_111120.xml",
+   "cik": 2069785,
+   "filed": "2026-07-10",
+   "insiders": 3,
+   "value": 5999997.25,
+   "score": 147.0
+  },
+  {
+   "ticker": "GLOO",
+   "issuer": "form4-11202025_111120.xml",
+   "cik": 2069785,
+   "filed": "2026-07-13",
+   "insiders": 4,
+   "value": 8999994.25,
+   "score": 240.0
+  },
+  {
+   "ticker": "GLOO",
+   "issuer": "form4-11202025_111120.xml",
+   "cik": 2069785,
+   "filed": "2026-07-15",
+   "insiders": 4,
+   "value": 8999994.25,
+   "score": 240.0
+  },
+  {
+   "ticker": "TSM",
+   "issuer": "wk-form4_1777027327.xml",
+   "cik": 1046179,
+   "filed": "2026-07-23",
+   "insiders": 2,
+   "value": 659440.0,
+   "score": 24.4
+  },
+  {
+   "ticker": "NNOX",
+   "issuer": "primary_doc.xml",
+   "cik": 1795251,
+   "filed": "2026-07-29",
+   "insiders": 2,
+   "value": 63180.0,
+   "score": 10.1
+  }
+ ]
+}

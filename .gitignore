@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+*.log
+
+# Price cache: large and fully regenerable
+out/prices/
+
+# Rebuilt on every run; the published copy is site/index.html
+out/data.json
+out/dashboard.html
+out/artifact.html
+out/*.csv
+out/icon_preview.png
+
+# Built output - CI publishes this, no need to track it
+site/

@@ -1,0 +1,58 @@
+name: Build and publish
+
+# Rebuild once a day and publish the static result. The site never fetches on
+# behalf of a visitor -- one build serves everyone, which is what keeps this
+# within SEC's rate limits no matter how much traffic the page gets.
+on:
+  schedule:
+    - cron: "30 11 * * 1-5"     # 11:30 UTC, weekdays (after overnight filings)
+  workflow_dispatch:             # and a manual "Run workflow" button
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Build the site
+        env:
+          # SEC asks automated clients to identify themselves. Set this as a
+          # repository variable (Settings > Secrets and variables > Actions).
+          SEC_CONTACT: ${{ vars.SEC_CONTACT }}
+          INSIDER_DAYS: "14"
+          CONGRESS_DAYS: "60"
+          MAX_PTRS: "60"
+          MAX_FILINGS: "600"
+        run: python build_site.py
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

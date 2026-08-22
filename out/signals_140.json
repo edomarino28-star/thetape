@@ -1,0 +1,584 @@
+{
+ "start": "2023-01-01",
+ "end": "2026-08-01",
+ "universe": 140,
+ "seed": 7,
+ "signals": [
+  {
+   "ticker": "GLO",
+   "issuer": "Clough Global Opportunities Fund",
+   "cik": 1350869,
+   "filed": "2023-02-09",
+   "insiders": 2,
+   "value": 269910.0,
+   "score": 10.4
+  },
+  {
+   "ticker": "NEWT",
+   "issuer": "NewtekOne, Inc.",
+   "cik": 1587987,
+   "filed": "2023-03-21",
+   "insiders": 2,
+   "value": 154730.0,
+   "score": 15.7
+  },
+  {
+   "ticker": "NEWT",
+   "issuer": "NewtekOne, Inc.",
+   "cik": 1587987,
+   "filed": "2023-03-22",
+   "insiders": 2,
+   "value": 154730.0,
+   "score": 15.7
+  },
+  {
+   "ticker": "NEWT",
+   "issuer": "NewtekOne, Inc.",
+   "cik": 1587987,
+   "filed": "2023-03-23",
+   "insiders": 3,
+   "value": 652098.35,
+   "score": 48.5
+  },
+  {
+   "ticker": "KREF-PA",
+   "issuer": "KKR Real Estate Finance Trust Inc.",
+   "cik": 1631596,
+   "filed": "2023-05-01",
+   "insiders": 2,
+   "value": 352337.7,
+   "score": 23.7
+  },
+  {
+   "ticker": "GCO",
+   "issuer": "GENESCO INC",
+   "cik": 18498,
+   "filed": "2023-05-30",
+   "insiders": 3,
+   "value": 255213.74,
+   "score": 30.3
+  },
+  {
+   "ticker": "GCO",
+   "issuer": "GENESCO INC",
+   "cik": 18498,
+   "filed": "2023-06-05",
+   "insiders": 4,
+   "value": 567588.74,
+   "score": 60.3
+  },
+  {
+   "ticker": "FTK",
+   "issuer": "FLOTEK INDUSTRIES INC/CN/",
+   "cik": 928054,
+   "filed": "2023-06-14",
+   "insiders": 2,
+   "value": 607847.98,
+   "score": 18.7
+  },
+  {
+   "ticker": "OPK",
+   "issuer": "OPKO HEALTH, INC.",
+   "cik": 944809,
+   "filed": "2023-11-13",
+   "insiders": 2,
+   "value": 1324753.38,
+   "score": 46.0
+  },
+  {
+   "ticker": "OPK",
+   "issuer": "OPKO HEALTH, INC.",
+   "cik": 944809,
+   "filed": "2023-11-14",
+   "insiders": 2,
+   "value": 1324753.38,
+   "score": 46.0
+  },
+  {
+   "ticker": "ASA",
+   "issuer": "ASA Gold & Precious Metals Ltd",
+   "cik": 1230869,
+   "filed": "2023-12-05",
+   "insiders": 2,
+   "value": 2006071.9400000002,
+   "score": 56.7
+  },
+  {
+   "ticker": "ASA",
+   "issuer": "ASA Gold & Precious Metals Ltd",
+   "cik": 1230869,
+   "filed": "2023-12-06",
+   "insiders": 2,
+   "value": 2374416.66,
+   "score": 61.6
+  },
+  {
+   "ticker": "ASA",
+   "issuer": "ASA Gold & Precious Metals Ltd",
+   "cik": 1230869,
+   "filed": "2023-12-07",
+   "insiders": 2,
+   "value": 1108217.32,
+   "score": 42.1
+  },
+  {
+   "ticker": "ASA",
+   "issuer": "ASA Gold & Precious Metals Ltd",
+   "cik": 1230869,
+   "filed": "2023-12-08",
+   "insiders": 2,
+   "value": 1210440.56,
+   "score": 44.0
+  },
+  {
+   "ticker": "ASA",
+   "issuer": "ASA Gold & Precious Metals Ltd",
+   "cik": 1230869,
+   "filed": "2023-12-11",
+   "insiders": 2,
+   "value": 1564227.125,
+   "score": 50.0
+  },
+  {
+   "ticker": "ASA",
+   "issuer": "ASA Gold & Precious Metals Ltd",
+   "cik": 1230869,
+   "filed": "2023-12-12",
+   "insiders": 2,
+   "value": 1007825.849,
+   "score": 40.2
+  },
+  {
+   "ticker": "ASA",
+   "issuer": "ASA Gold & Precious Metals Ltd",
+   "cik": 1230869,
+   "filed": "2023-12-14",
+   "insiders": 2,
+   "value": 1010294.3690000001,
+   "score": 40.2
+  },
+  {
+   "ticker": "ASA",
+   "issuer": "ASA Gold & Precious Metals Ltd",
+   "cik": 1230869,
+   "filed": "2023-12-18",
+   "insiders": 2,
+   "value": 2214309.8140000002,
+   "score": 59.5
+  },
+  {
+   "ticker": "ASA",
+   "issuer": "ASA Gold & Precious Metals Ltd",
+   "cik": 1230869,
+   "filed": "2023-12-19",
+   "insiders": 2,
+   "value": 2100330.19,
+   "score": 58.0
+  },
+  {
+   "ticker": "ASA",
+   "issuer": "ASA Gold & Precious Metals Ltd",
+   "cik": 1230869,
+   "filed": "2023-12-20",
+   "insiders": 2,
+   "value": 2100330.19,
+   "score": 58.0
+  },
+  {
+   "ticker": "ASA",
+   "issuer": "ASA Gold & Precious Metals Ltd",
+   "cik": 1230869,
+   "filed": "2024-01-02",
+   "insiders": 3,
+   "value": 471173.93720000004,
+   "score": 41.2
+  },
+  {
+   "ticker": "ASA",
+   "issuer": "ASA Gold & Precious Metals Ltd",
+   "cik": 1230869,
+   "filed": "2024-01-03",
+   "insiders": 2,
+   "value": 418520.8472,
+   "score": 25.9
+  },
+  {
+   "ticker": "ASA",
+   "issuer": "ASA Gold & Precious Metals Ltd",
+   "cik": 1230869,
+   "filed": "2024-01-08",
+   "insiders": 2,
+   "value": 418520.8472,
+   "score": 25.9
+  },
+  {
+   "ticker": "OPK",
+   "issuer": "OPKO HEALTH, INC.",
+   "cik": 944809,
+   "filed": "2024-01-08",
+   "insiders": 3,
+   "value": 1974801.726,
+   "score": 84.3
+  },
+  {
+   "ticker": "OPK",
+   "issuer": "OPKO HEALTH, INC.",
+   "cik": 944809,
+   "filed": "2024-01-10",
+   "insiders": 4,
+   "value": 2174769.4787,
+   "score": 118.0
+  },
+  {
+   "ticker": "OPK",
+   "issuer": "OPKO HEALTH, INC.",
+   "cik": 944809,
+   "filed": "2024-01-11",
+   "insiders": 4,
+   "value": 2655148.2408000003,
+   "score": 130.4
+  },
+  {
+   "ticker": "OPK",
+   "issuer": "OPKO HEALTH, INC.",
+   "cik": 944809,
+   "filed": "2024-01-16",
+   "insiders": 2,
+   "value": 1634646.5148,
+   "score": 51.1
+  },
+  {
+   "ticker": "OPK",
+   "issuer": "OPKO HEALTH, INC.",
+   "cik": 944809,
+   "filed": "2024-01-17",
+   "insiders": 2,
+   "value": 1577178.7621,
+   "score": 50.2
+  },
+  {
+   "ticker": "OPK",
+   "issuer": "OPKO HEALTH, INC.",
+   "cik": 944809,
+   "filed": "2024-01-18",
+   "insiders": 2,
+   "value": 1483000.0,
+   "score": 48.7
+  },
+  {
+   "ticker": "OPK",
+   "issuer": "OPKO HEALTH, INC.",
+   "cik": 944809,
+   "filed": "2024-01-19",
+   "insiders": 2,
+   "value": 1971650.0,
+   "score": 56.2
+  },
+  {
+   "ticker": "KREF-PA",
+   "issuer": "KKR Real Estate Finance Trust Inc.",
+   "cik": 1631596,
+   "filed": "2024-02-09",
+   "insiders": 2,
+   "value": 350034.4,
+   "score": 23.7
+  },
+  {
+   "ticker": "NCRRP",
+   "issuer": "NCR Voyix Corp",
+   "cik": 70866,
+   "filed": "2024-08-12",
+   "insiders": 2,
+   "value": 225600.0,
+   "score": 19.0
+  },
+  {
+   "ticker": "NCRRP",
+   "issuer": "NCR Voyix Corp",
+   "cik": 70866,
+   "filed": "2024-08-15",
+   "insiders": 3,
+   "value": 490025.48,
+   "score": 42.0
+  },
+  {
+   "ticker": "SGC",
+   "issuer": "SUPERIOR GROUP OF COMPANIES, INC.",
+   "cik": 95574,
+   "filed": "2024-08-15",
+   "insiders": 2,
+   "value": 72183.2,
+   "score": 10.7
+  },
+  {
+   "ticker": "SGC",
+   "issuer": "SUPERIOR GROUP OF COMPANIES, INC.",
+   "cik": 95574,
+   "filed": "2024-08-19",
+   "insiders": 3,
+   "value": 206710.2,
+   "score": 27.3
+  },
+  {
+   "ticker": "SGC",
+   "issuer": "SUPERIOR GROUP OF COMPANIES, INC.",
+   "cik": 95574,
+   "filed": "2024-08-20",
+   "insiders": 3,
+   "value": 206710.2,
+   "score": 27.3
+  },
+  {
+   "ticker": "NCRRP",
+   "issuer": "NCR Voyix Corp",
+   "cik": 70866,
+   "filed": "2024-08-30",
+   "insiders": 2,
+   "value": 248482.08000000002,
+   "score": 19.9
+  },
+  {
+   "ticker": "NCRRP",
+   "issuer": "NCR Voyix Corp",
+   "cik": 70866,
+   "filed": "2024-09-03",
+   "insiders": 2,
+   "value": 248482.08000000002,
+   "score": 19.9
+  },
+  {
+   "ticker": "FCUV",
+   "issuer": "FOCUS UNIVERSAL INC.",
+   "cik": 1590418,
+   "filed": "2024-09-18",
+   "insiders": 2,
+   "value": 600000.0,
+   "score": 31.0
+  },
+  {
+   "ticker": "PLAY",
+   "issuer": "Dave & Buster's Entertainment, Inc.",
+   "cik": 1525769,
+   "filed": "2024-12-13",
+   "insiders": 4,
+   "value": 1752905.236,
+   "score": 105.9
+  },
+  {
+   "ticker": "EMYB",
+   "issuer": "Embassy Bancorp, Inc.",
+   "cik": 1449794,
+   "filed": "2024-12-16",
+   "insiders": 3,
+   "value": 115500.0,
+   "score": 20.4
+  },
+  {
+   "ticker": "EMYB",
+   "issuer": "Embassy Bancorp, Inc.",
+   "cik": 1449794,
+   "filed": "2024-12-17",
+   "insiders": 4,
+   "value": 141015.30465,
+   "score": 30.0
+  },
+  {
+   "ticker": "PLAY",
+   "issuer": "Dave & Buster's Entertainment, Inc.",
+   "cik": 1525769,
+   "filed": "2024-12-17",
+   "insiders": 4,
+   "value": 1752905.236,
+   "score": 105.9
+  },
+  {
+   "ticker": "EMYB",
+   "issuer": "Embassy Bancorp, Inc.",
+   "cik": 1449794,
+   "filed": "2024-12-18",
+   "insiders": 4,
+   "value": 141015.30465,
+   "score": 30.0
+  },
+  {
+   "ticker": "PLAY",
+   "issuer": "Dave & Buster's Entertainment, Inc.",
+   "cik": 1525769,
+   "filed": "2024-12-19",
+   "insiders": 4,
+   "value": 1294614.6125,
+   "score": 91.0
+  },
+  {
+   "ticker": "CET",
+   "issuer": "CENTRAL SECURITIES CORP",
+   "cik": 18748,
+   "filed": "2025-01-08",
+   "insiders": 2,
+   "value": 91864.85,
+   "score": 12.1
+  },
+  {
+   "ticker": "SION",
+   "issuer": "Sionna Therapeutics, Inc.",
+   "cik": 2036042,
+   "filed": "2025-02-10",
+   "insiders": 5,
+   "value": 42210000.0,
+   "score": 389.8
+  },
+  {
+   "ticker": "SION",
+   "issuer": "Sionna Therapeutics, Inc.",
+   "cik": 2036042,
+   "filed": "2025-02-12",
+   "insiders": 6,
+   "value": 62460000.0,
+   "score": 569.0
+  },
+  {
+   "ticker": "BEATW",
+   "issuer": "HeartBeam, Inc.",
+   "cik": 1779372,
+   "filed": "2025-02-21",
+   "insiders": 2,
+   "value": 80000.3,
+   "score": 11.3
+  },
+  {
+   "ticker": "CPS",
+   "issuer": "Cooper-Standard Holdings Inc.",
+   "cik": 1320461,
+   "filed": "2025-02-25",
+   "insiders": 2,
+   "value": 163551.0,
+   "score": 16.2
+  },
+  {
+   "ticker": "NCRRP",
+   "issuer": "NCR Voyix Corp",
+   "cik": 70866,
+   "filed": "2025-05-19",
+   "insiders": 2,
+   "value": 497397.30500000005,
+   "score": 28.2
+  },
+  {
+   "ticker": "SNDX",
+   "issuer": "Syndax Pharmaceuticals Inc",
+   "cik": 1395937,
+   "filed": "2025-05-19",
+   "insiders": 3,
+   "value": 241896.175,
+   "score": 14.8
+  },
+  {
+   "ticker": "RPC",
+   "issuer": "Ridgepost Capital, Inc.",
+   "cik": 1841968,
+   "filed": "2025-06-09",
+   "insiders": 2,
+   "value": 98400.0,
+   "score": 6.3
+  },
+  {
+   "ticker": "PEW-WT",
+   "issuer": "GrabAGun Digital Holdings Inc.",
+   "cik": 2051380,
+   "filed": "2025-08-20",
+   "insiders": 3,
+   "value": 211066.0,
+   "score": 27.6
+  },
+  {
+   "ticker": "KREF-PA",
+   "issuer": "KKR Real Estate Finance Trust Inc.",
+   "cik": 1631596,
+   "filed": "2025-11-10",
+   "insiders": 4,
+   "value": 616943.04,
+   "score": 62.8
+  },
+  {
+   "ticker": "EMYB",
+   "issuer": "Embassy Bancorp, Inc.",
+   "cik": 1449794,
+   "filed": "2025-12-05",
+   "insiders": 2,
+   "value": 61062.119999999995,
+   "score": 9.9
+  },
+  {
+   "ticker": "EMYB",
+   "issuer": "Embassy Bancorp, Inc.",
+   "cik": 1449794,
+   "filed": "2025-12-08",
+   "insiders": 2,
+   "value": 61062.119999999995,
+   "score": 9.9
+  },
+  {
+   "ticker": "EMYB",
+   "issuer": "Embassy Bancorp, Inc.",
+   "cik": 1449794,
+   "filed": "2025-12-10",
+   "insiders": 2,
+   "value": 61062.119999999995,
+   "score": 9.9
+  },
+  {
+   "ticker": "NEWT",
+   "issuer": "NewtekOne, Inc.",
+   "cik": 1587987,
+   "filed": "2026-01-16",
+   "insiders": 2,
+   "value": 81262.22,
+   "score": 11.4
+  },
+  {
+   "ticker": "BEATW",
+   "issuer": "HeartBeam, Inc.",
+   "cik": 1779372,
+   "filed": "2026-04-16",
+   "insiders": 6,
+   "value": 875000.0,
+   "score": 112.2
+  },
+  {
+   "ticker": "KREF-PA",
+   "issuer": "KKR Real Estate Finance Trust Inc.",
+   "cik": 1631596,
+   "filed": "2026-04-27",
+   "insiders": 2,
+   "value": 603544.0,
+   "score": 31.1
+  },
+  {
+   "ticker": "FLS",
+   "issuer": "FLOWSERVE CORP",
+   "cik": 30625,
+   "filed": "2026-05-18",
+   "insiders": 2,
+   "value": 231614.99999999997,
+   "score": 11.6
+  },
+  {
+   "ticker": "ARDT",
+   "issuer": "Ardent Health, Inc.",
+   "cik": 1756655,
+   "filed": "2026-06-08",
+   "insiders": 2,
+   "value": 186399.8,
+   "score": 17.3
+  },
+  {
+   "ticker": "SSMR",
+   "issuer": "Sunshine Silver Mining & Refining Co",
+   "cik": 2091017,
+   "filed": "2026-06-08",
+   "insiders": 5,
+   "value": 803250.0,
+   "score": 89.6
+  }
+ ]
+}
