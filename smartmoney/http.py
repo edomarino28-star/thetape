@@ -27,22 +27,57 @@ _session = requests.Session()
 _session.headers.update({"User-Agent": UA, "Accept-Encoding": "gzip, deflate"})
 
 
-def get(url, *, tries=4, timeout=30, **kw):
+class BlockedError(RuntimeError):
+    """Raised when the far end is clearly refusing us, not just hiccuping."""
+
+
+# A shared runner IP can get throttled by SEC because of what OTHER people ran
+# from it. Retrying every one of a few hundred filings through a 1+2+4s backoff
+# turns that into an hour of sleeping, so we count consecutive failures and give
+# up loudly instead of grinding.
+_consecutive_failures = [0]
+MAX_CONSECUTIVE_FAILURES = 25
+
+
+def get(url, *, tries=3, timeout=30, **kw):
     last = None
     for attempt in range(tries):
         _throttle.wait()
         try:
             r = _session.get(url, timeout=timeout, **kw)
-            if r.status_code in (429, 503, 502):
+            # 403 is a decision, not a hiccup -- retrying cannot change it
+            if r.status_code == 403:
+                _consecutive_failures[0] += 1
+                _check_blocked(url, 403)
+                raise BlockedError(f"403 Forbidden from {url}")
+            if r.status_code in (429, 502, 503):
                 last = RuntimeError(f"{r.status_code} from {url}")
-                time.sleep(2 ** attempt)
+                if attempt < tries - 1:
+                    time.sleep(2 ** attempt)
                 continue
             r.raise_for_status()
+            _consecutive_failures[0] = 0
             return r
+        except BlockedError:
+            raise
         except requests.RequestException as e:
             last = e
-            time.sleep(2 ** attempt)
+            if attempt < tries - 1:
+                time.sleep(2 ** attempt)
+
+    _consecutive_failures[0] += 1
+    _check_blocked(url, last)
     raise last
+
+
+def _check_blocked(url, why):
+    if _consecutive_failures[0] >= MAX_CONSECUTIVE_FAILURES:
+        raise BlockedError(
+            f"{_consecutive_failures[0]} requests in a row failed (last: {why}).\n"
+            f"The host is refusing this IP rather than throttling it. On a shared\n"
+            f"CI runner this usually means SEC has rate-limited the whole IP range\n"
+            f"because of other traffic. Re-run later, or run the build locally.\n"
+            f"Last URL: {url}")
 
 
 def get_json(url, **kw):

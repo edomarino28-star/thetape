@@ -22,6 +22,7 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 30        # fail visibly instead of hanging for hours
     steps:
       - uses: actions/checkout@v4
 
@@ -39,10 +40,13 @@ jobs:
           SEC_CONTACT: ${{ vars.SEC_CONTACT }}
           # Pages serves a project repo at https://OWNER.github.io/REPO
           SITE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
-          INSIDER_DAYS: "14"
-          CONGRESS_DAYS: "60"
-          MAX_PTRS: "60"
-          MAX_FILINGS: "600"
+          # Kept modest so a build finishes in minutes. SEC throttles shared CI
+          # IPs, and every throttled request costs retry time, so fetching less
+          # is what keeps this reliable rather than what makes it fast.
+          INSIDER_DAYS: "10"
+          CONGRESS_DAYS: "45"
+          MAX_PTRS: "25"
+          MAX_FILINGS: "250"
         run: python build_site.py
 
       - uses: actions/upload-pages-artifact@v3
