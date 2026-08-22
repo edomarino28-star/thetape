@@ -1,4 +1,4 @@
-# Putting Paper Trail on the internet
+# Putting The Tape on the internet
 
 Everything is committed and ready. These are the only steps left, and they all
 happen in a browser. Nothing here costs money.
@@ -17,7 +17,7 @@ everyone and the SEC rate limit is respected no matter how much traffic arrives.
 
 <https://github.com/new>
 
-- **Repository name:** `paper-trail`
+- **Repository name:** `the-tape`
 - **Public** (GitHub Pages needs this on the free plan)
 - **Do NOT** tick "Add a README" — the repo must be empty or the push is refused
 
@@ -29,7 +29,7 @@ Open the folder `C:\Users\edoma\smart-money` in a terminal and run these,
 replacing `YOURNAME` with your GitHub username:
 
 ```bash
-git remote add origin https://github.com/YOURNAME/paper-trail.git
+git remote add origin https://github.com/YOURNAME/the-tape.git
 git push -u origin main
 ```
 
@@ -60,7 +60,7 @@ It takes 10–20 minutes, mostly downloading congressional disclosure PDFs one a
 a time. When it goes green, the site is live at:
 
 ```
-https://YOURNAME.github.io/paper-trail
+https://YOURNAME.github.io/the-tape
 ```
 
 After this it rebuilds itself **every weekday at 11:30 UTC**. You never touch it

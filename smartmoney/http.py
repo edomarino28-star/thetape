@@ -6,8 +6,8 @@ import time, threading, requests
 # will throttle those that don't. In CI this comes from the SEC_CONTACT
 # repository variable so the address is not baked into a public repo.
 _CONTACT = os.environ.get("SEC_CONTACT", "").strip()
-UA = f"paper-trail research tool ({_CONTACT})" if _CONTACT else \
-     "paper-trail research tool (contact: set SEC_CONTACT env var)"
+UA = f"the-tape research tool ({_CONTACT})" if _CONTACT else \
+     "the-tape research tool (contact: set SEC_CONTACT env var)"
 
 class Throttle:
     def __init__(self, per_sec=4.0):

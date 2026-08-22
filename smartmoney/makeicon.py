@@ -46,7 +46,7 @@ def draw(size):
 
 
 def build(path=None):
-    path = path or os.path.join(HERE, "paper-trail.ico")
+    path = path or os.path.join(HERE, "the-tape.ico")
     sizes = [16, 24, 32, 48, 64, 128, 256]
     frames = [draw(n) for n in sizes]
     frames[-1].save(path, format="ICO",

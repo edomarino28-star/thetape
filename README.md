@@ -1,6 +1,6 @@
-# Paper Trail
+# The Tape
 
-> Public trading disclosures, ranked and dated.
+> Reading the tape: public trading disclosures, ranked and dated.
 
 Pulls the disclosure filings that institutions, corporate insiders, and members of
 Congress are **legally required to publish**, and ranks them by how unusual they are.
@@ -56,8 +56,8 @@ python sm.py dashboard --no-refresh              # re-render without re-download
 python sm.py dashboard --fund 1067983 --fund 1350694   # pick your own funds by CIK
 ```
 
-Every build also refreshes a **Disclosure Desk** shortcut on your Desktop, with a
-generated icon (`smartmoney/disclosure-desk.ico` -- three delay bars, short-green
+Every build also refreshes a **The Tape** shortcut on your Desktop, with a
+generated icon (`smartmoney/the-tape.ico` -- three delay bars, short-green
 to long-red, the same idea the page opens with). Double-click it to open the
 latest build in your browser. Rebuild the icon alone with
 `python -m smartmoney.makeicon`, or re-point the shortcut with

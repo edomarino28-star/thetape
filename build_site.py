@@ -32,7 +32,7 @@ def main():
     with open(os.path.join(SITE, "robots.txt"), "w", encoding="utf-8") as fh:
         fh.write("User-agent: *\nAllow: /\n")
     icon = os.path.join(os.path.dirname(os.path.abspath(__file__)),
-                        "smartmoney", "paper-trail.ico")
+                        "smartmoney", "the-tape.ico")
     if os.path.exists(icon):
         shutil.copy(icon, os.path.join(SITE, "favicon.ico"))
     print(f"site built -> {SITE}")

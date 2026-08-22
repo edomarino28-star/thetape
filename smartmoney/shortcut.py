@@ -4,7 +4,7 @@ import subprocess
 
 from . import makeicon
 
-NAME = "Paper Trail"
+NAME = "The Tape"
 
 
 def desktop_dir():
@@ -16,7 +16,7 @@ def desktop_dir():
     return None
 
 
-def create(target, name=NAME, icon=None, desc="Paper Trail - public trading disclosures, ranked"):
+def create(target, name=NAME, icon=None, desc="The Tape - public trading disclosures, ranked"):
     """Point a Desktop .lnk at `target`. Returns the shortcut path, or None."""
     desk = desktop_dir()
     if not desk:
