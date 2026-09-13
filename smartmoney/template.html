@@ -469,6 +469,7 @@ footer code{
       <a href="#sec-funds">Funds</a>
       <a href="#sec-managers">Managers</a>
       <a href="#sec-banks">Banks</a>
+      <a href="#sec-shorts">Shorts</a>
       <a href="#sec-people">People</a>
       <a href="#sec-news">News</a>
       <a href="#sec-evidence">Does it work?</a>
@@ -679,6 +680,44 @@ footer code{
       <p class="hint">Same data as a table. Note how position count and concentration move in
       opposite directions.</p>
       <table id="insttbl"></table>
+    </div>
+  </section>
+
+  <!-- SHORTS -->
+  <section id="sec-shorts">
+    <div class="divider"><span class="tag">Source: <b>UK FCA short register</b> · UK-listed shares only</span><span class="rule"></span></div>
+    <div class="sechead">
+      <h2>What funds are betting against</h2>
+      <span class="chip warn" id="shortchip">short positions</span>
+    </div>
+    <p class="secnote"><b>A 13F can never show you this.</b> Form 13F covers long US stock positions
+    only — shorts are excluded by law, so no 13F tracker anywhere has them. The UK is the exception:
+    any net short reaching 0.5% of a company must be disclosed publicly, by name. That is what this
+    section reads.</p>
+    <div class="looking" id="look-shorts"></div>
+
+    <div class="grid g2" style="margin-bottom:16px">
+      <div class="card">
+        <h3>Biggest single short positions</h3>
+        <p class="hint"><b>One row = one fund shorting one company.</b> The percentage is how much of
+        the company's total shares that fund has sold short.</p>
+        <div class="tblwrap"><table id="shortbig"></table></div>
+      </div>
+      <div class="card">
+        <h3>Most crowded shorts</h3>
+        <p class="hint"><b>One row = one company.</b> How many separate funds are betting against it,
+        and how much of the company is sold short in total. Crowded shorts can squeeze violently.</p>
+        <div class="tblwrap"><table id="shortcrowd"></table></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Funds that show up on both sides</h3>
+      <p class="hint">These managers appear in the long 13F holdings above <em>and</em> in the UK
+      short register. It is the closest this data gets to seeing both halves of what a fund is
+      actually doing — though the long side is US and the short side is UK, so they are not two
+      halves of one book.</p>
+      <div class="tblwrap"><table id="shortboth"></table></div>
     </div>
   </section>
 
@@ -1450,6 +1489,62 @@ function renderManagers(){
     }).join("") + `</tbody>`;
 }
 
+/* ---------- shorts ---------- */
+function renderShorts(){
+  const S = DATA.shorts;
+  const sec = document.getElementById("sec-shorts");
+  if (!sec) return;
+  if (!S){ sec.style.display = "none"; return; }
+
+  const chip = document.getElementById("shortchip");
+  if (chip) chip.textContent = `feed ${S.feed_age_days} days old`;
+
+  const look = document.getElementById("look-shorts");
+  if (look) look.innerHTML =
+    `<b>What you're looking at:</b> ${S.n_live.toLocaleString()} short positions that were still
+     open as of <span class="range">${pretty(S.feed_date)}</span>, disclosed by
+     ${S.n_funds || S.funds.length} named funds. <b>UK-listed companies only</b> — the US does not require
+     funds to disclose individual short positions at all.
+     <br><span style="color:var(--muted)">A fund only re-files when it crosses a threshold, so the
+     register still lists shorts in companies that no longer exist. Anything not re-disclosed within
+     ${S.live_window_days} days of the feed date is treated as closed, which cuts
+     ${S.n_all_time.toLocaleString()} historical positions down to ${S.n_live.toLocaleString()}.</span>`;
+
+  const big = document.getElementById("shortbig");
+  if (big) big.innerHTML =
+    `<thead><tr><th class="r">Short</th><th>Company</th><th>Fund</th><th>Disclosed</th></tr></thead><tbody>` +
+    S.biggest.map(b => `<tr>
+      <td class="r num" style="color:var(--sell);font-weight:600">${b.pct.toFixed(2)}%</td>
+      <td>${esc(b.issuer.slice(0,26))}</td>
+      <td style="color:var(--ink-2)">${esc(b.holder.slice(0,30))}</td>
+      <td class="num" style="white-space:nowrap">${shortDate(b.date)}</td>
+    </tr>`).join("") + `</tbody>`;
+
+  const cr = document.getElementById("shortcrowd");
+  if (cr) cr.innerHTML =
+    `<thead><tr><th>Company</th><th class="r">Funds</th><th class="r">Total short</th><th>Who</th></tr></thead><tbody>` +
+    S.crowded.map(c => `<tr>
+      <td><b>${esc(c.issuer.slice(0,26))}</b></td>
+      <td class="r num">${c.funds}</td>
+      <td class="r num" style="color:var(--sell)">${c.total_pct.toFixed(1)}%</td>
+      <td style="color:var(--muted);font-size:12.5px">${esc(c.names.slice(0,3).join(", ").slice(0,46))}</td>
+    </tr>`).join("") + `</tbody>`;
+
+  const bo = document.getElementById("shortboth");
+  const both = S.both_sides || [];
+  if (bo) bo.innerHTML = both.length
+    ? `<thead><tr><th>Manager</th><th>Shorting as</th><th class="r">UK shorts</th>
+        <th class="r">Combined size</th></tr></thead><tbody>` +
+      both.map(b => `<tr>
+        <td><b>${esc(b.long_name)}</b></td>
+        <td style="color:var(--ink-2)">${esc(b.fund.slice(0,34))}</td>
+        <td class="r num">${b.positions}</td>
+        <td class="r num" style="color:var(--sell)">${b.total_pct.toFixed(1)}%</td>
+      </tr>`).join("") + `</tbody>`
+    : `<tbody><tr><td style="color:var(--muted)">None of the managers tracked above appear in the
+       UK short register this period.</td></tr></tbody>`;
+}
+
 /* ---------- people ---------- */
 const CODE_MEANING = {
   P:"bought on the open market", S:"sold on the open market",
@@ -1547,6 +1642,7 @@ function renderNews(){
 render();
 renderHero();
 renderManagers();
+renderShorts();
 renderInstitutions();
 renderPeople();
 renderNews();
@@ -1558,7 +1654,7 @@ addEventListener("resize", () => {
     ["delay","flow","buyers","plan","ctickers","late","assets","funds",
      "clusters","conc","people","newsmix"]
       .forEach(id => { const n = document.getElementById(id); if (n) n.innerHTML = ""; });
-    render(); renderHero(); renderManagers(); renderInstitutions();
+    render(); renderHero(); renderManagers(); renderShorts(); renderInstitutions();
     renderPeople(); renderNews();
   }, 180);
 });

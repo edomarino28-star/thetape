@@ -4,7 +4,7 @@ import json
 import os
 from collections import Counter, defaultdict
 
-from . import congress, events, form4, people, score, thirteenf
+from . import congress, events, form4, people, score, shorts, thirteenf
 
 OUT = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "out")
 
@@ -252,6 +252,19 @@ def collect(days=14, max_filings=600, congress_days=60, max_ptrs=60,
     managers.sort(key=lambda m: -m["total"])
     log(f"      {len(managers)} managers")
 
+    # ---------------------------------------------------------- shorts
+    # The one thing 13F cannot show. UK register only -- see shorts.py.
+    log("[4c/6] UK short positions ...")
+    try:
+        short_data = shorts.collect(log=log)
+    except Exception as e:
+        log(f"      ! shorts unavailable: {e}")
+        short_data = None
+    if short_data:
+        names = [lbl for lbl, _ in (funds or FUNDS)] +                 [lbl for lbl, _ in (more_managers if more_managers is not None else MORE_MANAGERS)] +                 [lbl for lbl, _ in (institutions or INSTITUTIONS)]
+        short_data["both_sides"] = shorts.cross_reference(short_data, names)
+        log(f"      {len(short_data['both_sides'])} funds appear long AND short")
+
     # ---------------------------------------------------------- people
     log("[5/6] individual SEC records ...")
     profiles = people.collect(watchlist=watchlist, max_form4=10)
@@ -299,6 +312,7 @@ def collect(days=14, max_filings=600, congress_days=60, max_ptrs=60,
         "funds": fund_blocks,
         "institutions": inst,
         "managers": managers,
+        "shorts": short_data,
         "people": profiles,
         "news": {
             "window_days": news_days,
