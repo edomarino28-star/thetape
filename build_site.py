@@ -56,6 +56,18 @@ def main():
     else:
         print("SITE_URL unset: skipping sitemap (canonical URLs will be empty)")
 
+    # Anything in static/ is copied to the site root verbatim. Search-engine
+    # verification files live here so a rebuild cannot quietly delete them --
+    # Google re-checks the file periodically and un-verifies the site if it
+    # disappears.
+    static_dir = os.path.join(HERE, "static")
+    if os.path.isdir(static_dir):
+        for name in sorted(os.listdir(static_dir)):
+            src = os.path.join(static_dir, name)
+            if os.path.isfile(src):
+                shutil.copy(src, os.path.join(SITE, name))
+                print(f"static -> {name}")
+
     icon = os.path.join(HERE, "smartmoney", "the-tape.ico")
     if os.path.exists(icon):
         shutil.copy(icon, os.path.join(SITE, "favicon.ico"))
