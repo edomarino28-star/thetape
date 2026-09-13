@@ -139,6 +139,65 @@ p{margin:0}
 .delayfill.tiny span{color:var(--ink);position:absolute;left:auto;margin-left:8px}
 .axisnote{font-size:12.5px;color:var(--muted);margin-top:10px;font-family:'IBM Plex Mono',monospace}
 
+
+/* ---------- sticky navigation ----------
+   The page is ~14,000px tall across 8 sections; without this you can only
+   scroll. Rules applied: smooth scroll, visible active state, and scroll-padding
+   so an anchored heading is not hidden underneath the bar. */
+html{scroll-behavior:smooth;scroll-padding-top:62px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+.topnav{
+  position:sticky;top:0;z-index:50;
+  background:color-mix(in srgb,var(--plane) 88%,transparent);
+  backdrop-filter:saturate(160%) blur(12px);
+  -webkit-backdrop-filter:saturate(160%) blur(12px);
+  border-bottom:1px solid var(--line);
+}
+.navinner{
+  max-width:1080px;margin:0 auto;padding:0 20px;
+  display:flex;align-items:center;gap:22px;height:54px;
+}
+.brand{
+  font-weight:800;font-size:16px;letter-spacing:-.02em;color:var(--ink);
+  text-decoration:none;white-space:nowrap;flex:none;
+}
+.brand:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
+.navlinks{
+  display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;
+  -ms-overflow-style:none;margin-left:auto;
+}
+.navlinks::-webkit-scrollbar{display:none}
+.navlinks a{
+  font-size:13.5px;font-weight:500;color:var(--ink-2);text-decoration:none;
+  padding:6px 10px;border-radius:6px;white-space:nowrap;
+  border-bottom:2px solid transparent;
+}
+.navlinks a:hover{color:var(--ink);background:var(--surface-2)}
+.navlinks a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.navlinks a.active{
+  color:var(--accent);font-weight:600;
+  border-bottom-color:var(--accent);border-radius:6px 6px 0 0;
+}
+@media (max-width:720px){
+  .navinner{gap:12px;height:50px}
+  .brand{font-size:15px}
+  .navlinks a{padding:6px 8px;font-size:13px}
+}
+
+/* ---------- hero stat row ---------- */
+.herostats{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:10px;overflow:hidden;margin-top:22px;
+}
+.herostats .hs{background:var(--surface);padding:14px 16px}
+.herostats .v{
+  font-family:'IBM Plex Mono',monospace;font-size:24px;font-weight:600;
+  letter-spacing:-.02em;line-height:1.15;font-variant-numeric:tabular-nums;
+}
+.herostats .l{font-size:12.5px;color:var(--muted);margin-top:4px;line-height:1.35}
+
 /* ---------- the two-dates explainer ---------- */
 .twodates{
   margin-top:22px;padding-top:20px;border-top:1px solid var(--line);
@@ -319,7 +378,23 @@ footer code{
 }
 </script>
 
-<div class="wrap">
+<nav class="topnav" id="topnav">
+  <div class="navinner">
+    <a class="brand" href="#top">The&nbsp;Tape</a>
+    <div class="navlinks" id="navlinks">
+      <a href="#insiders">Insiders</a>
+      <a href="#congress">Congress</a>
+      <a href="#funds">Funds</a>
+      <a href="#managers">Managers</a>
+      <a href="#banks">Banks</a>
+      <a href="#people">People</a>
+      <a href="#news">News</a>
+      <a href="#evidence">Does it work?</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap" id="top">
 
   <div class="masthead">
     <div>
@@ -330,6 +405,8 @@ footer code{
     </div>
     <div class="stamp" id="stamp"></div>
   </div>
+
+  <div class="herostats" id="herostats"></div>
 
   <!-- THESIS -->
   <div class="thesis">
@@ -355,7 +432,7 @@ footer code{
   </div>
 
   <!-- INSIDERS -->
-  <section>
+  <section id="insiders">
     <div class="sechead">
       <h2>Company insiders</h2>
       <span class="chip fresh">2-day delay · usable</span>
@@ -412,7 +489,7 @@ footer code{
   </section>
 
   <!-- CONGRESS -->
-  <section>
+  <section id="congress">
     <div class="sechead">
       <h2>Members of Congress</h2>
       <span class="chip warn">up to 45-day delay</span>
@@ -458,7 +535,7 @@ footer code{
   </section>
 
   <!-- FUNDS -->
-  <section>
+  <section id="funds">
     <div class="sechead">
       <h2>Big funds</h2>
       <span class="chip stale">up to 135-day delay</span>
@@ -471,7 +548,7 @@ footer code{
   </section>
 
   <!-- MORE MANAGERS -->
-  <section>
+  <section id="managers">
     <div class="sechead">
       <h2>More managers worth watching</h2>
       <span class="chip stale">up to 135-day delay</span>
@@ -490,7 +567,7 @@ footer code{
   </section>
 
   <!-- BANKS -->
-  <section>
+  <section id="banks">
     <div class="sechead">
       <h2>The big banks</h2>
       <span class="chip stale">up to 135-day delay</span>
@@ -519,7 +596,7 @@ footer code{
   </section>
 
   <!-- PEOPLE -->
-  <section>
+  <section id="people">
     <div class="sechead">
       <h2>Following a person</h2>
       <span class="chip fresh">2-day delay when active</span>
@@ -541,7 +618,7 @@ footer code{
   </section>
 
   <!-- NEWS -->
-  <section>
+  <section id="news">
     <div class="sechead">
       <h2>Company news, from the source</h2>
       <span class="chip fresh">same-day</span>
@@ -575,7 +652,7 @@ footer code{
   </section>
 
   <!-- DOES IT WORK -->
-  <section>
+  <section id="evidence">
     <div class="sechead">
       <h2>Does any of this actually work?</h2>
       <span class="chip stale">tested — no edge found</span>
@@ -911,6 +988,60 @@ function whenHTML(traded, filed){
     ` <span class="k">(${gap === 0 ? "same day" : gap + "d later"})</span>`;
   return `<span class="when"><span class="k">TRADED</span> <span class="traded">${shortDate(traded)}</span>` +
          `&nbsp;&nbsp;<span class="k">FILED</span> <span class="filed">${shortDate(filed)}</span>${lag}</span>`;
+}
+
+
+/* ---------- hero stats + active-section nav ---------- */
+function renderHero(){
+  const I = DATA.insiders, C = DATA.congress;
+  const filers = (DATA.funds||[]).length + (DATA.managers||[]).length +
+                 (DATA.institutions||[]).length;
+  const stats = [
+    {v: filers, l: "institutional filers tracked"},
+    {v: I.n_transactions.toLocaleString(), l: "insider transactions read"},
+    {v: C.n_transactions, l: "congressional trades parsed"},
+    {v: (DATA.news||{}).n || 0, l: "notable company events"},
+  ];
+  const w = document.getElementById("herostats");
+  if (w) w.innerHTML = stats.map(s =>
+    `<div class="hs"><div class="v">${s.v}</div><div class="l">${s.l}</div></div>`).join("");
+}
+
+/* Highlight whichever section you are currently reading. A scroll calculation
+   beats IntersectionObserver here: rootMargin bands are fiddly to tune against
+   sections of wildly different heights, and this is trivial to reason about —
+   the active section is the last one whose top has passed under the nav. */
+function initNav(){
+  const links = [...document.querySelectorAll(".navlinks a")];
+  const sections = links
+    .map(a => ({a, el: document.querySelector(a.getAttribute("href"))}))
+    .filter(x => x.el);
+  if (!sections.length) return;
+
+  let ticking = false;
+  function update(){
+    ticking = false;
+    const line = 90;                       // just below the sticky bar
+    let current = null;
+    for (const s of sections){
+      if (s.el.getBoundingClientRect().top <= line) current = s;
+    }
+    // past the bottom of the page, the last section wins
+    if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 4){
+      current = sections[sections.length - 1];
+    }
+    links.forEach(a => { a.classList.remove("active"); a.removeAttribute("aria-current"); });
+    if (current){
+      current.a.classList.add("active");
+      current.a.setAttribute("aria-current", "true");
+    }
+  }
+  function onScroll(){
+    if (!ticking){ ticking = true; requestAnimationFrame(update); }
+  }
+  addEventListener("scroll", onScroll, {passive: true});
+  addEventListener("resize", onScroll, {passive: true});
+  update();
 }
 
 /* ================= RENDER ================= */
@@ -1295,10 +1426,12 @@ function renderNews(){
 }
 
 render();
+renderHero();
 renderManagers();
 renderInstitutions();
 renderPeople();
 renderNews();
+initNav();
 let rt;
 addEventListener("resize", () => {
   clearTimeout(rt);
@@ -1306,7 +1439,8 @@ addEventListener("resize", () => {
     ["delay","flow","buyers","plan","ctickers","late","assets","funds",
      "clusters","conc","people","newsmix"]
       .forEach(id => { const n = document.getElementById(id); if (n) n.innerHTML = ""; });
-    render(); renderManagers(); renderInstitutions(); renderPeople(); renderNews();
+    render(); renderHero(); renderManagers(); renderInstitutions();
+    renderPeople(); renderNews();
   }, 180);
 });
 </script>
