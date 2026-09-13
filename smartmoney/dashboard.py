@@ -35,8 +35,12 @@ def render(data=None, path=None, open_browser=False, standalone=True,
     blob = json.dumps(data, default=str).replace("</", "<\\/")
     html = html.replace("__DATA__", blob)
     # canonical / og:url only mean anything once the page has a real home
-    html = html.replace("__SITE_URL__",
-                        site_url or os.environ.get("SITE_URL", "").rstrip("/"))
+    # Canonical, og:url and the JSON-LD url must match the sitemap's <loc>
+    # exactly. The sitemap emits a trailing slash, so everything gets one --
+    # otherwise Google sees /thetape and /thetape/ as two pages and splits the
+    # ranking signals between them.
+    base = (site_url or os.environ.get("SITE_URL", "")).rstrip("/")
+    html = html.replace("__SITE_URL__", (base + "/") if base else "")
     if standalone:
         html = STANDALONE_HEAD + html + "\n</body>\n</html>\n"
 
