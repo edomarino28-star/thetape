@@ -41,6 +41,8 @@ def render(data=None, path=None, open_browser=False, standalone=True,
     # ranking signals between them.
     base = (site_url or os.environ.get("SITE_URL", "")).rstrip("/")
     html = html.replace("__SITE_URL__", (base + "/") if base else "")
+    # schema.org dateModified: tells search engines this is actively maintained
+    html = html.replace("__GENERATED__", str(data.get("generated", ""))[:10])
     if standalone:
         html = STANDALONE_HEAD + html + "\n</body>\n</html>\n"
 

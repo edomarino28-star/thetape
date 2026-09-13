@@ -430,9 +430,31 @@ footer code{
  "distribution": [{"@type": "DataDownload", "encodingFormat": "text/html", "contentUrl": "__SITE_URL__"}],
  "temporalCoverage": "2022/..",
  "keywords": ["SEC Form 4", "insider trading disclosure", "13F holdings", "STOCK Act", "congressional stock trades", "8-K filings"],
+ "dateModified": "__GENERATED__",
+ "spatialCoverage": {"@type": "Place", "name": "United States"},
+ "variableMeasured": [
+   "insider open-market purchases and sales",
+   "institutional long equity holdings",
+   "congressional trade disclosures",
+   "material corporate events"
+ ],
  "isBasedOn": [
-   {"@type": "Dataset", "name": "SEC EDGAR", "url": "https://www.sec.gov/edgar"},
-   {"@type": "Dataset", "name": "US House Clerk financial disclosures", "url": "https://disclosures-clerk.house.gov/"}
+   {
+     "@type": "Dataset",
+     "name": "SEC EDGAR",
+     "description": "The US Securities and Exchange Commission's public filing archive, containing Forms 3, 4 and 5 (insider transactions), 13F-HR (institutional holdings), Schedules 13D and 13G (beneficial ownership) and Form 8-K (material events).",
+     "url": "https://www.sec.gov/edgar",
+     "isAccessibleForFree": true,
+     "creator": {"@type": "GovernmentOrganization", "name": "U.S. Securities and Exchange Commission"}
+   },
+   {
+     "@type": "Dataset",
+     "name": "US House Clerk financial disclosures",
+     "description": "Periodic transaction reports filed by members of the US House of Representatives under the STOCK Act, disclosing securities trades in bracketed dollar ranges.",
+     "url": "https://disclosures-clerk.house.gov/",
+     "isAccessibleForFree": true,
+     "creator": {"@type": "GovernmentOrganization", "name": "Office of the Clerk, U.S. House of Representatives"}
+   }
  ]
 }
 </script>
