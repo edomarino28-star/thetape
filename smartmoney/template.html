@@ -140,6 +140,65 @@ p{margin:0}
 .axisnote{font-size:12.5px;color:var(--muted);margin-top:10px;font-family:'IBM Plex Mono',monospace}
 
 
+
+/* ---------- skip link ----------
+   Flagged by the ruleset for nav-heavy pages: a keyboard user should not have
+   to tab through 8 nav items on every visit to reach the content. */
+.skip{
+  position:absolute;left:-9999px;top:0;z-index:100;
+  background:var(--accent);color:#fff;padding:10px 16px;border-radius:0 0 8px 0;
+  font-size:14px;font-weight:600;text-decoration:none;
+}
+.skip:focus{left:0}
+
+/* ---------- section dividers ----------
+   The label states which legal form the section reads and how stale it is, so
+   the divider carries information rather than just splitting the page up. */
+.divider{
+  display:flex;align-items:center;gap:14px;margin:0 0 26px;
+}
+.divider .rule{flex:1;height:1px;background:var(--line)}
+.divider .tag{
+  font-family:'IBM Plex Mono',monospace;font-size:11.5px;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--muted);
+  white-space:nowrap;
+}
+.divider .tag b{color:var(--ink-2);font-weight:600}
+
+/* ---------- footer ---------- */
+.sitefoot{
+  margin-top:56px;border-top:2px solid var(--ink);padding-top:28px;
+}
+.footgrid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:28px;margin-bottom:28px;
+}
+.footcol h4{
+  font-family:'IBM Plex Mono',monospace;font-size:11.5px;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--muted);
+  margin:0 0 10px;
+}
+.footcol p, .footcol li{font-size:13.5px;color:var(--ink-2);line-height:1.6}
+.footcol ul{margin:0;padding-left:16px}
+.footcol li{margin-bottom:5px}
+.footcol a{
+  color:var(--accent);text-decoration:none;
+  border-bottom:1px solid color-mix(in srgb,var(--accent) 30%,transparent);
+}
+.footcol a:hover{border-bottom-color:var(--accent)}
+.footcol a:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:2px}
+.footbar{
+  border-top:1px solid var(--line);padding-top:18px;
+  display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:baseline;
+}
+.footbar .legal{font-size:12.5px;color:var(--muted);max-width:70ch;line-height:1.6}
+.footbar .legal b{color:var(--ink)}
+.totop{
+  font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--accent);
+  text-decoration:none;white-space:nowrap;
+}
+.totop:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
+
 /* ---------- sticky navigation ----------
    The page is ~14,000px tall across 8 sections; without this you can only
    scroll. Rules applied: smooth scroll, visible active state, and scroll-padding
@@ -378,18 +437,19 @@ footer code{
 }
 </script>
 
+<a class="skip" href="#top">Skip to content</a>
 <nav class="topnav" id="topnav">
   <div class="navinner">
     <a class="brand" href="#top">The&nbsp;Tape</a>
     <div class="navlinks" id="navlinks">
-      <a href="#insiders">Insiders</a>
-      <a href="#congress">Congress</a>
-      <a href="#funds">Funds</a>
-      <a href="#managers">Managers</a>
-      <a href="#banks">Banks</a>
-      <a href="#people">People</a>
-      <a href="#news">News</a>
-      <a href="#evidence">Does it work?</a>
+      <a href="#sec-insiders">Insiders</a>
+      <a href="#sec-congress">Congress</a>
+      <a href="#sec-funds">Funds</a>
+      <a href="#sec-managers">Managers</a>
+      <a href="#sec-banks">Banks</a>
+      <a href="#sec-people">People</a>
+      <a href="#sec-news">News</a>
+      <a href="#sec-evidence">Does it work?</a>
     </div>
   </div>
 </nav>
@@ -432,7 +492,8 @@ footer code{
   </div>
 
   <!-- INSIDERS -->
-  <section id="insiders">
+  <section id="sec-insiders">
+    <div class="divider"><span class="tag">Source: <b>SEC Form 4</b> · 2-day delay</span><span class="rule"></span></div>
     <div class="sechead">
       <h2>Company insiders</h2>
       <span class="chip fresh">2-day delay · usable</span>
@@ -489,7 +550,8 @@ footer code{
   </section>
 
   <!-- CONGRESS -->
-  <section id="congress">
+  <section id="sec-congress">
+    <div class="divider"><span class="tag">Source: <b>STOCK Act reports</b> · up to 45-day delay</span><span class="rule"></span></div>
     <div class="sechead">
       <h2>Members of Congress</h2>
       <span class="chip warn">up to 45-day delay</span>
@@ -535,7 +597,8 @@ footer code{
   </section>
 
   <!-- FUNDS -->
-  <section id="funds">
+  <section id="sec-funds">
+    <div class="divider"><span class="tag">Source: <b>SEC Form 13F-HR</b> · up to 135-day delay</span><span class="rule"></span></div>
     <div class="sechead">
       <h2>Big funds</h2>
       <span class="chip stale">up to 135-day delay</span>
@@ -548,7 +611,8 @@ footer code{
   </section>
 
   <!-- MORE MANAGERS -->
-  <section id="managers">
+  <section id="sec-managers">
+    <div class="divider"><span class="tag">Source: <b>SEC Form 13F-HR</b> · up to 135-day delay</span><span class="rule"></span></div>
     <div class="sechead">
       <h2>More managers worth watching</h2>
       <span class="chip stale">up to 135-day delay</span>
@@ -567,7 +631,8 @@ footer code{
   </section>
 
   <!-- BANKS -->
-  <section id="banks">
+  <section id="sec-banks">
+    <div class="divider"><span class="tag">Source: <b>SEC Form 13F-HR</b> · up to 135-day delay</span><span class="rule"></span></div>
     <div class="sechead">
       <h2>The big banks</h2>
       <span class="chip stale">up to 135-day delay</span>
@@ -596,7 +661,8 @@ footer code{
   </section>
 
   <!-- PEOPLE -->
-  <section id="people">
+  <section id="sec-people">
+    <div class="divider"><span class="tag">Source: <b>SEC Forms 3, 4, 5, 13D</b> · 2-day delay when active</span><span class="rule"></span></div>
     <div class="sechead">
       <h2>Following a person</h2>
       <span class="chip fresh">2-day delay when active</span>
@@ -618,7 +684,8 @@ footer code{
   </section>
 
   <!-- NEWS -->
-  <section id="news">
+  <section id="sec-news">
+    <div class="divider"><span class="tag">Source: <b>SEC Form 8-K</b> · same day</span><span class="rule"></span></div>
     <div class="sechead">
       <h2>Company news, from the source</h2>
       <span class="chip fresh">same-day</span>
@@ -652,7 +719,8 @@ footer code{
   </section>
 
   <!-- DOES IT WORK -->
-  <section id="evidence">
+  <section id="sec-evidence">
+    <div class="divider"><span class="tag">Source: <b>Backtest</b> · 275 trades, 2022-2026</span><span class="rule"></span></div>
     <div class="sechead">
       <h2>Does any of this actually work?</h2>
       <span class="chip stale">tested — no edge found</span>
@@ -705,18 +773,47 @@ footer code{
     </ul>
   </div>
 
-  <footer>
-    <p style="margin-bottom:10px"><b style="color:var(--ink)">Not investment advice.</b> This page
-    is an automated summary of public regulatory filings, published for information only. It makes
-    no recommendation to buy or sell anything, and the strategy test above found no edge. Nobody
-    here is a licensed financial adviser. Filings are reproduced as filed and may contain errors;
-    always check the original document before relying on anything.</p>
-    <p class="srcnote">Company names in the news tables link straight to the filed document on
-    SEC EDGAR, so you can check any claim on this page against the original.</p>
-    <p>Sources: SEC EDGAR (Forms 3/4/5, 13F-HR, 13D/G, 8-K) and the U.S. House Clerk's financial
-    disclosure archive — all free, public, unauthenticated. Rebuilt automatically each weekday;
-    see the timestamp at the top for this build. Run it yourself with
-    <code>python sm.py dashboard</code>.</p>
+  <footer class="sitefoot">
+    <div class="footgrid">
+      <div class="footcol">
+        <h4>What this is</h4>
+        <p>An automated read of the trades that US company executives, members of Congress and
+        large investment managers are legally required to publish. Rebuilt every weekday.</p>
+      </div>
+      <div class="footcol">
+        <h4>Where the data comes from</h4>
+        <ul>
+          <li><a href="https://www.sec.gov/edgar/search/" target="_blank" rel="noopener">SEC EDGAR</a>
+            — Forms 3, 4, 5, 13F-HR, 13D/G, 8-K</li>
+          <li><a href="https://disclosures-clerk.house.gov/" target="_blank" rel="noopener">US House
+            Clerk</a> — periodic transaction reports</li>
+          <li>All free, public, unauthenticated government sources</li>
+        </ul>
+      </div>
+      <div class="footcol">
+        <h4>What it cannot tell you</h4>
+        <ul>
+          <li>13F shows long US stock only — no shorts, cash, bonds or hedges</li>
+          <li>Congressional amounts are legal ranges, never exact figures</li>
+          <li>A fund can buy and fully exit inside one quarter, invisibly</li>
+          <li>The strategy test on this page found no edge</li>
+        </ul>
+      </div>
+      <div class="footcol">
+        <h4>Check it yourself</h4>
+        <p>Company names in the news tables link to the filed document on EDGAR. Every figure here
+        traces back to a filing you can open and read.</p>
+        <p style="margin-top:8px"><a href="https://github.com/edomarino28-star/thetape"
+          target="_blank" rel="noopener">Source code on GitHub</a></p>
+      </div>
+    </div>
+    <div class="footbar">
+      <p class="legal"><b>Not investment advice.</b> This page is an automated summary of public
+      regulatory filings, published for information only. It recommends nothing, and nobody involved
+      is a licensed financial adviser. Filings are reproduced as filed and may contain errors — check
+      the original document before relying on anything here.</p>
+      <a class="totop" href="#top">↑ Back to top</a>
+    </div>
   </footer>
 </div>
 
