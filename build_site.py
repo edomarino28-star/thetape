@@ -14,7 +14,8 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from smartmoney import dashboard
 from smartmoney.collect import collect
 
-SITE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "site")
+HERE = os.path.dirname(os.path.abspath(__file__))
+SITE = os.path.join(HERE, "site")
 
 
 def main():
@@ -26,15 +27,39 @@ def main():
                    congress_days=cdays, max_ptrs=ptrs)
 
     os.makedirs(SITE, exist_ok=True)
-    dashboard.render(data, path=os.path.join(SITE, "index.html"), standalone=True)
 
-    # tell crawlers not to index a page of raw filing data
+    # GitHub Pages serves a project repo at https://OWNER.github.io/REPO.
+    # Without this, canonical/og:url/sitemap have no absolute address to point at.
+    site_url = os.environ.get("SITE_URL", "").rstrip("/")
+    dashboard.render(data, path=os.path.join(SITE, "index.html"),
+                     standalone=True, site_url=site_url)
+
     with open(os.path.join(SITE, "robots.txt"), "w", encoding="utf-8") as fh:
         fh.write("User-agent: *\nAllow: /\n")
-    icon = os.path.join(os.path.dirname(os.path.abspath(__file__)),
-                        "smartmoney", "the-tape.ico")
+        if site_url:
+            fh.write(f"\nSitemap: {site_url}/sitemap.xml\n")
+
+    if site_url:
+        stamp = str(data.get("generated", ""))[:10]
+        with open(os.path.join(SITE, "sitemap.xml"), "w", encoding="utf-8") as fh:
+            fh.write(
+                '<?xml version="1.0" encoding="UTF-8"?>\n'
+                '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+                '  <url>\n'
+                f'    <loc>{site_url}/</loc>\n'
+                f'    <lastmod>{stamp}</lastmod>\n'
+                '    <changefreq>daily</changefreq>\n'
+                '    <priority>1.0</priority>\n'
+                '  </url>\n'
+                '</urlset>\n')
+        print(f"sitemap -> {site_url}/sitemap.xml")
+    else:
+        print("SITE_URL unset: skipping sitemap (canonical URLs will be empty)")
+
+    icon = os.path.join(HERE, "smartmoney", "the-tape.ico")
     if os.path.exists(icon):
         shutil.copy(icon, os.path.join(SITE, "favicon.ico"))
+
     print(f"site built -> {SITE}")
 
 

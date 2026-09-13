@@ -99,23 +99,43 @@ def summarize_congress(rows, equities_only=True):
         rows = [r for r in rows if r.get("asset_type") in (None, "ST", "OP", "SC")
                 and r.get("ticker")]
     agg = defaultdict(lambda: {"buy": 0, "sell": 0, "members": set(),
-                               "low": 0, "high": 0, "asset": None})
+                               "low": 0, "high": 0, "asset": None,
+                               "trade_dates": [], "filed_dates": []})
     for r in rows:
         key = r.get("ticker") or r.get("asset")
         a = agg[key]
         a["asset"] = a["asset"] or r.get("asset")
         a["members"].add(r["member"])
+        # keep the dates -- aggregating them away is what made the table
+        # impossible to read: "2 members bought AAPL" with no when
+        if r.get("date"):
+            a["trade_dates"].append(r["date"])
+        if r.get("filed"):
+            a["filed_dates"].append(r["filed"])
         a["low"] += r["amount_low"] or 0
         a["high"] += r["amount_high"] or r["amount_low"] or 0
         if r["type"] == "purchase":
             a["buy"] += 1
         elif r["type"] == "sale":
             a["sell"] += 1
+    def _iso(d):
+        """PTR dates are MM/DD/YYYY; sort them properly, not as strings."""
+        try:
+            m, day, y = d.split("/")
+            return f"{y}-{m}-{day}"
+        except (ValueError, AttributeError):
+            return d
+
     out = []
     for k, a in agg.items():
+        td = sorted(a["trade_dates"], key=_iso)
+        fd = sorted(a["filed_dates"], key=_iso)
         out.append({"ticker": k, "asset": a["asset"], "buys": a["buy"],
                     "sells": a["sell"], "members": len(a["members"]),
                     "names": sorted(a["members"]),
-                    "min_notional": a["low"], "max_notional": a["high"]})
+                    "min_notional": a["low"], "max_notional": a["high"],
+                    "first_trade": td[0] if td else None,
+                    "last_trade": td[-1] if td else None,
+                    "last_filed": fd[-1] if fd else None})
     out.sort(key=lambda x: (-x["members"], -x["max_notional"]))
     return out

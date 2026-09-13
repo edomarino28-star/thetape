@@ -139,6 +139,42 @@ p{margin:0}
 .delayfill.tiny span{color:var(--ink);position:absolute;left:auto;margin-left:8px}
 .axisnote{font-size:12px;color:var(--muted);margin-top:10px;font-family:'IBM Plex Mono',monospace}
 
+/* ---------- the two-dates explainer ---------- */
+.twodates{
+  margin-top:22px;padding-top:20px;border-top:1px solid var(--line);
+}
+.twodates h3{font-size:15px;margin-bottom:14px}
+.dategrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
+.dategrid p{font-size:13.5px;color:var(--ink-2);margin-top:6px;line-height:1.5}
+.dlabel{
+  font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;letter-spacing:.08em;
+  padding:2px 8px;border-radius:4px;display:inline-block;
+}
+.dlabel.traded{background:color-mix(in srgb,var(--muted) 18%,transparent);color:var(--ink-2)}
+.dlabel.filed{background:var(--accent-soft);color:var(--accent)}
+.dnote{font-size:13px;color:var(--muted);margin-top:14px;line-height:1.5}
+.dnote b{color:var(--ink)}
+
+/* a date shown inline in a row */
+.when{
+  font-family:'IBM Plex Mono',monospace;font-size:11.5px;white-space:nowrap;
+  font-variant-numeric:tabular-nums;
+}
+.when .k{color:var(--muted);letter-spacing:.05em}
+.when .traded{color:var(--ink-2)}
+.when .filed{color:var(--accent);font-weight:600}
+
+/* "what am I looking at" strip under each section heading */
+.looking{
+  background:var(--surface-2);border:1px solid var(--line-soft);border-radius:8px;
+  padding:12px 14px;margin-bottom:18px;font-size:13.5px;color:var(--ink-2);line-height:1.55;
+}
+.looking b{color:var(--ink)}
+.looking .range{
+  font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--ink);
+  font-variant-numeric:tabular-nums;
+}
+
 /* ---------- sections ---------- */
 section{margin-bottom:38px}
 .sechead{display:flex;flex-wrap:wrap;align-items:baseline;gap:12px;margin-bottom:6px}
@@ -292,6 +328,19 @@ footer code{
     story — by the time slow filings arrive, the trade is ancient history.</p>
     <div id="delay"></div>
     <p class="axisnote">Bar length = days between the trade happening and you being able to read about it.</p>
+
+    <div class="twodates">
+      <h3>Every row on this page has two dates. They are not the same thing.</h3>
+      <div class="dategrid">
+        <div><span class="dlabel traded">TRADED</span>
+          <p>The day the person actually bought or sold. This is <em>their</em> decision date.</p></div>
+        <div><span class="dlabel filed">FILED</span>
+          <p>The day it became public and you could have known. Nothing before this date was
+          knowable to you.</p></div>
+      </div>
+      <p class="dnote">The gap between them is the delay. On this page, <b>FILED</b> is the date
+      that matters — it is the first moment the information existed for anyone outside the company.</p>
+    </div>
   </div>
 
   <!-- INSIDERS -->
@@ -303,6 +352,7 @@ footer code{
     <p class="secnote">When an executive or board member trades their own company's stock, they must
     file within two business days. This is the only source here that's fast enough to act on, and the
     only one with real research behind it.</p>
+    <div class="looking" id="look-insiders"></div>
 
     <div class="grid g3" style="margin-bottom:16px">
       <div class="card tile"><div class="val buy" id="k-buy">—</div><div class="cap">Bought on open market</div></div>
@@ -311,9 +361,10 @@ footer code{
     </div>
 
     <div class="card" style="margin-bottom:16px">
-      <h3>Who's actually buying with their own money</h3>
-      <p class="hint">Multiple insiders at the same company buying at once is the pattern worth
-      noticing. One person buying could be anything; four people buying is a conversation.</p>
+      <h3>Companies where several insiders bought at once</h3>
+      <p class="hint"><b>One row = one company.</b> It appears here only when two or more different insiders bought
+      shares on the open market with their own money in the same week. One person buying could be
+      anything; four people buying is a conversation.</p>
       <div class="clusters" id="clusters"></div>
     </div>
 
@@ -341,8 +392,9 @@ footer code{
       </div>
       <div class="card">
         <h3>Biggest live sell decisions</h3>
-        <p class="hint">Large sales <em>not</em> on a schedule. "% out" is how much of that person's
-        entire holding just left.</p>
+        <p class="hint"><b>One row = one person selling one stock on one day.</b> Only sales that were <em>not</em> on a
+        pre-set schedule, so each was a decision made that week. "% out" is how much of everything
+        they held in that company went out the door.</p>
         <div class="tblwrap"><table id="sells"></table></div>
       </div>
     </div>
@@ -357,12 +409,13 @@ footer code{
     <p class="secnote">The STOCK Act requires representatives to disclose trades, but allows 45 days
     and only requires a dollar <em>range</em>, not an amount. Many file at the deadline. The penalty
     for filing late is $200.</p>
+    <div class="looking" id="look-congress"></div>
 
     <div class="grid g2" style="margin-bottom:16px">
       <div class="card">
         <h3>Most-traded stocks</h3>
-        <p class="hint">Bars show how many separate trades. Stocks touched by more than one member
-        are at the top.</p>
+        <p class="hint"><b>One bar = one stock.</b> Bar length is how many separate trades members of Congress made in
+        it. Stocks touched by more than one member sort to the top.</p>
         <div class="legend">
           <span><i style="background:var(--buy)"></i>Bought</span>
           <span><i style="background:var(--sell)"></i>Sold</span>
@@ -402,6 +455,7 @@ footer code{
     <p class="secnote">Any manager over $100M files a 13F — but only once a quarter, 45 days after
     the quarter ends. It lists <em>only</em> long US stock positions. No short bets, no cash, no bonds,
     no hedges. A fund can buy and completely exit inside a quarter and you will never see it happened.</p>
+    <div class="looking" id="look-funds"></div>
     <div id="funds" class="grid" style="gap:16px"></div>
   </section>
 
@@ -465,6 +519,7 @@ footer code{
     <p class="secnote">When something material happens, a company must file an 8-K — usually within
     four business days. This is where financial journalists get the story. Each filing declares a
     numbered item saying what kind of event it was; those codes are translated to plain English here.</p>
+    <div class="looking" id="look-news"></div>
 
     <div class="grid g2" style="margin-bottom:16px">
       <div class="card">
@@ -796,13 +851,75 @@ function scatter(mount, pts){
   });
 }
 
+
+/* ---------- dates: say what they are, every time ---------- */
+const MONTHS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+function pretty(d){                       // "2026-08-20" | "08/20/2026" -> "20 Aug 2026"
+  if (!d) return "-";
+  let y, m, day;
+  if (d.includes("/")) { const [a,b,c] = d.split("/"); m=+a; day=+b; y=c; }
+  else { const [a,b,c] = d.split("-"); y=a; m=+b; day=+c; }
+  if (!y || !m || !day) return d;
+  return `${day} ${MONTHS[m-1]} ${y}`;
+}
+function shortDate(d){                    // "20 Aug"
+  const p = pretty(d);
+  return p === "-" ? "-" : p.split(" ").slice(0,2).join(" ");
+}
+function daysBetween(a, b){
+  const iso = x => x && x.includes("/") ? x.split("/")[2]+"-"+x.split("/")[0]+"-"+x.split("/")[1] : x;
+  const d1 = new Date(iso(a)), d2 = new Date(iso(b));
+  if (isNaN(d1) || isNaN(d2)) return null;
+  return Math.round((d2 - d1) / 86400000);
+}
+/* the standard two-date stamp used on every row */
+function whenHTML(traded, filed){
+  const gap = daysBetween(traded, filed);
+  const lag = gap === null ? "" :
+    ` <span class="k">(${gap === 0 ? "same day" : gap + "d later"})</span>`;
+  return `<span class="when"><span class="k">TRADED</span> <span class="traded">${shortDate(traded)}</span>` +
+         `&nbsp;&nbsp;<span class="k">FILED</span> <span class="filed">${shortDate(filed)}</span>${lag}</span>`;
+}
+
 /* ================= RENDER ================= */
 function render(){
   const I = DATA.insiders, C = DATA.congress;
 
+  const W = DATA.window || {};
+  const look = (id, html) => { const n = document.getElementById(id); if (n) n.innerHTML = html; };
+
+  look("look-insiders",
+    `<b>What you're looking at:</b> every Form 4 filed between
+     <span class="range">${pretty(W.start)}</span> and <span class="range">${pretty(W.end)}</span> —
+     ${I.n_transactions.toLocaleString()} transactions in total, of which ${I.n_buys} were
+     open-market purchases and ${I.n_sells} were open-market sales.
+     Every row shows <b>when the person traded</b> and <b>when it became public</b>.`);
+
+  look("look-congress",
+    `<b>What you're looking at:</b> ${C.n_transactions} trades from ${C.n_ptrs} disclosure reports
+     filed in the last <span class="range">${W.congress_days} days</span>` +
+    (C.median_lateness != null
+      ? `. Typical gap between making a trade and disclosing it:
+         <span class="range">${C.median_lateness} days</span>.` : ".") +
+    ` Amounts are legal ranges, not exact figures — the law only requires a bracket.`);
+
+  look("look-news",
+    `<b>What you're looking at:</b> ${(DATA.news||{}).n || 0} notable 8-K filings from the last
+     <span class="range">${(DATA.news||{}).window_days || "few"} days</span>. An 8-K is what a company
+     must file when something material happens, so the filing date is the day the news broke.`);
+
+  const fstale = (DATA.funds||[]).map(f => f.stale_days).sort((a,b)=>a-b);
+  look("look-funds",
+    `<b>What you're looking at:</b> each card is one fund's portfolio compared against the previous
+     quarter, so you can see what they bought and sold. These are snapshots, not live positions —
+     ${fstale.length ? `the freshest here is <span class="range">${fstale[0]} days old</span>`
+                     : "all are months old"}.
+     Each card states the exact date the snapshot was taken and the date it was filed.`);
+
   document.getElementById("stamp").innerHTML =
-    `Generated ${esc(DATA.generated)}<br>Insiders: last ${DATA.window.insider_days} days` +
-    `<br>Congress: last ${DATA.window.congress_days} days`;
+    `Built ${esc(DATA.generated)}<br>` +
+    `Insider filings ${pretty(DATA.window.start)} – ${pretty(DATA.window.end)}<br>` +
+    `Congress: last ${DATA.window.congress_days} days`;
 
   /* --- delay thesis --- */
   const sources = [
@@ -849,9 +966,16 @@ function render(){
   I.clusters.forEach(c => {
     const d = document.createElement("div");
     d.className = "cl";
+    const tradedOn = (c.dates || []).length
+      ? (c.dates.length > 1
+          ? `${shortDate(c.dates[0])} – ${shortDate(c.dates[c.dates.length-1])}`
+          : pretty(c.dates[0]))
+      : "date not stated";
     d.innerHTML = `<div class="tk">${esc(c.ticker)}</div>
       <div><div class="nm">${esc(c.issuer || "")}</div>
-        <div class="ro">${esc((c.titles||[]).join(" · "))}</div></div>
+        <div class="ro">${esc((c.titles||[]).join(" · "))}</div>
+        <div class="ro" style="margin-top:5px"><span class="when">
+          <span class="k">TRADED</span> <span class="traded">${tradedOn}</span></span></div></div>
       <div class="rt"><div class="v">${fmtMoney(c.total_value)}</div>
         <div class="n">${c.insiders} insiders${c.all_10b5_1 ? '<span class="flag">scheduled</span>' : ''}</div></div>`;
     bindTip(d, `<b>${esc(c.ticker)}</b> — ${esc(c.issuer||"")}<br>
@@ -879,12 +1003,13 @@ function render(){
 
   /* --- notable sells table --- */
   const st = document.getElementById("sells");
-  st.innerHTML = `<thead><tr><th>Ticker</th><th>Who</th><th class="r">Value</th>
+  st.innerHTML = `<thead><tr><th>Ticker</th><th>Who</th><th>Sold on</th><th class="r">Value</th>
     <th class="r">% out</th></tr></thead><tbody>` +
     I.sells.slice(0, 8).map(s => `<tr>
       <td class="tick">${esc(s.ticker || "—")}</td>
       <td>${esc(s.owner || "")}<br><span style="color:var(--muted);font-size:12px">
         ${esc((s.title || (s.is_director ? "Director" : "")).slice(0, 34))}</span></td>
+      <td class="num" style="white-space:nowrap">${pretty(s.date)}</td>
       <td class="r num">${fmtMoney(s.value)}</td>
       <td class="r num">${s.pct_of_stake != null ? Math.round(s.pct_of_stake) + "%" : "—"}</td>
     </tr>`).join("") + `</tbody>`;
@@ -895,6 +1020,9 @@ function render(){
     display: `${t.buys + t.sells}`,
     tip: `<b>${esc(t.ticker)}</b> ${esc((t.asset||"").slice(0,40))}<br>
       ${t.buys} bought · ${t.sells} sold<br>${t.members} member${t.members>1?"s":""}: ${esc(t.names.join(", "))}<br>
+      Traded ${t.first_trade === t.last_trade ? pretty(t.first_trade)
+        : pretty(t.first_trade) + " to " + pretty(t.last_trade)}<br>
+      Last disclosed ${pretty(t.last_filed)}<br>
       Disclosed range ${fmtMoney(t.min_notional)} – ${fmtMoney(t.max_notional)}`
   }));
   if (ct.length) hbar(document.getElementById("ctickers"), ct, {stacked:true, labelW:70});
@@ -934,14 +1062,21 @@ function render(){
         <h3 style="font-size:17px">${esc(f.name)}</h3>
         <span class="mono" style="font-size:11.5px;color:var(--stale)">
           snapshot is ${f.stale_days} days old (${months} months)</span></div>
-      <p class="hint">Holdings as of ${esc(f.period)}, filed ${esc(f.filed)} ·
-        ${fmtMoney(f.total)} in US stocks</p>
+      <p class="hint">
+        <span class="when"><span class="k">POSITIONS AS OF</span>
+        <span class="traded">${pretty(f.period)}</span>&nbsp;&nbsp;<span class="k">FILED</span>
+        <span class="filed">${pretty(f.filed)}</span></span><br>
+        ${fmtMoney(f.total)} across ${f.positions.toLocaleString()} US stock positions.
+        Changes below compare <b>${pretty(f.period)}</b> against the previous quarter,
+        <b>${pretty(f.prev_period)}</b> — so each row is a move made somewhere in those three months,
+        not on a known day.</p>
       <div class="grid g2" style="gap:18px">
         <div><div class="mono" style="font-size:11px;color:var(--muted);letter-spacing:.07em;
           text-transform:uppercase;margin-bottom:8px">Biggest positions</div>
           <div class="fh"></div></div>
         <div><div class="mono" style="font-size:11px;color:var(--muted);letter-spacing:.07em;
-          text-transform:uppercase;margin-bottom:8px">What changed this quarter</div>
+          text-transform:uppercase;margin-bottom:8px">
+          What changed vs ${pretty(f.prev_period)}</div>
           <div class="tblwrap"><table class="fm"></table></div></div>
       </div>`;
     fw.appendChild(card);
@@ -1026,10 +1161,10 @@ function renderPeople(){
         <div><div class="mono" style="font-size:10.5px;color:var(--muted);
           letter-spacing:.07em;text-transform:uppercase">Last trade form (3/4/5)</div>
           <div class="num" style="font-size:15px;color:${dormant ? "var(--stale)" : "var(--fresh)"}">
-            ${lastOwn ? esc(lastOwn.filed) : "none on record"}</div></div>
+            ${lastOwn ? pretty(lastOwn.filed) : "none on record"}</div></div>
         <div><div class="mono" style="font-size:10.5px;color:var(--muted);
           letter-spacing:.07em;text-transform:uppercase">Most recent filing of any kind</div>
-          <div class="num" style="font-size:15px">${lastAny ? esc(lastAny.form) + " · " + esc(lastAny.filed) : "—"}</div></div>
+          <div class="num" style="font-size:15px">${lastAny ? esc(lastAny.form) + " · " + pretty(lastAny.filed) : "—"}</div></div>
         <div><div class="mono" style="font-size:10.5px;color:var(--muted);
           letter-spacing:.07em;text-transform:uppercase">Companies</div>
           <div class="num" style="font-size:15px">${esc((p.issuers||[]).filter(t=>t.length<=6).join(", ")) || "—"}</div></div>
@@ -1041,7 +1176,7 @@ function renderPeople(){
       ? `<thead><tr><th>Filed</th><th>Stock</th><th>What happened</th>
           <th class="r">Shares</th><th class="r">Held after</th></tr></thead><tbody>` +
         txns.map(t => `<tr>
-          <td class="num">${esc(t.filed || "")}</td>
+          <td class="num" style="white-space:nowrap">${pretty(t.filed)}</td>
           <td class="tick">${esc(t.ticker || "—")}</td>
           <td>${esc(CODE_MEANING[t.code] || ("code " + t.code))}</td>
           <td class="r num">${t.shares != null ? Math.round(t.shares).toLocaleString() : "—"}</td>
@@ -1056,9 +1191,9 @@ function renderNews(){
   const N = DATA.news || {};
   const sev = document.getElementById("serious");
   sev.innerHTML = (N.serious || []).length
-    ? `<thead><tr><th>Filed</th><th>Company</th><th>What was filed</th></tr></thead><tbody>` +
+    ? `<thead><tr><th>Filed on</th><th>Company</th><th>What was filed</th></tr></thead><tbody>` +
       N.serious.slice(0, 10).map(e => `<tr>
-        <td class="num">${esc(e.filed)}</td>
+        <td class="num" style="white-space:nowrap">${pretty(e.filed)}</td>
         <td><span class="tick">${esc(e.ticker || "")}</span> ${esc(e.company.slice(0,30))}</td>
         <td style="color:var(--sell)">${esc(e.headline)}</td>
       </tr>`).join("") + `</tbody>`
@@ -1073,9 +1208,9 @@ function renderNews(){
 
   const lk = document.getElementById("linked");
   lk.innerHTML = (N.linked || []).length
-    ? `<thead><tr><th>Filed</th><th>Company</th><th>What was filed</th></tr></thead><tbody>` +
+    ? `<thead><tr><th>Filed on</th><th>Company</th><th>What was filed</th></tr></thead><tbody>` +
       N.linked.slice(0, 8).map(e => `<tr>
-        <td class="num">${esc(e.filed)}</td>
+        <td class="num" style="white-space:nowrap">${pretty(e.filed)}</td>
         <td><span class="tick">${esc(e.ticker || "")}</span> ${esc(e.company.slice(0,30))}</td>
         <td>${esc(e.headline)}</td>
       </tr>`).join("") + `</tbody>`
