@@ -115,7 +115,7 @@ p{margin:0}
 .masthead h1{font-size:clamp(30px,5vw,46px);font-weight:800;line-height:1.02}
 .masthead .sub{color:var(--ink-2);font-size:15px;max-width:52ch;margin-top:8px}
 .stamp{
-  font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;
+  font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.1em;
   text-transform:uppercase;color:var(--muted);text-align:right;line-height:1.7;
   border:1px solid var(--line);border-radius:4px;padding:8px 12px;background:var(--surface);
 }
@@ -137,7 +137,7 @@ p{margin:0}
   color:#fff;white-space:nowrap;
 }
 .delayfill.tiny span{color:var(--ink);position:absolute;left:auto;margin-left:8px}
-.axisnote{font-size:12px;color:var(--muted);margin-top:10px;font-family:'IBM Plex Mono',monospace}
+.axisnote{font-size:12.5px;color:var(--muted);margin-top:10px;font-family:'IBM Plex Mono',monospace}
 
 /* ---------- the two-dates explainer ---------- */
 .twodates{
@@ -157,7 +157,7 @@ p{margin:0}
 
 /* a date shown inline in a row */
 .when{
-  font-family:'IBM Plex Mono',monospace;font-size:11.5px;white-space:nowrap;
+  font-family:'IBM Plex Mono',monospace;font-size:12px;white-space:nowrap;
   font-variant-numeric:tabular-nums;
 }
 .when .k{color:var(--muted);letter-spacing:.05em}
@@ -198,7 +198,7 @@ section{margin-bottom:38px}
   padding:18px;box-shadow:var(--shadow);
 }
 .card h3{font-size:15px;font-weight:700;margin-bottom:2px}
-.card .hint{font-size:13px;color:var(--muted);margin-bottom:14px;line-height:1.45}
+.card .hint{font-size:13.5px;color:var(--muted);margin-bottom:14px;line-height:1.45}
 
 /* ---------- stat tiles ---------- */
 .tile .val{font-family:'IBM Plex Mono',monospace;font-size:30px;font-weight:600;line-height:1.1;letter-spacing:-.02em}
@@ -215,10 +215,10 @@ section{margin-bottom:38px}
 }
 .cl .tk{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:15px;color:var(--accent)}
 .cl .nm{font-size:14px;font-weight:600;line-height:1.3}
-.cl .ro{font-size:12px;color:var(--muted);line-height:1.4;margin-top:2px}
+.cl .ro{font-size:12.5px;color:var(--muted);line-height:1.4;margin-top:2px}
 .cl .rt{text-align:right;white-space:nowrap}
 .cl .rt .v{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:15px}
-.cl .rt .n{font-size:12px;color:var(--muted)}
+.cl .rt .n{font-size:12.5px;color:var(--muted)}
 .flag{
   display:inline-block;font-size:11px;font-family:'IBM Plex Mono',monospace;
   color:var(--warn);border:1px solid currentColor;border-radius:3px;padding:0 5px;margin-left:6px;
@@ -244,6 +244,17 @@ td.r,th.r{text-align:right}
 .pill.ADD{background:var(--accent-soft);color:var(--accent)}
 .pill.TRIM{background:color-mix(in srgb,var(--sell) 12%,transparent);color:var(--sell)}
 .pill.EXIT{background:color-mix(in srgb,var(--sell) 12%,transparent);color:var(--sell)}
+
+/* ---------- links to the source documents ---------- */
+a.src{
+  color:var(--accent);text-decoration:none;
+  border-bottom:1px solid color-mix(in srgb,var(--accent) 35%,transparent);
+}
+a.src:hover{border-bottom-color:var(--accent)}
+a.src:focus-visible{
+  outline:2px solid var(--accent);outline-offset:2px;border-radius:2px;
+}
+.srcnote{font-size:12.5px;color:var(--muted);margin-top:10px}
 
 /* ---------- legend ---------- */
 .legend{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:12px}
@@ -459,6 +470,25 @@ footer code{
     <div id="funds" class="grid" style="gap:16px"></div>
   </section>
 
+  <!-- MORE MANAGERS -->
+  <section>
+    <div class="sechead">
+      <h2>More managers worth watching</h2>
+      <span class="chip stale">up to 135-day delay</span>
+    </div>
+    <p class="secnote">The same 13F filings, for a wider set of well-known investors. These are
+    summaries rather than full quarter-over-quarter diffs — enough to see size, concentration, and
+    what each one's biggest bet is.</p>
+    <div class="looking" id="look-managers"></div>
+    <div class="card tblwrap">
+      <h3>Every manager tracked, sorted by size</h3>
+      <p class="hint"><b>One row = one investment manager.</b> "Top 10" is how much of the portfolio
+      sits in its ten biggest positions — the higher that number, the more the filing expresses a
+      real opinion rather than tracking the market.</p>
+      <table id="managers"></table>
+    </div>
+  </section>
+
   <!-- BANKS -->
   <section>
     <div class="sechead">
@@ -604,6 +634,8 @@ footer code{
     no recommendation to buy or sell anything, and the strategy test above found no edge. Nobody
     here is a licensed financial adviser. Filings are reproduced as filed and may contain errors;
     always check the original document before relying on anything.</p>
+    <p class="srcnote">Company names in the news tables link straight to the filed document on
+    SEC EDGAR, so you can check any claim on this page against the original.</p>
     <p>Sources: SEC EDGAR (Forms 3/4/5, 13F-HR, 13D/G, 8-K) and the U.S. House Clerk's financial
     disclosure archive — all free, public, unauthenticated. Rebuilt automatically each weekday;
     see the timestamp at the top for this build. Run it yourself with
@@ -699,7 +731,7 @@ function groupBars(mount, rows){
   [0.5, 1].forEach(f => {
     const y = padT + plotH - f*plotH;
     el("line", {x1:0, x2:W, y1:y, y2:y, stroke:css("--line"), "stroke-width":1}, svg);
-    const lb = el("text", {x:0, y:y-4, "font-size":10, fill:css("--muted")}, svg);
+    const lb = el("text", {x:0, y:y-4, "font-size":11, fill:css("--muted")}, svg);
     lb.textContent = fmtMoney(max*f);
   });
   el("line", {x1:0, x2:W, y1:padT+plotH, y2:padT+plotH, stroke:css("--line"), "stroke-width":1}, svg);
@@ -713,7 +745,7 @@ function groupBars(mount, rows){
     el("rect", {class:"mark", x:cx+1, y:padT+plotH-hs, width:bw, height:Math.max(hs,1),
       rx:3, fill:css("--sell")}, g);
     if (i % Math.ceil(rows.length/6) === 0){
-      const t = el("text", {x:cx, y:H-12, "font-size":10, "text-anchor":"middle",
+      const t = el("text", {x:cx, y:H-12, "font-size":11, "text-anchor":"middle",
         fill:css("--muted")}, svg);
       t.textContent = r.date.slice(5);
     }
@@ -738,10 +770,10 @@ function vhist(mount, rows, color){
         fill:css("--ink-2"), "font-weight":600}, g);
       v.textContent = r.n;
     }
-    const t = el("text", {x:cx, y:H-20, "font-size":10.5, "text-anchor":"middle",
+    const t = el("text", {x:cx, y:H-20, "font-size":11, "text-anchor":"middle",
       fill:css("--muted")}, svg);
     t.textContent = r.bucket.split(" ")[0];
-    const t2 = el("text", {x:cx, y:H-8, "font-size":10.5, "text-anchor":"middle",
+    const t2 = el("text", {x:cx, y:H-8, "font-size":11, "text-anchor":"middle",
       fill:css("--muted")}, svg);
     t2.textContent = r.bucket.split(" ").slice(1).join(" ");
     bindTip(g, `<b>${r.bucket}</b><br>${r.n} trades`);
@@ -780,7 +812,7 @@ function donut(mount, slices){
   const big = el("text", {x:cx, y:cy+2, "text-anchor":"middle", "font-size":22,
     "font-weight":600, fill:css("--ink")}, svg);
   big.textContent = total;
-  const cap = el("text", {x:cx, y:cy+18, "text-anchor":"middle", "font-size":10,
+  const cap = el("text", {x:cx, y:cy+18, "text-anchor":"middle", "font-size":11,
     fill:css("--muted")}, svg);
   cap.textContent = "total";
 
@@ -818,7 +850,7 @@ function scatter(mount, pts){
 
   [0,25,50,75,100].forEach(t => {
     el("line", {x1:X(t), x2:X(t), y1:T, y2:T+ph, stroke:css("--line-soft")}, svg);
-    const lb = el("text", {x:X(t), y:H-24, "font-size":10.5, "text-anchor":"middle",
+    const lb = el("text", {x:X(t), y:H-24, "font-size":11, "text-anchor":"middle",
       fill:css("--muted")}, svg);
     lb.textContent = t + "%";
   });
@@ -826,7 +858,7 @@ function scatter(mount, pts){
     const y = Y(t);
     if (y < T || y > T+ph) return;
     el("line", {x1:L, x2:L+pw, y1:y, y2:y, stroke:css("--line-soft")}, svg);
-    const lb = el("text", {x:L-6, y:y+3.5, "font-size":10.5, "text-anchor":"end",
+    const lb = el("text", {x:L-6, y:y+3.5, "font-size":11, "text-anchor":"end",
       fill:css("--muted")}, svg);
     lb.textContent = t >= 1000 ? (t/1000)+"k" : t;
   });
@@ -1060,7 +1092,7 @@ function render(){
     card.innerHTML = `<div style="display:flex;flex-wrap:wrap;gap:10px;align-items:baseline;
         justify-content:space-between;margin-bottom:2px">
         <h3 style="font-size:17px">${esc(f.name)}</h3>
-        <span class="mono" style="font-size:11.5px;color:var(--stale)">
+        <span class="mono" style="font-size:12px;color:var(--stale)">
           snapshot is ${f.stale_days} days old (${months} months)</span></div>
       <p class="hint">
         <span class="when"><span class="k">POSITIONS AS OF</span>
@@ -1111,7 +1143,12 @@ function renderInstitutions(){
     positions: f.positions, top10_pct: f.top10_pct, total: f.total,
     period: f.period, kind: "manager"
   }));
-  const pts = inst.concat(managers);
+  const extra = (DATA.managers || []).map(m => ({
+    label: (m.label || m.name).split(" (")[0],
+    positions: m.positions, top10_pct: m.top10_pct, total: m.total,
+    period: m.period, kind: "manager"
+  }));
+  const pts = inst.concat(managers).concat(extra);
   if (pts.length) scatter(document.getElementById("conc"), pts);
 
   const rows = pts.slice().sort((a,b) => b.total - a.total);
@@ -1127,6 +1164,40 @@ function renderInstitutions(){
       <td class="r num">${fmtMoney(r.total)}</td>
       <td class="r num">${r.top10_pct.toFixed(0)}%</td>
     </tr>`).join("") + `</tbody>`;
+}
+
+/* ---------- more managers ---------- */
+function renderManagers(){
+  const M = DATA.managers || [];
+  const el2 = document.getElementById("managers");
+  if (!el2) return;
+  const look = document.getElementById("look-managers");
+  if (look) {
+    const n = M.length + (DATA.funds||[]).length + (DATA.institutions||[]).length;
+    look.innerHTML = `<b>What you're looking at:</b> ${M.length} additional managers, each shown as
+      of their most recent 13F filing. Together with the funds and banks above, this page tracks
+      <span class="range">${n} filers</span>. Every CIK was resolved from EDGAR and checked for a
+      recent filing — managers who stopped filing are left out rather than shown as stale.`;
+  }
+  if (!M.length){
+    el2.innerHTML = `<tbody><tr><td style="color:var(--muted)">No manager summaries in this build.</td></tr></tbody>`;
+    return;
+  }
+  el2.innerHTML = `<thead><tr><th>Manager</th><th>Snapshot</th><th class="r">Portfolio</th>
+    <th class="r">Positions</th><th class="r">Top 10</th><th>Biggest position</th></tr></thead><tbody>` +
+    M.map(m => {
+      const top = (m.top || [])[0];
+      const conc = m.top10_pct >= 60 ? "var(--cat-1)" : m.top10_pct >= 30 ? "var(--ink-2)" : "var(--muted)";
+      return `<tr>
+        <td><b>${esc(m.label || m.name)}</b></td>
+        <td><span class="when"><span class="traded">${pretty(m.period)}</span>
+          <span class="k">(${m.stale_days}d old)</span></span></td>
+        <td class="r num">${fmtMoney(m.total)}</td>
+        <td class="r num">${m.positions.toLocaleString()}</td>
+        <td class="r num" style="color:${conc}">${m.top10_pct.toFixed(0)}%</td>
+        <td>${top ? esc(top.issuer.slice(0,26)) + ` <span style="color:var(--muted)">${top.pct.toFixed(0)}%</span>` : "—"}</td>
+      </tr>`;
+    }).join("") + `</tbody>`;
 }
 
 /* ---------- people ---------- */
@@ -1154,8 +1225,9 @@ function renderPeople(){
       <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:baseline;
         justify-content:space-between">
         <h3 style="font-size:17px">${esc(p.name)}</h3>
-        <span class="mono" style="font-size:11.5px;color:var(--muted)">CIK ${p.cik} ·
-          ${p.n_filings} filings on record</span></div>
+        <span class="mono" style="font-size:12px;color:var(--muted)">
+          <a class="src" href="${esc(p.profile_url)}" target="_blank" rel="noopener">CIK ${p.cik}</a>
+          · ${p.n_filings} filings on record</span></div>
       <p class="hint">${esc(p.note || "")}</p>
       <div style="display:flex;flex-wrap:wrap;gap:22px;margin-bottom:14px">
         <div><div class="mono" style="font-size:10.5px;color:var(--muted);
@@ -1194,7 +1266,9 @@ function renderNews(){
     ? `<thead><tr><th>Filed on</th><th>Company</th><th>What was filed</th></tr></thead><tbody>` +
       N.serious.slice(0, 10).map(e => `<tr>
         <td class="num" style="white-space:nowrap">${pretty(e.filed)}</td>
-        <td><span class="tick">${esc(e.ticker || "")}</span> ${esc(e.company.slice(0,30))}</td>
+        <td><span class="tick">${esc(e.ticker || "")}</span> ${e.url
+          ? `<a class="src" href="${esc(e.url)}" target="_blank" rel="noopener">${esc(e.company.slice(0,30))}</a>`
+          : esc(e.company.slice(0,30))}</td>
         <td style="color:var(--sell)">${esc(e.headline)}</td>
       </tr>`).join("") + `</tbody>`
     : `<tbody><tr><td style="color:var(--muted)">No serious red flags filed in this window.</td></tr></tbody>`;
@@ -1211,7 +1285,9 @@ function renderNews(){
     ? `<thead><tr><th>Filed on</th><th>Company</th><th>What was filed</th></tr></thead><tbody>` +
       N.linked.slice(0, 8).map(e => `<tr>
         <td class="num" style="white-space:nowrap">${pretty(e.filed)}</td>
-        <td><span class="tick">${esc(e.ticker || "")}</span> ${esc(e.company.slice(0,30))}</td>
+        <td><span class="tick">${esc(e.ticker || "")}</span> ${e.url
+          ? `<a class="src" href="${esc(e.url)}" target="_blank" rel="noopener">${esc(e.company.slice(0,30))}</a>`
+          : esc(e.company.slice(0,30))}</td>
         <td>${esc(e.headline)}</td>
       </tr>`).join("") + `</tbody>`
     : `<tbody><tr><td style="color:var(--muted)">No overlap this window — none of the companies
@@ -1219,6 +1295,7 @@ function renderNews(){
 }
 
 render();
+renderManagers();
 renderInstitutions();
 renderPeople();
 renderNews();
@@ -1229,7 +1306,7 @@ addEventListener("resize", () => {
     ["delay","flow","buyers","plan","ctickers","late","assets","funds",
      "clusters","conc","people","newsmix"]
       .forEach(id => { const n = document.getElementById(id); if (n) n.innerHTML = ""; });
-    render(); renderInstitutions(); renderPeople(); renderNews();
+    render(); renderManagers(); renderInstitutions(); renderPeople(); renderNews();
   }, 180);
 });
 </script>

@@ -13,6 +13,44 @@ def _sector_bucket(title):
     return title
 
 
+# Concentrated managers whose 13F actually expresses an opinion. Every CIK here
+# was resolved from EDGAR and checked for a filing in the last ~200 days, because
+# curated "superinvestor" lists rot: Burry's Scion deregistered, Einhorn stopped
+# filing under his old CIK, and ValueAct's obvious CIK last filed in 2007.
+#
+# FUNDS get the full quarter-over-quarter diff (two filings each, so they cost
+# the most to fetch). MORE_MANAGERS get a one-filing summary only.
+FUNDS = [
+    ("Berkshire Hathaway", 1067983),
+    ("Pershing Square", 1336528),
+    ("Baupost (Klarman)", 1061768),
+    ("Appaloosa (Tepper)", 1656456),
+    ("Duquesne (Druckenmiller)", 1536411),
+    ("Himalaya (Li Lu)", 1709323),
+    ("Abrams Capital", 1358706),
+    ("Third Point (Loeb)", 1040273),
+    ("Icahn Carl", 921669),
+    ("Akre Capital", 1112520),
+]
+
+MORE_MANAGERS = [
+    ("Tiger Global", 1167483),
+    ("Lone Pine", 1061165),
+    ("Viking Global", 1103804),
+    ("Ruane Cunniff (Sequoia)", 1720792),
+    ("Fairholme (Berkowitz)", 1056831),
+    ("Harris Associates (Oakmark)", 813917),
+    ("First Eagle", 1325447),
+    ("Tweedy Browne", 732905),
+    ("Trian (Peltz)", 1345471),
+    ("Starboard Value", 1517137),
+    ("Markel", 1096343),
+    ("Bridgewater (Dalio)", 1350694),
+    ("Renaissance Technologies", 1037389),
+    ("Elliott (Singer)", 1791786),
+]
+
+
 # Big banks and asset managers. Their 13Fs are enormous and mostly client money,
 # which is exactly the point the dashboard makes with them.
 INSTITUTIONS = [
@@ -27,7 +65,7 @@ INSTITUTIONS = [
 
 
 def collect(days=14, max_filings=600, congress_days=60, max_ptrs=60,
-            funds=("1067983", "1336528", "1649339"), institutions=None,
+            funds=None, institutions=None, more_managers=None,
             news_days=5, watchlist=None, log=print):
     today = dt.date.today()
     start = (today - dt.timedelta(days=days)).isoformat()
@@ -147,7 +185,7 @@ def collect(days=14, max_filings=600, congress_days=60, max_ptrs=60,
     # ---------------------------------------------------------- 13F
     log("[3/6] fund quarterly moves ...")
     fund_blocks = []
-    for cik in funds:
+    for label, cik in (funds or FUNDS):
         try:
             d = thirteenf.delta(cik)
         except Exception as e:
@@ -161,6 +199,7 @@ def collect(days=14, max_filings=600, congress_days=60, max_ptrs=60,
         acted.sort(key=lambda m: -(m["value"] or m["prev_shares"] * 0 or 0))
         fund_blocks.append({
             "name": d["cur"]["entity"],
+            "label": label,
             "cik": cik,
             "period": d["cur"]["period"],
             "prev_period": d["prev"]["period"],
@@ -195,6 +234,23 @@ def collect(days=14, max_filings=600, congress_days=60, max_ptrs=60,
         inst.append(summ)
         log(f"      {label}: {summ['positions']:,} positions, "
             f"${summ['total']/1e12:.2f}T, top10 {summ['top10_pct']:.0f}%")
+
+    # ---------------------------------------------------------- more managers
+    log("[4b/6] additional managers (summary only) ...")
+    managers = []
+    for label, cik in (more_managers if more_managers is not None else MORE_MANAGERS):
+        try:
+            summ = thirteenf.summary(cik)
+        except Exception as e:
+            log(f"      ! {label}: {e}")
+            continue
+        if not summ:
+            continue
+        summ["label"] = label
+        summ["stale_days"] = (today - dt.date.fromisoformat(summ["period"])).days
+        managers.append(summ)
+    managers.sort(key=lambda m: -m["total"])
+    log(f"      {len(managers)} managers")
 
     # ---------------------------------------------------------- people
     log("[5/6] individual SEC records ...")
@@ -242,6 +298,7 @@ def collect(days=14, max_filings=600, congress_days=60, max_ptrs=60,
         },
         "funds": fund_blocks,
         "institutions": inst,
+        "managers": managers,
         "people": profiles,
         "news": {
             "window_days": news_days,
